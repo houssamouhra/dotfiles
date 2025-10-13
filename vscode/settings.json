@@ -1,0 +1,131 @@
+{
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03','ss05', 'ss19', 'ss20', 'calt', 'cv01', 'cv06', 'cv14', 'zero'",
+  "window.zoomLevel": 1.7,
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.wordWrap": "on",
+  "prettier.jsxSingleQuote": true,
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "git.openRepositoryInParentFolders": "never",
+  "chat.commandCenter.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, 'ss03', 'ss01', 'ss02', 'ss19'",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.env.windows": {
+    "TERM": "xterm-256color",
+    "STARSHIP_LOG": "error"
+  },
+
+  // Code Navigation & IntelliSense Boost
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggest.preview": true,
+  "editor.inlineSuggest.enabled": true, // Ghost text like GitHub Copilot
+  "typescript.suggest.autoImports": true,
+
+  // Smooth Navigation Enhancements
+  "breadcrumbs.enabled": true,
+  "explorer.compactFolders": false,
+  "workbench.editor.enablePreview": false, // Keep tabs open
+
+  // Visual Tweaks for Focus & Flow
+  "editor.renderLineHighlight": "all",
+  "editor.lineHeight": 1.5,
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairs": true,
+  "editor.renderWhitespace": "selection",
+  "editor.smoothScrolling": true,
+
+  // Git & Commit UX Boost
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "gitlens.statusBar.enabled": true,
+  "gitlens.currentLine.enabled": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.changes.locations": ["line", "overview", "gutter"],
+  "gitlens.blame.highlight.locations": ["line", "overview", "gutter"],
+  "gitlens.hovers.enabled": true,
+
+  "workbench.colorCustomizations": {
+    "editorGutter.addedBackground": "#00FF00",
+    "editorGutter.modifiedBackground": "#FFFF00",
+    "editorGutter.deletedBackground": "#FF3B3B",
+
+    "[PinkCodes Pink]": {
+      "editor.selectionBackground": "#3399ff66",
+      "editor.selectionHighlightBackground": "#ff8dc655",
+      "editor.wordHighlightBackground": "#ff69b422",
+      "editor.wordHighlightStrongBackground": "#ff69b433",
+
+      // === Dracula Red Reforged Terminal Palette ===
+      "terminal.background": "#1b0f12e6", // dark warm red base
+      "terminal.foreground": "#f2f2f2", // soft silver text
+      "terminalCursor.foreground": "#f28b82", // coral-red cursor
+      "terminal.selectionBackground": "#3c1f25", // burgundy highlight
+      "terminal.ansiBlack": "#1a1518",
+      "terminal.ansiRed": "#e06c75",
+      "terminal.ansiGreen": "#d18675",
+      "terminal.ansiYellow": "#f0a77d",
+      "terminal.ansiBlue": "#f28b82",
+      "terminal.ansiMagenta": "#e06c75",
+      "terminal.tab.activeBorder": "#F28B82",
+      "terminal.ansiCyan": "#ff9ca3",
+      "terminal.ansiWhite": "#f2f2f2",
+      "terminal.ansiBrightBlack": "#3c1f25",
+      "terminal.ansiBrightRed": "#ff5c5c",
+      "terminal.ansiBrightGreen": "#e48c7a",
+      "terminal.ansiBrightYellow": "#ffc4a3",
+      "terminal.ansiBrightBlue": "#ff7b8a",
+      "terminal.ansiBrightMagenta": "#ff99aa",
+      "terminal.ansiBrightCyan": "#f28b82",
+      "terminal.ansiBrightWhite": "#ffffff"
+    }
+  },
+
+  "terminal.integrated.inheritEnv": false,
+  "telemetry.editStats.enabled": false,
+  "json.schemas": [],
+  "editor.allowVariableFontsInAccessibilityMode": true,
+  "leetcode.workspaceFolder": "",
+  "leetcode.defaultLanguage": "javascript",
+  "hediet.vscode-drawio.resizeImages": null,
+  "hediet.vscode-drawio.theme": "kennedy",
+  "hediet.vscode-drawio.appearance": "automatic",
+  "eslint.workingDirectories": [],
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "feather-vscode",
+  "workbench.colorTheme": "PinkCodes Pink",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Windows PowerShell": {
+      "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+  },
+  "workbench.editor.empty.hint": "hidden"
+}

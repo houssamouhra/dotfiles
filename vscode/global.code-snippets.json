@@ -1,0 +1,21 @@
+{
+  "Print to console": {
+    "prefix": "clg",
+    "body": ["console.log('$1');"],
+    "description": "Log output to console"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "",
+      "const ${1:ComponentName} = () => {",
+      "  return (",
+      "    <div>$2</div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "Create a React functional component"
+  }
+}
