@@ -42,5 +42,3 @@ wayou.vscode-todo-highlight
 wix.vscode-import-cost
 xabikos.javascriptsnippets
 zhuangtongfa.material-theme
-
-cat vscode-extensions.txt | % { code --install-extension $_ }
