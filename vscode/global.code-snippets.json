@@ -1,4 +1,9 @@
 {
+  "Const Shortcut": {
+    "prefix": "co",
+    "body": ["const "],
+    "description": "Shortcut for 'const'"
+  },
   "Print to console": {
     "prefix": "clg",
     "body": ["console.log('$1');"],
