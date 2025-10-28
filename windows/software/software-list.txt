@@ -1,0 +1,27 @@
+7-Zip
+Everything
+FxSound
+Flow Launcher
+Git
+Lazygit
+MarkText
+AB Download Manager
+Brave
+Discord
+Telegram
+Spotify (SpotX)
+Spicetify
+FFmpeg
+yt-dlp
+SumatraPDF
+JPEGView
+Neovim
+VSCode
+Node.js
+pnpm
+Postman
+PowerShell 7
+qBittorrent
+VLC media player
+PotPlayer
+Windows Subsystem for Linux
