@@ -1,0 +1,21 @@
+# Enforce LF endings for all text files
+* text=auto eol=lf
+
+# Explicitly enforce LF for configs and docs
+*.sh text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+
+# Prevent corruption for binary assets
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary

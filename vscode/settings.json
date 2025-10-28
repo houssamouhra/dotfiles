@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": "'ss01', 'ss02', 'ss03','ss05', 'ss19', 'ss20', 'calt', 'cv01', 'cv06', 'cv14', 'zero'",
-  "window.zoomLevel": 1.7,
+  "window.zoomLevel": 1,
   "editor.minimap.enabled": false,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -37,7 +37,7 @@
   // Smooth Navigation Enhancements
   "breadcrumbs.enabled": true,
   "explorer.compactFolders": false,
-  "workbench.editor.enablePreview": false, // Keep tabs open
+  "workbench.editor.enablePreview": true, // Keep tabs open
 
   // Visual Tweaks for Focus & Flow
   "editor.renderLineHighlight": "all",
@@ -66,30 +66,7 @@
       "editor.selectionBackground": "#3399ff66",
       "editor.selectionHighlightBackground": "#ff8dc655",
       "editor.wordHighlightBackground": "#ff69b422",
-      "editor.wordHighlightStrongBackground": "#ff69b433",
-
-      // === Dracula Red Reforged Terminal Palette ===
-      "terminal.background": "#1b0f12e6", // dark warm red base
-      "terminal.foreground": "#f2f2f2", // soft silver text
-      "terminalCursor.foreground": "#f28b82", // coral-red cursor
-      "terminal.selectionBackground": "#3c1f25", // burgundy highlight
-      "terminal.ansiBlack": "#1a1518",
-      "terminal.ansiRed": "#e06c75",
-      "terminal.ansiGreen": "#d18675",
-      "terminal.ansiYellow": "#f0a77d",
-      "terminal.ansiBlue": "#f28b82",
-      "terminal.ansiMagenta": "#e06c75",
-      "terminal.tab.activeBorder": "#F28B82",
-      "terminal.ansiCyan": "#ff9ca3",
-      "terminal.ansiWhite": "#f2f2f2",
-      "terminal.ansiBrightBlack": "#3c1f25",
-      "terminal.ansiBrightRed": "#ff5c5c",
-      "terminal.ansiBrightGreen": "#e48c7a",
-      "terminal.ansiBrightYellow": "#ffc4a3",
-      "terminal.ansiBrightBlue": "#ff7b8a",
-      "terminal.ansiBrightMagenta": "#ff99aa",
-      "terminal.ansiBrightCyan": "#f28b82",
-      "terminal.ansiBrightWhite": "#ffffff"
+      "editor.wordHighlightStrongBackground": "#ff69b433"
     }
   },
 
@@ -127,5 +104,7 @@
       "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
     }
   },
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "security.allowedUNCHosts": ["wsl.localhost"]
 }

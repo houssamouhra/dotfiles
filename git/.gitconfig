@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+  email = houssamblur04@gmail.com
+  name = Houssam Ouhra
+
+[core]
+  editor = code --wait
+	autocrlf = input
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = "code --wait --diff $LOCAL $REMOTE"
+[alias]
+	lg = log --pretty=format:'%an committed %h'
+	unstage = restore --staged .
+	pr = pull --rebase
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[safe]
+	directory = *
+	directory = *
+
