@@ -1,5 +1,6 @@
 7-Zip
 Everything
+EverythingToolbar
 FxSound
 Flow Launcher
 Git
@@ -9,7 +10,7 @@ AB Download Manager
 Brave
 Discord
 Telegram
-Spotify (SpotX)
+Spotify (Soggfy)
 Spicetify
 FFmpeg
 yt-dlp
