@@ -23,3 +23,5 @@
 	directory = *
 	directory = *
 
+[init]
+	defaultBranch = main
