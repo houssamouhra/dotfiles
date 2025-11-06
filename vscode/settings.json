@@ -12,13 +12,15 @@
   "chat.commandCenter.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
   "terminal.integrated.fontLigatures.enabled": true,
   "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, 'ss03', 'ss01', 'ss02', 'ss19'",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.windows": {
     "TERM": "xterm-256color",
-    "STARSHIP_LOG": "error"
+    "STARSHIP_LOG": "error",
+    "PATH": "C:\\Program Files\\starship\\bin;${env:PATH}"
   },
 
   // Code Navigation & IntelliSense Boost
@@ -81,7 +83,6 @@
   "hediet.vscode-drawio.appearance": "automatic",
   "eslint.workingDirectories": [],
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.productIconTheme": "feather-vscode",
   "workbench.colorTheme": "PinkCodes Pink",
   "diffEditor.ignoreTrimWhitespace": true,
   "terminal.integrated.profiles.windows": {
@@ -106,5 +107,7 @@
   },
   "workbench.editor.empty.hint": "hidden",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "security.allowedUNCHosts": ["wsl.localhost"]
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "workbench.productIconTheme": "feather-vscode",
+  "playwright.runGlobalSetupOnEachRun": false
 }

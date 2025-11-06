@@ -22,6 +22,5 @@
 [safe]
 	directory = *
 	directory = *
-
 [init]
 	defaultBranch = main
