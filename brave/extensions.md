@@ -8,3 +8,4 @@
 - **Save Image As PNG** — ID: `nkokmeaibnajheohncaamjggkanfbphi`
 - **Shazam** — ID: `mmioliijnhnoblpgimnlajmefafdfilb`
 - **Unhook** — ID: `khncfooichmfjbepaaaebmommgaepoid`
+- **Dark Reader** — ID: `eimadpbcbfnmbkopoojfekhnkhdbieeh`
