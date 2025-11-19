@@ -30,9 +30,9 @@
   ],
   "profiles": {
     "defaults": {
-      "colorScheme": "Material Palenight",
+      "colorScheme": "PinkCodes",
       "font": {
-        "face": "JetBrains Mono NL",
+        "face": "JetBrainsMonoNL Nerd Font",
         "features": {
           "calt": 1,
           "cv01": 1,
@@ -46,17 +46,18 @@
           "ss20": 1,
           "zero": 1
         },
-        "size": 12,
-        "weight": "medium"
+        "size": 14,
+        "weight": "semi-light"
       },
       "icon": "C:\\Users\\Houssam\\Downloads\\simple-icons--zsh.png",
-      "opacity": 85,
+      "opacity": 100,
       "padding": "14",
       "tabColor": "#000000",
       "useAcrylic": true
     },
     "list": [
       {
+        "colorScheme": "Dracula Red Noir",
         "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
@@ -75,6 +76,11 @@
         "source": "Windows.Terminal.Azure"
       },
       {
+        "colorScheme": "PinkCodes",
+        "cursorShape": "filledBox",
+        "font": {
+          "face": "JetBrains Mono NL"
+        },
         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
         "hidden": false,
         "name": "PowerShell",
@@ -82,19 +88,22 @@
         "startingDirectory": "%USERPROFILE%"
       },
       {
-        "colorScheme": "Dracula",
+        "antialiasingMode": "grayscale",
+        "bellStyle": "none",
+        "colorScheme": "PinkCodes",
+        "commandline": "C:\\WINDOWS\\system32\\wsl.exe -d Ubuntu zsh",
         "experimental.retroTerminalEffect": false,
         "font": {
-          "face": "JetBrainsMonoNL Nerd Font Mono",
+          "face": "JetBrainsMonoNL Nerd Font",
           "size": 14,
-          "weight": "medium"
+          "weight": "semi-light"
         },
         "guid": "{20b246b5-cb76-5b77-a9b7-2ab73394533a}",
         "hidden": false,
         "intenseTextStyle": "bright",
         "name": "~/zsh",
         "source": "Microsoft.WSL",
-        "startingDirectory": "C:\\Users\\Houssam",
+        "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\houssam",
         "useAcrylic": false
       }
     ]
@@ -283,6 +292,29 @@
       "selectionBackground": "#FFFFFF",
       "white": "#FFFFFF",
       "yellow": "#FFCB6B"
+    },
+    {
+      "background": "#1C1520",
+      "black": "#0B010B",
+      "blue": "#78D1E1",
+      "brightBlack": "#624051",
+      "brightBlue": "#A1ECF5",
+      "brightCyan": "#A1ECF5",
+      "brightGreen": "#7FF889",
+      "brightPurple": "#C7B5FF",
+      "brightRed": "#FF8FA1",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#FFB97C",
+      "cursorColor": "#624051",
+      "cyan": "#78D1E1",
+      "foreground": "#E1E1E6",
+      "green": "#5DD465",
+      "name": "PinkCodes",
+      "purple": "#988BC7",
+      "red": "#E96379",
+      "selectionBackground": "#4D4146",
+      "white": "#E1E1E6",
+      "yellow": "#E89E64"
     }
   ],
   "themes": []
