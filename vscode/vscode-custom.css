@@ -1,0 +1,262 @@
+/************************************************************
+ * PINKCODES VSCODE CUSTOME CONFIG
+ ************************************************************/
+
+/* Base font (explorer only) */
+.explorer-viewlet .monaco-list-row .label-name {
+  font-family: "JetBrains Mono Light", "FiraCode Nerd Font", monospace !important;
+  color: #e1e1e6;
+}
+
+/* Folder names */
+.explorer-viewlet .monaco-list-row .label-name.folder-name {
+  color: #f03880 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.25px !important;
+}
+
+/* Icons */
+.explorer-viewlet .monaco-list-row .codicon {
+  color: #ff9ace !important;
+  opacity: 0.95;
+}
+
+/* Metadata text */
+.explorer-viewlet .monaco-list-row .label-description {
+  color: #624051 !important;
+  opacity: 0.85;
+}
+
+/* Row spacing */
+.explorer-viewlet .monaco-list-row {
+  height: 22px !important;
+  line-height: 22px !important;
+}
+
+/* Pane header divider */
+.explorer-viewlet .pane-header {
+  border-bottom: 1px solid #62405154 !important;
+}
+
+/* Hover row background */
+.explorer-viewlet .monaco-list-row:hover {
+  background-color: #4d414641 !important;
+}
+
+/* Selected / focused row background ONLY */
+.explorer-viewlet .monaco-list-row.selected,
+.explorer-viewlet .monaco-list-row.focused {
+  background-color: #4a353c75 !important;
+}
+
+/************************************************************
+ *  TERMINAL
+ ************************************************************/
+
+.terminal-container {
+  border: 1px solid #4a353c !important;
+  box-shadow: 0 0 12px #f0388022 !important;
+}
+
+.terminal-container .scrollbar > .slider {
+  background: #f0388044 !important;
+  border-radius: 8px !important;
+}
+
+.monaco-editor .find-widget {
+  background-color: #281c2f !important;
+  border: 1px solid #f0388066 !important;
+}
+
+/************************************************************ 
+ * STATUS BAR 
+************************************************************/
+
+/* Full bar container */
+#workbench\\.parts\\.statusbar {
+  background-color: #0b010b !important;
+  border-top: 1px solid #62405154 !important;
+  box-shadow: 0 -2px 12px rgba(240, 56, 128, 0.12) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* Items (left + right) */
+#workbench\.parts\.statusbar .statusbar-item .statusbar-item-label,
+#workbench\.parts\.statusbar .statusbar-item {
+  color: #d4d4d4 !important;
+  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.2px !important;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Item hover */
+#workbench\\.parts\\.statusbar .statusbar-item:hover {
+  background-color: #f0388026 !important;
+  color: #ff4c98 !important; /* brighter neon text */
+  border-radius: 4px !important;
+  cursor: pointer;
+}
+
+/* GIT: branch icon */
+#workbench\\.parts\\.statusbar .codicon-git-branch {
+  color: #f03880 !important;
+  text-shadow: 0 0 6px rgba(240, 56, 128, 0.6) !important;
+}
+
+/* GIT: sync, compare, etc. */
+#workbench\\.parts\\.statusbar [class*="git"] {
+  color: #f03880 !important;
+}
+
+/* Error & warning counters */
+#workbench\.parts\.statusbar .codicon-error {
+  color: #e96379 !important; /* Error red from theme */
+}
+
+#workbench\.parts\.statusbar .codicon-warning {
+  color: #e89e64 !important; /* Warning orange */
+}
+
+/************************************************************
+ *  COMMAND PALETTE
+ ************************************************************/
+
+/* BACKGROUND of palette container */
+.quick-input-widget {
+  background-color: rgba(11, 1, 11, 0.72) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid #62405154 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(240, 56, 128, 0.22) !important;
+}
+
+/* INPUT BOX (top search bar) */
+.quick-input-widget .quick-input-header {
+  background-color: rgba(11, 1, 11, 0.65) !important;
+  border-bottom: 1px solid #62405140 !important;
+}
+
+.quick-input-widget .quick-input-input {
+  background-color: transparent !important;
+  color: #ffd1e4 !important;
+  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-size: 14px !important;
+  caret-color: #f03880 !important;
+}
+
+.quick-input-widget .quick-input-input::placeholder {
+  color: #624051 !important;
+}
+
+/* LIST OF COMMANDS */
+.quick-input-list {
+  background-color: transparent !important;
+}
+
+/* NORMAL ITEMS */
+.quick-input-list .monaco-list-row .label-name {
+  color: #d4d4d4 !important;
+  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-size: 13px !important;
+}
+
+/* HOVER ITEM */
+.quick-input-list .monaco-list-row:hover {
+  background-color: rgba(240, 56, 128, 0.15) !important;
+}
+
+/* SELECTED ITEM (arrow keys) */
+.quick-input-list .monaco-list-row.focused,
+.quick-input-list .monaco-list-row.selected {
+  background-color: rgba(240, 56, 128, 0.28) !important;
+}
+
+.quick-input-list .monaco-list-row.selected .label-name,
+.quick-input-list .monaco-list-row.focused .label-name {
+  color: #ffd1e4 !important;
+  font-weight: 600 !important;
+}
+
+/************************************************************
+ *  SIDEBAR TREE
+ ************************************************************/
+
+#workbench\\.parts\\.sidebar {
+  background-color: #0b010b !important;
+}
+
+#workbench\\.parts\\.sidebar .pane-header h3 {
+  color: #ff9ace !important;
+}
+
+.monaco-tl-twistie {
+  color: #f03880 !important;
+  opacity: 0.75 !important;
+}
+
+.monaco-tl-twistie:hover {
+  opacity: 1 !important;
+}
+
+#workbench\\.parts\\.sidebar .monaco-list-row:hover {
+  background-color: #4d414641 !important;
+}
+
+#workbench\\.parts\\.sidebar .monaco-list-row.selected,
+#workbench\\.parts\\.sidebar .monaco-list-row.focused {
+  background-color: #4a353c75 !important;
+}
+
+#workbench\\.parts\\.sidebar .monaco-list-row.selected .label-name,
+#workbench\\.parts\\.sidebar .monaco-list-row.focused .label-name {
+  color: inherit !important;
+}
+
+/************************************************************
+ * GIT: stable colors using aria-label
+ ************************************************************/
+
+/* Override white text */
+.explorer-viewlet
+  .monaco-list-row.selected
+  .monaco-icon-label
+  .monaco-icon-label-container
+  .label-name,
+.explorer-viewlet
+  .monaco-list-row.focused
+  .monaco-icon-label
+  .monaco-icon-label-container
+  .label-name {
+  color: inherit !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Untracked"] {
+  color: var(--vscode-gitDecoration-untrackedResourceForeground) !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Modified"] {
+  color: var(--vscode-gitDecoration-modifiedResourceForeground) !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Added"] {
+  color: var(--vscode-gitDecoration-addedResourceForeground) !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Deleted"] {
+  color: var(--vscode-gitDecoration-deletedResourceForeground) !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Conflict"] {
+  color: var(--vscode-gitDecoration-conflictingResourceForeground) !important;
+}
+
+.explorer-viewlet
+  .monaco-icon-label[class*="monaco-decoration-itemColor"][aria-label*="Ignored"] {
+  color: var(--vscode-gitDecoration-ignoredResourceForeground) !important;
+}
