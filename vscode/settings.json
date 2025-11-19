@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": "'ss01', 'ss02', 'ss03','ss05', 'ss19', 'ss20', 'calt', 'cv01', 'cv06', 'cv14', 'zero'",
   "window.zoomLevel": 1,
   "editor.minimap.enabled": false,
@@ -14,7 +14,7 @@
   "editor.formatOnSave": true,
   "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
   "terminal.integrated.fontLigatures.enabled": true,
-  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, 'ss03', 'ss01', 'ss02', 'ss19'",
+  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on,` 'ss03', 'ss01', 'ss02', 'ss19'",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.windows": {
@@ -22,6 +22,8 @@
     "STARSHIP_LOG": "error",
     "PATH": "C:\\Program Files\\starship\\bin;${env:PATH}"
   },
+  "vscode_custom_css.imports": ["file:///C:/Users/{USERNAME}/vscode-custom.css"],
+  "security.workspace.trust.enabled": false,
 
   // Code Navigation & IntelliSense Boost
   "javascript.suggest.autoImports": true,
@@ -58,18 +60,71 @@
   "gitlens.changes.locations": ["line", "overview", "gutter"],
   "gitlens.blame.highlight.locations": ["line", "overview", "gutter"],
   "gitlens.hovers.enabled": true,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorBlinking": true,
 
   "workbench.colorCustomizations": {
-    "editorGutter.addedBackground": "#00FF00",
-    "editorGutter.modifiedBackground": "#FFFF00",
-    "editorGutter.deletedBackground": "#FF3B3B",
-
     "[PinkCodes Pink]": {
       "editor.selectionBackground": "#3399ff66",
       "editor.selectionHighlightBackground": "#ff8dc655",
       "editor.wordHighlightBackground": "#ff69b422",
       "editor.wordHighlightStrongBackground": "#ff69b433"
-    }
+    },
+
+    "editorGutter.addedBackground": "#00FF00",
+    "editorGutter.modifiedBackground": "#FFFF00",
+    "editorGutter.deletedBackground": "#FF3B3B",
+
+    "statusBarItem.hoverBackground": "#F0388026",
+    "statusBarItem.prominentHoverBackground": "#F0388026",
+    "statusBarItem.remoteHoverBackground": "#F0388026",
+
+    "statusBarItem.hoverForeground": "#FFD1E4",
+    "statusBarItem.prominentHoverForeground": "#ff9ace",
+    "statusBarItem.remoteHoverForeground": "#ff9ace",
+
+    /* TERMINAL BACKGROUND + FOREGROUND */
+    "terminal.background": "#1c1520",
+    "terminal.foreground": "#f4e9f4",
+
+    /* SELECTION */
+    "terminal.selectionBackground": "#f0388055",
+    "terminal.inactiveSelectionBackground": "#f0388022",
+
+    /* CURSOR */
+    "terminalCursor.background": "#f0388055",
+    "terminalCursor.foreground": "#f0388055",
+
+    /* BORDER AROUND TERMINAL PANEL */
+    "terminal.border": "#4a353c",
+
+    /* ACTIVE TERMINAL TAB */
+    "terminal.tab.activeBorder": "#f03880",
+    "terminal.tab.activeBorderTop": "#f03880",
+    "terminal.tab.activeModifiedBorder": "#ff9ace",
+
+    // PinkCodes ANSI Colors
+    "terminal.ansiBlack": "#1b1520",
+    "terminal.ansiBlue": "#8fb3ff",
+    "terminal.ansiBrightBlue": "#a8c8ff",
+
+    "terminal.ansiGreen": "#8af38a",
+    "terminal.ansiBrightGreen": "#a7ffb0",
+
+    "terminal.ansiRed": "#ff6d8a",
+    "terminal.ansiBrightRed": "#ff8ca4",
+
+    "terminal.ansiMagenta": "#ff9ace",
+    "terminal.ansiBrightMagenta": "#ffb3de",
+
+    "terminal.ansiCyan": "#66e6d6",
+    "terminal.ansiBrightCyan": "#8ff7eb",
+
+    "terminal.ansiPink": "#ffa7a2",
+    "terminal.ansiBrightPink": "#ffd2be",
+
+    "terminal.ansiWhite": "#f0e9f2",
+    "terminal.ansiBrightWhite": "#ffffff"
   },
 
   "terminal.integrated.inheritEnv": false,
@@ -82,7 +137,6 @@
   "hediet.vscode-drawio.theme": "kennedy",
   "hediet.vscode-drawio.appearance": "automatic",
   "eslint.workingDirectories": [],
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "PinkCodes Pink",
   "diffEditor.ignoreTrimWhitespace": true,
   "terminal.integrated.profiles.windows": {
@@ -109,5 +163,6 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "security.allowedUNCHosts": ["wsl.localhost"],
   "workbench.productIconTheme": "feather-vscode",
-  "playwright.runGlobalSetupOnEachRun": false
+  "playwright.runGlobalSetupOnEachRun": false,
+  "workbench.iconTheme": "icons"
 }
