@@ -5,7 +5,7 @@
 
 [core]
   editor = code --wait
-	autocrlf = input
+  autocrlf = input
 
 [diff]
   tool = vscode
