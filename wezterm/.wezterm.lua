@@ -84,6 +84,12 @@ config.keys = {
   -- Close pane
   { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 
+  -- Navigate splits
+  { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
+  { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
+  { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+  { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
+
   -- Increase / decrease font size
   { key = "+", mods = "CTRL", action = "IncreaseFontSize" },
   { key = "-", mods = "CTRL", action = "DecreaseFontSize" },
