@@ -1,7 +1,8 @@
 {
-  "editor.fontFamily": "FiraCode Nerd Font Mono",
-  "editor.fontLigatures": "'ss01', 'ss02', 'ss03','ss05', 'ss19', 'ss20', 'calt', 'cv01', 'cv06', 'cv14', 'zero'",
+  "editor.fontFamily": "'MonoLisa', 'MonoLisa Variable'",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss07', 'ss14', 'ss18', 'ss19', 'ss20', 'calt', 'cv01', 'cv06', 'cv14', 'liga', 'calt'",
   "window.zoomLevel": 1,
+  "editor.fontWeight": "normal",
   "editor.minimap.enabled": false,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -12,16 +13,10 @@
   "chat.commandCenter.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "terminal.integrated.fontFamily": "JetBrainsMonoNL Nerd Font Mono",
+  "terminal.integrated.fontFamily": "MonoLisa",
   "terminal.integrated.fontLigatures.enabled": true,
-  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on,` 'ss03', 'ss01', 'ss02', 'ss19'",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.env.windows": {
-    "TERM": "xterm-256color",
-    "STARSHIP_LOG": "error",
-    "PATH": "C:\\Program Files\\starship\\bin;${env:PATH}"
-  },
+
+  // Custom CSS and JS loader
   "vscode_custom_css.imports": ["file:///C:/Users/{USERNAME}/vscode-custom.css"],
   "security.workspace.trust.enabled": false,
 
@@ -81,50 +76,7 @@
 
     "statusBarItem.hoverForeground": "#FFD1E4",
     "statusBarItem.prominentHoverForeground": "#ff9ace",
-    "statusBarItem.remoteHoverForeground": "#ff9ace",
-
-    /* TERMINAL BACKGROUND + FOREGROUND */
-    "terminal.background": "#1c1520",
-    "terminal.foreground": "#f4e9f4",
-
-    /* SELECTION */
-    "terminal.selectionBackground": "#f0388055",
-    "terminal.inactiveSelectionBackground": "#f0388022",
-
-    /* CURSOR */
-    "terminalCursor.background": "#f0388055",
-    "terminalCursor.foreground": "#f0388055",
-
-    /* BORDER AROUND TERMINAL PANEL */
-    "terminal.border": "#4a353c",
-
-    /* ACTIVE TERMINAL TAB */
-    "terminal.tab.activeBorder": "#f03880",
-    "terminal.tab.activeBorderTop": "#f03880",
-    "terminal.tab.activeModifiedBorder": "#ff9ace",
-
-    // PinkCodes ANSI Colors
-    "terminal.ansiBlack": "#1b1520",
-    "terminal.ansiBlue": "#8fb3ff",
-    "terminal.ansiBrightBlue": "#a8c8ff",
-
-    "terminal.ansiGreen": "#8af38a",
-    "terminal.ansiBrightGreen": "#a7ffb0",
-
-    "terminal.ansiRed": "#ff6d8a",
-    "terminal.ansiBrightRed": "#ff8ca4",
-
-    "terminal.ansiMagenta": "#ff9ace",
-    "terminal.ansiBrightMagenta": "#ffb3de",
-
-    "terminal.ansiCyan": "#66e6d6",
-    "terminal.ansiBrightCyan": "#8ff7eb",
-
-    "terminal.ansiPink": "#ffa7a2",
-    "terminal.ansiBrightPink": "#ffd2be",
-
-    "terminal.ansiWhite": "#f0e9f2",
-    "terminal.ansiBrightWhite": "#ffffff"
+    "statusBarItem.remoteHoverForeground": "#ff9ace"
   },
 
   "terminal.integrated.inheritEnv": false,
@@ -164,5 +116,6 @@
   "security.allowedUNCHosts": ["wsl.localhost"],
   "workbench.productIconTheme": "feather-vscode",
   "playwright.runGlobalSetupOnEachRun": false,
-  "workbench.iconTheme": "icons"
+  "workbench.iconTheme": "icons",
+  "window.menuBarVisibility": "compact"
 }
