@@ -4,7 +4,7 @@
 
 /* Base font (explorer only) */
 .explorer-viewlet .monaco-list-row .label-name {
-  font-family: "JetBrains Mono Light", "FiraCode Nerd Font", monospace !important;
+  font-family: "MonoLisa", "MonoLisa Variable", monospace !important;
   color: #e1e1e6;
 }
 
@@ -84,7 +84,7 @@
 #workbench\.parts\.statusbar .statusbar-item .statusbar-item-label,
 #workbench\.parts\.statusbar .statusbar-item {
   color: #d4d4d4 !important;
-  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-family: "MonoLisa", "MonoLisa Variable", monospace !important;
   font-size: 12px !important;
   letter-spacing: 0.2px !important;
   transition: color 0.15s ease, background-color 0.15s ease;
@@ -140,7 +140,7 @@
 .quick-input-widget .quick-input-input {
   background-color: transparent !important;
   color: #ffd1e4 !important;
-  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-family: "MonoLisa", "MonoLisa Variable", monospace !important;
   font-size: 14px !important;
   caret-color: #f03880 !important;
 }
@@ -157,7 +157,7 @@
 /* NORMAL ITEMS */
 .quick-input-list .monaco-list-row .label-name {
   color: #d4d4d4 !important;
-  font-family: "JetBrains Mono", "FiraCode Nerd Font", monospace !important;
+  font-family: "MonoLisa", "MonoLisa Variable", monospace !important;
   font-size: 13px !important;
 }
 
