@@ -39,7 +39,7 @@ config.window_frame = {
 }
 
 -- Window Appearance
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 config.enable_scroll_bar = false
 config.enable_tab_bar = false
