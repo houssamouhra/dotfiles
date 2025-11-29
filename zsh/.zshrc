@@ -42,13 +42,11 @@ if [ -s "$NVM_DIR/bash_completion" ]; then
   source "$NVM_DIR/bash_completion"
 fi
 
-
-# # Use ssh-agent + manual unlock once per session
-# if ! pgrep -u "$USER" ssh-agent >/dev/null 2>&1; then
-#   eval "$(ssh-agent -s)" >/dev/null 2>&1
-# fi
-
-# ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519 >/dev/null 2>&1
+# Start SSH Agent once per boot (silent)
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" >/dev/null 2>&1
+  ssh-add ~/.ssh/id_ed25519 < /dev/tty >/dev/null 2>&1
+fi
 
 # ---- PinkCodes Completion Menu Styling ----
 # Remove Completion Inline Highlighting
