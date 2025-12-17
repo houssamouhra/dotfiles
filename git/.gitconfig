@@ -4,38 +4,36 @@
   name = Houssam Ouhra
 
 [core]
-  editor = code --wait
+  editor = nvim
   autocrlf = input
 
 [diff]
-  tool = vscode
+  tool = nvimdiff
 
-[difftool "vscode"]
-  cmd = "code --wait --diff $LOCAL $REMOTE"
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"" 
 
 [alias]
-    lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
-	unstage = restore --staged .
-	graph = log --oneline --graph --decorate --all
-	pr = pull --rebase
+  lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
+  unstage = restore --staged .
+  graph = log --oneline --graph --decorate --all
+  pr = pull --rebase
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 
 [color]
     ui = auto
 	
 [safe]
-	directory = *
+    directory = *
 
 [credential]
-	helper = store
+    helper = store
 
 [init]
     defaultBranch = main
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
