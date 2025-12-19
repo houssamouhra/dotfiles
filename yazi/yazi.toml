@@ -1,0 +1,15 @@
+[opener]
+edit = [
+  { run = "nvim \"$@\"", desc = "Neovim", block = true }
+]
+
+[open]
+rules = [
+  # Media files → do nothing / default system handler
+  { mime = "audio/*", use = "open" },
+  { mime = "video/*", use = "open" },
+
+  # Everything else → Neovim
+  { name = "*", use = "edit" }
+]
+
