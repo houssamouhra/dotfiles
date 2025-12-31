@@ -121,6 +121,16 @@ return {
       end,
       desc = '[s]earch [/] in open files',
     },
+
+    -- Pomodoro
+    {
+      '<leader>pt',
+      function()
+        require('telescope').load_extension 'pomodori'
+        require('telescope').extensions.pomodori.timers()
+      end,
+      desc = 'Manage Pomodoro Timers',
+    },
   },
 
   -- plugin setup
