@@ -11,7 +11,14 @@ return {
     local formatting = null_ls.builtins.formatting -- to setup formatters
     local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
-    vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, {})
+    vim.keymap.set('n', '<leader>f', function()
+      vim.lsp.buf.format {
+        async = false,
+        filter = function(client)
+          return client.name == 'null-ls'
+        end,
+      }
+    end, { desc = 'Format with Prettier (null-ls)' })
 
     -- Formatters & linters for mason to install
     require('mason-null-ls').setup {
@@ -21,8 +28,16 @@ return {
 
     local sources = {
       formatting.prettier.with {
+        filetypes = { 'javascript', 'typescript', 'json', 'jsonc', 'css', 'scss', 'html', 'markdown' },
         extra_args = function(params)
-          return { '--stdin-filepath', params.bufname }
+          return {
+            '--stdin-filepath',
+            params.bufname,
+            '--config',
+            vim.fn.getcwd() .. '/.prettierrc',
+            '--ignore-path',
+            vim.fn.getcwd() .. '/.prettierignore',
+          }
         end,
       },
       formatting.stylua,
@@ -42,7 +57,12 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format { async = false }
+              vim.lsp.buf.format {
+                async = false,
+                filter = function(client)
+                  return client.name == 'null-ls'
+                end,
+              }
             end,
           })
         end
