@@ -16,15 +16,26 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Set up plugins
 require('lazy').setup {
+  -- Load theme
+  -- require 'themes.catppuccin',
+  -- require 'themes.tokyonight',
+  -- require 'themes.kanagawa',
+  require 'themes.nightfox',
+  -- require 'themes.rosepine',
+  -- require 'themes.eldritch',
+
+  -- Load plugins
   require 'plugins.alpha',
   require 'plugins.autocompletion',
   require 'plugins.autopair',
   require 'plugins.bufferline',
   require 'plugins.cmdline',
-  require 'plugins.color-theme',
   require 'plugins.comment',
   require 'plugins.csscolors',
   require 'plugins.debugging',
+  require 'plugins.obsidian',
+  require 'plugins.pomodoro',
+  require 'plugins.diffview',
   require 'plugins.git',
   require 'plugins.icons',
   require 'plugins.indent-blankline',
