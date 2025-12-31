@@ -14,3 +14,4 @@ if [ -n "$title" ]; then
 else
   echo "$icon"
 fi
+
