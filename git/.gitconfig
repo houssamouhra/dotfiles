@@ -6,9 +6,12 @@
 [core]
   editor = nvim
   autocrlf = input
+  pager = delta
+  safecrlf = true
 
 [diff]
   tool = nvimdiff
+  colorMoved = default
 
 [difftool "nvimdiff"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"" 
@@ -16,8 +19,9 @@
 [alias]
   lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
   unstage = restore --staged .
-  graph = log --oneline --graph --decorate --all
+  graph = log --oneline --graph --decorate --all --date-order
   pr = pull --rebase
+  ci = !git diff --staged && git commit
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -25,15 +29,29 @@
   process = git-lfs filter-process
   required = true
 
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true
+  side-by-side = true
+  syntax-theme = Dracula
+
+[merge]
+  conflictStyle = zdiff3
+
 [color]
-    ui = auto
+  ui = auto
 	
 [safe]
-    directory = *
+  directory = *
 
 [credential]
-    helper = store
+  helper = store
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
 
+[pager]
+  log = delta
