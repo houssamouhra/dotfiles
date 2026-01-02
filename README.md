@@ -86,7 +86,6 @@ source ~/.zshrc
 
 </details>
 
-#### check the [packages you need to install]()
 ---
 ## Packages to Install
 
