@@ -36,7 +36,7 @@ hyprctl reload
 source ~/.zshrc
 ```
 
-> [!INFO]
+> [!NOTE]
 > - Each directory represents a package managed by Stow
 > - Files are symlinked into `$HOME` following the XDG layout (`~/.config/...`)
 > - To remove a package: `stow -D <package-name>`
