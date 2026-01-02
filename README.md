@@ -86,6 +86,7 @@ source ~/.zshrc
 ## Screenshots
 ![workspace](screenshots/workspace1.png)
 ![workspace](screenshots/workspace2.png)
+![workspace](screenshots/workspace3.png)
 ![rmpc](screenshots/rmpc-cava.png)
 ![waybar](screenshots/waybar.png)
 ![wofi](screenshots/wofi.png)
