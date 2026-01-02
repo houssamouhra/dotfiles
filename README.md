@@ -37,13 +37,9 @@ source ~/.zshrc
 ```
 
 > [!INFO]
->
 > - Each directory represents a package managed by Stow
 > - Files are symlinked into `$HOME` following the XDG layout (`~/.config/...`)
-> - To remove a package:
-> ```bash
-> stow -D <package-name>
-> ```
+> - To remove a package: `stow -D <package-name>`
 
 ## Dependencies
 
