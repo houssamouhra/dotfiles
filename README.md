@@ -86,7 +86,6 @@ source ~/.zshrc
 
 </details>
 
----
 ## Packages to Install
 
 ```
