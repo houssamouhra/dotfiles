@@ -99,6 +99,7 @@ kanshi
 swww
 zip unzip
 wofi
+cava
 blueman
 bluez
 networkmanager
