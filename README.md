@@ -84,12 +84,12 @@ source ~/.zshrc
 </details>
 
 ## Screenshots
-[workspace](screenshots/workspace1.png)
-[workspace](screenshots/workspace2.png)
-[rmpc](screenshots/rmpc-cava.png)
-[wofi](screenshots/wofi.png)
-[wallpaper-menu](screenshot/wallpaper-menu.png)
-[waybar](screenshots/waybar.png)
+![workspace](screenshots/workspace1.png)
+![workspace](screenshots/workspace2.png)
+![rmpc](screenshots/rmpc-cava.png)
+![wofi](screenshots/wofi.png)
+![wallpaper-menu](screenshot/wallpaper-menu.png)
+![waybar](screenshots/waybar.png)
 
 
 ## Packages to Install
