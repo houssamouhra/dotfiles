@@ -36,7 +36,7 @@ hyprctl reload
 source ~/.zshrc
 ```
 
-> [!Notes on Stow usage]
+> [!INFO]
 > - Each directory represents a package managed by Stow
 > - Files are symlinked into `$HOME` following the XDG layout (`~/.config/...`)
 > - To remove a package:
@@ -89,13 +89,16 @@ source ~/.zshrc
 ## Packages to Install
 
 ```
+
+hyprland
+hypridle
 waybar
 wlogout
 hyprshot
-hypridle
 stow
 git
 pywal
+kanshi
 swww
 zip unzip
 wofi
