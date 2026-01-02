@@ -1,0 +1,10 @@
+# Laptop only
+profile undocked {
+    output eDP-1 enable
+}
+
+# external monitor connected
+profile docked {
+    output eDP-1 disable
+    output * enable
+}
