@@ -87,9 +87,9 @@ source ~/.zshrc
 ![workspace](screenshots/workspace1.png)
 ![workspace](screenshots/workspace2.png)
 ![rmpc](screenshots/rmpc-cava.png)
-![waybar](screenshot/waybar.png)
+![waybar](screenshots/waybar.png)
 ![wofi](screenshots/wofi.png)
-![wallpaper-menu](screenshot/wallpaper-menu.png)
+![wallpaper-menu](screenshots/wallpaper-menu.png)
 
 
 ## Packages to Install
