@@ -18,9 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- Load theme
   -- require 'themes.catppuccin',
-  -- require 'themes.tokyonight',
+  require 'themes.tokyonight',
   -- require 'themes.kanagawa',
-  require 'themes.nightfox',
+  -- require 'themes.nightfox',
+  -- require 'themes.night-owl',
   -- require 'themes.rosepine',
   -- require 'themes.eldritch',
 
@@ -33,7 +34,6 @@ require('lazy').setup {
   require 'plugins.comment',
   require 'plugins.csscolors',
   require 'plugins.debugging',
-  require 'plugins.obsidian',
   require 'plugins.pomodoro',
   require 'plugins.diffview',
   require 'plugins.git',
