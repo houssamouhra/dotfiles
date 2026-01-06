@@ -84,13 +84,17 @@ source ~/.zshrc
 </details>
 
 ## Screenshots
-![workspace](screenshots/workspace1.png)
-![workspace](screenshots/workspace2.png)
-![workspace](screenshots/workspace3.png)
-![rmpc+cava+fastfetch](screenshots/cava.png)
-![neovim](screenshots/nvim.png)
-![wofi](screenshots/wofi.png)
-![wallpaper-menu](screenshots/wallpaper-menu.png)
+
+<table>
+  <tr>
+    <td><img src="screenshots/workspace1.png" width="400"/></td>
+    <td><img src="screenshots/workspace2.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/cava.png" width="400"/></td>
+    <td><img src="screenshots/nvim.png" width="400"/></td>
+  </tr>
+</table>
 
 
 ## Packages to Install
