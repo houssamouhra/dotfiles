@@ -72,3 +72,8 @@ vim.keymap.set('v', 'p', '"_dP', opts)
 vim.keymap.set('n', '<leader>dd', '<cmd>DiffviewOpen<cr>', { desc = 'Diffview: working tree' })
 vim.keymap.set('n', '<leader>ds', '<cmd>DiffviewOpen --staged<cr>', { desc = 'Diffview: staged changes' })
 vim.keymap.set('n', '<leader>dc', '<cmd>DiffviewClose<cr>', { desc = 'Diffview: close' })
+
+-- Format file
+vim.keymap.set({ 'n', 'x' }, '<leader>F', function()
+  require('conform').format()
+end, { desc = 'Format file' })
