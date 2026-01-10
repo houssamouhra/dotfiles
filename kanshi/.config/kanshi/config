@@ -1,10 +1,12 @@
 # Laptop only
 profile undocked {
     output eDP-1 enable
+    exec sh -c 'ln -sf ~/.config/hypr/hyprlock-laptop.conf ~/.config/hypr/hyprlock.conf'
 }
 
 # external monitor connected
 profile docked {
     output eDP-1 disable
     output * enable
+    exec sh -c 'ln -sf ~/.config/hypr/hyprlock-external.conf ~/.config/hypr/hyprlock.conf'
 }
