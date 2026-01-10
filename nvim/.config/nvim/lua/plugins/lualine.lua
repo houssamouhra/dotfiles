@@ -1,6 +1,9 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', 'kdheepak/tabline.nvim' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'kdheepak/tabline.nvim',
+  },
 
   config = function()
     local filename = {
@@ -33,7 +36,7 @@ return {
       sources = { 'nvim_lsp' },
       sections = { 'error', 'warn' },
       symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-      colored = false,
+      colored = true,
       update_in_insert = false,
       always_visible = false,
       cond = hide_in_width,
@@ -41,7 +44,7 @@ return {
 
     local diff = {
       'diff',
-      colored = false,
+      colored = true,
       symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
       cond = hide_in_width,
     }
@@ -49,27 +52,35 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        theme = 'auto',
         section_separators = { left = '', right = '' },
         component_separators = { '', '' },
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        always_show_tabline = true,
         globalstatus = true,
-        refresh = {
-          statusline = 100,
-          tabline = 100,
-          winbar = 100,
+      },
+      refresh = { -- sets how often lualine should refresh it's contents (in ms)
+        statusline = 100,
+        tabline = 100,
+        winbar = 100,
+        refresh_time = 16, -- ~60fps the time after which refresh queue is processed. Mininum refreshtime for lualine
+        events = { -- The auto command events at which lualine refreshes
+          'WinEnter',
+          'BufEnter',
+          'BufWritePost',
+          'SessionLoadPost',
+          'FileChangedShellPost',
+          'VimResized',
+          'Filetype',
+          'CursorMoved',
+          'CursorMovedI',
+          'ModeChanged',
         },
       },
+
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
         lualine_c = { filename },
+
         lualine_x = {
           pomo_timer,
           diagnostics,
@@ -78,9 +89,11 @@ return {
           'fileformat',
           'filetype',
         },
+
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
+
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
@@ -89,8 +102,7 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      winbar = {},
-      inactive_winbar = {},
+
       extensions = { 'fugitive' },
     }
   end,
