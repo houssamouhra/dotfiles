@@ -13,6 +13,11 @@ return {
         close_command = 'Bdelete! %d', -- can be a string | function, see "Mouse actions"
         buffer_close_icon = '✗',
         close_icon = '✗',
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { 'close' },
+        },
         path_components = 1, -- Show only the file name without the directory
         modified_icon = '●',
         left_trunc_marker = '',
@@ -27,7 +32,7 @@ return {
         show_buffer_close_icons = true,
         show_close_icon = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
+        separator_style = 'thin', -- | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
         always_show_bufferline = true,
         show_tab_indicators = false,
