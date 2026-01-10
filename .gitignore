@@ -4,3 +4,5 @@ mpd/.config/mpd/pid
 mpd/.config/mpd/playlists/
 mpd/.config/mpd/state
 mpd/.config/mpd/sticker.sql
+
+tmux/.config/tmux/plugins
