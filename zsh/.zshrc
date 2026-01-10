@@ -25,17 +25,6 @@ if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
   export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 fi
 
-# PNPM
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# COMPLETIONS
-autoload -Uz compinit
-compinit -C  # use cached completion dump
-
 # HISTORY & KEYBINDINGS
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -64,21 +53,26 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit light zsh-users/zsh-completions
 
+# COMPLETIONS
+autoload -Uz compinit
+compinit -C
+
 # ZOXIDE
 eval "$(zoxide init zsh)"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
 
-_nvm_load() {
-  unset -f nvm node npm npx
-  source "$NVM_DIR/nvm.sh"
-}
-
-nvm()  { _nvm_load; nvm "$@"; }
-node() { _nvm_load; node "$@"; }
-npm()  { _nvm_load; npm "$@"; }
-npx()  { _nvm_load; npx "$@"; }
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # FZF
 # Lazy-load fzf
