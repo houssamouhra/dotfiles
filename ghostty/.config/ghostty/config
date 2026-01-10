@@ -1,5 +1,5 @@
 # By default Reload config with shft + cmd + , 
-config-file = themes/night-owl
+config-file = themes/tokyonight
 background-opacity = 0.88
 background-blur-radius = 25
 
