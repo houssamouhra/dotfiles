@@ -1,24 +1,27 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+# From https://raw.githubusercontent.com/rxyhn/dotfiles/main/home/rxyhn/modules/desktop/waybar/scripts/waybar-wttr.py
 
+# ensure to insert city inside ""
+city = "Tangier"
 import json
 import requests
 from datetime import datetime
 
 WEATHER_CODES = {
-    '113': '☀️ ',
-    '116': '⛅ ',
-    '119': '☁️ ',
-    '122': '☁️ ',
-    '143': '☁️ ',
-    '176': '🌧️',
-    '179': '🌧️',
-    '182': '🌧️',
-    '185': '🌧️',
-    '200': '⛈️ ',
+    '113': '',
+    '116': '󰖕',
+    '119': '',
+    '122': '',
+    '143': '',
+    '176': '',
+    '179': '',
+    '182': '',
+    '185': '',
+    '200': '⛈️',
     '227': '🌨️',
     '230': '🌨️',
     '248': '☁️ ',
-    '260': '☁️ ',
+    '260': '☁️',
     '263': '🌧️',
     '266': '🌧️',
     '281': '🌧️',
@@ -35,10 +38,10 @@ WEATHER_CODES = {
     '320': '🌨️',
     '323': '🌨️',
     '326': '🌨️',
-    '329': '❄️ ',
-    '332': '❄️ ',
-    '335': '❄️ ',
-    '338': '❄️ ',
+    '329': '❄️',
+    '332': '❄️',
+    '335': '❄️',
+    '338': '❄️',
     '350': '🌧️',
     '353': '🌧️',
     '356': '🌧️',
@@ -52,22 +55,21 @@ WEATHER_CODES = {
     '386': '🌨️',
     '389': '🌨️',
     '392': '🌧️',
-    '395': '❄️ '
+    '395': '❄️'
 }
 
 data = {}
 
-city = "Tangier"
 
 weather = requests.get(f"https://wttr.in/{city}?format=j1").json()
 
 
 def format_time(time):
-    return str(int(time)//100).zfill(2)
+    return time.replace("00", "").zfill(2)
 
 
 def format_temp(temp):
-    return (temp + "°").ljust(3)
+    return (hour['FeelsLikeC']+"°").ljust(3)
 
 
 def format_chances(hour):
@@ -94,8 +96,8 @@ if tempint > 0 and tempint < 10:
     extrachar = '+'
 
 
-data['text'] = ' ' + WEATHER_CODES.get(str(weather['current_condition'][0]['weatherCode']), "") + \
-    " " + extrachar + weather['current_condition'][0]['temp_C']+"°C"
+data['text'] = ' '+WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
+    " "+extrachar+weather['current_condition'][0]['temp_C']+"°"
 
 data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
 data['tooltip'] += f"Feels like: {weather['current_condition'][0]['FeelsLikeC']}°\n"
@@ -108,8 +110,8 @@ for i, day in enumerate(weather['weather']):
     if i == 1:
         data['tooltip'] += "Tomorrow, "
     data['tooltip'] += f"{day['date']}</b>\n"
-    data['tooltip'] += f"⬆️ {day['maxtempC']}° ⬇️ {day['mintempC']}° "
-    data['tooltip'] += f"🌅 {day['astronomy'][0]['sunrise']} 🌇 {day['astronomy'][0]['sunset']}\n"
+    data['tooltip'] += f"⬆️{day['maxtempC']}° ⬇️{day['mintempC']}° "
+    data['tooltip'] += f"🌅{day['astronomy'][0]['sunrise']} 🌇{day['astronomy'][0]['sunset']}\n"
     for hour in day['hourly']:
         if i == 0:
             if int(format_time(hour['time'])) < datetime.now().hour-2:
@@ -118,3 +120,4 @@ for i, day in enumerate(weather['weather']):
 
 
 print(json.dumps(data))
+

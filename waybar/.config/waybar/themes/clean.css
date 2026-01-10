@@ -45,8 +45,12 @@ tooltip {
 #network,
 #cpu,
 #memory,
+#disk,
+#battery,
+#backlight,
 #tray,
 #pulseaudio,
+#pulseaudio#microphone,
 #custom-weather,
 #custom-spotify,
 #custom-rmpc,
@@ -67,11 +71,15 @@ tooltip {
 #network:hover,
 #cpu:hover,
 #memory:hover,
+#disk:hover,
+#battery:hover,
+#backlight:hover,
 #pulseaudio:hover,
+#pulseaudio#microphone:hover,
 #custom-weather:hover,
 #custom-rmpc:hover,
 #custom-spotify:hover,
-#custom-uptime:hover {
+#custom-uptime:hover{
   color: #FFFFFF;
 }
 
@@ -131,4 +139,3 @@ tooltip {
 #custom-rmpc {
   margin-right: 6px;
 }
-

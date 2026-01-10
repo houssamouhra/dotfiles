@@ -3,9 +3,9 @@
 "position": "top",
 "reload_style_on_change": true,
 
-"modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "tray"],
+"modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/swaync", "custom/space", "custom/updater", "tray"],
 "modules-center": ["hyprland/window"],
-"modules-right": ["cpu", "memory", "custom/weather", "pulseaudio", "bluetooth", "network", "custom/space", "clock"],
+"modules-right": ["cpu", "memory", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
 
 "hyprland/workspaces": {
    "format": "{id}",
@@ -27,59 +27,120 @@
 },
 
 "clock": {
-    "format": "{:%d - %I:%M} ",
-    "interval": 1,   
-    "tooltip-format": "<tt>{calendar}</tt>",
+    "interval": 1,
+    //"format": "{:%I:%M %p}", // AM PM format
+    "format": "{:%H:%M:%S}",
+    "format-alt": "{:%H:%M  %Y, %d %B, %A}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-        "format": {
-            "today": "<span color='#ffffff'><b>{}</b></span>"
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+      "months":     "<span color='#ffead3'><b>{}</b></span>",
+      "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+      "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
         }
-    },
-    "actions": {
-        "on-click-right": "shift_down",
-        "on-click": "shift_up"
-    }
-}, 
+      }
+    },              
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+},
 
 "pulseaudio": {
     "scroll-step": 1,
-    "format": "{icon} {volume: >3}%",
-    "format-bluetooth": "{icon} {volume: >3}%",
-    "format-muted": " muted",
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": " ",
     "format-icons": {
-        "headphones": "",
-        "handsfree": "",
+        "headphone": "",
+        "hands-free": "",
         "headset": "",
         "phone": "",
         "portable": "",
         "car": "",
-        "default": ["", ""]
+        "default": ["", "", "󰕾", ""],
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+    "scroll-step": 5.0,
+    "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh --inc",
+    "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh --dec",
+    "on-click": "~/.config/waybar/scripts/volume-control.sh --toggle",
+    "smooth-scrolling-threshold": 1,
 },
 
 "network": {
-    "format-wifi": "󰖩",
-    "format-disconnected": "",          
-    "format-ethernet": "",
-    "tooltip-format-disconnected": "Offline",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-    "tooltip-format-ethernet": "{ifname}",
-    "on-click": "nmtui"
+    "interval": 1,
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰌘",
+    "format-disconnected": "󰌙", 
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "tooltip-format-ethernet": "{ifname} 󰌘%\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 50,
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "on-click": "ghostty -e nmtui"
 },
 
 "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "BT-off",
-    "format-disabled": "󰂲",
-    "format-alt": "󰂯",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-    "on-click-right": "blueman-manager"
+    "format": "󰂯",
+    "format-disabled": "󰂳",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": "󰂯 {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "󰂯 {device_alias} 󰂄 {device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
+},
+
+"pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "~/.config/waybar/scripts/volume-control.sh --toggle-mic",
+    "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh --mic-inc",
+    "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh --mic-dec",
+	"tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5,
+},
+
+"battery": {
+    "interval": 5,
+    "align": 0,
+    "rotate": 0,
+    //"bat": "BAT1",
+    //"adapter": "ACAD",
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "{capacity}%",
+    "format-plugged": "󱘖 {capacity}%",
+	"format-alt-click": "click",
+    "format-full": "{icon} Full",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "tooltip-format": "{timeTo} {power}w",
+    "on-click-right": "~/.config/hypr/scripts/wlogout.sh",
+},
+
+"custom/cava_mviz": {
+    "exec": "~/.config/waybar/scripts/waybar-cava.sh",
+    "format": "{}"
 },
 
 "custom/rmpc": {
@@ -94,12 +155,64 @@
 },
 
 "custom/spotify": {
-    "exec": "~/.config/waybar/scripts/spotify.sh",
-    "interval": 2,
-    "on-click": "playerctl play-pause",
+    "format": "<span>{}</span>",
+    "return-type": "json",
+    "max-length": 35,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
     "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
-    "tooltip": false
+    "scroll-step": 5.0,
+    "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh --inc",
+    "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh --dec",
+    "smooth-scrolling-threshold": 1,
+},
+
+"backlight": {
+    "interval": 2,
+    "align": 0,
+    "rotate": 0,
+    "format": "{icon} {percent}%",
+    "format": "{icon}",
+    "format-icons": ["","","","","","","","","","","","","","",""],
+    "tooltip-format": "backlight {percent}%",
+    "icon-size": 10,
+    "on-click": "",
+    "on-click-middle": "",
+    "on-click-right": "",
+    "on-update": "",
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh --inc",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh --dec",
+    "smooth-scrolling-threshold": 1,
+},
+
+"custom/swaync": {
+    "tooltip":true,     
+    "format": " ",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+},
+
+"custom/updater":{
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) ]]",
+    "interval": 15,
+    "on-click": "ghostty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
 },
 
 "tray": {
@@ -108,13 +221,30 @@
 },
 
 "cpu": {
-    "format": "   {usage}%",
-    "tooltip-format": "{usage}% CPU\nLoad: {load1} {load5} {load15}",
+    "format": "{usage}% 󰍛",  
+    "interval": 1,
+    "format-alt-click": "click",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "gnome-system-monitor",
 },
 
 "memory": {
-    "format": "  {used:0.1f}G", 
-    "tooltip": false
+    "interval": 10,
+    "format": "{used:0.1f}G 󰾆",
+    "format-alt": "{percentage}% 󰾆",
+    "format-alt-click": "click",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+    "on-click-right": "ghostty -e btm"
+},
+
+"disk": {
+    "interval": 30,
+    "path": "/",
+    "format-alt-click": "click",
+    "format": "{percentage_used}% 󰋊",
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
 },
 
 "custom/uptime": {
@@ -124,14 +254,18 @@
 },
 
 "custom/weather": {
-  "exec": "~/.config/waybar/scripts/waybar-wttr.py",
-  "interval": 600,
-  "return-type": "json",
-  "tooltip": true
+  "exec": "~/.config/waybar/scripts/wttr.py",
+    "format": "{}",
+    "format-alt": "{alt}: {}",
+    "format-alt-click": "click",
+    "interval": 3600,
+    "return-type": "json",
+    "exec-if": "ping wttr.in -c1",
+    "tooltip" : true,
 },
 
 "custom/space": { 
-    "format": "  ",
+    "format": " ",
     "tooltip": false
 },
  
