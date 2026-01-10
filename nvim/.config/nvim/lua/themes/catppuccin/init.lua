@@ -9,7 +9,7 @@ return {
           light = 'latte',
           dark = 'mocha',
         },
-        transparent_background = false, -- disables setting the background color.
+        transparent_background = true, -- disables setting the background color.
         float = {
           transparent = true, -- enable transparent floating windows
           solid = false, -- use solid styling for floating windows, see |winborder|
@@ -66,7 +66,7 @@ return {
           cmp = true,
           gitsigns = true,
           nvimtree = true,
-          notify = false,
+          notify = true,
           mini = {
             enabled = true,
             indentscope_color = '',
