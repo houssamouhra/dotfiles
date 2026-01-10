@@ -1,7 +1,7 @@
 {
     "$schema": "/etc/xdg/swaync/configSchema.json",
     "positionX": "right",
-    "positionY": "bottom",
+    "positionY": "top",
     "layer": "overlay",
     "control-center-layer": "top",
     "layer-shell": true,
@@ -22,7 +22,7 @@
     "timeout-critical": 1,
     "fit-to-screen": true,
     "keyboard-shortcuts": true,
-    "image-visibility": "when available",
+    "image-visibility": "when-available",
     "transition-time": 200,
     "hide-on-clear": false,
     "hide-on-action": true,
@@ -43,9 +43,17 @@
         },
         "label": {
             "max-lines":1,
-            "text": "Notification Center!"
+            "text": "Notification Center"
         },
-
+        "notifications": {
+            "timeout": 12,
+            "timeout-low": 6,
+            "timeout-critical": 1,
+            "image-visibility": "always",
+            "fit-to-screen": true,
+            "hide-on-clear": false,
+            "hide-on-action": true
+        },
         "mpris": {
             "image-size": 80,
             "image-radius": 0
@@ -68,10 +76,9 @@
                     "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
                     "type": "toggle"
                 },
-
                 {
                     "label": "",
-                    "command": "kitty nmtui"
+                    "command": "ghostty -e nmtui"
                 },
                 {
                     "label": "",
@@ -82,24 +89,17 @@
                     "command": "swaync-client -d",
                     "type":"toggle"
                 },
-
                 {
                     "label": "󰀟",
                     "command": "gnome-network-displays"
                 },
-
-                {
-                    "label": "󰈙",
-                    "command": "kitty bash -i -c 'Docs'"
-                },
                 {
                     "label": "",
-                    "command": "kitty bash -i -c 'Settings'"
-                    
+                    "command": "ghostty -e zsh -i -c 'cd ~/.config/hypr && nvim'" 
                 },
                 {
                     "label": "",
-                    "command": "kitty bash -i -c 'tasks'"
+                    "command": "ghostty -e zsh -i -c 'tasks'"
 
                 },
                 {
@@ -114,7 +114,6 @@
                     "label":"",
                     "command": "shutdown now"
                 }
-
             ]
         }
     }
