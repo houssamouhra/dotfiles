@@ -3,6 +3,10 @@ edit = [
   { run = "nvim \"$@\"", desc = "Neovim", block = true }
 ]
 
+video = [
+  { run = "vlc \"$@\"", desc = "Open with vlc" }
+]
+
 pdf = [
   { run = "zathura \"$@\"", desc = "Open with Zathura", orphan = true }
 ]
@@ -14,7 +18,7 @@ imgs = [
 [open]
 rules = [
   { mime = "audio/*", use = "open" },
-  { mime = "video/*", use = "open" },
+  { mime = "video/*", use = "video" },
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "imgs" },
 
