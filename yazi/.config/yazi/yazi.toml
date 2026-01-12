@@ -3,11 +3,20 @@ edit = [
   { run = "nvim \"$@\"", desc = "Neovim", block = true }
 ]
 
+pdf = [
+  { run = "zathura \"$@\"", desc = "Open with Zathura", orphan = true }
+]
+
+imgs = [
+  { run = "feh \"$@\"", desc = "Open with feh", orphan = true}
+]
+
 [open]
 rules = [
-  # Media files → do nothing / default system handler
   { mime = "audio/*", use = "open" },
   { mime = "video/*", use = "open" },
+  { mime = "application/pdf", use = "pdf" },
+  { mime = "image/*", use = "imgs" },
 
   # Everything else → Neovim
   { name = "*", use = "edit" }
