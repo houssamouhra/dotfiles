@@ -100,7 +100,6 @@ source ~/.zshrc
 ## Packages to Install
 
 ```
-
 hyprland
 hypridle
 waybar
@@ -108,6 +107,7 @@ wlogout
 hyprshot
 stow
 git
+ghostty
 pywal
 kanshi
 swww
@@ -116,6 +116,9 @@ wofi
 cava
 blueman
 bluez
+zathura
+feh
+bat
 networkmanager
 pipewire
 pipewire-pulse
