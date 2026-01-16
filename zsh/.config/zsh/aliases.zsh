@@ -1,0 +1,10 @@
+alias bye='sudo shutdown -h now'
+alias ls="eza --icons=always"
+alias grep='grep --color=auto'
+alias loop='sudo reboot'
+alias fonts='fc-list -f "%{family}\n"'
+alias pacup='pkgs=$(pacman -Qdtq); [ -n "$pkgs" ] && sudo pacman -Rns $pkgs || echo "No orphan packages to remove."'
+alias update='sudo pacman -Syu'
+alias tasks='btm'
+alias n='nvim'
+alias mediainfo='mediainfo --Inform="Audio;Bitrate: %BitRate% kb/s | %SamplingRate% %Hz | %BitDepth%-bit\n"'
