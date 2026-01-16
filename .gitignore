@@ -6,3 +6,4 @@ mpd/.config/mpd/state
 mpd/.config/mpd/sticker.sql
 
 tmux/.config/tmux/plugins
+zsh/.config/zsh/.zsh_plugins.zsh
