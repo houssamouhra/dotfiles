@@ -45,7 +45,7 @@ return {
     local diff = {
       'diff',
       colored = true,
-      symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
+      symbols = { added = '+', modified = '~', removed = '-' }, -- changes diff symbols
       cond = hide_in_width,
     }
 
@@ -78,13 +78,12 @@ return {
 
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch' },
+        lualine_b = { 'branch', diff },
         lualine_c = { filename },
 
         lualine_x = {
           pomo_timer,
           diagnostics,
-          diff,
           'encoding',
           'fileformat',
           'filetype',
