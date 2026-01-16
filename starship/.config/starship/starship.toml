@@ -1,0 +1,101 @@
+format = """
+$jobs\
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$c\
+$cpp\
+$java\
+$ruby\
+$package\
+$aws\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+add_newline = true
+
+[directory]
+style = 'blue'
+format = '[$path ]($style)'
+truncation_length = 2 
+truncation_symbol = '…/'
+truncate_to_repo = false
+
+[directory.substitutions]
+'Documents' = '󰈙'
+'Downloads' = ' '
+'Music' = ' '
+'wallpapers' = ' '
+
+[git_branch]
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
+
+[fill]
+symbol = ' '
+
+[python]
+symbol = ' '
+
+[lua]
+symbol = ' '
+
+[nodejs]
+symbol = ' '
+
+[golang]
+symbol = ' '
+
+[haskell]
+symbol = ' '
+
+[rust]
+symbol = ' '
+
+[c]
+symbol = ' '
+
+[cpp]
+symbol = ' '
+
+[java]
+symbol = ' '
+
+[ruby]
+symbol = ' '
+
+[package]
+format = 'on [$symbol$version]($style)' 
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[docker_context]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
+
+[jobs]
+symbol = '✦'
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
+
+[cmd_duration]
+min_time = 500
+style = 'bold yellow'
+format = '[$duration]($style)'
