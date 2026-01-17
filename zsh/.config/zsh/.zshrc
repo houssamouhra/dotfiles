@@ -1,31 +1,58 @@
+# Force shell to home dir
+[[ "$PWD" != "$HOME" ]] && cd "$HOME"
+
 # Antidote
 source ~/.antidote/antidote.zsh
 
 zsh_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins"
 
 if [[ ! -f "${zsh_plugins}.zsh" ]] || [[ "${zsh_plugins}.txt" -nt "${zsh_plugins}.zsh" ]]; then
-  echo "Regenerating static plugins file..." >&2
-  (
-    source ~/.antidote/antidote.zsh
-    antidote bundle < "${zsh_plugins}.txt" > "${zsh_plugins}.zsh"
-  )
+  antidote bundle < "${zsh_plugins}.txt" > "${zsh_plugins}.zsh"
 fi
 
 source "${zsh_plugins}.zsh"
 
-# Lazy Starship
+# Starship
 _starship_lazy() {
   unfunction _starship_lazy
-  export STARSHIP_CONFIG=~/.config/starship/starship.toml
   eval "$(command starship init zsh)"
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _starship_lazy
 
+# zoxide
+z() {
+  unset -f z
+  eval "$(zoxide init zsh)"
+  z "$@"
+}
+
+# fnm
+_fnm_lazy_load() {
+  if [[ -f package.json || -d node_modules || -f .nvmrc ]]; then
+    eval "$(fnm env)" 2>/dev/null
+  fi
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _fnm_lazy_load
+
+# Manual fnm trigger
+fnm-on() {
+  eval "$(fnm env)" 2>/dev/null
+  echo "Node activated"
+}
+
+# pnpm
+pnpm() {
+  unfunction pnpm
+  [ -f "$PNPM_HOME/pnpm.sh" ] && source "$PNPM_HOME/pnpm.sh"
+  pnpm "$@"
+}
+
 # brew
 brew() {
   unfunction brew
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
   brew "$@"
 }
 
@@ -39,41 +66,6 @@ setopt hist_reduce_blanks hist_verify inc_append_history
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-
-typeset -gA FAST_HIGHLIGHT_STYLES 2>/dev/null || true
-
-# Make arguments / options / paths / variables plain
-FAST_HIGHLIGHT_STYLES[default]='none'
-FAST_HIGHLIGHT_STYLES[arg0]='none'
-FAST_HIGHLIGHT_STYLES[path]='none'
-FAST_HIGHLIGHT_STYLES[path-to-dir]='none'
-FAST_HIGHLIGHT_STYLES[path_pathseparator]='none'
-FAST_HIGHLIGHT_STYLES[single-hyphen-option]='none'
-FAST_HIGHLIGHT_STYLES[double-hyphen-option]='none'
-FAST_HIGHLIGHT_STYLES[back-dollar-quote]='none'
-FAST_HIGHLIGHT_STYLES[globbing]='none'
-FAST_HIGHLIGHT_STYLES[globbing-ext]='none'
-FAST_HIGHLIGHT_STYLES[commandseparator]='fg=8'
-FAST_HIGHLIGHT_STYLES[reserved-word]='fg=8'
-
-# zoxide
-z() {
-  unset -f z
-  eval "$(zoxide init zsh)"
-  z "$@"
-}
-
-# fnm
-if [ -d "$FNM_PATH" ]; then
-  eval "`fnm env`"
-fi
-
-# pnpm
-pnpm() {
-  unfunction pnpm
-  [ -f "$PNPM_HOME/pnpm.sh" ] && source "$PNPM_HOME/pnpm.sh"
-  pnpm "$@"
-}
 
 # fd
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -127,4 +119,4 @@ export FZF_DEFAULT_OPTS=" \
 --color=border:#6C7086,label:#CDD6F4"
 
 # Load aliases
-source ~/.config/zsh/aliases.zsh 2>/dev/null || true
+source "$ZDOTDIR/aliases.zsh" 2>/dev/null || true
