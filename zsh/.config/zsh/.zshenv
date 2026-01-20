@@ -9,14 +9,12 @@ typeset -gU path fpath
 
 # Tool paths
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 export FNM_PATH="$HOME/.local/share/fnm"
 
 path=(
   $HOME/.cargo/bin
   $HOME/.config/scripts
   $PNPM_HOME
-  $HOMEBREW_PREFIX
   $path
 )
 

@@ -49,13 +49,6 @@ pnpm() {
   pnpm "$@"
 }
 
-# brew
-brew() {
-  unfunction brew
-  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
-  brew "$@"
-}
-
 # HISTORY & KEYBINDINGS
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
