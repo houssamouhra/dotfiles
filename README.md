@@ -66,9 +66,9 @@ source ~/.zshrc
 <details>
 <summary>Terminal & Shell</summary>
 
-- **[ghostty](https://github.com/ghostty-org/ghostty)** – terminal emulator
+- **[ghostty](https://ghostty.org/)** – terminal emulator
 - **[zsh](https://www.zsh.org/)** – shell
-- **[pure](https://github.com/sindresorhus/pure)** – minimal and fast ZSH prompt
+- **[starship](https://starship.rs/)** – minimal and fast ZSH prompt
 
 </details>
 
@@ -76,10 +76,10 @@ source ~/.zshrc
 <summary>Editor & Tools</summary>
 
 - **[Neovim](https://neovim.io/)** – editor
-- **[tmux](https://github.com/tmux/tmux/wiki)** – terminal multiplexer
-- **[yazi](https://github.com/sxyazi/yazi)** - terminal file manager
-- **[mpd](https://www.musicpd.org/)** – Music Player Daemon (optional)
-- **[rmpc](https://github.com/mierak/rmpc)** - terminal based mpd client
+- **[tmux](https://github.com/tmux/tmux)** – terminal multiplexer
+- **[yazi](https://yazi-rs.github.io/)** - terminal file manager
+- **[mpd](https://www.musicpd.org/)** – Music Player Daemon
+- **[rmpc](https://rmpc.mierak.dev/)** - terminal based mpd client
 
 </details>
 
@@ -114,11 +114,14 @@ swww
 zip unzip
 wofi
 cava
+rmpc
 blueman
 bluez
 zathura
 feh
 bat
+vlc
+vlc-plugins-all
 networkmanager
 pipewire
 pipewire-pulse
@@ -135,9 +138,10 @@ discord
 wl-clipboard
 wl-copy
 fastfetch
+spotx
 yay
 tldr
-gvfs
-libnotify
+rg
 fd
+libnotify
 ```
