@@ -33,7 +33,7 @@ stow hypr nvim zsh waybar wofi ghostty wal mpd rmpc scripts kanshi
 Some configs require a reload or restart
 ```
 hyprctl reload
-source ~/.zshrc
+source ~/.config/zsh/.zshrc
 ```
 
 > [!NOTE]
@@ -97,51 +97,16 @@ source ~/.zshrc
 </table>
 
 
-## Packages to Install
+## Install packages
+To install the packages, you can run the installer script directly (Arch Linux only)
 
+```bash
+curl -sL https://raw.githubusercontent.com/houssamouhra/dotfiles/refs/heads/master/packages.sh | bash
 ```
-hyprland
-hypridle
-waybar
-wlogout
-hyprshot
-stow
-git
-ghostty
-pywal
-kanshi
-swww
-zip unzip
-wofi
-cava
-rmpc
-blueman
-bluez
-zathura
-feh
-bat
-vlc
-vlc-plugins-all
-networkmanager
-pipewire
-pipewire-pulse
-yay
-brave-bin
-imagemagick
-yazi
-ffmpeg
-thunar
-swaync
-grim
-grimblast
-discord
-wl-clipboard
-wl-copy
-fastfetch
-spotx
-yay
-tldr
-rg
-fd
-libnotify
+
+Or, download and run the script manually:
+```bash
+cd dotfiles
+./packages.sh
 ```
+
