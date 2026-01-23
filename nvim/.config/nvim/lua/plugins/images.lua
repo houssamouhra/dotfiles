@@ -1,5 +1,6 @@
 return {
   '3rd/image.nvim',
+  cmd = { 'ImageShow', 'ImageClear' },
   config = function()
     require('image').setup {
       backend = 'kitty', -- or "ueberzug" or "sixel"

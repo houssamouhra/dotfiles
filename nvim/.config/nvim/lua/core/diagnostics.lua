@@ -4,8 +4,15 @@ vim.diagnostic.config {
     prefix = '■',
     spacing = 2,
   },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+      [vim.diagnostic.severity.HINT] = '󰌵 ',
+    },
+  },
   underline = true,
-  signs = true,
   update_in_insert = false,
 }
 
@@ -19,15 +26,3 @@ end
 
 -- Apply once
 set_diagnostic_hls()
-
--- Keymaps for navigation
-vim.keymap.set('n', '[d', function()
-  vim.diagnostic.jump { count = -1, float = true }
-end, { desc = 'Go to previous diagnostic message' })
-
-vim.keymap.set('n', ']d', function()
-  vim.diagnostic.jump { count = 1, float = true }
-end, { desc = 'Go to next diagnostic message' })
-
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics list' })

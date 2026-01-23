@@ -1,5 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
+  event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'kdheepak/tabline.nvim',
@@ -38,7 +39,7 @@ return {
       symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
       colored = true,
       update_in_insert = false,
-      always_visible = false,
+      always_visible = true,
       cond = hide_in_width,
     }
 

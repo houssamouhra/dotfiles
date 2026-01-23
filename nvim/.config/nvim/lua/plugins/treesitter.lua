@@ -23,7 +23,6 @@ return { -- Highlight, edit, and navigate code
       'regex',
       'dockerfile',
       'toml',
-      'sql',
     },
     -- Autoinstall languages that are not installed
     auto_install = false,

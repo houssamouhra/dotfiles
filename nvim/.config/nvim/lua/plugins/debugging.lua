@@ -1,5 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
+  cmd = { 'DapToggleBreakpoint', 'DapContinue' },
   dependencies = {
     { 'rcarriga/nvim-dap-ui', dependencies = { 'nvim-neotest/nvim-nio' } },
   },

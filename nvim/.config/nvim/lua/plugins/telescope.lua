@@ -3,6 +3,11 @@ return {
   'nvim-telescope/telescope.nvim',
   branch = 'master',
 
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'folke/trouble.nvim',
+  },
+
   -- lazy loading triggers
   cmd = 'Telescope',
 
@@ -137,6 +142,7 @@ return {
   config = function()
     local telescope = require 'telescope'
     local actions = require 'telescope.actions'
+    local trouble = require 'trouble.sources.telescope'
 
     telescope.setup {
       -- default telescope behavior
@@ -146,6 +152,7 @@ return {
             ['<C-k>'] = actions.move_selection_previous, -- move selection up
             ['<C-j>'] = actions.move_selection_next, -- move selection down
             ['<C-l>'] = actions.select_default, -- open selected file
+            ['<C-t>'] = trouble.open,
           },
         },
       },
