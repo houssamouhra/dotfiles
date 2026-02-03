@@ -11,7 +11,7 @@
 
 {
     "label" : "sleep",
-    "action" : "~/.config/scripts/lock-suspend.sh",
+    "action" : "~/.config/wlogout/scripts/sleep.sh",
     "keybind" : "s"
 }
 {

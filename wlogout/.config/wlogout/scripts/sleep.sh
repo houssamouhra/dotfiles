@@ -1,3 +1,4 @@
 #!/bin/bash
+
+systemctl suspend
 hyprlock
-sudo systemctl suspend
