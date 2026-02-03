@@ -30,8 +30,8 @@ button {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 
-#logout {
-    background-image: image(url("../../.config/wlogout/logout.png"));
+#sleep {
+    background-image: image(url("../../.config/wlogout/sleep.png"));
     margin: 5px 300px 5px 5px;
     padding: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
@@ -52,7 +52,7 @@ button {
     margin: 5px 200px 5px 5px;
 }
 
-#logout:focus {
+#sleep:focus {
     margin: 5px 200px 5px 5px;
 }
 

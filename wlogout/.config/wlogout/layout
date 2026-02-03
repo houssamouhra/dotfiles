@@ -10,12 +10,12 @@
 }
 
 {
-    "label" : "logout",
-    "action" : "pkill Hyprland || pkill sway || pkill niri || loginctl terminate-user $USER",
-    "keybind" : "e"
+    "label" : "sleep",
+    "action" : "~/.config/scripts/lock-suspend.sh",
+    "keybind" : "s"
 }
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff || loginctl poweroff",
-    "keybind" : "s"
+    "keybind" : "q"
 }
