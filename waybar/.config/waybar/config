@@ -3,7 +3,7 @@
 "position": "top",
 "reload_style_on_change": true,
 
-"modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/swaync", "custom/space", "custom/updater", "tray", "custom/timer"],
+"modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/space", "custom/updater", "tray", "custom/space" ,"custom/timer"],
 "modules-center": ["hyprland/window"],
 "modules-right": ["cpu", "memory", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
 
@@ -184,32 +184,32 @@
     "smooth-scrolling-threshold": 1,
 },
 
-"custom/swaync": {
-    "tooltip":true,     
+"custom/swaync": {                                                                 
+    "tooltip":true,
     "format": " ",
     "format-icons": {
-      "notification": " <span foreground='red'><sup></sup></span>",
-      "none": " ",
-      "dnd-notification": " <span foreground='red'><sup></sup></span>",
-      "dnd-none": " ",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": " ",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": " "
+        "notification": " <span foreground='red'><sup></sup></span>",
+        "none": " ",
+        "dnd-notification": " <span foreground='red'><sup></sup></span>",
+        "dnd-none": " ",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": " ",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": " "
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true,
+    "escape": true
 },
 
 "custom/updater":{
     "format": " {}",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) ]]",
-    "interval": 15,
+    "exec": "n=$(checkupdates 2>/dev/null | wc -l); [ \"$n\" -gt 0 ] && echo \"$n\"",
+    "interval": 900,
+    "tooltip": false,
     "on-click": "ghostty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
 },
 

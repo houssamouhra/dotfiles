@@ -163,7 +163,7 @@ tooltip {
   /*color: #cdd6f4;*/
   padding: 0 9px;
   font-size: 15px;
-  border-radius: 15px;
+  border-radius: 10px;
   font-weight: 900;
   transition: all 0.2s ease;
 }
@@ -250,5 +250,37 @@ tooltip {
     color: #ff4d4d;
     opacity: 0.8; /* Fade cleanly to 80% transparency */
     text-shadow: none;
+  }
+}
+
+#battery {
+  color: #a6e3a1; /* default (green-ish) */
+}
+
+/* Charging */
+#battery.charging {
+  color: #89b4fa; /* blue */
+}
+
+/* Plugged but not charging */
+#battery.plugged {
+  color: #94e2d5; /* teal */
+}
+
+/* Warning level */
+#battery.warning {
+  color: #f9e2af; /* yellow */
+}
+
+/* Critical level */
+#battery.critical {
+  color: #ff0000; /* red */
+  animation: blink 1s infinite alternate;
+}
+
+/* Optional blink animation */
+@keyframes blink {
+  to {
+    opacity: 0.4;
   }
 }
