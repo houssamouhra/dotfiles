@@ -57,20 +57,20 @@ case "$selected" in
   STOP)
     timew stop >/dev/null 2>&1 
     tmux set -g @time_category ""
-    ~/.config/scripts/bell.sh
+    paplay ~/.config/waybar/sounds/timer.mp3 &
     unblock_sites
     exit 0
     ;;
   WASTE)
     timew start "$selected" >/dev/null 2>&1
-        tmux set -g @time_category "WASTE" 
-	~/.config/scripts/bell.sh
+    tmux set -g @time_category "WASTE" 
+    paplay ~/.config/waybar/sounds/timer.mp3 &
 	unblock_sites
 	;;
   WORK|NVIM)
     timew start "$selected" >/dev/null 2>&1
     tmux set -g @time_category "WORK"
-    ~/.config/scripts/bell.sh
+    paplay ~/.config/waybar/sounds/timer.mp3 &
     block_sites
     ;;
 esac
