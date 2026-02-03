@@ -40,6 +40,7 @@ apply_wallpaper() {
     sed -i "s/^gradient_color_2 = .*/gradient_color_2 = '$color2'/" "$CAVA_CONFIG"
 
     pkill -USR2 cava 2>/dev/null
+    pkill -USR2 swaync 2>/dev/null
 
     echo "$selected_wallpaper" > "$HOME/wallpapers/.last_wallpaper"
 }
