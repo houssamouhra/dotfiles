@@ -1,7 +1,6 @@
 # By default Reload config with shft + cmd + , 
 config-file = themes/tokyonight
-background-opacity = 0.88
-background-blur-radius = 25
+background-opacity = 0.9
 
 # Font
 # font-family = MonoLisa Variable
