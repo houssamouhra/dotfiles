@@ -32,17 +32,24 @@
 [interactive]
   diffFilter = delta --color-only
 
+[include]
+  path = ~/.config/delta/themes.gitconfig
+
 [delta]
-  navigate = true  # use n and N to move between diff sections
-  dark = true
+  features = weeping-willow 
+  syntax-theme = OneHalfDark 
   side-by-side = true
-  syntax-theme = Dracula
+  line-numbers = true
+  navigate = true
 
 [merge]
   conflictStyle = zdiff3
 
 [color]
   ui = auto
+
+[pager]
+  log = delta
 	
 [safe]
   directory = *
@@ -52,6 +59,3 @@
 
 [init]
   defaultBranch = main
-
-[pager]
-  log = delta
