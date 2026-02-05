@@ -3,23 +3,20 @@
     "positionX": "right",
     "positionY": "top",
     "layer": "overlay",
-    "control-center-layer": "top",
-    "layer-shell": true,
-    "cssPriority": "user",
-    "control-center-width": 350,
-    "control-center-margin-top": 8,
-    "control-center-margin-bottom": 8,
-    "control-center-margin-right": 0,
-    "control-center-margin-left": 8,
+    "control-center-width": 200,
+    "control-center-margin-top": 10,
+    "control-center-margin-bottom": 10,
+    "control-center-margin-right": 10,
+    "control-center-margin-left": 10,
     "notification-2fa-action": true,
     "notification-inline-replies": true,
     "notification-window-width": 350,
-    "notification-icon-size": 60,
+    "notification-icon-size": 64,
     "notification-body-image-height":  180,
     "notification-body-image-width": 180,
-    "timeout": 12,
-    "timeout-low": 6,
-    "timeout-critical": 1,
+    "timeout": 3,
+    "timeout-low": 2,
+    "timeout-critical": 0,
     "fit-to-screen": true,
     "keyboard-shortcuts": true,
     "image-visibility": "when-available",
@@ -28,94 +25,77 @@
     "hide-on-action": true,
     "script-fail-notify": true,
     "widgets": [
-        "mpris",
         "title",
+        "dnd",
         "notifications",
-        "volume",
-        "backlight",
+		"mpris",
+		"volume",
         "buttons-grid"
     ],
     "widget-config": {
         "title": {
             "text": "Notification Center",
             "clear-all-button": true,
-            "button-text": "󰆴"
+            "button-text": "󰆴 Clear All"
+        },
+        "dnd": {
+            "text": "Do Not Disturb"
         },
         "label": {
-            "max-lines":1,
+            "max-lines": 1,
             "text": "Notification Center"
         },
-        "notifications": {
-            "timeout": 12,
-            "timeout-low": 6,
-            "timeout-critical": 1,
-            "image-visibility": "always",
-            "fit-to-screen": true,
-            "hide-on-clear": false,
-            "hide-on-action": true
-        },
         "mpris": {
-            "image-size": 80,
-            "image-radius": 0
+            "image-size": 96,
+            "image-radius": 7
         },
         "volume": {
-            "label": "󰕾 "
-        },
-        "backlight": {
-            "label": "󰃟 "
+            "label": "󰕾",
+			"show-per-app": true
         },
         "buttons-grid": {
             "actions": [
                 {
-                    "label": "󰝟",
-                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-                    "type": "toggle"
+                    "label":"",
+                    "command": "shutdown now"
                 },
                 {
-                    "label": "󰍭",
-                    "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-                    "type": "toggle"
+                    "label": "󰜉",
+                    "command": "systemctl reboot"
                 },
                 {
-                    "label": "",
-                    "command": "ghostty -e nmtui"
-                },
-                {
-                    "label": "",
-                    "command": "blueman-manager"
-                },
-                {
-                    "label":"󰤄",
-                    "command": "swaync-client -d",
-                    "type":"toggle"
-                },
-                {
-                    "label": "󰀟",
-                    "command": "gnome-network-displays"
-                },
-                {
-                    "label": "",
-                    "command": "ghostty -e zsh -i -c 'cd ~/.config/hypr && nvim'" 
-                },
-                {
-                    "label": "",
-                    "command": "ghostty -e zsh -i -c 'tasks'"
-
-                },
-                {
-                    "label": "",
+                    "label": "󰌾",
                     "command": "hyprlock"
                 },
                 {
-                    "label":"",
-                    "command": "reboot"
+                    "label": "󰍃",
+                    "command": "hyprctl dispatch exit"
                 },
                 {
-                    "label":"",
-                    "command": "shutdown now"
+                    "label": "󰤄",
+                    "command": "~/.config/wlogout/scripts/sleep.sh"
+                },
+                {
+                    "label": "󰕾",
+                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+                },
+                {
+                    "label": "󰍬",
+                    "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+                },
+                {
+                    "label": "󰖩",
+                    "command": "ghostty -e nmtui"
+                },
+                {
+                    "label": "󰂯",
+                    "command": "blueman-manager"
+                },
+                {
+                    "label": "",
+                    "command": "obs"
                 }
             ]
         }
     }
 }
-
