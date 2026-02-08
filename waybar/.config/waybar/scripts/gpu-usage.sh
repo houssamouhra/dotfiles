@@ -1,23 +1,21 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# NVIDIA
-if command -v nvidia-smi >/dev/null 2>&1; then
-  util=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null | head -n1)
-  [ -n "$util" ] && { echo "${util}%"; exit 0; }
-fi
+pkill -x radeontop 2>/dev/null
 
-# AMD
-if [ -r /sys/class/drm/card0/device/gpu_busy_percent ]; then
-  util=$(cat /sys/class/drm/card0/device/gpu_busy_percent 2>/dev/null)
-  [ -n "$util" ] && { echo "${util}%"; exit 0; }
-fi
+LOCK="/tmp/waybar-gpu.lock"
 
-# Intel (optional, falls intel_gpu_top installiert)
-if command -v intel_gpu_top >/dev/null 2>&1; then
-  util=$(intel_gpu_top -J -s 200 2>/dev/null | awk -F'[,:}]' '/"Render/"{gsub(/ /,"",$3); print int($3)"%"; exit}')
-  [ -n "$util" ] && { echo "${util}"; exit 0; }
-fi
+exec 9>"$LOCK" || exit 1
+flock -n 9 || exit 0
+trap "pkill -P $$ radeontop" EXIT
 
-# Wenn alles fehlschlägt
-echo "N/A"
+radeontop -d - | while read -r line; do
+    gpu=$(echo "$line" | awk -F'[, ]+' '
+      {for(i=1;i<=NF;i++) if($i=="gpu"){gsub("%","",$(i+1)); printf "%d\n", $(i+1)+0.5}}')
 
+    vram=$(echo "$line" | awk -F'[, ]+' '{for(i=1;i<=NF;i++) if($i=="vram"){print $(i+2)}}')
+    mclk=$(echo "$line" | awk -F'[, ]+' '{for(i=1;i<=NF;i++) if($i=="mclk"){print $(i+2)}}')
+    sclk=$(echo "$line" | awk -F'[, ]+' '{for(i=1;i<=NF;i++) if($i=="sclk"){print $(i+2)}}')
+
+    [ -n "$gpu" ] &&
+        echo "{\"text\":\"$gpu\", \"tooltip\":\"VRAM: $vram\nMCLK: $mclk\nSCLK: $sclk\"}"
+done
