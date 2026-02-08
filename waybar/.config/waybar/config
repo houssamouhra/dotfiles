@@ -263,7 +263,7 @@
     "path": "/",
     "format-alt-click": "click",
     "format": "{percentage_used}% 󰋊",
-    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+    "tooltip-format": "{used} used out of {total}",
 },
 
 "custom/uptime": {
