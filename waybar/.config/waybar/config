@@ -5,7 +5,7 @@
 
 "modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/space", "custom/updater", "tray", "custom/space" ,"custom/timer"],
 "modules-center": ["hyprland/window"],
-"modules-right": ["custom/colorpicker", "cpu", "memory", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
+"modules-right": ["custom/colorpicker", "cpu", "memory", "custom/gpu", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
 
 "hyprland/workspaces": {
    "format": "{id}",
@@ -238,6 +238,14 @@
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "on-click": "gnome-system-monitor",
+},
+
+"custom/gpu": {
+    "interval": 0.5,
+    "format": "{}% 󰾲",
+    "exec": "~/.config/waybar/scripts/gpu-usage.sh",
+    "return-type": "json",
+    "tooltip": true,
 },
 
 "memory": {
