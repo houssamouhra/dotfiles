@@ -333,11 +333,18 @@ install_pacman "Lorem Ipsum Generator" "lorem"
 install_pacman "TTYper" "ttyper"
 
 if command -v yay &>/dev/null; then
-    install_aur "Brave" "brave-bin"
-    install_aur "Wlogout" "wlogout"
-    install_aur "fnm" "fnm"
+    install_aur "Brave Browser" "brave-bin"
+    install_aur "DXVK" "dxvk-bin"
+    install_aur "Fast Node Manager" "fnm"
     install_aur "Grimblast" "grimblast-git"
-    install_aur "Spotx" "spotx-git"
+    install_aur "ProtonUp-Qt" "protonup-qt"
+    install_aur "Ruffle Nightly" "ruffle-nightly-bin"
+    install_aur "Spotify" "spotify"
+    install_aur "SpotX" "spotx-git"
+    install_aur "Spicetify CLI" "spicetify-cli"
+    install_aur "Wlogout" "wlogout"
+    install_aur "Wofi Emoji" "wofi-emoji"
+    install_aur "Zsh Antidote" "zsh-antidote"
 fi
 
 print_summary
