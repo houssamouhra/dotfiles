@@ -255,6 +255,16 @@ install_pacman "Obsidian" "obsidian"
 install_pacman "LibreOffice" "libreoffice-fresh"
 install_pacman "JDK 21" "jdk21-openjdk"
 
+# --- Audio / Video / Media ---
+install_pacman "PipeWire" "pipewire"
+install_pacman "PipeWire Pulse" "pipewire-pulse"
+install_pacman "FFmpeg" "ffmpeg"
+install_pacman "Feh" "feh"
+install_pacman "VLC" "vlc"
+install_pacman "VLC Plugins" "vlc-plugins-all"
+install_pacman "Discord" "discord"
+install_pacman "OBS Studio" "obs-studio"
+install_pacman "Cava" "cava"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
