@@ -312,6 +312,13 @@ install_pacman "Zip" "zip"
 install_pacman "DOS Filesystem Tools" "dosfstools"
 install_pacman "exFAT Tools" "exfatprogs"
 install_pacman "Dislocker" "dislocker"
+
+# --- Gaming / Wine ---
+install_pacman "Steam" "steam"
+install_pacman "Wine" "wine"
+install_pacman "Wine Gecko" "wine-gecko"
+install_pacman "Wine Mono" "wine-mono"
+install_pacman "Winetricks" "winetricks"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
