@@ -280,6 +280,12 @@ install_pacman "SDDM" "sddm"
 install_pacman "XSettings Daemon" "xsettingsd"
 install_pacman "wl-clipboard" "wl-clipboard"
 install_pacman "Gammastep" "gammastep"
+
+# --- File management ---
+install_pacman "Thunar" "thunar"
+install_pacman "Yazi" "yazi"
+install_pacman "Zathura" "zathura"
+install_pacman "Zathura PDF Backend" "zathura-pdf-poppler"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
