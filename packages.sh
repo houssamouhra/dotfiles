@@ -319,6 +319,19 @@ install_pacman "Wine" "wine"
 install_pacman "Wine Gecko" "wine-gecko"
 install_pacman "Wine Mono" "wine-mono"
 install_pacman "Winetricks" "winetricks"
+
+# --- Misc ---
+install_pacman "GIMP" "gimp"
+install_pacman "Telegram Desktop" "telegram-desktop"
+install_pacman "qBittorrent" "qbittorrent"
+install_pacman "Pywal" "python-pywal"
+install_pacman "MPD" "mpd"
+install_pacman "Kanshi" "kanshi"
+install_pacman "rmpc" "rmpc"
+install_pacman "Stow" "stow"
+install_pacman "Lorem Ipsum Generator" "lorem"
+install_pacman "TTYper" "ttyper"
+
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
