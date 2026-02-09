@@ -293,6 +293,17 @@ install_pacman "JetBrains Mono" "ttf-jetbrains-mono"
 install_pacman "JetBrains Mono Nerd Font" "ttf-jetbrains-mono-nerd"
 install_pacman "Noto Fonts" "noto-fonts"
 install_pacman "Noto Emoji Fonts" "noto-fonts-emoji"
+
+# --- Utilities ---
+install_pacman "Brightness Control" "brightnessctl"
+install_pacman "Bluetooth Manager" "blueman"
+install_pacman "Bluetooth Utils" "bluez-utils"
+install_pacman "btop" "btop"
+install_pacman "Fastfetch" "fastfetch"
+install_pacman "Cliphist" "cliphist"
+install_pacman "Powertop" "powertop"
+install_pacman "Mesa Utils" "mesa-utils"
+install_pacman "Wev" "wev"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
