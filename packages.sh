@@ -23,7 +23,7 @@ timing() { echo -e "${GREEN}✓${NC} $1 ${DIM}($2s)${NC}"; }
 # Graceful exit on Ctrl+C
 trap 'printf "\n"; warn "Installation cancelled by user"; print_summary; exit 130' INT
 
-TOTAL=31
+TOTAL=$(grep -E 'install_(pacman|aur) "' "$0" | wc -l)
 CURRENT=0
 FAILED=()
 SUCCEEDED=()
