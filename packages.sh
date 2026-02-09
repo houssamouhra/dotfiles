@@ -248,7 +248,12 @@ install_pacman "Fzf" "fzf"
 install_pacman "Hyperfine" "hyperfine"
 install_pacman "Tldr" "tldr"
 install_pacman "Trash CLI" "trash-cli"
+
+# --- Editors & dev ---
 install_pacman "Neovim" "neovim"
+install_pacman "Obsidian" "obsidian"
+install_pacman "LibreOffice" "libreoffice-fresh"
+install_pacman "JDK 21" "jdk21-openjdk"
 
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
