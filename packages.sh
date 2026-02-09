@@ -304,6 +304,14 @@ install_pacman "Cliphist" "cliphist"
 install_pacman "Powertop" "powertop"
 install_pacman "Mesa Utils" "mesa-utils"
 install_pacman "Wev" "wev"
+
+# --- Filesystems & archives ---
+install_pacman "7zip" "7zip"
+install_pacman "Unzip" "unzip"
+install_pacman "Zip" "zip"
+install_pacman "DOS Filesystem Tools" "dosfstools"
+install_pacman "exFAT Tools" "exfatprogs"
+install_pacman "Dislocker" "dislocker"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
