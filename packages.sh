@@ -286,6 +286,13 @@ install_pacman "Thunar" "thunar"
 install_pacman "Yazi" "yazi"
 install_pacman "Zathura" "zathura"
 install_pacman "Zathura PDF Backend" "zathura-pdf-poppler"
+
+# --- Fonts ---
+install_pacman "Cascadia Code Font" "ttf-cascadia-code"
+install_pacman "JetBrains Mono" "ttf-jetbrains-mono"
+install_pacman "JetBrains Mono Nerd Font" "ttf-jetbrains-mono-nerd"
+install_pacman "Noto Fonts" "noto-fonts"
+install_pacman "Noto Emoji Fonts" "noto-fonts-emoji"
 if command -v yay &>/dev/null; then
     install_aur "Brave" "brave-bin"
     install_aur "Wlogout" "wlogout"
