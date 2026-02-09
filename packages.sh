@@ -208,7 +208,7 @@ while [ -f /var/lib/pacman/db.lck ]; do
 done
 
 info "Syncing databases..."
-with_retry sudo pacman -Sy --noconfirm >/dev/null && success "Synced" || warn "Sync failed, continuing..."
+with_retry sudo pacman -Syu --noconfirm >/dev/null && success "Synced" || warn "Sync failed, continuing..."
 
 if ! command -v yay &>/dev/null; then
     warn "Installing yay for AUR packages..."
