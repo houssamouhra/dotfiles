@@ -54,9 +54,9 @@
 
 [pager]
   log = delta
-	
+
 [safe]
-  directory = *
+  directory = ~/dotfiles
 
 [credential]
   helper = store
