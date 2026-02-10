@@ -24,7 +24,8 @@
   unstage = restore --staged .
   graph = log --oneline --graph --decorate --all --date-order
   pr = pull --rebase
-  ci = !git diff --staged && git commit
+  ds = diff --staged
+  ap = add -p
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
