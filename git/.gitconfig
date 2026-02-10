@@ -16,6 +16,9 @@
 [difftool "nvimdiff"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"" 
 
+[commit]
+  verbose = true
+
 [alias]
   lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
   unstage = restore --staged .
