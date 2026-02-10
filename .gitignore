@@ -7,3 +7,9 @@ mpd/.config/mpd/sticker.sql
 
 tmux/.config/tmux/plugins
 zsh/.config/zsh/.zsh_plugins.zsh
+
+ssh/.ssh/agent/
+ssh/.ssh/id_ed25519
+ssh/.ssh/id_ed25519.pub
+ssh/.ssh/known_hosts
+ssh/.ssh/known_hosts.old
