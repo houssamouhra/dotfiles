@@ -59,7 +59,7 @@
   directory = ~/dotfiles
 
 [credential]
-  helper = store
+  helper = libsecret
 
 [init]
   defaultBranch = main
