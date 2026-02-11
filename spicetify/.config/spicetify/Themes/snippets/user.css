@@ -40,3 +40,8 @@ section[aria-label="Recently played"] {
 .os-scrollbar-handle:hover {
   width: 0.35rem !important;
 }
+
+/* Hide 'Scroll through previews' */
+.main-actionBar-exploreButton {
+  display: none !important;
+}
