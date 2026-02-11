@@ -14,3 +14,9 @@
   ) {
   display: none !important;
 }
+
+/* Hide recently played sections */
+.view-homeShortcutsGrid-shortcuts,
+section[aria-label="Recently played"] {
+  display: none;
+}
