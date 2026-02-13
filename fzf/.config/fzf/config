@@ -1,0 +1,25 @@
+--height=50%
+--layout=reverse
+--border=rounded
+--preview-window=right:60%:border-left
+--prompt="❯ "
+--highlight-line
+--info=inline-right
+--ansi
+
+--color=bg:#1a1b26
+--color=bg+:#2f3955
+--color=border:#7aa2f7
+--color=fg:#c0caf5
+--color=gutter:#1a1b26
+--color=header:#e0af68
+--color=hl:#7dcfff
+--color=hl+:#7dcfff
+--color=info:#565f89
+--color=marker:#f7768e
+--color=pointer:#f7768e
+--color=prompt:#7aa2f7
+--color=query:#c0caf5
+--color=scrollbar:#7aa2f7
+--color=separator:#e0af68
+--color=spinner:#f7768e
