@@ -88,10 +88,12 @@ _fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
 _fzf_compgen_dir()  { fd --type=d --hidden --exclude .git . "$1" }
 
 # fzf-git.sh
-_git_lazy() {
-  unfunction git 2>/dev/null
-  source ~/fzf-git.sh/fzf-git.sh || return
-  git "$@"
+git() {
+  unfunction git
+  if [[ -f ~/fzf-git.sh/fzf-git.sh ]]; then
+    source ~/fzf-git.sh/fzf-git.sh
+  fi
+  command git "$@"
 }
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
