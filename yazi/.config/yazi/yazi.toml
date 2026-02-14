@@ -12,7 +12,7 @@ video = [
 ]
 
 pdf = [
-  { run = "zathura \"$@\"", desc = "Open with Zathura", orphan = true }
+  { run = 'zathura "$@"', desc = "Zathura", orphan = true }
 ]
 
 imgs = [
