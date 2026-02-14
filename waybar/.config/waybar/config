@@ -5,7 +5,7 @@
 
 "modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/space", "custom/updater", "tray", "custom/space" ,"custom/timer"],
 "modules-center": ["hyprland/window"],
-"modules-right": ["custom/colorpicker", "cpu", "memory", "custom/gpu", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
+"modules-right": [ "cpu", "memory", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
 
 "hyprland/workspaces": {
    "format": "{id}",
