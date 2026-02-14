@@ -36,12 +36,19 @@ audio = [
 
 [open]
 rules = [
-  { mime = "audio/*", use = "open" },
+  { mime = "audio/*", use = "audio" },
   { mime = "video/*", use = "video" },
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "imgs" },
 
-  # Everything else → Neovim
-  { name = "*", use = "edit" }
-]
+  { mime = "*/javascript", use = "edit" },
+  { mime = "*/html",       use = "edit" },
+  { mime = "*/css",        use = "edit" },
+  { mime = "*/yaml",       use = "edit" },
+  { mime = "*/json",       use = "edit" },
 
+  { mime = "text/*",       use = "edit" },
+  { mime = "inode/x-empty", use = "edit" },
+
+  { mime = "*",            use = "open" },
+]
