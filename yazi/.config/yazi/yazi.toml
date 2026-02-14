@@ -16,7 +16,8 @@ pdf = [
 ]
 
 imgs = [
-  { run = "feh \"$@\"", desc = "Open with feh", orphan = true}
+  { run = 'feh "$@"', desc = "Feh", orphan = true }
+]
 ]
 
 [open]
