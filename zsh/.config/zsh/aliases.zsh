@@ -1,5 +1,5 @@
 alias bye='sudo shutdown -h now'
-alias ls="eza --icons=always"
+alias ls='eza --icons=always --git --group-directories-first'
 alias grep='grep --color=auto'
 alias loop='sudo reboot'
 alias fonts='fc-list -f "%{family}\n"'
