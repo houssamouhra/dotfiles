@@ -8,7 +8,7 @@ open = [
 ]
 
 video = [
-  { run = "vlc \"$@\"", desc = "Open with vlc" }
+  { run = 'vlc "$@"', desc = "VLC" }
 ]
 
 pdf = [
