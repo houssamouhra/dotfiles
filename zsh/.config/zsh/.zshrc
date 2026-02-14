@@ -90,8 +90,8 @@ _fzf_compgen_dir()  { fd --type=d --hidden --exclude .git . "$1" }
 # fzf-git.sh
 git() {
   unfunction git
-  if [[ -f ~/fzf-git.sh/fzf-git.sh ]]; then
-    source ~/fzf-git.sh/fzf-git.sh
+  if [[ -f ~/fzf-git/fzf-git.sh ]]; then
+    source ~/fzf-git/fzf-git.sh
   fi
   command git "$@"
 }
