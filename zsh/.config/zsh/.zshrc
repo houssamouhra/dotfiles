@@ -119,24 +119,29 @@ _fzf_comprun() {
   esac
 }
 
-# bat
-export BAT_THEME='Catppuccin Mocha'
-
-# fzf 
-_fzf_lazy() {
-  unfunction fzf
-  eval "$(fzf --zsh)"
-  fzf "$@"
+# fzf lazy loader
+_fzf_init() {
+  unfunction _fzf_init 2>/dev/null
+  command -v fzf >/dev/null || return 1
+  eval "$(command fzf --zsh)"
 }
-fzf() { _fzf_lazy "$@"; }
 
-# fzf theme 
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#6C7086,label:#CDD6F4"
+# Lazy bind Ctrl+T
+_fzf_file_widget_lazy() {
+  _fzf_init
+  zle fzf-file-widget
+}
+zle -N _fzf_file_widget_lazy
+bindkey '^T' _fzf_file_widget_lazy
+
+# Lazy bind Alt+C
+_fzf_cd_widget_lazy() {
+  _fzf_init
+  zle fzf-cd-widget
+}
+
+zle -N _fzf_cd_widget_lazy
+bindkey '^[c' _fzf_cd_widget_lazy   # Alt+C
 
 # Load aliases
 source "$ZDOTDIR/aliases.zsh" 2>/dev/null || true
