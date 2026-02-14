@@ -18,6 +18,20 @@ pdf = [
 imgs = [
   { run = 'feh "$@"', desc = "Feh", orphan = true }
 ]
+
+audio = [
+  {
+    run  = '''
+      rmpc clear
+      for file in "$@"; do
+        relpath="${file#"$HOME/Music/"}"
+        rmpc add "$relpath"
+      done
+      rmpc play
+    ''',
+    desc = "Replace queue & play now",
+    for  = "unix"
+  },
 ]
 
 [open]
