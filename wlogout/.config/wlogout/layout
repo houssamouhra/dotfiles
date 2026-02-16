@@ -5,17 +5,21 @@
 }
 {
     "label" : "reboot",
-    "action" : "systemctl reboot || loginctl reboot",
+    "action" : "systemctl reboot",
     "keybind" : "r"
-}
-
-{
-    "label" : "sleep",
-    "action" : "~/.config/wlogout/scripts/sleep.sh",
-    "keybind" : "s"
 }
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff || loginctl poweroff",
+    "action" : "systemctl poweroff",
     "keybind" : "q"
+}
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit 0",
+    "keybind" : "e"
+}
+{
+    "label" : "sleep",
+    "action" : "~/.config/wlogout/scripts/sleep.sh"
+    "keybind" : "s"
 }
