@@ -60,6 +60,39 @@ blankwindow {
 }
 
 /* ───────────── Notification rows & cards ───────────── */
+
+/* Main notification text (title/summary + body) */
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action
+  .notification-content {
+  font-size: 13px;
+}
+
+/* Specifically target the title/summary */
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action
+  .notification-content
+  .text-box
+  .summary {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Body text / message */
+.notification-row
+  .notification-background
+  .notification
+  .notification-default-action
+  .notification-content
+  .text-box
+  .body {
+  font-size: 12px;
+}
+
 .notification-row {
   background: none;
   outline: none;
