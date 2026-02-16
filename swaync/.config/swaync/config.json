@@ -85,7 +85,7 @@
         },
         {
           "label": "",
-          "command": "hyprpicker -a"
+          "command": "~/.config/waybar/scripts/colorpicker.sh"
         },
         {
           "label": "",
