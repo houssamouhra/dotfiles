@@ -15,8 +15,8 @@ menu_select_wallpaper() {
         \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" \) |
         awk '{print "img:"$0}' |
         wofi -c ~/.config/wofi/wallpaper \
-             -s ~/.config/wofi/style-wallpaper.css \
-             --show dmenu --prompt "Select Wallpaper:" -n)
+            -s ~/.config/wofi/style-wallpaper.css \
+            --show dmenu --prompt "Select Wallpaper:" -n)
 
     echo "$choice" | sed 's/^img://'
 }
@@ -42,7 +42,7 @@ apply_wallpaper() {
     pkill -USR2 cava 2>/dev/null
     pkill -USR2 swaync 2>/dev/null
 
-    echo "$selected_wallpaper" > "$HOME/wallpapers/.last_wallpaper"
+    echo "$selected_wallpaper" >"$HOME/wallpapers/.last_wallpaper"
 }
 
 # Default behavior: menu or manual
@@ -53,4 +53,3 @@ else
     wp=$(menu_select_wallpaper)
     apply_wallpaper "$wp"
 fi
-
