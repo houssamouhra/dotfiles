@@ -1,6 +1,3 @@
-# Force shell to home dir
-[[ "$PWD" != "$HOME" ]] && cd "$HOME"
-
 # Antidote
 source ~/.antidote/antidote.zsh
 
