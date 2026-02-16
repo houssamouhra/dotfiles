@@ -15,14 +15,13 @@ fi
 
 # Convert SSH → HTTPS
 if [[ $url == git@github.com:* ]]; then
-  url="${url#git@github.com:}"
-  url="https://github.com/${url%.git}"
+    url="${url#git@github.com:}"
+    url="https://github.com/${url%.git}"
 elif [[ $url == https://github.com/* ]]; then
-  url="${url%.git}"
+    url="${url%.git}"
 else
-  exit 0
+    exit 0
 fi
 
 # Open browser (Linux)
 xdg-open "$url" >/dev/null 2>&1 &
-
