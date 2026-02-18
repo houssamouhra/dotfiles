@@ -1,6 +1,8 @@
-require 'core.options' -- Load options
-require 'core.keymaps' -- Load keymaps
-require 'core.diagnostics' -- Load diagnostics
+vim.g.start_time = vim.fn.reltime()
+-- Load Core
+require 'core.options'
+require 'core.keymaps'
+require 'core.diagnostics'
 
 -- Set up the Lazy plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -26,25 +28,22 @@ require('lazy').setup {
   -- require 'themes.eldritch',
 
   -- Load plugins
-  require 'plugins.alpha',
+  require 'plugins.startify',
   require 'plugins.autocompletion',
   require 'plugins.autopair',
   require 'plugins.bufferline',
   require 'plugins.cmdline',
-  require 'plugins.oil',
   require 'plugins.trouble',
   require 'plugins.comment',
-  require 'plugins.csscolors',
+  require 'plugins.nvim-colorizer',
   require 'plugins.debugging',
   require 'plugins.diffview',
-  require 'plugins.images',
   require 'plugins.git',
   require 'plugins.icons',
   require 'plugins.indent-blankline',
-  require 'plugins.lsp',
+  require 'plugins.mason',
   require 'plugins.lualine',
   require 'plugins.markdown',
-  require 'plugins.transparent',
   require 'plugins.misc',
   require 'plugins.nvim-surround',
   require 'plugins.neo-scroll',
@@ -58,7 +57,6 @@ require('lazy').setup {
   require 'plugins.telescope',
   require 'plugins.tmux-navigator',
   require 'plugins.treesitter',
-  require 'plugins.typr',
   require 'plugins.vim-test',
   require 'plugins.window-picker',
 }
