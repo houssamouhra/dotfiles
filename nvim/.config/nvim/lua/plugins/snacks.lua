@@ -96,21 +96,4 @@ return {
       end,
     },
   },
-  init = function()
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'VeryLazy',
-      callback = function()
-        _G.dd = function(...)
-          Snacks.debug.inspect(...)
-        end
-        _G.bt = function()
-          Snacks.debug.backtrace()
-        end
-        vim.print = _G.dd
-        -- Create some toggle mappings
-        Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>us'
-        Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>uw'
-      end,
-    })
-  end,
 }
