@@ -1,4 +1,4 @@
-# Antidote
+# Zsh plugin manager
 source ~/.antidote/antidote.zsh
 
 zsh_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins"
@@ -17,20 +17,16 @@ _starship_lazy() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _starship_lazy
 
-# Lazy-load keychain / ssh-agent
+# Keychain / ssh-agent
 _ssh_agent_lazy() {
-
-  # If agent already usable → do nothing
   if [[ -n "$SSH_AUTH_SOCK" && -S "$SSH_AUTH_SOCK" ]]; then
     return 0
   fi
 
-  # If keychain file exists → source it
   if [[ -f ~/.keychain/$HOST-sh ]]; then
     source ~/.keychain/$HOST-sh
   fi
 
-  # If still no working agent → start one
   if [[ -z "$SSH_AUTH_SOCK" || ! -S "$SSH_AUTH_SOCK" ]]; then
     eval "$(keychain --eval --quiet --nogui --timeout 480 ~/.ssh/id_ed25519)"
   fi
@@ -47,6 +43,7 @@ z() {
 _fnm_lazy_load() {
   if [[ -f package.json || -d node_modules || -f .nvmrc ]]; then
     eval "$(fnm env)" 2>/dev/null
+    add-zsh-hook -d precmd _fnm_lazy_load
   fi
 }
 autoload -Uz add-zsh-hook
@@ -116,7 +113,7 @@ _fzf_comprun() {
   esac
 }
 
-# fzf lazy loader
+# fzf
 _fzf_init() {
   unfunction _fzf_init 2>/dev/null
   command -v fzf >/dev/null || return 1
