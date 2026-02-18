@@ -1,6 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
-  event = 'UIEnter',
+  event = 'VeryLazy',
   dependencies = {
     'moll/vim-bbye',
     'nvim-tree/nvim-web-devicons',
@@ -53,7 +53,8 @@ return {
         },
         buffer_selected = {
           bold = true,
-          italic = false,
+          italic = true,
+          fg = '#FFFFFF',
         },
         -- separator_selected = {},
         -- tab_selected = {},
