@@ -1,5 +1,3 @@
-vim.g.start_time = vim.fn.reltime()
--- Load Core
 require 'core.options'
 require 'core.keymaps'
 require 'core.diagnostics'
@@ -19,18 +17,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Set up plugins
 require('lazy').setup {
   -- Load theme
-  -- require 'themes.catppuccin',
   require 'themes.tokyonight',
-  -- require 'themes.kanagawa',
-  -- require 'themes.nightfox',
   -- require 'themes.night-owl',
-  -- require 'themes.rosepine',
-  -- require 'themes.eldritch',
 
   -- Load plugins
   require 'plugins.startify',
   require 'plugins.autocompletion',
-  require 'plugins.autopair',
   require 'plugins.bufferline',
   require 'plugins.cmdline',
   require 'plugins.trouble',
