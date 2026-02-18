@@ -29,8 +29,6 @@ return {
       '',
       'Welcome back, Houssam!  🚀',
       '',
-      'Neovim ready in ' .. vim.fn.printf('%.2f ms', vim.fn.reltimefloat(vim.fn.reltime(vim.g.start_time)) * 1000),
-      '',
       'Let’s build something great today.',
     }
 
