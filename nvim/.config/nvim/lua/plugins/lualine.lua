@@ -4,6 +4,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'kdheepak/tabline.nvim',
+    { 'folke/tokyonight.nvim' },
   },
 
   config = function()
@@ -63,16 +64,21 @@ return {
           {
             'filename',
             file_status = true,
+            color = { fg = '#888888' },
           },
         },
         lualine_x = {
           diagnostics,
-          'encoding',
-          'fileformat',
-          'filetype',
+          { 'encoding', color = { fg = '#888888' } },
+          { 'fileformat', color = { fg = '#888888' } },
+          { 'filetype', color = { fg = '#888888' } },
         },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' },
+        lualine_y = {
+          { 'progress' },
+        },
+        lualine_z = {
+          { 'location' },
+        },
       },
 
       inactive_sections = {
