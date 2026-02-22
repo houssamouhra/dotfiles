@@ -346,6 +346,7 @@ if command -v yay &>/dev/null; then
 	install_aur "Wofi Emoji" "wofi-emoji"
 	install_aur "Zsh Antidote" "zsh-antidote"
 	install_aur "Tree-sitter" "tree-sitter-cli-github-bin"
+	install_aur "bibata cursor" "bibata-cursor-theme"
 fi
 
 print_summary
