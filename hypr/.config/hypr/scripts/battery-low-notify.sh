@@ -58,7 +58,7 @@ while true; do
 					"$msg"
 
 				# Play sound for all levels
-				[[ -f "$SOUND" ]] && paplay --volume=40000 "$SOUND" &>/dev/null &
+				[[ -f "$SOUND" ]] && paplay --volume=80000 "$SOUND" &>/dev/null &
 
 				last_notified[$thresh]=$current_time
 			fi
