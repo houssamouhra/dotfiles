@@ -21,7 +21,7 @@
 
 [alias]
   lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
-  unstage = restore --staged .
+  unstage = restore --staged
   graph = log --oneline --graph --decorate --all --date-order
   pr = pull --rebase
   ds = diff --staged
