@@ -1,52 +1,24 @@
 # By default Reload config with shft + cmd + , 
 config-file = themes/tokyonight
+
 background-opacity = 0.9
 
-# Font
-# font-family = MonoLisa Variable
 font-size = 14.0
 
-# Ligatures
-# font-feature = ss01
-# font-feature = ss02
-# font-feature = ss03
-# font-feature = ss04
-# font-feature = ss05
-# font-feature = ss07
-# font-feature = ss14
-# font-feature = ss15
-# font-feature = ss16
-# font-feature = ss17
-# font-feature = ss18
-# font-feature = ss19
-# font-feature = ss20
-# font-feature = calt
-# font-feature = cv01
-# font-feature = cv06
-# font-feature = cv14
-
-# Cursor
-cursor-style = block
+cursor-style = block 
 cursor-style-blink = false
-cursor-color = cell-foreground
-cursor-text = cell-background
 
-macos-titlebar-style = hidden
-macos-option-as-alt = true
 mouse-hide-while-typing = true
+copy-on-select = clipboard 
 
-confirm-close-surface = false
-window-decoration = auto
 window-padding-x = 12
 window-padding-y = 0
 window-padding-balance = false
 
-auto-update = check
-auto-update-channel = stable
-
-# extras
 shell-integration-features = no-cursor 
-copy-on-select = clipboard 
+confirm-close-surface = false
+
+auto-update = off
 
 #Shaders
 # custom-shader = shaders/cursor-warp.glsl
