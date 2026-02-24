@@ -39,8 +39,8 @@ FAST_HIGHLIGHT_STYLES[reserved-word]='fg=13'
 FAST_HIGHLIGHT_STYLES[precommand]='fg=14'
 
 # Cursor
-export XCURSOR_THEME="Breeze"
-export XCURSOR_SIZE="24"
+export XCURSOR_THEME="Bibata-Modern-Classic"
+export XCURSOR_SIZE="22"
 
 # Editors
 export EDITOR="nvim"
