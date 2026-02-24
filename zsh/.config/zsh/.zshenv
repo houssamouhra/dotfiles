@@ -34,8 +34,9 @@ FAST_HIGHLIGHT_STYLES[globbing]='none'
 FAST_HIGHLIGHT_STYLES[globbing-ext]='none'
 
 # Subtle useful highlights
-FAST_HIGHLIGHT_STYLES[commandseparator]='fg=8'
-FAST_HIGHLIGHT_STYLES[reserved-word]='fg=8'
+FAST_HIGHLIGHT_STYLES[commandseparator]='fg=240'
+FAST_HIGHLIGHT_STYLES[reserved-word]='fg=13'
+FAST_HIGHLIGHT_STYLES[precommand]='fg=14'
 
 # Cursor
 export XCURSOR_THEME="Breeze"
