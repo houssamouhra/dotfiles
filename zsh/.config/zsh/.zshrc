@@ -19,17 +19,14 @@ add-zsh-hook precmd _starship_lazy
 
 # Keychain / ssh-agent
 _ssh_agent_lazy() {
-  if [[ -n "$SSH_AUTH_SOCK" && -S "$SSH_AUTH_SOCK" ]]; then
+  if [[ -n "$SSH_AUTH_SOCK" && -S "$SSH_AUTH_SOCK" ]] &&
+     ssh-add -l >/dev/null 2>&1; then
     return 0
   fi
 
-  if [[ -f ~/.keychain/$HOST-sh ]]; then
-    source ~/.keychain/$HOST-sh
-  fi
+  [[ -f ~/.keychain/"$HOST"-sh ]] && source ~/.keychain/"$HOST"-sh
 
-  if [[ -z "$SSH_AUTH_SOCK" || ! -S "$SSH_AUTH_SOCK" ]]; then
-    eval "$(keychain --eval --quiet --nogui --timeout 480 ~/.ssh/id_ed25519)"
-  fi
+  eval "$(keychain --eval --quiet --nogui --timeout 480 ~/.ssh/id_ed25519)"
 }
 
 # zoxide
