@@ -7,6 +7,6 @@ profile undocked {
 # external monitor connected
 profile docked {
     output eDP-1 disable
-    output * enable
+    output HDMI-A-1 enable mode 1920x1080@144
     exec sh -c 'ln -sf ~/.config/hypr/monitors/hyprlock-external.conf ~/.config/hypr/hyprlock.conf'
 }
