@@ -26,7 +26,7 @@ sudo pacman -S stow
 install configs selectively, Stow creates symlinks into `$HOME`.
 ```bash
 cd ~/dotfiles
-stow hypr nvim zsh waybar wofi ghostty wal mpd rmpc scripts kanshi
+stow hypr nvim zsh waybar wofi ghostty wal mpd rmpc scripts shikane
 ```
 
 #### 4. Reload / apply configs
@@ -48,7 +48,7 @@ source ~/.config/zsh/.zshrc
 
 - **[hyprland](https://hypr.land/)** – Wayland compositor
 - **[GNU Stow](https://www.gnu.org/software/stow/)** – dotfile symlink manager
-- **[kanshi](https://github.com/emersion/kanshi)** – dynamic monitor management
+- **[shikane](https://gitlab.com/w0lff/shikane)** – dynamic output configuration tool
 
 </details>
 
