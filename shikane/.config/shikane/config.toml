@@ -1,0 +1,24 @@
+# Laptop only
+[[profile]]
+name = "undocked"
+
+[[profile.output]]
+search = "eDP-1"
+enable = true
+scale = 1.0
+exec = ['sh -c "ln -sf ~/.config/hypr/monitors/hyprlock-laptop.conf ~/.config/hypr/hyprlock.conf"']
+
+# External monitor connected
+[[profile]]
+name = "docked"
+
+[[profile.output]]
+search = "eDP-1"
+enable = false
+
+[[profile.output]]
+search = "HDMI-A-1"
+enable = true
+mode = "1920x1080@144"
+scale = 1.0
+exec = ['sh -c "ln -sf ~/.config/hypr/monitors/hyprlock-external.conf ~/.config/hypr/hyprlock.conf"']
