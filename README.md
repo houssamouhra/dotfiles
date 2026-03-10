@@ -26,12 +26,12 @@ sudo pacman -S stow
 install configs selectively, Stow creates symlinks into `$HOME`.
 ```bash
 cd ~/dotfiles
-stow hypr nvim zsh waybar wofi ghostty wal mpd rmpc scripts shikane
+stow hypr nvim zsh waybar rofi ghostty wal mpd rmpc scripts shikane
 ```
 
 #### 4. Reload / apply configs
 Some configs require a reload or restart
-```
+```shell
 hyprctl reload
 source ~/.config/zsh/.zshrc
 ```
@@ -55,7 +55,7 @@ source ~/.config/zsh/.zshrc
 <details>
 <summary>UI / Desktop</summary>
 
-- **[wofi](https://github.com/SimplyCEO/wofi)** – application launcher
+- **[rofi](https://github.com/davatorium/rofi)** – application launcher
 - **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
 - **[wlogout](https://github.com/ArtsyMacaw/wlogout)** – logout menu
 - **[swaync](https://github.com/ErikReider/SwayNotificationCenter)** – notification daemon
