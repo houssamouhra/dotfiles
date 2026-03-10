@@ -275,7 +275,8 @@ install_pacman "Hypershot" "hyprshot"
 install_pacman "Waybar" "waybar"
 install_pacman "Swww" "swww"
 install_pacman "Sway Notification Center" "swaync"
-install_pacman "Wofi" "wofi"
+install_pacman "Rofi" "rofi"
+install_pacman "Rofimoji" "rofimoji"
 install_pacman "SDDM" "sddm"
 install_pacman "XSettings Daemon" "xsettingsd"
 install_pacman "wl-clipboard" "wl-clipboard"
@@ -333,7 +334,7 @@ install_pacman "Stow" "stow"
 install_pacman "TTYper" "ttyper"
 
 if command -v yay &>/dev/null; then
-	install_aur "Helium" "helium-browser-bin"
+	install_aur "Zen" "zen-browser-bin"
 	install_aur "DXVK" "dxvk-bin"
 	install_aur "Fast Node Manager" "fnm"
 	install_aur "Grimblast" "grimblast-git"
@@ -347,6 +348,7 @@ if command -v yay &>/dev/null; then
 	install_aur "Zsh Antidote" "zsh-antidote"
 	install_aur "Tree-sitter" "tree-sitter-cli-github-bin"
 	install_aur "bibata cursor" "bibata-cursor-theme"
+	install_aur "Diffnav" "diffnav"
 fi
 
 print_summary
