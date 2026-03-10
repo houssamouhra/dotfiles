@@ -55,6 +55,7 @@
 
 [pager]
   log = delta
+  diff = diffnav
 
 [safe]
   directory = ~/dotfiles
