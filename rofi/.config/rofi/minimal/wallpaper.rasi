@@ -1,0 +1,92 @@
+/* 🖼️ ROFI WALLPAPER GRID THEME */
+/* Compact 4x3 Grid Layout */
+
+@import "~/.config/rofi/config.rasi"
+
+/* ---- Configuration ---- */
+configuration {
+    show-icons: true;
+    icon-fetcher: "internal";
+}
+
+/* ---- Window ---- */
+window {
+    width: 50%;
+    height: 65%;
+    border: 2px;
+    border-radius: 12px;
+}
+
+/* ---- Mainbox ---- */
+mainbox {
+    children: ["inputbar", "listview"];
+    spacing: 10px;
+    padding: 20px;
+}
+
+/* ---- Inputbar ---- */
+inputbar {
+    enabled: true;
+    padding: 10px;
+    border-radius: 10px;
+    children: ["prompt", "entry"];
+}
+
+prompt {
+    enabled: true;
+    padding: 0px 10px 0px 0px;
+    background-color: transparent;
+    text-color: inherit;
+}
+
+entry {
+    placeholder: "󰍉 Search...";
+    background-color: transparent;
+    text-color: inherit;
+}
+
+/* ---- Listview ---- */
+listview {
+    columns: 4;
+    lines: 3;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 12px;
+    padding: 10px;
+    cycle: false;
+    dynamic: true;
+    layout: vertical;
+    reverse: false;
+}
+
+/* ---- Elements ---- */
+element {
+    orientation: vertical;
+    padding: 10px;
+    spacing: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border: 2px;
+    border-color: @color4;
+}
+
+element-icon {
+    size: 7em;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+element-text {
+    enabled: false;
+}
