@@ -5,20 +5,21 @@ CAVA_CONFIG="$HOME/.config/cava/config"
 
 get_random_wallpaper() {
 	find "$WALLPAPER_DIR" -type f \
-		\( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" \) |
-		shuf -n 1
+		\( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) \
+		-print0 | shuf -z -n 1 | tr -d '\0'
 }
 
 menu_select_wallpaper() {
-	# Launch Wofi menu
-	choice=$(find "$WALLPAPER_DIR" -type f \
-		\( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" \) |
-		awk '{print "img:"$0}' |
-		wofi -c ~/.config/wofi/wallpaper \
-			-s ~/.config/wofi/style-wallpaper.css \
-			--show dmenu --prompt "Select Wallpaper:" -n)
+	local choice
+	choice=$(
+		find $WALLPAPER_DIR -type f \( -iname "*.jpg" -o -iname "*.png" \) |
+			while read -r img; do printf '%s\x00icon\x1f%s\n' "$(basename "$img")" "$img"; done |
+			rofi -dmenu -i -p "Select Wallpaper" -theme ~/.config/rofi/minimal/wallpaper.rasi -show-icons
+	)
 
-	echo "$choice" | sed 's/^img://'
+	[ -z "$choice" ] && return 1
+
+	find "$WALLPAPER_DIR" -type f -name "$choice" -print -quit || echo ""
 }
 
 apply_wallpaper() {
