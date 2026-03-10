@@ -4,7 +4,7 @@
 config-file = themes/tokyonight
 
 # Transparency
-background-opacity = 0.9
+background-opacity = 0.94
 
 # Fonts
 font-size = 14.0
