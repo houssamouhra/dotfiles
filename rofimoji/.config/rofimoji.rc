@@ -1,0 +1,4 @@
+action = copy
+files = [emojis, math]
+skin-tone = neutral
+clipboarder = wl-copy
