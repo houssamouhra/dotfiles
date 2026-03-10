@@ -41,9 +41,9 @@
   path = ~/.config/delta/themes.gitconfig
 
 [delta]
-  features = weeping-willow 
-  syntax-theme = OneHalfDark 
-  side-by-side = true
+  features = colibri 
+  syntax-theme = tokyonight_night
+  side-by-side = false 
   line-numbers = true
   navigate = true
 
