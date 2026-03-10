@@ -20,9 +20,10 @@
   verbose = true
 
 [alias]
-  lg = log --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %s %Cgreen(%cr)%Creset'
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%d%Creset %C(blue)%an%Creset %Cgreen(%cr)%Creset %s' --abbrev-commit
+  graph = log --oneline --graph --decorate --all --date-order --color
   unstage = restore --staged
-  graph = log --oneline --graph --decorate --all --date-order
+  amend = commit --amend --no-edit
   pr = pull --rebase
   ds = diff --staged
   ap = add -p
