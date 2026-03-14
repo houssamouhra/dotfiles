@@ -2,7 +2,6 @@ alias bye='read -r '\''REPLY?Really power off? [Y/n] '\'' || exit; [[ -z $REPLY 
 alias ls='eza --icons=always --git --group-directories-first'
 alias ll='eza -l --icons=auto --git --group-directories-first --header --time-style=long-iso'
 alias pacclean='sudo pacman -Sc --noconfirm && sudo paccache -r'
-alias grep='grep --color=auto'
 alias fonts='fc-list : family | sort -u'
 alias pacorphans='sudo pacman -Rns $(pacman -Qdtq) 2>/dev/null || echo "No orphans to remove."'
 alias update='sudo pacman -Syu'
