@@ -21,14 +21,18 @@ $cmd_duration\
 $line_break\
 $character"""
 
-add_newline = true
+[character]
+success_symbol = '[❯](bold purple)'
+error_symbol = '[❯](bold red)'
 
 [directory]
 style = 'blue'
-format = '[$path ]($style)'
-truncation_length = 2 
+format = '[$path]($style)[$read_only]($read_only_style) '
+truncation_length = 2
 truncation_symbol = '…/'
 truncate_to_repo = false
+read_only = ' '
+read_only_style = 'red bold'
 
 [directory.substitutions]
 'Documents' = '󰈙'
@@ -37,9 +41,25 @@ truncate_to_repo = false
 'wallpapers' = ' '
 
 [git_branch]
-style = 'fg:green'
+style = 'green'
 symbol = ' '
 format = '[on](white) [$symbol$branch ]($style)'
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'bold red'
+conflicted = '='
+ahead = '⇡$count'
+behind = '⇣$count'
+diverged = '⇕'
+up_to_date = ''
+untracked = '?'
+stashed = '\$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+typechanged = ""
 
 [fill]
 symbol = ' '
