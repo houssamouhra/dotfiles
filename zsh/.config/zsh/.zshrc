@@ -1,13 +1,18 @@
-# Zsh plugin manager
+# Load configs
+[[ -f "$XDG_CONFIG_DIR/history.zsh" ]] && source "$XDG_CONFIG_DIR/history.zsh"
+[[ -f "$XDG_CONFIG_DIR/keybinds.zsh" ]] && source "$XDG_CONFIG_DIR/keybinds.zsh"
+[[ -f "$XDG_CONFIG_DIR/aliases.zsh" ]] && source "$XDG_CONFIG_DIR/aliases.zsh"
+[[ -f "$XDG_CONFIG_DIR/fzf.zsh" ]] && source "$XDG_CONFIG_DIR/fzf.zsh"
+[[ -f "$XDG_CONFIG_DIR/highlighting.zsh" ]] && source "$XDG_CONFIG_DIR/highlighting.zsh"
+
+# Load plugins
 source ~/.antidote/antidote.zsh
-
-zsh_plugins="${ZDOTDIR:-$HOME}/.zsh_plugins"
-
-if [[ ! -f "${zsh_plugins}.zsh" ]] || [[ "${zsh_plugins}.txt" -nt "${zsh_plugins}.zsh" ]]; then
-  antidote bundle < "${zsh_plugins}.txt" > "${zsh_plugins}.zsh"
+zsh_plugins="$XDG_PLUGIN_DIR/.zsh_plugins"
+if [[ ! -f "${zsh_plugins}.zsh" || "$XDG_PLUGIN_DIR/.zsh_plugins.txt" -nt "${zsh_plugins}.zsh" ]]; then
+  antidote bundle < "$XDG_PLUGIN_DIR/.zsh_plugins.txt" > "${zsh_plugins}.zsh"
 fi
-
 source "${zsh_plugins}.zsh"
+autoload -Uz add-zsh-hook
 
 # Starship
 _starship_lazy() {
@@ -23,9 +28,7 @@ _ssh_agent_lazy() {
      ssh-add -l >/dev/null 2>&1; then
     return 0
   fi
-
   [[ -f ~/.keychain/"$HOST"-sh ]] && source ~/.keychain/"$HOST"-sh
-
   eval "$(keychain --eval --quiet --nogui --timeout 480 ~/.ssh/id_ed25519)"
 }
 
@@ -40,10 +43,8 @@ z() {
 _fnm_lazy_load() {
   if [[ -f package.json || -d node_modules || -f .nvmrc ]]; then
     eval "$(fnm env)" 2>/dev/null
-    add-zsh-hook -d precmd _fnm_lazy_load
   fi
 }
-autoload -Uz add-zsh-hook
 add-zsh-hook precmd _fnm_lazy_load
 
 # Manual fnm trigger
@@ -59,80 +60,12 @@ pnpm() {
   pnpm "$@"
 }
 
-# HISTORY & KEYBINDINGS
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-setopt sharehistory hist_ignore_all_dups appendhistory
-setopt hist_reduce_blanks hist_verify inc_append_history
-
-bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-
-# fd
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-
-_fzf_compgen_path() { fd --hidden --exclude .git . "$1" }
-_fzf_compgen_dir()  { fd --type=d --hidden --exclude .git . "$1" }
-
-# fzf-git.sh
-git() {
-  unfunction git
-  if [[ -f ~/fzf-git/fzf-git.sh ]]; then
-    source ~/fzf-git/fzf-git.sh
-  fi
-  command git "$@"
+# Clear screen but keep current command buffer
+clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '\033[H\033[2J\033[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
 }
-
-show_file_or_dir_preview='
-if [ -d {} ]; then
-  eza --tree --color=always {} | head -200
-else
-  bat -n --color=always --line-range :500 {}
-fi
-'
-
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
-    ssh)          fzf --preview 'dig {}'                   "$@" ;;
-    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
-  esac
-}
-
-# fzf
-_fzf_init() {
-  unfunction _fzf_init 2>/dev/null
-  command -v fzf >/dev/null || return 1
-  eval "$(command fzf --zsh)"
-}
-
-# Lazy bind Ctrl+T
-_fzf_file_widget_lazy() {
-  _fzf_init
-  zle fzf-file-widget
-}
-zle -N _fzf_file_widget_lazy
-bindkey '^T' _fzf_file_widget_lazy
-
-# Lazy bind Alt+C
-_fzf_cd_widget_lazy() {
-  _fzf_init
-  zle fzf-cd-widget
-}
-
-zle -N _fzf_cd_widget_lazy
-bindkey '^[c' _fzf_cd_widget_lazy   # Alt+C
-
-# Load aliases
-source "$ZDOTDIR/aliases.zsh" 2>/dev/null || true
+zle -N clear-screen-and-scrollback
+bindkey '^Xl' clear-screen-and-scrollback
