@@ -1,37 +1,51 @@
-# By default Reload config with shft + cmd + ,
+# By default Reload config with shift + ctrl + ,
 
-# Theme
+# THEME
 config-file = themes/tokyonight
 
-# Transparency
-background-opacity = 0.94
+# TRANSPARENCY
+background-opacity = 0.93
 
-# Fonts
-font-size = 13.0
-adjust-cell-height = 1
+# FONTS
+font-size = 13
+adjust-cell-height = 10%
+freetype-load-flags = force-autohint
 
-# Cursor
+# CURSOR
 cursor-style = block
 cursor-style-blink = false
 
-# Mouse & selection
+# MOUSE & SELECTION
 mouse-hide-while-typing = true
 copy-on-select = clipboard
 
-# Padding
+# PADDING
 window-padding-x = 12
 window-padding-y = 0
 window-padding-balance = false
 
-# Shell & window behavior
-shell-integration-features = no-cursor
+# WINDOW BEHAVIOR
+window-theme = ghostty
+window-decoration = none
+window-padding-color = extend-always
+window-vsync = false
 confirm-close-surface = false
 auto-update = off
+gtk-single-instance = true
 
-# Shaders
+# SHELL INTEGRATION
+shell-integration = zsh
+shell-integration-features = no-cursor
+
+# SHADERS
 # custom-shader = shaders/cursor-warp.glsl
+# custom-shader = shaders/in-game-crt-cursor.glsl
 # custom-shader = shaders/bettercrt.glsl
 # custom-shader = shaders/amber-crt.glsl
 # custom-shader = shaders/retro-terminal.glsl
 # custom-shader = shaders/bloom025.glsl
+# custom-shader = shaders/bloom.glsl
 # custom-shader = shaders/tft.glsl
+# custom-shader = shaders/glitchy.glsl
+# custom-shader = shaders/starfield-colors.glsl
+# custom-shader = shaders/water.glsl
