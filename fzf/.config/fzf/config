@@ -1,11 +1,14 @@
---height=50%
+--height=60%
 --layout=reverse
 --border=rounded
 --preview-window=right:60%:border-left
---prompt="❯ "
+--prompt="➜ "
 --highlight-line
 --info=inline-right
 --ansi
+--tiebreak=index
+--multi
+--bind=ctrl-space:toggle
 
 --color=bg:#1a1b26
 --color=bg+:#2f3955
