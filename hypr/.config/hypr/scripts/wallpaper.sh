@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPER_DIR="$HOME/wallpapers/walls"
+WALLPAPER_DIR="$HOME/wallpapers/wallpapers/"
 CAVA_CONFIG="$HOME/.config/cava/config"
 
 get_random_wallpaper() {
