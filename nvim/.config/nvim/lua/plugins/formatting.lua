@@ -28,6 +28,7 @@ return {
         css = prettier,
         javascriptreact = prettier,
         typescriptreact = prettier,
+        yaml = { 'yamlfix' },
         sh = { 'shfmt' },
       },
 
