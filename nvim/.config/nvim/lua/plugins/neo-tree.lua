@@ -81,7 +81,7 @@ return {
       -- main tree window settings
       window = {
         position = 'left',
-        width = 30,
+        width = 25,
 
         mapping_options = { noremap = true, nowait = true },
 
