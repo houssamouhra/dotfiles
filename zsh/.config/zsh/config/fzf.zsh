@@ -69,7 +69,7 @@ _fzf_cd_widget_lazy() {
     zle fzf-cd-widget
 }
 zle -N _fzf_cd_widget_lazy
-bindkey '^[c' _fzf_cd_widget_lazy   # Alt+C
+bindkey '^[c' _fzf_cd_widget_lazy
 
 # Lazy git-fzf integration
 # Override git command to source fzf-git only when git is used
