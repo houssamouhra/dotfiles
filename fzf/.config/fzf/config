@@ -6,5 +6,5 @@
 --multi
 --cycle
 --bind change:first
---tiebreak=begin,length,index
+--tiebreak=index
 --bind=ctrl-space:toggle
