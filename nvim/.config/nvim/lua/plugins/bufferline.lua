@@ -74,16 +74,5 @@ return {
         },
       },
     }
-    vim.api.nvim_create_autocmd({ 'UIEnter', 'BufEnter', 'ColorScheme' }, {
-      pattern = '*',
-      once = false,
-      callback = function()
-        vim.defer_fn(function()
-          vim.api.nvim_set_hl(0, 'TabLineFill', { bg = 'none', fg = 'none' })
-          vim.api.nvim_set_hl(0, 'TabLine', { bg = 'none', fg = 'none' })
-          vim.api.nvim_set_hl(0, 'TabLineSel', { bg = 'none' })
-        end, 0)
-      end,
-    })
   end,
 }
