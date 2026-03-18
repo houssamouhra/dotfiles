@@ -30,6 +30,7 @@ return {
         typescriptreact = prettier,
         yaml = { 'yamlfix' },
         sh = { 'shfmt' },
+        zsh = { 'beautysh' },
       },
 
       format_on_save = {
