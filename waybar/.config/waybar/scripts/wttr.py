@@ -11,54 +11,54 @@ CITY = "Tangier"
 
 # Expanded mapping
 WEATHER_CODES = {
-    '113': '☀️',       # Sunny / Clear
-    '116': '⛅',       # Partly cloudy
-    '119': '☁️',       # Cloudy
-    '122': '☁️☁️',     # Overcast (double cloud for emphasis)
-    '143': '🌫️',      # Mist
-    '176': '🌦️',      # Patchy rain nearby
-    '179': '🌨️',      # Patchy snow nearby
-    '182': '🌧️❄️',    # Patchy sleet nearby
-    '185': '🌧️🥶',    # Patchy freezing drizzle
-    '200': '⛈️',       # Thundery outbreaks possible
-    '227': '🌬️❄️',    # Blowing snow
-    '230': '❄️🌪️',    # Blizzard (tornado for strong wind + snow)
-    '248': '🌫️',      # Fog
-    '260': '🌫️🥶',    # Freezing fog
-    '263': '🌧️',      # Patchy light drizzle
-    '266': '🌧️',      # Light drizzle
-    '281': '🌧️🥶',    # Freezing drizzle
-    '284': '🌧️🥶🥶',   # Heavy freezing drizzle
-    '293': '🌧️',      # Patchy light rain
-    '296': '🌧️',      # Light rain
-    '299': '🌧️🌧️',    # Moderate rain at times
-    '302': '🌧️🌧️',    # Moderate rain
-    '305': '🌧️🌧️',    # Heavy rain at times
-    '308': '⛈️🌧️',    # Heavy rain (thunder cloud + rain)
-    '311': '🌧️🥶',    # Light freezing rain
-    '314': '🌧️🥶🥶',   # Moderate/heavy freezing rain
-    '317': '🌨️🌧️',    # Light sleet
-    '320': '🌨️🌧️',    # Moderate/heavy sleet
-    '323': '🌨️',      # Patchy light snow
-    '326': '🌨️',      # Light snow
-    '329': '❄️',       # Patchy moderate snow
-    '332': '❄️',       # Moderate snow
-    '335': '❄️❄️',     # Patchy heavy snow
-    '338': '❄️❄️❄️',   # Heavy snow
-    '350': '🌨️',      # Ice pellets
-    '353': '🌧️',      # Light rain shower
-    '356': '🌧️🌧️',    # Moderate/heavy rain shower
-    '359': '🌧️⛈️',    # Torrential rain shower
-    '362': '🌨️🌧️',    # Light sleet showers
-    '365': '🌨️🌧️',    # Moderate/heavy sleet showers
-    '368': '🌨️',      # Light snow showers
-    '371': '❄️❄️',     # Moderate/heavy snow showers
-    '374': '🌨️',      # Light showers of ice pellets
-    '377': '🌨️',      # Moderate/heavy showers of ice pellets
-    '386': '⛈️🌧️',    # Patchy light rain with thunder
-    '389': '⛈️⛈️',     # Moderate/heavy rain with thunder
-    '392': '⛈️❄️',     # Patchy light snow with thunder
-    '395': '⛈️❄️❄️',   # Moderate/heavy snow with thunder
+    '113': '',
+    '116': '󰖕',
+    '119': '',
+    '122': '',
+    '143': '',
+    '176': '',
+    '179': '',
+    '182': '',
+    '185': '',
+    '200': '⛈️',
+    '227': '🌨️',
+    '230': '🌨️',
+    '248': '☁️ ',
+    '260': '☁️',
+    '263': '🌧️',
+    '266': '🌧️',
+    '281': '🌧️',
+    '284': '🌧️',
+    '293': '🌧️',
+    '296': '🌧️',
+    '299': '🌧️',
+    '302': '🌧️',
+    '305': '🌧️',
+    '308': '🌧️',
+    '311': '🌧️',
+    '314': '🌧️',
+    '317': '🌧️',
+    '320': '🌨️',
+    '323': '🌨️',
+    '326': '🌨️',
+    '329': '❄️',
+    '332': '❄️',
+    '335': '❄️',
+    '338': '❄️',
+    '350': '🌧️',
+    '353': '🌧️',
+    '356': '🌧️',
+    '359': '🌧️',
+    '362': '🌧️',
+    '365': '🌧️',
+    '368': '🌧️',
+    '371': '❄️',
+    '374': '🌨️',
+    '377': '🌨️',
+    '386': '🌨️',
+    '389': '🌨️',
+    '392': '🌧️',
+    '395': '❄️'
 }
 
 MOON_CODES = {
