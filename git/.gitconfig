@@ -51,7 +51,7 @@
   conflictStyle = zdiff3
 
 [color]
-  ui = auto
+  ui = true
 
 [pager]
   log = delta
