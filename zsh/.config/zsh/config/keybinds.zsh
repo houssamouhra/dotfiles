@@ -9,3 +9,4 @@ bindkey '^_' undo
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 bindkey '^R' fzf-history-widget
+bindkey -s ^f "tmux-sessionizer"

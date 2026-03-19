@@ -8,12 +8,12 @@ export XDG_PLUGIN_DIR="$ZDOTDIR/plugins"
 
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export CARGO_BIN_HOME="$HOME/.cargo/bin"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
 # Default editor, terminal, and pagers
 export EDITOR=nvim
 export VISUAL=$EDITOR
-export TERMINAL=ghostty
 export PAGER=less
 export MANPAGER=$PAGER
 
@@ -28,7 +28,7 @@ typeset -gU path
 
 path=(
     $XDG_BIN_HOME
-    $HOME/.cargo/bin
+    $CARGO_BIN_HOME
     $PNPM_HOME
     $path
 )
