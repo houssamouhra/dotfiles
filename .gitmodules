@@ -1,3 +1,4 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = https://github.com/houssamouhra/wallpapers.git
+	update = merge
