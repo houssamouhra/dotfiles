@@ -1,3 +1,4 @@
 [submodule "wallpapers"]
 	path = wallpapers
 	url = git@github.com:houssamouhra/wallpapers.git
+	branch = main
