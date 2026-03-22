@@ -23,7 +23,8 @@
       "com.mitchellh.ghostty": "term",
       "brave-browser": "brave",
       "org.nicotine_plus.Nicotine": "Nicotine+",
-      "org.telegram.desktop": "telegram"
+      "org.telegram.desktop": "telegram",
+      "org.qbittorrent.qBittorrent": "qbittorrent"
    }
 },
 
