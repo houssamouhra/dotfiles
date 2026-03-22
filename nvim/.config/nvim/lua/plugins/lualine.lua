@@ -4,7 +4,6 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'kdheepak/tabline.nvim',
-    { 'folke/tokyonight.nvim' },
   },
 
   config = function()
