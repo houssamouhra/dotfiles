@@ -24,5 +24,14 @@ return {
     }
 
     vim.cmd.colorscheme 'tokyonight-night'
+    vim.api.nvim_set_hl(0, 'CursorLineSign', { bg = '#1f2335' })
+    vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'none' })
+
+    vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = '#22c55e' })
+    vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = '#eab308' })
+    vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = '#ef4444' })
+    vim.api.nvim_set_hl(0, 'GitSignsTopdelete', { fg = '#ef4444' })
+    vim.api.nvim_set_hl(0, 'GitSignsChangedelete', { fg = '#eab308' })
+    vim.api.nvim_set_hl(0, 'GitSignsUntracked', { fg = '#7aa2f7' })
   end,
 }
