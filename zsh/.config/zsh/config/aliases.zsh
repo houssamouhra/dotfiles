@@ -7,6 +7,7 @@ alias pacorphans='sudo pacman -Rns $(pacman -Qdtq) 2>/dev/null || echo "No orpha
 alias update='sudo pacman -Syu'
 alias n='nvim'
 alias gs='git status -s'
+alias ds='git diff --staged'
 alias ta='tmux attach'
 alias tl='tmux list-sessions'
 alias tkill='tmux kill-server'
