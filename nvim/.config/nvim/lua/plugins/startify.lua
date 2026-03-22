@@ -1,11 +1,6 @@
 return {
   'mhinz/vim-startify',
   config = function()
-    local function pad(str, len)
-      local pad_len = math.max(0, len - vim.fn.strdisplaywidth(str))
-      return str .. string.rep(' ', pad_len)
-    end
-
     local function center_text(lines)
       -- Use a realistic max width; many people use 100–140 range
       local width = math.min(vim.o.columns or 100, 140)
@@ -19,7 +14,7 @@ return {
     end
 
     local raw_header = {
-      '', -- top margin
+      '',
       '███╗   ██╗██╗   ██╗██╗███╗   ███╗',
       '████╗  ██║██║   ██║██║████╗ ████║',
       '██╔██╗ ██║██║   ██║██║██╔████╔██║',
@@ -27,7 +22,7 @@ return {
       '██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║',
       '╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝',
       '',
-      'Welcome back, Houssam!  🚀',
+      'Welcome back, Houssam!',
       '',
       'Let’s build something great today.',
     }
