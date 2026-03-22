@@ -35,5 +35,12 @@ return {
         additional_vim_regex_highlighting = false,
       },
     }
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'javascriptreact', 'typescriptreact' },
+      callback = function()
+        vim.treesitter.start()
+      end,
+    })
   end,
 }
