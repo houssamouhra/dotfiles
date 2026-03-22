@@ -27,7 +27,6 @@ window-padding-balance = false
 # WINDOW BEHAVIOR
 window-theme = ghostty
 window-decoration = none
-window-padding-color = extend-always
 window-vsync = false
 confirm-close-surface = false
 auto-update = off
