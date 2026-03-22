@@ -14,7 +14,7 @@ fi
 source "${zsh_plugins}.zsh"
 autoload -Uz add-zsh-hook
 
-# Starship prompt (lazy load)
+# Starship prompt lazy load
 _starship_lazy() {
     unfunction _starship_lazy
     eval "$(command starship init zsh)"
@@ -22,7 +22,7 @@ _starship_lazy() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _starship_lazy
 
-# SSH Agent / Keychain integration
+# SSH Agent / Keychain
 _ssh_agent_lazy() {
     if [[ -n "$SSH_AUTH_SOCK" && -S "$SSH_AUTH_SOCK" ]] &&
     ssh-add -l >/dev/null 2>&1; then
@@ -39,7 +39,7 @@ z() {
     z "$@"
 }
 
-# fnm (Fast Node Manager) lazy load
+# fnm lazy load
 _fnm_lazy_load() {
     if [[ -f package.json || -d node_modules || -f .nvmrc ]]; then
         eval "$(fnm env)" 2>/dev/null
@@ -47,7 +47,7 @@ _fnm_lazy_load() {
 }
 add-zsh-hook precmd _fnm_lazy_load
 
-# Manual fnm activation
+# fnm manual activation
 fnm-on() {
     eval "$(fnm env)" 2>/dev/null
     echo "Node activated"
@@ -60,7 +60,7 @@ pnpm() {
     pnpm "$@"
 }
 
-# Colored man pages (lazy load)
+# Colored man pages lazy load
 autoload -U add-zsh-hook
 colored_man_pages() {
     if (( zsh_first_prompt_loaded == 0 )); then
