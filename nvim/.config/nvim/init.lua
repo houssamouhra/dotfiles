@@ -18,7 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- Load theme
   require 'themes.tokyonight',
-  -- require 'themes.night-owl',
 
   -- Load plugins
   require 'plugins.dashboard',
