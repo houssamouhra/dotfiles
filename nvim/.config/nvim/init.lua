@@ -21,7 +21,7 @@ require('lazy').setup {
   -- require 'themes.night-owl',
 
   -- Load plugins
-  require 'plugins.startify',
+  require 'plugins.dashboard',
   require 'plugins.autocompletion',
   require 'plugins.bufferline',
   require 'plugins.cmdline',
