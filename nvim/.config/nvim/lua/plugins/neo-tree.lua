@@ -10,18 +10,19 @@ return {
   -- lazy load: load only when opening neotree
   cmd = 'Neotree',
   keys = {
-    { '<C-n>', ':Neotree toggle position=left<CR>', desc = 'toggle neotree (left)' },
-    { '\\', ':Neotree reveal<CR>', desc = 'reveal current file in neotree' },
-    { '<leader>ngs', ':Neotree float git_status<CR>', desc = 'show git status in floating neotree' },
+    { '<C-n>', ':Neotree toggle position=left<CR>', desc = 'toggle neotree (left)', silent = true },
+    { '\\', ':Neotree reveal<CR>', desc = 'reveal current file in neotree', silent = true },
+    { '<leader>ngs', ':Neotree float git_status<CR>', desc = 'show git status in floating neotree', silent = true },
   },
 
   -- plugin configuration
   config = function()
     require('neo-tree').setup {
-      close_if_last_window = false, -- do not auto-close if last window
+      close_if_last_window = false,
       popup_border_style = 'rounded',
-      enable_git_status = true, -- show git icons
-      enable_diagnostics = true, -- show lsp diagnostics
+      enable_git_status = true,
+      enable_diagnostics = true,
+      enable_winbar = false,
       open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
 
       -- default component settings
