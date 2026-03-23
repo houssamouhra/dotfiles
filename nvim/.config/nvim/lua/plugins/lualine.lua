@@ -3,14 +3,9 @@ return {
   event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'kdheepak/tabline.nvim',
   },
 
   config = function()
-    local hide_in_width = function()
-      return vim.fn.winwidth(0) > 100
-    end
-
     local diagnostics = {
       'diagnostics',
       sources = { 'nvim_lsp' },
@@ -19,14 +14,12 @@ return {
       colored = true,
       update_in_insert = false,
       always_visible = true,
-      cond = hide_in_width,
     }
 
     local diff = {
       'diff',
       colored = true,
       symbols = { added = '+', modified = '~', removed = '-' },
-      cond = hide_in_width,
     }
 
     require('lualine').setup {
@@ -35,7 +28,12 @@ return {
         theme = 'auto',
         section_separators = { left = '', right = '' },
         component_separators = { '', '' },
-        globalstatus = true,
+        globalstatus = false,
+        disabled_filetypes = {
+          statusline = { 'neo-tree' },
+          winbar = { 'neo-tree' },
+        },
+        ignore_focus = { 'neo-tree' },
       },
       refresh = {
         statusline = 100,
@@ -79,17 +77,6 @@ return {
           { 'location' },
         },
       },
-
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { { 'location', padding = 0 } },
-        lualine_y = {},
-        lualine_z = {},
-      },
-
-      extensions = { 'fugitive' },
     }
   end,
 }
