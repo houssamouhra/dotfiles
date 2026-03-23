@@ -2,8 +2,8 @@ return {
   'lewis6991/gitsigns.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    vim.keymap.set('n', '<leader>gp', ':Gitsigns preview_hunk<CR>', {})
-    vim.keymap.set('n', '<leader>gt', ':Gitsigns toggle_current_line_blame<CR>', {})
+    vim.keymap.set('n', '<leader>gp', ':Gitsigns preview_hunk<CR>', { silent = true })
+    vim.keymap.set('n', '<leader>gt', ':Gitsigns toggle_current_line_blame<CR>', { silent = true })
     require('gitsigns').setup {
       signs = {
         add = { text = '▎' },
