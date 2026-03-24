@@ -86,9 +86,10 @@ return {
     -- Setup mason + mason-lspconfig
     require('mason-lspconfig').setup {
       ensure_installed = {
-        'ts_ls',
+        'emmet_language_server',
         'html',
         'cssls',
+        'ts_ls',
         'tailwindcss',
         'dockerls',
         'sqlls',
@@ -102,5 +103,39 @@ return {
     require('mason-tool-installer').setup {
       ensure_installed = { 'stylua' },
     }
+
+    vim.lsp.config('emmet_language_server', {
+      capabilities = capabilities,
+      filetypes = {
+        'html',
+        'css',
+        'scss',
+        'sass',
+        'less',
+        'javascriptreact',
+        'typescriptreact',
+        'vue',
+        'svelte',
+        'astro',
+      },
+      init_options = {
+        html = {
+          options = {
+            ['output.selfClosingStyle'] = 'xhtml',
+          },
+        },
+        javascript = {
+          options = {
+            ['output.selfClosingStyle'] = 'xhtml',
+          },
+        },
+        typescript = {
+          options = {
+            ['output.selfClosingStyle'] = 'xhtml',
+          },
+        },
+      },
+    })
+    vim.lsp.enable 'emmet_language_server'
   end,
 }

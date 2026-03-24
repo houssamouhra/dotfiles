@@ -32,7 +32,7 @@ require('lazy').setup {
   require 'plugins.git',
   require 'plugins.icons',
   require 'plugins.indent-blankline',
-  require 'plugins.mason',
+  require 'plugins.lsp',
   require 'plugins.lualine',
   require 'plugins.markdown',
   require 'plugins.misc',
