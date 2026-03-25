@@ -15,11 +15,4 @@ return {
     -- Hints keybinds
     'folke/which-key.nvim',
   },
-  {
-    -- Autoclose parentheses, brackets, quotes, etc.
-    'windwp/nvim-autopairs',
-    event = 'VeryLazy',
-    config = true,
-    opts = {},
-  },
 }
