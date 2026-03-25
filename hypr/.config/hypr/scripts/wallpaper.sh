@@ -1,19 +1,37 @@
 #!/bin/bash
 
 WALLPAPER_DIR="$HOME/wallpapers/"
-WALL_PALETTE="$HOME/.cache/wal/colors.sh"
-CAVA_CONFIG="$HOME/.config/cava/config"
 LAST_WALLPAPER="$WALLPAPER_DIR/.last_wallpaper"
+CACHE_FILE="$HOME/.cache/wallpapers.list"
+
+generate_cache() {
+  find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) -print0 |
+    sort -z >"$CACHE_FILE.tmp" && mv "$CACHE_FILE.tmp" "$CACHE_FILE" || {
+    rm -f "$CACHE_FILE.tmp" "$CACHE_FILE"
+    echo "Failed to generate wallpaper cache!" >&2
+    return 1
+  }
+}
 
 get_random_wallpaper() {
-  find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) | shuf -n 1
+  if [[ ! -f "$CACHE_FILE" || "$WALLPAPER_DIR" -nt "$CACHE_FILE" ]]; then
+    generate_cache || return 1
+  fi
+
+  mapfile -t files <"$CACHE_FILE"
+  ((${#files[@]} == 0)) && return 1
+
+  printf '%s\n' "${files[RANDOM%${#files[@]}]}"
 }
 
 menu_select_wallpaper() {
-  find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) -print0 |
-    while IFS= read -r -d '' img; do
-      printf '%s\x00icon\x1f%s\n' "$img" "$img"
-    done |
+  if [[ ! -f "$CACHE_FILE" || "$WALLPAPER_DIR" -nt "$CACHE_FILE" ]]; then
+    generate_cache || return 1
+  fi
+
+  while IFS= read -r img; do
+    printf '%s\x00icon\x1f%s\n' "$img" "$img"
+  done <"$CACHE_FILE" |
     rofi -dmenu -i -p "Select Wallpaper" \
       -theme ~/.config/rofi/minimal/wallpaper.rasi \
       -show-icons
@@ -21,42 +39,50 @@ menu_select_wallpaper() {
 
 apply_wallpaper() {
   local selected_wallpaper="$1"
+  local mode="$2"
 
   [ -z "$selected_wallpaper" ] && return
 
-  awww img "$selected_wallpaper" \
-    --transition-type fade \
-    --transition-step 20 \
-    --transition-fps 144
+  if [[ "$mode" == "restore" ]]; then
+    sleep 0.08
+    awww img "$selected_wallpaper"
+  else
+    awww img "$selected_wallpaper" \
+      --transition-type fade \
+      --transition-step 20 \
+      --transition-fps 144
 
-  # Apply pywal but exclude terminal
-  wal -i "$selected_wallpaper" -s
+    # wal + swaync in background
+    (
+      wal -i "$selected_wallpaper" -s >/dev/null 2>&1
+      pkill -USR2 swaync 2>/dev/null
+    ) &
+  fi
 
-  local color1 color2
-  color1=$(grep -oP "color2='\K[^']+" "$WALL_PALETTE")
-  color2=$(grep -oP "color3='\K[^']+" "$WALL_PALETTE")
-
-  sed -i "s/^gradient_color_1 = .*/gradient_color_1 = '$color1'/" "$CAVA_CONFIG"
-  sed -i "s/^gradient_color_2 = .*/gradient_color_2 = '$color2'/" "$CAVA_CONFIG"
-
-  pkill -USR2 cava 2>/dev/null
-  pkill -USR2 swaync 2>/dev/null
-
+  # Always save the last wallpaper
   echo "$selected_wallpaper" >"$LAST_WALLPAPER"
 }
 
-if [ "$1" == "restore" ]; then
-  if [ -f "$LAST_WALLPAPER" ]; then
-    wp=$(cat "$LAST_WALLPAPER")
+# Main logic
+if [[ "$1" == "restore" ]]; then
+  if [ -f "$LAST_WALLPAPER" ] && [ -s "$LAST_WALLPAPER" ]; then
+    wp=$(<"$LAST_WALLPAPER")
+    wp="${wp%%$'\n'}"
+    [[ ! -f "$wp" ]] && wp=$(get_random_wallpaper) || true
   else
-    wp=$(get_random_wallpaper)
+    wp=$(get_random_wallpaper) || {
+      echo "No wallpapers available!" >&2
+      exit 1
+    }
   fi
-
-elif [ "$1" == "manual" ]; then
-  wp=$(get_random_wallpaper)
-
+elif [[ "$1" == "manual" ]]; then
+  wp=$(get_random_wallpaper) || {
+    echo "No wallpapers available!" >&2
+    exit 1
+  }
 else
+  # menu mode
   wp=$(menu_select_wallpaper)
 fi
 
-[ -n "$wp" ] && apply_wallpaper "$wp"
+[[ -n "$wp" ]] && apply_wallpaper "$wp" "$1"
