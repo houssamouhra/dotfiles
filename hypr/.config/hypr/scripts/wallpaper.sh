@@ -5,8 +5,8 @@ LAST_WALLPAPER="$WALLPAPER_DIR/.last_wallpaper"
 CACHE_FILE="$HOME/.cache/wallpapers.list"
 
 generate_cache() {
-  find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) -print0 |
-    sort -z >"$CACHE_FILE.tmp" && mv "$CACHE_FILE.tmp" "$CACHE_FILE" || {
+  find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) |
+    sort >"$CACHE_FILE.tmp" && mv "$CACHE_FILE.tmp" "$CACHE_FILE" || {
     rm -f "$CACHE_FILE.tmp" "$CACHE_FILE"
     echo "Failed to generate wallpaper cache!" >&2
     return 1
