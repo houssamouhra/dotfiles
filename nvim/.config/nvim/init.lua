@@ -32,7 +32,7 @@ require('lazy').setup {
   require 'plugins.nvim-surround',
   require 'plugins.debugging',
   require 'plugins.diffview',
-  require 'plugins.git',
+  require 'plugins.gitsigns',
   require 'plugins.icons',
   require 'plugins.indent-blankline',
   require 'plugins.lsp',
