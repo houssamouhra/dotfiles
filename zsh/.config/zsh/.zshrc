@@ -5,6 +5,9 @@
 [[ -f "$XDG_CONFIG_DIR/fzf.zsh" ]] && source "$XDG_CONFIG_DIR/fzf.zsh"
 [[ -f "$XDG_CONFIG_DIR/highlighting.zsh" ]] && source "$XDG_CONFIG_DIR/highlighting.zsh"
 
+# Enable precmd/exec hooks
+autoload -U add-zsh-hook
+
 # Load plugins via Antidote
 source ~/.antidote/antidote.zsh
 zsh_plugins="$XDG_PLUGIN_DIR/.zsh_plugins"
@@ -12,14 +15,12 @@ if [[ ! -f "${zsh_plugins}.zsh" || "$XDG_PLUGIN_DIR/.zsh_plugins.txt" -nt "${zsh
     antidote bundle < "$XDG_PLUGIN_DIR/.zsh_plugins.txt" > "${zsh_plugins}.zsh"
 fi
 source "${zsh_plugins}.zsh"
-autoload -Uz add-zsh-hook
 
 # Starship prompt lazy load
 _starship_lazy() {
     unfunction _starship_lazy
     eval "$(command starship init zsh)"
 }
-autoload -Uz add-zsh-hook
 add-zsh-hook precmd _starship_lazy
 
 # SSH Agent / Keychain
@@ -56,12 +57,13 @@ fnm-on() {
 # pnpm wrapper
 pnpm() {
     unfunction pnpm
-    [ -f "$PNPM_HOME/pnpm.sh" ] && source "$PNPM_HOME/pnpm.sh"
+    [[ -f "$PNPM_HOME/pnpm.sh" ]] && source "$PNPM_HOME/pnpm.sh"
     pnpm "$@"
 }
 
 # Colored man pages lazy load
-autoload -U add-zsh-hook
+typeset -g zsh_first_prompt_loaded=0
+
 colored_man_pages() {
     if (( zsh_first_prompt_loaded == 0 )); then
         autoload -U colors && colors
