@@ -7,6 +7,8 @@ config-file = themes/tokyonight
 background-opacity = 0.93
 
 # FONTS
+# font-family = "MonoLisa Variable"
+# font-family = "Maple Mono NF"
 font-size = 13
 adjust-cell-height = 10%
 freetype-load-flags = force-autohint
