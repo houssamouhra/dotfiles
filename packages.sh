@@ -349,6 +349,7 @@ if command -v yay &>/dev/null; then
   install_aur "Tree-sitter" "tree-sitter-cli-github-bin"
   install_aur "bibata cursor" "bibata-cursor-theme"
   install_aur "Diffnav" "diffnav"
+  install_aur "Maple Mono NF" "maplemono-nf-unhinted"
 fi
 
 print_summary
