@@ -30,6 +30,7 @@ require('lazy').setup {
   require 'plugins.nvim-autopairs',
   require 'plugins.nvim-colorizer',
   require 'plugins.nvim-surround',
+  require 'plugins.nvim-lint',
   require 'plugins.debugging',
   require 'plugins.diffview',
   require 'plugins.gitsigns',
