@@ -35,6 +35,7 @@ require('lazy').setup {
   require 'plugins.diffview',
   require 'plugins.gitsigns',
   require 'plugins.icons',
+  require 'plugins.oil',
   require 'plugins.indent-blankline',
   require 'plugins.lsp',
   require 'plugins.lualine',
