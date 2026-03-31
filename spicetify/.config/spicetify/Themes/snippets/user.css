@@ -29,6 +29,11 @@ section[aria-label="Recently played"] {
   visibility: hidden;
 }
 
+/* Makes main view fill up all available space */
+.contentSpacing {
+  max-width: 100% !important;
+}
+
 /* Modern scrollbar */
 .os-scrollbar-handle {
   width: 0.25rem !important;
