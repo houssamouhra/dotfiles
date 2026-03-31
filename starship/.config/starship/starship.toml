@@ -7,15 +7,8 @@ $fill\
 $python\
 $lua\
 $nodejs\
-$golang\
-$haskell\
 $rust\
-$c\
-$cpp\
-$java\
-$ruby\
 $package\
-$aws\
 $docker_context\
 $cmd_duration\
 $line_break\
@@ -29,10 +22,10 @@ error_symbol = '[➜](bold red)'
 style = 'blue'
 format = '[$path]($style)[$read_only]($read_only_style) '
 truncation_length = 2
-truncation_symbol = '…/'
-truncate_to_repo = false
+truncation_symbol = '󰇘/'
+truncate_to_repo = true 
 read_only = ' '
-read_only_style = 'red bold'
+read_only_style = 'red'
 
 [directory.substitutions]
 'Documents' = '󰈙'
@@ -72,28 +65,34 @@ symbol = ' '
 
 [nodejs]
 symbol = ' '
-detect_files = ["package.json", "node_modules", ".nvmrc"]
+detect_files = ["package.json", ".nvmrc"]
 
 [golang]
 symbol = ' '
+disabled = true
 
 [haskell]
 symbol = ' '
+disabled = true
 
 [rust]
 symbol = ' '
 
 [c]
 symbol = ' '
+disabled = true
 
 [cpp]
 symbol = ' '
+disabled = true
 
 [java]
 symbol = ' '
+disabled = true
 
 [ruby]
 symbol = ' '
+disabled = true
 
 [package]
 format = 'on [$symbol$version]($style)' 
@@ -102,13 +101,13 @@ format = 'on [$symbol$version]($style)'
 symbol = ' '
 style = 'yellow'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
+disabled = true
 
 [docker_context]
 symbol = ' '
 style = 'fg:#06969A'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
-detect_extensions = ['Dockerfile']
 
 [jobs]
 symbol = '✦'
