@@ -206,7 +206,7 @@ blankwindow {
 .widget-buttons-grid button {
   background: transparent;
   border: 1px solid @accent-dim;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 8px 14px;
   font-size: 18px;
   color: @accent-dim;
