@@ -3,6 +3,7 @@
 WALLPAPER_DIR="$HOME/wallpapers/"
 LAST_WALLPAPER="$WALLPAPER_DIR/.last_wallpaper"
 CACHE_FILE="$HOME/.cache/wallpapers.list"
+CAVA_CONFIG="$HOME/.config/cava/config"
 
 generate_cache() {
   find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.gif" \) |
@@ -54,8 +55,8 @@ apply_wallpaper() {
 
     # wal + swaync in background
     (
-      wal -i "$selected_wallpaper" -s >/dev/null 2>&1
-      pkill -USR2 swaync 2>/dev/null
+      wal -i "$selected_wallpaper" -s >/dev/null 2>&1 &&
+        swaync-client -rs
     ) &
   fi
 
