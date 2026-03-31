@@ -4,7 +4,7 @@
 config-file = themes/tokyonight
 
 # TRANSPARENCY
-background-opacity = 0.93
+background-opacity = 0.96
 
 # FONTS
 # font-family = "MonoLisa Variable"
