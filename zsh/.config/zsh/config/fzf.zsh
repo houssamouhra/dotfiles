@@ -90,14 +90,11 @@ fzf_ssh() {
 # FZF process killer
 fkill() {
     local pid
-    if [ "$UID" != "0" ]; then
-        pid=$(ps -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    if [[ $UID -ne 0 ]]; then
+        pid=$(ps -u "$UID" -o pid,comm --no-headers | fzf -m | awk '{print $1}')
     else
-        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+        pid=$(ps -ef | awk 'NR>1 {print $2, $8}' | fzf -m | awk '{print $1}')
     fi
 
-    if [ "x$pid" != "x" ]
-    then
-        echo $pid | xargs kill -${1:-9}
-    fi
+    [[ -n $pid ]] && echo "$pid" | xargs kill -${1:-9}
 }
