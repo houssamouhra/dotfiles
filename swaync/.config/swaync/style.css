@@ -112,9 +112,17 @@ blankwindow {
   padding: 0;
   transition: all 0.2s ease;
   background: @noti-bg;
-  box-shadow:
-    0 2px 8px 2px rgba(0, 0, 0, 0.4),
-    0 4px 14px 4px rgba(0, 0, 0, 0.25);
+}
+
+.notification progress,
+.notification progressbar,
+.notification trough {
+  border-radius: 9999px;
+  background: @noti-border;
+}
+
+.notification progress {
+  background: @accent;
 }
 
 .notification-row
