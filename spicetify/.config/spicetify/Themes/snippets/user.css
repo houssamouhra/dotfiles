@@ -21,6 +21,77 @@ section[aria-label="Recently played"] {
   display: none;
 }
 
+/* Hide now playing view button */
+button:has(path[d="M11.196 8 6 5v6l5.196-3z"]),
+button:has(path[d="M11.196 8 6 5v6z"]) {
+  display: none;
+}
+
+/* Remove all extra elements from now playing bar except song details */
+.main-nowPlayingView-section {
+  display: none;
+}
+.main-nowPlayingView-aboutArtistV2 {
+  display: none;
+}
+.nw2W4ZMdICuBo08Tzxg9 {
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.Loading {
+  display: none !important;
+}
+.LoadingLyricsCard {
+  display: none !important;
+}
+.f6_Fu_ei4TIJWR0wzvTk {
+  display: none !important;
+}
+
+/* Expanded Cover Art Image (+ position fix) */
+.main-navBar-navBar > :nth-child(3) {
+  margin: 0 0 0 1px;
+  border-radius: 6px;
+}
+
+/* Collapsed Cover Art Image */
+.cover-art-image,
+.artist-artistOverview-sideBlock
+  > div
+  > section
+  > div:nth-child(3)
+  > section:nth-child(2)
+  > div
+  > img,
+.view-homeShortcutsGrid-image {
+  border-radius: 4px;
+}
+
+/* Track List Image */
+.main-trackList-rowImage {
+  border-radius: 3px;
+}
+
+/* Home Shortcuts Grid (force) */
+.view-homeShortcutsGrid-image,
+.view-homeShortcutsGrid-imageWrapper {
+  border-radius: 4px !important;
+}
+
+/* Changes the background of unplayable tracks to make it easier to spot them in large playlists */
+.main-trackList-disabled {
+  background: #f004;
+}
+.main-trackList-disabled:focus-within,
+.main-trackList-disabled:hover {
+  background: #f005;
+}
+.main-trackList-disabled.main-trackList-selected,
+.main-trackList-disabled.main-trackList-selected:hover {
+  background: #f006;
+}
+
 /* Hide sidebar scrollbar*/
 #Desktop_LeftSidebar_Id .os-scrollbar-handle,
 .Root__nav-bar .os-scrollbar-handle,
