@@ -105,7 +105,6 @@ return {
           { 'fileformat', symbols = {
             unix = 'LF',
             dos = 'CRLF',
-            mac = 'CR',
           }, color = { fg = '#545C7E' } },
         },
       },
