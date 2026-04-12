@@ -16,7 +16,7 @@ pdf = [
 ]
 
 imgs = [
-  { run = 'feh "$@"', desc = "Feh", orphan = true }
+  { run = 'viewnior "$@"', desc = "Viewnior", orphan = true }
 ]
 
 audio = [
