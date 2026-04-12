@@ -24,10 +24,41 @@ return {
 
     require('lualine').setup {
       options = {
+        theme = {
+          normal = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+          insert = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+          visual = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+          replace = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+          command = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+          inactive = {
+            a = { fg = '#545C7E', bg = 'none' },
+            b = { fg = '#545C7E', bg = 'none' },
+            c = { fg = '#545C7E', bg = 'none' },
+          },
+        },
         icons_enabled = true,
-        theme = 'auto',
-        section_separators = { left = '', right = '' },
-        component_separators = { '', '' },
+        section_separators = { left = '', right = '' },
+        component_separators = { '', '' },
         globalstatus = false,
         disabled_filetypes = {
           statusline = { 'neo-tree' },
@@ -56,25 +87,26 @@ return {
 
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', diff },
+        lualine_b = {
+          { 'branch', icon = '󰘬', color = { fg = '#6281c6' } },
+          diff,
+        },
         lualine_c = {
           {
             'filename',
             file_status = true,
-            color = { fg = '#888888' },
+            color = { fg = '#878da5' },
           },
         },
         lualine_x = {
           diagnostics,
-          { 'encoding', color = { fg = '#888888' } },
-          { 'fileformat', color = { fg = '#888888' } },
-          { 'filetype', color = { fg = '#888888' } },
-        },
-        lualine_y = {
-          { 'progress' },
-        },
-        lualine_z = {
-          { 'location' },
+          { 'filetype', color = { fg = '#545C7E' } },
+          { 'encoding', color = { fg = '#545C7E' } },
+          { 'fileformat', symbols = {
+            unix = 'LF',
+            dos = 'CRLF',
+            mac = 'CR',
+          }, color = { fg = '#545C7E' } },
         },
       },
     }
