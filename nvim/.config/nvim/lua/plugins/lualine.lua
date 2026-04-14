@@ -74,7 +74,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-          { 'branch', icon = '󰘬', color = { fg = '#6281c6' } },
+          { 'branch', icon = '󰘬', color = { fg = '#5a76b5' } },
           diff,
         },
         lualine_c = {
@@ -86,12 +86,12 @@ return {
         },
         lualine_x = {
           diagnostics,
-          { 'filetype', color = { fg = '#545C7E' } },
-          { 'encoding', color = { fg = '#545C7E' } },
+          { 'filetype', color = { fg = '#656c8b' } },
+          { 'encoding', color = { fg = '#656c8b' } },
           { 'fileformat', symbols = {
             unix = 'LF',
             dos = 'CRLF',
-          }, color = { fg = '#545C7E' } },
+          }, color = { fg = '#656c8b' } },
         },
       },
     }
