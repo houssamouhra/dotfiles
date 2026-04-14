@@ -22,40 +22,26 @@ return {
       symbols = { added = '+', modified = '~', removed = '-' },
     }
 
+    local function mode()
+      return {
+        a = { fg = '#656c8b', bg = 'none' },
+        b = { fg = '#656c8b', bg = 'none' },
+        c = { fg = '#656c8b', bg = 'none' },
+      }
+    end
+
+    local theme = {
+      normal = mode(),
+      insert = mode(),
+      visual = mode(),
+      replace = mode(),
+      command = mode(),
+      inactive = mode(),
+    }
+
     require('lualine').setup {
       options = {
-        theme = {
-          normal = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-          insert = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-          visual = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-          replace = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-          command = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-          inactive = {
-            a = { fg = '#545C7E', bg = 'none' },
-            b = { fg = '#545C7E', bg = 'none' },
-            c = { fg = '#545C7E', bg = 'none' },
-          },
-        },
+        theme = theme,
         icons_enabled = true,
         section_separators = { left = '', right = '' },
         component_separators = { '', '' },
