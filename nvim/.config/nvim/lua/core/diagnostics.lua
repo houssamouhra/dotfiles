@@ -1,4 +1,3 @@
--- Main diagnostics behavior
 vim.diagnostic.config {
   virtual_text = {
     prefix = '■',
@@ -15,14 +14,3 @@ vim.diagnostic.config {
   underline = true,
   update_in_insert = false,
 }
-
--- Styling
-local function set_diagnostic_hls()
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextError', { italic = true })
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextWarn', { italic = true })
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextInfo', { italic = true })
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtualTextHint', { italic = true })
-end
-
--- Apply once
-set_diagnostic_hls()
