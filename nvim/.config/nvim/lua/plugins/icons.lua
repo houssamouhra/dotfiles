@@ -19,6 +19,8 @@ return {
         ['.prettierrc'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['.gitignore'] = { glyph = '', hl = 'MiniIconsGit' },
         ['.gitattributes'] = { glyph = '', hl = 'MiniIconsGit' },
+        ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
+        ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
       },
 
       filetype = {
