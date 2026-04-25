@@ -30,7 +30,7 @@ return {
         html = prettier,
         css = prettier,
         json = prettier,
-        yaml = { 'yamlfix' },
+        yaml = prettier,
         sh = { 'shfmt' },
         zsh = { 'beautysh' },
       },
