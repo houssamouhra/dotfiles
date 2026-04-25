@@ -23,8 +23,8 @@
   verbose = true
 
 [alias]
-  lg = log --all --graph --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %C(green)(%ar)%Creset %C(auto)%d%Creset%n    %s%n'
-  graph = log --oneline --graph --decorate --all --date-order --color
+  graph = log --all --graph --pretty=format:'%C(yellow)%h%Creset %C(blue)%an%Creset %C(green)(%ar)%Creset %C(auto)%d%Creset%n    %s%n'
+  lg = log --oneline --graph --decorate --all --date-order --color
   unstage = restore --staged
   amend = commit --amend --no-edit
   pr = pull --rebase
