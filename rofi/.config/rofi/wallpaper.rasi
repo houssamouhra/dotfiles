@@ -1,6 +1,3 @@
-/* 🖼️ ROFI WALLPAPER GRID THEME */
-/* Compact 4x3 Grid Layout */
-
 @import "~/.config/rofi/config.rasi"
 
 /* ---- Configuration ---- */
@@ -13,7 +10,7 @@ configuration {
 window {
     width: 50%;
     height: 65%;
-    border-radius: 12px;
+    border-radius: 20px;
 }
 
 /* ---- Mainbox ---- */
@@ -27,21 +24,22 @@ mainbox {
 inputbar {
     enabled: true;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     children: ["prompt", "entry"];
+    background-color: transparent;
 }
 
 prompt {
     enabled: true;
     padding: 0px 10px 0px 0px;
     background-color: transparent;
-    text-color: inherit;
+    text-color: @primary;
 }
 
 entry {
     placeholder: "󰍉 Search...";
     background-color: transparent;
-    text-color: inherit;
+    text-color: @foreground;
 }
 
 /* ---- Listview ---- */
@@ -63,7 +61,7 @@ element {
     orientation: vertical;
     padding: 10px;
     spacing: 0px;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
 }
 
@@ -73,10 +71,8 @@ element normal.normal {
 }
 
 element selected.normal {
-    background-color: @selected-normal-background;
-    text-color: @selected-normal-foreground;
+    background-color: @primary;
     border: 2px;
-    border-color: @color4;
 }
 
 element-icon {

@@ -1,1 +1,136 @@
-@import "~/.config/rofi/minimal/config.rasi"
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    // Display & Font
+    modes: "drun";
+    show-icons: true;
+    icon-theme: "Papirus-override";
+    font: "JetBrainsMono Nerd Font 11";
+
+    // Text Layout / Mode Labels
+    display-drun: "Apps";
+    display-run: "Run";
+    display-clipboard: "󰅌 Clip";
+
+    scroll-method: 0;
+    click-to-exit: true;
+}
+
+/* ---------------- WINDOW ---------------- */
+window {
+    location: center;
+    anchor: center;
+    width: 20%;
+    padding: 10px;
+    background-color: rgba(26, 27, 38, 0.80);
+    border-radius: 20px;
+    border: 0px;
+}
+
+/* ---------------- LAYOUT ---------------- */
+
+mainbox {
+    children: [ inputbar, message, listview ];
+    spacing: 4px;
+    background-color: transparent;
+}
+
+/* ---------------- INPUT ---------------- */
+
+inputbar {
+    children: [ prompt, entry ];
+    spacing: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @selected-normal-background;
+    font: "JetBrainsMono Nerd Font Bold 11";
+}
+
+entry {
+    placeholder: "󰍉 Search...";
+    placeholder-color: @alternate-normal-foreground;
+    background-color: transparent;
+}
+
+/* ---------------- MESSAGE ---------------- */
+
+message {
+    padding: 0;
+    background-color: transparent;
+}
+
+textbox {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font: "JetBrainsMono Nerd Font 9";
+    horizontal-align: 0.5;
+    markup: true;
+}
+
+/* ---------------- LIST ---------------- */
+
+listview {
+    dynamic: true;
+    flow: vertical;
+    background-color: rgba(26, 27, 38, 0.35);
+    border-radius: 16px;
+    padding: 6px;
+    columns:1;
+    lines: 4;
+    cycle: true;
+    scrollbar: false;
+    fixed-height: false;
+    border: 0px;
+}
+
+/* ---------------- ELEMENT ---------------- */
+
+element {
+    padding: 8px 12px;
+    spacing: 8px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 0px;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 1.2em;
+    padding: 0px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    vertical-align: 0.5;
+    highlight: bold;
+}
+
+/* ---------------- STATES ---------------- */
+element normal.normal {
+    background-color: transparent;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @foreground;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @selected-normal-foreground;
+}
+
+element normal.active {
+    background-color: transparent;
+}
+
+element normal.urgent {
+    text-color: @urgent-foreground;
+    background-color: rgba(247, 118, 142, 0.15);
+}
