@@ -1,123 +1,116 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "padding": {
-      "top": 2
-    }
+      "source": "~/.config/fastfetch/thinkpad.txt",
+      "type": "file",
+      "padding": {
+          "top": 1,
+          "left": 2,
+          "right": 4
+      }
   },
   "modules": [
     "break",
-    {
+   {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────Hardware──────────────────┐"
+      "format": "\u001b[90m┌─────────────────Hardware──────────────────┐"
     },
     {
       "type": "host",
-      "key": " PC",
-      "keyColor": "green"
+      "key": "\u001b[90m│ 󰌢 PC",
+      "format": "{family<36}\u001b[90m│"
     },
     {
       "type": "cpu",
-      "key": "│ ├",
+      "key": "\u001b[90m│  CPU",
       "showPeCoreCount": true,
-      "keyColor": "green"
+      "format": "{name} @ {freq-max<11}\u001b[90m│"
     },
     {
       "type": "gpu",
-      "key": "│ ├󰢮",
+      "key": "\u001b[90m│ 󰢮 GPU",
       "detectionMethod": "pci",
-      "keyColor": "green"
+      "format": "{vendor} {name} {type<23}\u001b[90m│"
     },
     {
       "type": "display",
-      "key": "│ ├󰍹",
-      "keyColor": "green"
+      "key": "\u001b[90m│ 󰍹 DISPLAY",
+      "format": "{name} {width}x{height} @ {refresh-rate}Hz {inch}\" \u001b[90m│"
     },
     {
       "type": "disk",
-      "key": "│ ├󰋊",
-      "keyColor": "green"
+      "key": "\u001b[90m│ 󰋊 DISK",
+      "format": "{size-used} / {size-total<21}\u001b[90m│"
     },
     {
       "type": "memory",
-      "key": "│ ├󰾆",
-      "keyColor": "green"
-    },
-    {
-      "type": "swap",
-      "key": "└ └󰓡",
-      "keyColor": "green"
+      "key": "\u001b[90m│ 󰾆 RAM",
+      "format": "{used} / {total<24}\u001b[90m│"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────┘"
+      "format": "\u001b[90m└───────────────────────────────────────────┘"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────Software──────────────────┐"
+      "format": "\u001b[90m┌─────────────────Software──────────────────┐"
     },
     {
       "type": "os",
-      "key": " OS",
-      "keyColor": "blue"
+      "key": "\u001b[90m│  DISTRO",
+      "format": "{name<32}\u001b[90m│"
     },
     {
       "type": "kernel",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "wm",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-    {
-      "type": "de",
-      "key": " DE",
-      "keyColor": "blue"
-    },
-    {
-      "type": "terminal",
-      "key": "│ ├",
-      "keyColor": "blue"
-    },
-     {
-      "type": "shell",
-      "key": "│ ├",
-      "keyColor": "blue"
+      "key": "\u001b[90m│  KERNEL",
+      "format": "{sysname} {release<26}\u001b[90m│"
     },
     {
       "type": "packages",
-      "key": "│ ├󰏖",
-      "keyColor": "blue"
+      "key": "\u001b[90m│ 󰏖 PKGS",
+      "format": "{pacman} (pacman)                     \u001b[90m│"
     },
     {
-      "type": "terminalfont",
-      "key": "└ └",
-      "keyColor": "blue"
+      "type": "wm",
+      "key": "\u001b[90m│  DE/WM",
+      "format": "{process-name} {version} ({protocol-name})        \u001b[90m│"
+    },
+    {
+      "type": "shell",
+      "key": "\u001b[90m│  SHELL",
+      "format": "{process-name} {version<29}\u001b[90m│"
+    },
+    {
+      "type": "terminal",
+      "key": "\u001b[90m│  TERM",
+      "format": "{pretty-name} {version<29}\u001b[90m│"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────┘"
+      "format": "\u001b[90m└───────────────────────────────────────────┘"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────Age / Uptime────────────────┐"
+      "format": "\u001b[90m┌──────────────────Other────────────────────┐"
+    },
+    {
+      "type": "battery",
+      "key": "\u001b[90m│  bat",
+      "format": "{capacity<43}\u001b[90m│"
     },
     {
       "type": "command",
-      "key": "󱦟 OS Age",
-      "keyColor": "magenta",
-      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+      "key": "\u001b[90m│ 󱦟 OS Age",
+      "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400)) days"
     },
     {
       "type": "uptime",
-      "key": "󱫐 Uptime",
-      "keyColor": "magenta"
+      "key": "\u001b[90m│ 󱫐 Uptime",
+      "format": "{formatted<32}\u001b[90m│"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────┘"
+      "format": "\u001b[90m└───────────────────────────────────────────┘"
     }
   ]
 }
