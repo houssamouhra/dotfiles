@@ -22,7 +22,7 @@ get_random_wallpaper() {
   mapfile -t files <"$CACHE_FILE"
   ((${#files[@]} == 0)) && return 1
 
-  printf '%s\n' "${files[RANDOM%${#files[@]}]}"
+  printf '%s\n' "${files[RANDOM % ${#files[@]}]}"
 }
 
 menu_select_wallpaper() {
@@ -34,7 +34,7 @@ menu_select_wallpaper() {
     printf '%s\x00icon\x1f%s\n' "$img" "$img"
   done <"$CACHE_FILE" |
     rofi -dmenu -i -p "Select Wallpaper" \
-      -theme ~/.config/rofi/minimal/wallpaper.rasi \
+      -theme ~/.config/rofi/wallpaper.rasi \
       -show-icons
 }
 
