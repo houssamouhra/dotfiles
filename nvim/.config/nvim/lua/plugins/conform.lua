@@ -16,7 +16,7 @@ return {
   },
 
   config = function()
-    local prettier = { 'prettier', stop_after_first = true }
+    local prettier = { 'prettierd', 'prettier', stop_after_first = true }
 
     require('conform').setup {
       formatters_by_ft = {
