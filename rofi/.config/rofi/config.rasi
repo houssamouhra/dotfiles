@@ -1,17 +1,20 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+/* COLORS */
+* {
+    background: #1a1b26;
+    primary:  #7aa2f7;
+    background-alt: #24283b;
+    foreground: #c0caf5;
+    urgent: #f7768e;
+}
 
+/*-------- CONFIGURATION -------- */
 configuration {
-    // Display & Font
     modes: "drun";
     show-icons: true;
     icon-theme: "Papirus-override";
-    font: "JetBrainsMono Nerd Font 11";
-
-    // Text Layout / Mode Labels
+    font: "JetBrainsMono Nerd Font semibold 11";
     display-drun: "Apps";
     display-run: "Run";
-    display-clipboard: "󰅌 Clip";
-
     scroll-method: 0;
     click-to-exit: true;
 }
@@ -22,7 +25,7 @@ window {
     anchor: center;
     width: 20%;
     padding: 10px;
-    background-color: rgba(26, 27, 38, 0.80);
+    background-color: rgba(26, 27, 38, 0.94);
     border-radius: 20px;
     border: 0px;
 }
@@ -47,13 +50,13 @@ inputbar {
 
 prompt {
     background-color: transparent;
-    text-color: @selected-normal-background;
+    text-color: @foreground;
     font: "JetBrainsMono Nerd Font Bold 11";
 }
 
 entry {
     placeholder: "󰍉 Search...";
-    placeholder-color: @alternate-normal-foreground;
+    placeholder-color: @foreground;
     background-color: transparent;
 }
 
@@ -117,13 +120,13 @@ element normal.normal {
 }
 
 element selected.normal {
-    background-color: @selected-normal-background;
-    text-color: @foreground;
+    background-color: @primary;
+    text-color: @background;
 }
 
 element alternate.normal {
     background-color: transparent;
-    text-color: @selected-normal-foreground;
+    text-color: @foreground;
 }
 
 element normal.active {
@@ -131,6 +134,6 @@ element normal.active {
 }
 
 element normal.urgent {
-    text-color: @urgent-foreground;
+    text-color: @urgent;
     background-color: rgba(247, 118, 142, 0.15);
 }
