@@ -68,3 +68,7 @@
 
 [init]
   defaultBranch = main
+
+[i18n]
+  commitEncoding = utf-8
+  logOutputEncoding = utf-8
