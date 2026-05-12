@@ -26,6 +26,13 @@ function hydrate() {
 	fi
 }
 
+function configure_session() {
+	local session="$1"
+
+	# hide status bar
+	tmux set-option -t "$session" status off
+}
+
 if [[ $# -eq 1 ]]; then
 	selected="$1"
 else
@@ -39,20 +46,20 @@ else
 	)
 fi
 
-if [[ -z "$selected" ]]; then
-	exit 0
-fi
+[[ -z "$selected" ]] && exit 0
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -ds "$selected_name" -c "$selected"
+	configure_session "$selected_name"
 	hydrate "$selected_name" "$selected"
 fi
 
 if ! has_session "$selected_name"; then
 	tmux new-session -ds "$selected_name" -c "$selected"
+	configure_session "$selected_name"
 	hydrate "$selected_name" "$selected"
 fi
 
