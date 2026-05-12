@@ -1,139 +1,118 @@
-/* COLORS */
-* {
-    background: #1a1b26;
-    primary:  #7aa2f7;
-    background-alt: #24283b;
-    foreground: #c0caf5;
-    urgent: #f7768e;
-}
+/* Colors ( Pywal-generated color scheme )*/
+@import "~/.cache/wal/rofi-colors.rasi"
 
-/*-------- CONFIGURATION -------- */
+/* Configuration */
 configuration {
     modes: "drun";
     show-icons: true;
     icon-theme: "Papirus-override";
-    font: "JetBrainsMono Nerd Font semibold 11";
     display-drun: "Apps";
     display-run: "Run";
     scroll-method: 0;
     click-to-exit: true;
 }
 
-/* ---------------- WINDOW ---------------- */
+/* Global element styling */
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+/* Main container layout */
+mainbox {
+    children: [ inputbar, message, listview ];
+    background-color: transparent;
+}
+
+/* Window styling */
 window {
     location: center;
     anchor: center;
+    background-color: @bg-alpha;
     width: 20%;
     padding: 10px;
-    background-color: rgba(26, 27, 38, 0.94);
-    border-radius: 20px;
     border: 0px;
+    border-radius: 20px;
 }
 
-/* ---------------- LAYOUT ---------------- */
-
-mainbox {
-    children: [ inputbar, message, listview ];
-    spacing: 4px;
-    background-color: transparent;
-}
-
-/* ---------------- INPUT ---------------- */
-
+/* Search bar container */
 inputbar {
     children: [ prompt, entry ];
-    spacing: 10px;
     padding: 10px;
-    border-radius: 20px;
+    spacing: 10px;
     background-color: transparent;
 }
 
+/* Prompt label */
 prompt {
     background-color: transparent;
-    text-color: @foreground;
+    text-color: @fg-col;
     font: "JetBrainsMono Nerd Font Bold 11";
 }
 
+/* User input field */
 entry {
-    placeholder: "󰍉 Search...";
-    placeholder-color: @foreground;
+    placeholder: "Search...";
+    placeholder-color: #ffffff66;
+    text-color: @fg-col;
     background-color: transparent;
 }
 
-/* ---------------- MESSAGE ---------------- */
-
-message {
-    padding: 0;
-    background-color: transparent;
-}
-
-textbox {
-    padding: 8px 12px;
-    border-radius: 6px;
-    font: "JetBrainsMono Nerd Font 9";
-    horizontal-align: 0.5;
-    markup: true;
-}
-
-/* ---------------- LIST ---------------- */
-
+/* Results list container */
 listview {
     dynamic: true;
     flow: vertical;
-    background-color: rgba(26, 27, 38, 0.35);
-    border-radius: 16px;
-    padding: 6px;
-    columns:1;
+    columns: 1; 
     lines: 4;
     cycle: true;
+    padding: 6px;
+    background-color: transparent;
     scrollbar: false;
     fixed-height: false;
     border: 0px;
 }
 
-/* ---------------- ELEMENT ---------------- */
-
+/* Individual result item */
 element {
     padding: 8px 12px;
     spacing: 8px;
-    border-radius: 12px;
     background-color: transparent;
-    border: 0px;
+    text-color: @fg-col;
+    border: 1px;
+    border-radius: 12px;
+    border-color: transparent;
+    cursor: pointer;
 }
 
+/* Selected item styling */
+element selected {
+    background-image: @active-grad;
+    text-color: @bg-col;
+    border-radius: 14px;
+}
+
+/* App icon inside each element */
 element-icon {
     background-color: transparent;
     size: 1.2em;
     padding: 0px;
+    cursor: inherit;
     vertical-align: 0.5;
 }
 
+/* App name text inside each element */
 element-text {
-    background-color: transparent;
+    text-color: inherit;
     vertical-align: 0.5;
-    highlight: bold;
+    cursor: inherit;
 }
 
-/* ---------------- STATES ---------------- */
-element normal.normal {
-    background-color: transparent;
-}
-
-element selected.normal {
-    background-color: @primary;
-    text-color: @background;
-}
-
-element alternate.normal {
-    background-color: transparent;
-    text-color: @foreground;
-}
-
-element normal.active {
-    background-color: transparent;
-}
-
-element normal.urgent {
-    text-color: @urgent;
-    background-color: rgba(247, 118, 142, 0.15);
+/* Error display box */
+error-message {
+    background-color: @bg-col;
+    border: 1px;
+    border-color: @fg-col2;
+    border-radius: 12px;
+    padding: 20px;
+    text-color: @fg-col;
 }
