@@ -1,74 +1,86 @@
-@import "~/.config/rofi/config.rasi"
+/* Colors ( Pywal-generated color scheme )*/
+@import "~/.cache/wal/rofi-colors.rasi"
 
-/* ---- Configuration ---- */
-configuration {
-    show-icons: true;
-    icon-fetcher: "internal";
-}
-
-/* ---- Window ---- */
-window {
-    width: 50%;
-    height: 28%;
-    border-radius: 20px;
-}
-
-/* ---- Mainbox ---- */
+/* Main container layout */
 mainbox {
-    children: ["inputbar", "listview"];
-}
-
-/* ---- Inputbar ---- */
-inputbar {
-    enabled: true;
-    children: ["prompt", "entry"];
     background-color: transparent;
+    spacing: 14px;
+    children: [ inputbar, listview ];
 }
 
+/* Main container */
+window {
+    width: 820px;
+    height: 600px;
+    anchor: center;
+    location: center;
+    border-radius: 22px;
+    background-color: @bg-alpha;
+    padding: 18px;
+}
+
+/* search area */
+inputbar {
+    padding: 12px 16px;
+    border-radius: 16px;
+    background-color: transparent;
+    children: [ prompt, entry ];
+}
+
+/* Prompt label (left side of input bar) */
 prompt {
     enabled: true;
-    padding: 0px 10px 0px 0px;
+    text-color: @fg-col;
     background-color: transparent;
-    text-color: inherit;
+    margin: 0px 8px 0px 0px;
 }
 
+/* Text input field */
 entry {
-    placeholder: "󰍉 Search...";
+    placeholder: "Search wallpaper...";
+    placeholder-color: #ffffff66;
+    text-color: @fg-col;
     background-color: transparent;
-    text-color: inherit; 
 }
 
-/* ---- Listview ---- */
+/* Wallpaper grid */
 listview {
-    fixed-height: false;
-    scrollbar: false;
+    columns: 3;
+    lines: 2;
+    flow: horizontal;
+    fixed-height: true;
+    fixed-columns: true;
     cycle: false;
-    dynamic: true;
-    layout: horizontal;
-    reverse: false;
-}
-
-/* ---- Elements ---- */
-element {
-    orientation: horizontal;
-    border-radius: 12px;
-}
-
-element normal.normal {
+    scrollbar: false;
+    spacing: 16px;
     background-color: transparent;
-    text-color: inherit;
 }
 
-element selected.normal {
-    background-color: @selected-normal-background;
+/* Wallpaper tile */
+element {
+    orientation: vertical;
+    padding: 10px;
+    spacing: 10px;
+    border-radius: 18px;
+    background-color: transparent;
 }
 
+/* Selected wallpaper */
+element selected {
+    background-image: @active-grad;
+    text-color: @bg-col;
+}
+
+/* Wallpaper preview image */
 element-icon {
-    size: 10em;
+    size: 210px;
     horizontal-align: 0.5;
     vertical-align: 0.5;
+    border-radius: 14px;
+    background-color: transparent;
 }
 
+/* Text label (disabled) */
 element-text {
     enabled: false;
 }
