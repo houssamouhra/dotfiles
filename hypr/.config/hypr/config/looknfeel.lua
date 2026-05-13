@@ -39,7 +39,7 @@ hl.config({
 		active_opacity = 1.0,
 
 		-- Opacity for unfocused windows
-		inactive_opacity = 0.96,
+		inactive_opacity = 0.92,
 
 		shadow = {
 			-- Disable window shadows
