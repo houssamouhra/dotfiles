@@ -11,29 +11,21 @@ window#waybar {
 /* Container */
 .modules-left,
 .modules-right {
-  padding: 4px;
+  padding: 1px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.16);
   border: none;
   box-shadow: none;
 }
 
-.modules-center {
-  padding: 4px;
-  border-radius: 10px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
 .modules-left {
-  margin: 6px 0 3px 8px;
+  margin: 2px 0 0 4px;
 }
 .modules-center {
-  margin: 6px 0 3px 0;
+  margin: 2px 0 0 0;
 }
 .modules-right {
-  margin: 6px 8px 3px 0;
+  margin: 2px 4px 0 0; 
 }
 
 /* Tooltips */
@@ -61,19 +53,33 @@ tooltip {
 #custom-spotify,
 #custom-gpu,
 #custom-rmpc,
+#custom-updater,
 #custom-uptime,
 #custom-colorpicker,
 #window {
   color: #dde4e8;
-  padding: 0 8px;
+  padding: 0 9px;
   font-weight: 600;
   transition:
     opacity 0.15s,
     color 0.15s;
 }
 
+#network {
+  padding: 0 12px 0 9px;
+}
+
+#custom-spotify {
+  padding: 0 0 0 12px;
+}
+
+#cpu {
+  min-width: 50px;
+  padding: 0 3px 0 8px;
+}
+
 #custom-space {
-  min-width: 12px;
+  min-width: 9px;
 }
 
 #clock:hover,
@@ -101,15 +107,15 @@ tooltip {
 }
 
 #workspaces {
-  padding: 0 3px;
+  padding: 0;
 }
 
 #workspaces button {
   all: unset;
   min-width: 20px;
-  padding: 2px 6px;
-  margin: 0 5px;
-  border-radius: 6px;
+  padding: 2px 2px;
+  margin: 0 2px;
+  border-radius: 8px;
   background: transparent;
   color: #d1d8de;
   transition:
@@ -164,11 +170,9 @@ tooltip {
 /* Waybar Timer */
 #custom-timer {
   background-color: #1e1e2e;
-  /*color: #cdd6f4;*/
   padding: 0 9px;
-  font-size: 15px;
   border-radius: 10px;
-  font-weight: 900;
+  font-weight: 700;
   transition: all 0.2s ease;
 }
 
