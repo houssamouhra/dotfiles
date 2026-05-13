@@ -32,6 +32,7 @@ hl.bind("CTRL" .. " + Print", hl.dsp.exec_cmd("hyprshot -m region -z --clipboard
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m window -z -o" .. screenshots))
 -- Monitor
 hl.bind("ALT" .. " + Print", hl.dsp.exec_cmd("hyprshot -m output -z -o" .. screenshots))
+
 -- Emojis
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("rofimoji"))
 
@@ -65,7 +66,6 @@ hl.bind("ALT" .. " + W", hl.dsp.exec_cmd(scripts .. "wallpaper.sh menu"), { lock
 hl.bind("ALT" .. " + SHIFT + W", hl.dsp.exec_cmd(scripts .. "wallpaper.sh manual"), { locked = true, repeating = true })
 
 -- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
