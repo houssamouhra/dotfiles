@@ -2,6 +2,15 @@
 
 theme="$HOME/.config/rofi/clipboard.rasi"
 
-cliphist list | rofi -dmenu -i -p "󰅌 Clipboard:" \
-  -theme ${theme} |
-  cliphist decode | wl-copy
+selected=$(
+  cliphist list |
+    sed 's/^[0-9]\+\s//' |
+    rofi -dmenu -i -p "󰅌 Clipboard:" -theme "$theme"
+)
+
+[ -z "$selected" ] && exit 0
+
+cliphist list |
+  grep -F "$selected" |
+  cliphist decode |
+  wl-copy
