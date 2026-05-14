@@ -26,18 +26,6 @@ hl.config({
 	},
 })
 
--- Gesture configuration
-hl.gesture({
-	-- Number of fingers required
-	fingers = 3,
-
-	-- Gesture direction
-	direction = "vertical",
-
-	-- Action triggered by the gesture
-	action = "workspace",
-})
-
 -- Device-specific configuration
 hl.device({
 	name = "pixart-hp-usb-optical-mouse",
