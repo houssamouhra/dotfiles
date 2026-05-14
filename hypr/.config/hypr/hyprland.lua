@@ -1,4 +1,4 @@
-require("config.startup")
+require("config.autostart")
 require("config.environment")
 require("config.looknfeel")
 require("config.animations")
