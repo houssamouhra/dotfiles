@@ -25,7 +25,6 @@ hl.window_rule({
 hl.window_rule({
 	name = "move-hyprland-run",
 	match = { class = "hyprland-run" },
-
 	move = "20 monitor_h-120",
 	float = true,
 })
@@ -34,7 +33,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "zen",
 	match = { class = "zen" },
-
+	workspace = "1",
 	fullscreen = true,
 })
 
@@ -42,6 +41,5 @@ hl.window_rule({
 hl.window_rule({
 	name = "spotify",
 	match = { class = "spotify" },
-
 	fullscreen = true,
 })
