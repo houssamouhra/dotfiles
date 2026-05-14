@@ -1,7 +1,7 @@
-require("config.autostart")
-require("config.environment")
-require("config.looknfeel")
-require("config.animations")
-require("config.input")
-require("config.keybinds")
-require("config.windowrules")
+require 'config.autostart'
+require 'config.environment'
+require 'config.looknfeel'
+require 'config.animations'
+require 'config.input'
+require 'config.keybinds'
+require 'config.windowrules'
