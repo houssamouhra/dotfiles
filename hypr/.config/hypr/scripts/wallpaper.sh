@@ -11,7 +11,7 @@ ROFI_THEME="$HOME/.config/rofi/wallpaper.rasi"
 mkdir -p "$CACHE_DIR"
 
 log() {
-  printf '[wallpaper] %s\n' "$*"
+  printf '[wallpaper] %s\n' "$*" >&2
 }
 
 generate_cache() {
@@ -35,6 +35,26 @@ ensure_cache() {
     find "$WALLPAPER_DIR" -type f -newer "$CACHE_FILE" | grep -q .; then
     generate_cache
   fi
+}
+
+start_awww_daemon() {
+  if ! pgrep -x awww-daemon >/dev/null; then
+    log "Starting awww daemon..."
+    awww-daemon >/dev/null 2>&1 &
+  fi
+
+  local retries=50
+
+  while ((retries-- > 0)); do
+    if awww query >/dev/null 2>&1; then
+      return 0
+    fi
+
+    sleep 0.1
+  done
+
+  log "awww daemon failed to initialize"
+  return 1
 }
 
 select_wallpaper() {
@@ -82,8 +102,8 @@ apply_wal() {
   log "Applying pywal theme..."
   wal -i "$wallpaper" -s
 
-  generate_cava_theme
   swaync-client -rs >/dev/null 2>&1 || true
+  generate_cava_theme
 }
 
 set_wallpaper() {
@@ -95,7 +115,8 @@ set_wallpaper() {
   log "Setting wallpaper: $wallpaper"
 
   if [[ "$mode" == "restore" ]]; then
-    awww img "$wallpaper"
+    awww img "$wallpaper" \
+      --transition-type none
   else
     awww img "$wallpaper" \
       --transition-type fade \
@@ -103,9 +124,9 @@ set_wallpaper() {
       --transition-fps 144
   fi
 
-  apply_wal "$wallpaper"
-
   printf '%s\n' "$wallpaper" >"$LAST_WALLPAPER"
+
+  apply_wal "$wallpaper"
 }
 
 get_random_wallpaper() {
@@ -122,17 +143,23 @@ restore_wallpaper() {
     local wallpaper
     wallpaper="$(<"$LAST_WALLPAPER")"
 
+    log "Restoring wallpaper: $wallpaper"
+
     if [[ -f "$wallpaper" ]]; then
       printf '%s\n' "$wallpaper"
       return
     fi
   fi
 
+  log "Falling back to random wallpaper"
+
   get_random_wallpaper
 }
 
 main() {
   local wallpaper=""
+
+  start_awww_daemon
 
   case "${1:-menu}" in
   restore)
