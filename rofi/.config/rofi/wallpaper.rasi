@@ -10,8 +10,8 @@ mainbox {
 
 /* Main container */
 window {
-    width: 820px;
-    height: 600px;
+    width: 750px;
+    height: 570px;
     anchor: center;
     location: center;
     border-radius: 22px;
