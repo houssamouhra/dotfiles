@@ -14,13 +14,13 @@ local screenshots = home .. '/Screenshots/'
 local mainMod = 'SUPER' -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. ' + Q', hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. ' + W', hl.dsp.window.close())
 hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. ' + SPACE', hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. ' + TAB', hl.dsp.exec_cmd(powermenu))
-hl.bind(mainMod .. ' + F', hl.dsp.window.fullscreen())
 hl.bind(mainMod .. ' + L', hl.dsp.exec_cmd 'hyprlock')
 hl.bind(mainMod .. ' + S', hl.dsp.exec_cmd 'swaync-client -t')
+hl.bind(mainMod .. ' + W', hl.dsp.window.close())
+hl.bind(mainMod .. ' + F', hl.dsp.window.fullscreen())
 hl.bind(mainMod .. ' + V', hl.dsp.window.float { action = 'toggle' })
 hl.bind(mainMod .. ' + P', hl.dsp.window.pseudo())
 hl.bind(mainMod .. ' + J', hl.dsp.layout 'togglesplit') -- dwindle only
