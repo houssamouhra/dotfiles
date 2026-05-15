@@ -38,22 +38,47 @@ ensure_cache() {
 }
 
 start_awww_daemon() {
-  if ! pgrep -x awww-daemon >/dev/null; then
-    log "Starting awww daemon..."
-    awww-daemon >/dev/null 2>&1 &
-  fi
+  local retries=20 # 2 sec
+  local pid
 
-  local retries=50
-
-  while ((retries-- > 0)); do
+  # Check if already running
+  if pid=$(pgrep -x awww-daemon); then
     if awww query >/dev/null 2>&1; then
       return 0
+    fi
+    # Process exists but not responding → kill it
+    log "awww-daemon is running but unresponsive, restarting..."
+    kill -TERM "$pid" 2>/dev/null || true
+    sleep 0.3
+  fi
+
+  log "Starting awww daemon..."
+
+  # Start it and capture PID immediately
+  if ! awww-daemon >/dev/null 2>&1 & then
+    log "Failed to launch awww-daemon (command not found or permission error)"
+    return 1
+  fi
+  pid=$!
+
+  # Wait for it to become ready
+  while ((retries-- > 0)); do
+    if awww query >/dev/null 2>&1; then
+      log "awww daemon started successfully (PID $pid)"
+      return 0
+    fi
+
+    # Check if process died
+    if ! kill -0 "$pid" 2>/dev/null; then
+      log "awww daemon died immediately after starting"
+      return 1
     fi
 
     sleep 0.1
   done
 
-  log "awww daemon failed to initialize"
+  log "awww daemon failed to initialize within timeout"
+  kill -TERM "$pid" 2>/dev/null || true
   return 1
 }
 
