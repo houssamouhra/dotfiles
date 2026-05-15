@@ -21,6 +21,7 @@ return {
         ['.gitattributes'] = { glyph = '', hl = 'MiniIconsGit' },
         ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
+        ['next.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
       },
 
       filetype = {
