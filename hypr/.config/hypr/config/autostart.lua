@@ -11,6 +11,7 @@ hl.on('hyprland.start', function()
   -- UI services
   hl.exec_cmd 'waybar'
   hl.exec_cmd 'swaync'
+  hl.exec_cmd 'hypridle'
 
   -- Display / color temperature
   hl.exec_cmd 'shikane'
