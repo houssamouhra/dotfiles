@@ -1,32 +1,45 @@
--- scripts
-local home = os.getenv 'HOME'
-local wallpaper = home .. '/.config/hypr/scripts/wallpaper.sh'
-local battery = home .. '/.config/hypr/scripts/battery-low-notify.sh'
+local HOME = os.getenv 'HOME'
+
+-- Scripts
+local scripts = {
+  wallpaper = string.format('%s/.config/hypr/scripts/wallpaper.sh', HOME),
+  battery = string.format('%s/.config/hypr/scripts/battery-low-notify.sh', HOME),
+}
+
+-- Helpers
+local function exec(cmd)
+  hl.exec_cmd(cmd)
+end
 
 hl.on('hyprland.start', function()
-  -- Wayland environment variables into systemd/dbus
-  hl.exec_cmd 'systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'
-  hl.exec_cmd 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'
+  -- Session / environment sync
+  exec 'systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'
+  exec 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'
 
   -- UI services
-  hl.exec_cmd 'waybar'
-  hl.exec_cmd 'swaync'
-  hl.exec_cmd 'hypridle'
+  local services = { 'waybar', 'swaync', 'hypridle' }
 
-  -- Display / color temperature
-  hl.exec_cmd 'shikane'
-  hl.exec_cmd 'gammastep'
+  for _, service in ipairs(services) do
+    exec(service)
+  end
 
-  -- Clipboard history
-  hl.exec_cmd 'wl-paste --watch cliphist store'
+  -- Display / system services
+  local display = { 'shikane', 'gammastep' }
 
-  -- Load Wallpaper
-  hl.exec_cmd(wallpaper .. ' restore')
+  for _, service in ipairs(display) do
+    exec(service)
+  end
 
-  -- Audio defaults / mute mic
-  hl.exec_cmd 'pactl set-sink-mute @DEFAULT_SINK@ 0'
-  hl.exec_cmd 'pactl set-source-mute @DEFAULT_SOURCE@ 1'
+  -- Clipboard manager
+  exec 'wl-paste --watch cliphist store'
+
+  -- Wallpaper
+  exec(scripts.wallpaper .. ' restore')
+
+  -- Audio defaults
+  exec 'pactl set-sink-mute @DEFAULT_SINK@ 0'
+  exec 'pactl set-source-mute @DEFAULT_SOURCE@ 1'
 
   -- Battery notifications
-  hl.exec_cmd(battery)
+  exec(scripts.battery)
 end)

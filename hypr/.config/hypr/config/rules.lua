@@ -1,45 +1,54 @@
-local suppressMaximizeRule = hl.window_rule {
-  -- Ignore maximize requests from all apps
-  name = 'suppress-maximize-events',
-  match = { class = '.*' },
+-- Helpers
+local function rule(opts)
+  return hl.window_rule(opts)
+end
 
+local suppressMaximizeRule = rule {
+  name = 'suppress-maximize-events',
+  match = {
+    xwayland = true,
+  },
   suppress_event = 'maximize',
 }
+
 suppressMaximizeRule:set_enabled(false)
 
-hl.window_rule {
+rule {
   name = 'fix-xwayland-drags',
   match = {
-    class = '^$',
-    title = '^$',
     xwayland = true,
     float = true,
+    class = '^$',
+    title = '^$',
     fullscreen = false,
     pin = false,
   },
-
   no_focus = true,
 }
 
--- Hyprland-run windowrule
-hl.window_rule {
+-- Layout rules
+rule {
   name = 'move-hyprland-run',
   match = { class = 'hyprland-run' },
-  move = '20 monitor_h-120',
   float = true,
+  move = '20 monitor_h-120',
 }
 
 -- Zen browser
-hl.window_rule {
-  name = 'zen',
-  match = { class = 'zen' },
+rule {
+  name = 'zen-browser',
+  match = {
+    class = 'zen',
+  },
   workspace = '1',
+  float = false,
   fullscreen = true,
 }
 
 -- Spotify
-hl.window_rule {
+rule {
   name = 'spotify',
   match = { class = 'spotify' },
+  float = false,
   fullscreen = true,
 }
