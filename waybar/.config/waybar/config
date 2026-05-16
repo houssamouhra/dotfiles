@@ -1,97 +1,132 @@
 {
-"layer": "top",
-"position": "top",
-"reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
 
-"modules-left": ["hyprland/workspaces", "custom/rmpc", "custom/spotify", "custom/space", "custom/updater", "tray", "custom/space" ,"custom/timer"],
-"modules-center": ["hyprland/window"],
-"modules-right": ["cpu", "memory", "disk", "custom/weather", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/space", "clock"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/rmpc",
+    "custom/spotify",
+    "custom/space",
+    "custom/updater",
+    "tray",
+    "custom/space",
+    "custom/timer"
+  ],
 
-"hyprland/workspaces": {
-   "format": "{id}",
-   "disable-scroll": true,
-   "all-outputs": false
-},
-  
-"hyprland/window": {
-   "format": "{class}",
-   "max-length":60,
-   "seperate-outputs": true,
-   "tooltip": false,
-   "rewrite": {
+  "modules-center": [
+    "hyprland/window"
+  ],
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "custom/weather",
+    "backlight",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "battery",
+    "custom/space",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "disable-scroll": true,
+    "all-outputs": false
+  },
+
+  "hyprland/window": {
+    "format": "{class}",
+    "max-length": 60,
+    "seperate-outputs": true,
+    "tooltip": false,
+
+    "rewrite": {
       "^$": "focus",
-      "com.mitchellh.ghostty": "term",
-      "brave-browser": "brave",
+      "com.mitchellh.ghostty": "ghostty",
       "org.nicotine_plus.Nicotine": "Nicotine+",
       "org.telegram.desktop": "telegram",
       "org.qbittorrent.qBittorrent": "qbittorrent"
-   }
-},
+    }
+  },
 
-"clock": {
+  "clock": {
     "interval": 1,
     "format": "{:%I:%M %p}", // AM PM format
     "format-alt": "{:%H:%M - %d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
+
     "calendar": {
-      "mode"          : "year",
-      "mode-mon-col"  : 3,
-      "weeks-pos"     : "right",
-      "on-scroll"     : 1,
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+
       "format": {
-      "months":     "<span color='#ffead3'><b>{}</b></span>",
-      "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-      "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-        }
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
-    },              
-    "actions":  {
+    },
+
+    "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
-},
+    }
+  },
 
-"pulseaudio": {
-    "scroll-step": 1,
+  "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%",
     "format-muted": " ",
+
     "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", "󰕾", ""],
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "󰕾", ""]
     },
+
     "scroll-step": 5.0,
+    "smooth-scrolling-threshold": 1,
     "on-scroll-up": "~/.config/hypr/scripts/volume-control.sh --inc",
     "on-scroll-down": "~/.config/hypr/scripts/volume-control.sh --dec",
-    "on-click": "~/.config/waybar/hypr/volume-control.sh --toggle",
-    "smooth-scrolling-threshold": 1,
-},
+    "on-click": "~/.config/hypr/scripts/volume-control.sh --toggle"
+  },
 
-"network": {
+  "network": {
     "interval": 1,
     "format": "{ifname}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰌘",
-    "format-disconnected": "󰌙", 
+    "format-disconnected": "󰌙",
     "format-linked": "󰈁 {ifname} (No IP)",
     "tooltip-format-wifi": "{essid} {icon} {signalStrength}%\n {bandwidthUpBytes}  {bandwidthDownBytes}",
     "tooltip-format-ethernet": "{ifname} 󰌘%\n {bandwidthUpBytes}  {bandwidthDownBytes}",
     "tooltip-format-disconnected": "󰌙 Disconnected",
     "max-length": 50,
-    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "on-click": "ghostty -e nmtui"
-},
+  },
 
-"bluetooth": {
+  "bluetooth": {
     "format": "󰂯",
     "format-disabled": "󰂲",
     "format-connected": "󰂱 {num_connections}",
@@ -99,51 +134,67 @@
     "tooltip-format-connected": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "󰂯 {device_alias} 󰂄 {device_battery_percentage}%",
     "tooltip": true,
-    "on-click": "blueman-manager",
-},
+    "on-click": "blueman-manager"
+  },
 
-"pulseaudio#microphone": {
+  "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",
     "format-source-muted": "",
+    "tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5,
     "on-click": "~/.config/hypr/scripts/volume-control.sh --toggle-mic",
     "on-scroll-up": "~/.config/hypr/scripts/volume-control.sh --mic-inc",
-    "on-scroll-down": "~/.config/hypr/scripts/volume-control.sh --mic-dec",
-	"tooltip-format": "{source_desc} | {source_volume}%",
-    "scroll-step": 5,
-},
+    "on-scroll-down": "~/.config/hypr/scripts/volume-control.sh --mic-dec"
+  },
 
-"battery": {
+  "battery": {
     "interval": 5,
     "align": 0,
     "rotate": 0,
-    //"bat": "BAT1",
-    //"adapter": "ACAD",
     "full-at": 100,
     "design-capacity": false,
+
     "states": {
       "good": 95,
       "warning": 30,
       "critical": 15
     },
+
     "format": "{icon} {capacity}%",
     "format-charging": "{capacity}%",
     "format-plugged": "󱘖 {capacity}%",
-	"format-alt-click": "click",
+
+    "format-alt-click": "click",
     "format-full": "{icon} Full",
     "format-alt": "{icon} {time}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-time": "{H}h {M}min",
-    "tooltip": true,
-    "tooltip-format": "{timeTo} {power}w",
-},
 
-"custom/cava_mviz": {
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+
+    "format-time": "{H}h {M}min",
+
+    "tooltip": true,
+    "tooltip-format": "{timeTo} {power}w"
+  },
+
+  "custom/cava_mviz": {
     "exec": "~/.config/waybar/scripts/waybar-cava.sh",
     "format": "{}"
-},
+  },
 
-"custom/rmpc": {
+  "custom/rmpc": {
     "exec": "~/.config/waybar/scripts/rmpc.sh",
     "interval": 2,
     "on-click": "mpc toggle",
@@ -152,105 +203,139 @@
     "on-scroll-up": "mpc volume +2",
     "on-scroll-down": "mpc volume -2",
     "tooltip": false
-},
+  },
 
-"custom/spotify": {
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify.sh",
     "interval": 1,
     "max-length": 20,
     "scroll-step": 5.0,
+    "smooth-scrolling-threshold": 1,
     "tooltip": false,
-    "exec": "~/.config/waybar/scripts/spotify.sh",
     "on-click": "playerctl -p spotify play-pause",
     "on-click-middle": "playerctl -p spotify previous",
     "on-click-right": "playerctl -p spotify next",
     "on-scroll-up": "~/.config/hypr/scripts/volume-control.sh --inc",
-    "on-scroll-down": "~/.config/hypr/scripts/volume-control.sh --dec",
-    "smooth-scrolling-threshold": 1,
-},
+    "on-scroll-down": "~/.config/hypr/scripts/volume-control.sh --dec"
+  },
 
-"backlight": {
+  "backlight": {
     "interval": 2,
     "align": 0,
     "rotate": 0,
-    "format": "{icon} {percent}%",
     "format": "{icon}",
-    "format-icons": ["","","","","","","","","","","","","","",""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+
     "tooltip-format": "backlight {percent}%",
     "icon-size": 10,
+
     "on-click": "",
     "on-click-middle": "",
     "on-click-right": "",
     "on-update": "",
+
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh --inc",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh --dec",
-    "smooth-scrolling-threshold": 1,
-},
 
-"custom/swaync": {                                                                 
-    "tooltip":true,
+    "smooth-scrolling-threshold": 1
+  },
+
+  "custom/swaync": {
+    "tooltip": true,
     "format": " ",
     "format-icons": {
-        "notification": " <span foreground='red'><sup></sup></span>",
-        "none": " ",
-        "dnd-notification": " <span foreground='red'><sup></sup></span>",
-        "dnd-none": " ",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": " ",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": " "
+      "notification": " <span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
     },
+
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-},
+  },
 
-"custom/updater":{
+  "custom/updater": {
     "format": " {}",
     "exec": "n=$(checkupdates 2>/dev/null | wc -l); [ \"$n\" -gt 0 ] && echo \"$n\"",
     "interval": 900,
     "tooltip": false,
-    "on-click": "ghostty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
-},
+    "on-click": "ghostty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar"
+  },
 
-"tray": {
-    "icon-size": 14,     
+  "tray": {
+    "icon-size": 14,
     "spacing": 10
-},
+  },
 
-"custom/timer": {
+  "custom/timer": {
     "exec": "~/.config/waybar/scripts/timer.sh",
     "return-type": "json",
     "format": "{}",
     "on-click": "~/.config/waybar/scripts/timer.sh click",
     "on-click-right": "~/.config/waybar/scripts/timer.sh right",
     "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
-    "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",  // previously up
-    "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",  // previously down
+
+    // previously up
+    "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",
+
+    // previously down
+    "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",
     "tooltip": true,
     "escape": true
-},
+  },
 
-"cpu": {
+  "cpu": {
     "interval": 1,
     "format": "{usage}% 󰍛",
-    "format-alt-click": "click",
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "gnome-system-monitor",
-},
+    "format-alt-click": "click",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
 
-"custom/gpu": {
+    "on-click": "gnome-system-monitor"
+  },
+
+  "custom/gpu": {
     "interval": 0.5,
     "format": "{}% 󰾲",
     "exec": "~/.config/waybar/scripts/gpu-usage.sh",
     "return-type": "json",
-    "tooltip": true,
-},
+    "tooltip": true
+  },
 
-"memory": {
+  "memory": {
     "interval": 10,
     "format": "{used:0.1f}G 󰾆",
     "format-alt": "{percentage}% 󰾆",
@@ -258,46 +343,44 @@
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
     "on-click-right": "ghostty -e btop"
-},
+  },
 
-"disk": {
+  "disk": {
     "interval": 30,
     "path": "/",
-    "format-alt-click": "click",
     "format": "{percentage_used}% 󰋊",
-    "tooltip-format": "{used} used out of {total}",
-},
+    "format-alt-click": "click",
+    "tooltip-format": "{used} used out of {total}"
+  },
 
-"custom/uptime": {
-   "exec": "~/.config/waybar/scripts/uptime.sh",
-   "interval": 10,
-   "tooltip": false,
-},
+  "custom/uptime": {
+    "exec": "~/.config/waybar/scripts/uptime.sh",
+    "interval": 10,
+    "tooltip": false
+  },
 
-"custom/weather": {
-  "exec": "~/.config/waybar/scripts/wttr.py",
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/wttr.py",
     "format": "{}",
     "format-alt": "{alt}: {}",
     "format-alt-click": "click",
     "interval": 3600,
     "return-type": "json",
     "exec-if": "ping wttr.in -c1",
-    "tooltip" : true,
-},
+    "tooltip": true
+  },
 
-"custom/colorpicker": {
+  "custom/colorpicker": {
     "format": "{}",
     "return-type": "json",
     "interval": "once",
     "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
     "on-click": "~/.config/waybar/scripts/colorpicker.sh",
     "signal": 1
-},
+  },
 
-"custom/space": { 
+  "custom/space": {
     "format": " ",
     "tooltip": false
-},
- 
- },
+  }
 }
