@@ -10,9 +10,7 @@ local screenshots = string.format('%s/Screenshots/', HOME)
 
 local terminal = 'ghostty'
 local yazi = terminal .. ' -e yazi'
-
 local menu = 'rofi -show drun'
-
 local powermenu = table.concat({
   'rofi -show power-menu',
   '-modi power-menu:$HOME/.local/bin/rofi-power-menu',
