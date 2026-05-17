@@ -23,7 +23,7 @@
 @define-color surface          mix(@background, @foreground, 0.05);
 
 * {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
 *:focus {
@@ -230,7 +230,7 @@ blankwindow {
 
 .widget-buttons-grid button:checked {
   background: @bg-selected;
-  color: @background; /* dark background color for contrast on accent */
+  color: @background;
   border-color: @accent;
 }
 
