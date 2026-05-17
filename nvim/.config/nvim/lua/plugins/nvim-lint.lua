@@ -10,7 +10,6 @@ return {
       javascriptreact = { 'eslint_d' },
       typescriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
-      json = { 'eslint_d' },
       python = { 'ruff', 'mypy' },
       sh = { 'shellcheck' },
       markdown = { 'vale' },
