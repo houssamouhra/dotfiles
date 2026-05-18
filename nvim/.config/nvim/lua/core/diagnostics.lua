@@ -1,8 +1,4 @@
 vim.diagnostic.config {
-  virtual_text = {
-    prefix = '■',
-    spacing = 2,
-  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = ' ',
