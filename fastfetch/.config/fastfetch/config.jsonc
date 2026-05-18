@@ -18,7 +18,6 @@
   },
   "modules": [
     "break",
-    "break",
     {
       "key": "{#31}╭───────────────╮",
       "type": "custom"
@@ -76,8 +75,7 @@
     },
     {
       "key": "{#31}│ {#37}󰍹 display     {#keys}{#31}│",
-      "type": "display",
-      "compactType": "resolution"
+      "type": "display"
     },
     {
       "key": "{#31}│ {#37}󰍛 cpu        {#keys} {#31}│",
@@ -86,17 +84,20 @@
     },
     {
       "key": "{#31}│ {#37}󰢮 gpu        {#keys} {#31}│",
-      "type": "gpu",
-      "format": "{name}"
+      "type": "gpu"
     },
     {
-      "key": "{#31}│ {#37} memory     {#keys} {#31}│",
+      "key": "{#31}│ {#37}󰓅 memory     {#keys} {#31}│",
       "type": "memory"
     },
     {
-      "key": "{#31}│ {#37}󰉉 disk       {#keys} {#31}│",
+      "key": "{#31}│ {#37} disk       {#keys} {#31}│",
       "type": "disk",
       "folders": "/"
+    },
+    {
+      "key": "{#31}│ {#37}󰾴 swap       {#keys} {#31}│",
+      "type": "swap"
     },
     {
       "key": "{#31}╰───────────────╯",
