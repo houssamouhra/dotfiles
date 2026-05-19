@@ -15,6 +15,7 @@ export FZF_ALT_C_OPTS="$FZF_PREVIEW"
 export FZF_CTRL_R_OPTS="\
 --height ${FZF_TMUX_HEIGHT:-50%} \
 --reverse \
+--border \
 --scheme=history \
 --exact \
 --ansi \
