@@ -3,7 +3,6 @@ local HOME = os.getenv 'HOME'
 -- Scripts
 local scripts = {
   wallpaper = string.format('%s/.config/hypr/scripts/wallpaper.sh', HOME),
-  battery = string.format('%s/.config/hypr/scripts/battery-low-notify.sh', HOME),
 }
 
 -- Helpers
@@ -39,7 +38,4 @@ hl.on('hyprland.start', function()
   -- Audio defaults
   exec 'pactl set-sink-mute @DEFAULT_SINK@ 0'
   exec 'pactl set-source-mute @DEFAULT_SOURCE@ 1'
-
-  -- Battery notifications
-  exec(scripts.battery)
 end)
