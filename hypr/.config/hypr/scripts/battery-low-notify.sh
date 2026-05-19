@@ -1,69 +1,138 @@
 #!/usr/bin/env bash
 
+set -uo pipefail
+
 # CONFIGURATION
 BATTERY="BAT0"
+
 CHECK_INTERVAL=120
-COOLDOWN=900 # 15 min per threshold
+COOLDOWN=900 # 15 min
 
 NOTIFY_TITLE="Battery Low!"
 NOTIFY_URGENCY="critical"
+
 NOTIFY_CMD="/usr/bin/notify-send"
 
-NOTIFY_MSG_20="Battery at {PERCENT}% — better plug in soon!"
-NOTIFY_MSG_12="Battery at {PERCENT}% — connect charger soon!"
-NOTIFY_MSG_10="Only {PERCENT}% battery left — plug in NOW!"
-
 SOUND="$HOME/.config/waybar/sounds/low-battery.mp3"
+SOUND_CMD="/usr/bin/pw-play"
 
-# LOGIC
+# Optional: auto suspend at critical level
+ENABLE_AUTO_SUSPEND=true
+SUSPEND_THRESHOLD=5
+
+# Threshold messages
+declare -A MESSAGES=(
+  [20]="Battery at {PERCENT}% — better plug in soon!"
+  [12]="Battery at {PERCENT}% — connect charger soon!"
+  [10]="Only {PERCENT}% battery left — plug in NOW!"
+)
+
+# STATE
 declare -A last_notified
-THRESHOLDS=(20 12 10)
 
+# HELPERS
+battery_path="/sys/class/power_supply/$BATTERY"
+
+send_notification() {
+  local threshold="$1"
+  local capacity="$2"
+
+  local message="${MESSAGES[$threshold]}"
+  message="${message//\{PERCENT\}/$capacity}"
+
+  "$NOTIFY_CMD" \
+    -u "$NOTIFY_URGENCY" \
+    -a "battery-notify" \
+    -i "battery-low-symbolic" \
+    "$NOTIFY_TITLE" \
+    "$message"
+}
+
+play_sound() {
+  [[ -f "$SOUND" ]] || return 0
+  [[ -x "$SOUND_CMD" ]] || return 0
+
+  "$SOUND_CMD" "$SOUND" &>/dev/null &
+}
+
+suspend_system() {
+  notify-send \
+    -u critical \
+    -a "battery-notify" \
+    "Critical Battery" \
+    "System suspending to prevent shutdown..."
+
+  sleep 5
+
+  systemctl suspend
+}
+
+reset_notifications() {
+  last_notified=()
+}
+
+get_battery_level() {
+  local capacity="$1"
+
+  if ((capacity <= 10)); then
+    echo 10
+  elif ((capacity <= 12)); then
+    echo 12
+  elif ((capacity <= 20)); then
+    echo 20
+  else
+    echo 0
+  fi
+}
+
+# VALIDATION
+if [[ ! -d "$battery_path" ]]; then
+  echo "Error: Battery '$BATTERY' not found." >&2
+  exit 1
+fi
+
+# MAIN LOOP
 while true; do
-	if [[ ! -d "/sys/class/power_supply/$BATTERY" ]]; then
-		echo "Error: Battery $BATTERY not found" >&2
-		sleep 60
-		continue
-	fi
+  capacity=$(<"$battery_path/capacity")
+  status=$(<"$battery_path/status")
 
-	capacity=$(cat "/sys/class/power_supply/$BATTERY/capacity" 2>/dev/null)
-	status=$(cat "/sys/class/power_supply/$BATTERY/status" 2>/dev/null)
+  # Reset state while charging/full
+  if [[ "$status" == "Charging" || "$status" == "Full" ]]; then
+    reset_notifications
+    sleep "$CHECK_INTERVAL"
+    continue
+  fi
 
-	# Skip if invalid read or already charging/full
-	[[ -z "$capacity" || "$status" = "Charging" || "$status" = "Full" ]] && {
-		sleep "$CHECK_INTERVAL"
-		continue
-	}
+  # Skip invalid reads
+  if [[ -z "$capacity" ]]; then
+    sleep "$CHECK_INTERVAL"
+    continue
+  fi
 
-	current_time=$(date +%s)
+  current_time=$(date +%s)
 
-	for thresh in "${THRESHOLDS[@]}"; do
-		if ((capacity <= thresh)); then
-			last=${last_notified[$thresh]:-0}
+  level=$(get_battery_level "$capacity")
 
-			if ((last + COOLDOWN < current_time)); then
-				# Select message based on threshold
-				case $thresh in
-				10) msg="${NOTIFY_MSG_10//"{PERCENT}"/$capacity}" ;;
-				12) msg="${NOTIFY_MSG_12//"{PERCENT}"/$capacity}" ;;
-				20) msg="${NOTIFY_MSG_20//"{PERCENT}"/$capacity}" ;;
-				*) msg="Battery at ${capacity}% (level $thresh)" ;;
-				esac
+  # No active threshold
+  if ((level == 0)); then
+    sleep "$CHECK_INTERVAL"
+    continue
+  fi
 
-				"$NOTIFY_CMD" \
-					-u "$NOTIFY_URGENCY" \
-					-a "battery-notify" \
-					-i "battery-low-symbolic" \
-					"$NOTIFY_TITLE" \
-					"$msg"
+  last_time=${last_notified[$level]:-0}
 
-				# Play sound for all levels
-				[[ -f "$SOUND" ]] && paplay --volume=60000 "$SOUND" &>/dev/null &
+  if ((current_time - last_time >= COOLDOWN)); then
+    send_notification "$level" "$capacity"
+    play_sound
 
-				last_notified[$thresh]=$current_time
-			fi
-		fi
-	done
+    last_notified[$level]=$current_time
+  fi
 
-	sleep "$CHECK_INTERVAL"
+  # Emergency suspend
+  if [[ "$ENABLE_AUTO_SUSPEND" == true ]] &&
+    ((capacity <= SUSPEND_THRESHOLD)); then
+    suspend_system
+  fi
+
+  sleep "$CHECK_INTERVAL"
 done
