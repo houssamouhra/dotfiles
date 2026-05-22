@@ -26,6 +26,7 @@ return {
         typescript = prettier,
         javascriptreact = prettier,
         typescriptreact = prettier,
+        markdown = prettier,
         vue = prettier,
         html = prettier,
         css = prettier,
