@@ -22,6 +22,7 @@ return {
         ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
         ['next.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
+        ['tmux.conf'] = { glyph = '', hl = 'MiniIconsTmux' },
       },
 
       filetype = {
@@ -35,6 +36,7 @@ return {
         vim.api.nvim_set_hl(0, 'MiniIconsVite', { fg = '#9752FF' })
         vim.api.nvim_set_hl(0, 'MiniIconsEslint', { fg = '#8181F2' })
         vim.api.nvim_set_hl(0, 'MiniIconsGit', { fg = '#F05133' })
+        vim.api.nvim_set_hl(0, 'MiniIconsTmux', { fg = '#1BB91F' })
       end,
     })
   end,
