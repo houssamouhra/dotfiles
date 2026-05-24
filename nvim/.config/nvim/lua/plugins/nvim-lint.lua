@@ -13,6 +13,7 @@ return {
       python = { 'ruff', 'mypy' },
       sh = { 'shellcheck' },
       markdown = { 'vale' },
+      dockerfile = { 'hadolint' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup('nvim-lint', { clear = true })
