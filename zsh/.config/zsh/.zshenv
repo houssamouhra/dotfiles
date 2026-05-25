@@ -8,10 +8,10 @@ export XDG_PLUGIN_DIR="$ZDOTDIR/plugins"
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export CARGO_BIN_HOME="$HOME/.cargo/bin"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm/bin"
 
 # Default editor, and pager
-export EDITOR="nvim"
+export EDITOR=nvim
 export VISUAL=$EDITOR
 export PAGER=less
 export MANPAGER=$PAGER

@@ -54,10 +54,9 @@ fnm-on() {
     echo "Node activated"
 }
 
-# pnpm wrapper
 pnpm() {
     unfunction pnpm
-    [[ -f "$PNPM_HOME/pnpm.sh" ]] && source "$PNPM_HOME/pnpm.sh"
+    [[ -f "$PNPM_HOME" ]] && source "$PNPM_HOME"
     pnpm "$@"
 }
 
