@@ -51,7 +51,7 @@ stashed = '\$'
 modified = '!'
 staged = '+'
 renamed = '»'
-deleted = ''
+deleted = '✘'
 typechanged = ""
 
 [fill]
