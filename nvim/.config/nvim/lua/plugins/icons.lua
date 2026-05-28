@@ -23,6 +23,11 @@ return {
         ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
         ['next.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
         ['tmux.conf'] = { glyph = '', hl = 'MiniIconsTmux' },
+        ['docker-compose.yml'] = { glyph = '', hl = 'MiniIconsDocker' },
+        ['Dockerfile'] = { hl = 'MiniIconsDocker' },
+        ['package.json'] = { glyph = '', hl = 'MiniIconsNpm' },
+        ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
+        ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
       },
 
       filetype = {
@@ -37,6 +42,9 @@ return {
         vim.api.nvim_set_hl(0, 'MiniIconsEslint', { fg = '#8181F2' })
         vim.api.nvim_set_hl(0, 'MiniIconsGit', { fg = '#F05133' })
         vim.api.nvim_set_hl(0, 'MiniIconsTmux', { fg = '#1BB91F' })
+        vim.api.nvim_set_hl(0, 'MiniIconsDocker', { fg = '#037CC7' })
+        vim.api.nvim_set_hl(0, 'MiniIconsPnpm', { fg = '#F9AD00' })
+        vim.api.nvim_set_hl(0, 'MiniIconsNpm', { fg = '#CB0000' })
       end,
     })
   end,
