@@ -16,6 +16,9 @@ export VISUAL=$EDITOR
 export PAGER=less
 export MANPAGER=$PAGER
 
+# Disable docker error msg AI slop
+export DOCKER_CLI_HINTS=false
+
 # Cursor theme and size
 export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=22
