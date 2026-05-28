@@ -42,6 +42,7 @@ require('lazy').setup {
   require 'plugins.lualine',
   require 'plugins.markdown',
   require 'plugins.misc',
+  require 'plugins.undotree',
   require 'plugins.neo-scroll',
   require 'plugins.neo-tree',
   require 'plugins.conform',
