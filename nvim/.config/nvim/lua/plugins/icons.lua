@@ -28,6 +28,7 @@ return {
         ['package.json'] = { glyph = '', hl = 'MiniIconsNpm' },
         ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
         ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
+        ['nginx.conf'] = { glyph = '', hl = 'MiniIconsNginx' },
       },
 
       filetype = {
@@ -45,6 +46,7 @@ return {
         vim.api.nvim_set_hl(0, 'MiniIconsDocker', { fg = '#037CC7' })
         vim.api.nvim_set_hl(0, 'MiniIconsPnpm', { fg = '#F9AD00' })
         vim.api.nvim_set_hl(0, 'MiniIconsNpm', { fg = '#CB0000' })
+        vim.api.nvim_set_hl(0, 'MiniIconsNginx', { fg = '#009800' })
       end,
     })
   end,
