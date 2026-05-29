@@ -1,10 +1,12 @@
 # Laptop only
 [[profile]]
-name = "undocked"
+name = "laptop"
 
 [[profile.output]]
-search = "eDP-1"
+search = ["m=0x40A9", "v=Lenovo Group Limited"]
 enable = true
+mode = "1920x1080@60Hz"
+position = "0,0"
 scale = 1.0
 exec = ['sh -c "ln -sf ~/.config/hypr/monitors/hyprlock-laptop.conf ~/.config/hypr/hyprlock.conf"']
 
@@ -13,12 +15,13 @@ exec = ['sh -c "ln -sf ~/.config/hypr/monitors/hyprlock-laptop.conf ~/.config/hy
 name = "docked"
 
 [[profile.output]]
-search = "eDP-1"
+search = ["m=0x40A9", "v=Lenovo Group Limited"]
 enable = false
 
 [[profile.output]]
-search = "HDMI-A-1"
+search = ["m=MSI G241", "v=Microstep"]
 enable = true
-mode = "1920x1080@144"
+mode = "1920x1080@144Hz"
+position = "0,0"
 scale = 1.0
 exec = ['sh -c "ln -sf ~/.config/hypr/monitors/hyprlock-external.conf ~/.config/hypr/hyprlock.conf"']
