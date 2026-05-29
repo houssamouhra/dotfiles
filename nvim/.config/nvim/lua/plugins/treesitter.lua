@@ -37,7 +37,7 @@ return {
     }
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'javascriptreact', 'typescriptreact' },
+      pattern = { 'javascriptreact', 'typescriptreact', 'javascript', 'typescript' },
       callback = function()
         vim.treesitter.start()
       end,
