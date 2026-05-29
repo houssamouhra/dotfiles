@@ -4,11 +4,14 @@
 config-file = themes/tokyonight
 
 # TRANSPARENCY
-background-opacity = 0.94
+background-opacity = 0.96
 
 # FONTS
 # font-family = "MonoLisa Variable"
 # font-family = "Maple Mono NF"
+# font-family = "Hack Nerd Font"
+# font-family = "Liga SFMono Nerd Font"
+
 font-size = 13
 adjust-cell-height = 10%
 freetype-load-flags = force-autohint
