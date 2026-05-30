@@ -1,7 +1,3 @@
-require 'core.options'
-require 'core.keymaps'
-require 'core.diagnostics'
-
 -- Set up the Lazy plugin manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -13,6 +9,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+
+-- Load crutial config
+require 'core.options'
+require 'core.keymaps'
+require 'core.diagnostics'
 
 -- Set up plugins
 require('lazy').setup {
