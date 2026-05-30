@@ -34,6 +34,9 @@ return {
       filetype = {
         dotenv = { glyph = '', hl = 'MiniIconsYellow' },
         zsh = { glyph = '', hl = 'MiniIconsGreen' },
+        typescript = { hl = 'MiniIconsTS' },
+        typescriptreact = { glyph = '󰜈', hl = 'MiniIconsTS' },
+        javascriptreact = { glyph = '󰜈' },
       },
     }
     require('mini.icons').mock_nvim_web_devicons()
@@ -47,6 +50,7 @@ return {
         vim.api.nvim_set_hl(0, 'MiniIconsPnpm', { fg = '#F9AD00' })
         vim.api.nvim_set_hl(0, 'MiniIconsNpm', { fg = '#CB0000' })
         vim.api.nvim_set_hl(0, 'MiniIconsNginx', { fg = '#009800' })
+        vim.api.nvim_set_hl(0, 'MiniIconsTS', { fg = '#2D79C7' })
       end,
     })
   end,
