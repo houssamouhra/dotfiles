@@ -89,8 +89,8 @@ return {
           { 'filetype', color = { fg = '#656c8b' } },
           { 'encoding', color = { fg = '#656c8b' } },
           { 'fileformat', symbols = {
-            unix = 'LF',
-            dos = 'CRLF',
+            unix = 'lf',
+            dos = 'crlf',
           }, color = { fg = '#656c8b' } },
         },
       },
