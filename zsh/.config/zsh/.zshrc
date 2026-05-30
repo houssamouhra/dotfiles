@@ -54,12 +54,6 @@ fnm-on() {
     echo "Node activated"
 }
 
-pnpm() {
-    unfunction pnpm
-    [[ -f "$PNPM_HOME" ]] && source "$PNPM_HOME"
-    pnpm "$@"
-}
-
 # Colored man pages lazy load
 typeset -g zsh_first_prompt_loaded=0
 

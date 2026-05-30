@@ -8,7 +8,7 @@ export XDG_PLUGIN_DIR="$ZDOTDIR/plugins"
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export CARGO_BIN_HOME="$HOME/.cargo/bin"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm/bin"
+export PNPM_BIN_HOME="$XDG_DATA_HOME/pnpm/bin"
 
 # Default editor, and pager
 export EDITOR=nvim
@@ -24,13 +24,13 @@ export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=22
 export GTK_CURSOR_THEME=$XCURSOR_THEME
 
-# PATH setup
-# make path unique and global
+# path setup
 typeset -gU path
 
 path=(
     $XDG_BIN_HOME
     $CARGO_BIN_HOME
-    $PNPM_HOME
+    $PNPM_BIN_HOME
+    $PNPM_BIN_HOME/bin
     $path
 )
