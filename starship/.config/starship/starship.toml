@@ -65,7 +65,7 @@ symbol = ' '
 
 [nodejs]
 symbol = ' '
-detect_files = ["package.json", ".nvmrc"]
+detect_files = ["package.json", "node_modules"]
 
 [golang]
 symbol = ' '
