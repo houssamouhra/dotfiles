@@ -31,9 +31,26 @@ generate_cache() {
 }
 
 ensure_cache() {
-  if [[ ! -f "$CACHE_FILE" ]] ||
-    find "$WALLPAPER_DIR" -type f -newer "$CACHE_FILE" | grep -q .; then
-    generate_cache
+  log "Generating wallpaper cache..."
+
+  local tmp
+  tmp="${CACHE_FILE}.tmp"
+
+  find -L "$WALLPAPER_DIR" \
+    -type f \
+    \( \
+    -iname "*.jpg" \
+    -o -iname "*.jpeg" \
+    -o -iname "*.png" \
+    -o -iname "*.gif" \
+    \) |
+    sort >"$tmp"
+
+  if [[ -s "$tmp" ]]; then
+    mv "$tmp" "$CACHE_FILE"
+  else
+    log "Warning: generated cache is empty, keeping existing cache"
+    rm -f "$tmp"
   fi
 }
 
