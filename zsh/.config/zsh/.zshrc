@@ -42,11 +42,15 @@ z() {
 
 # fnm lazy load
 _fnm_lazy_load() {
-    if [[ -f package.json || -d node_modules || -f .nvmrc ]]; then
-        eval "$(fnm env)" 2>/dev/null
+    if [[ -f package.json \
+       || -f .nvmrc \
+       || -d node_modules ]]; then
+
+        eval "$(fnm env)" 2>/dev/null  || return
+        add-zsh-hook -d chpwd _fnm_lazy_load
     fi
 }
-add-zsh-hook precmd _fnm_lazy_load
+add-zsh-hook chpwd _fnm_lazy_load
 
 # fnm manual activation
 fnm-on() {
