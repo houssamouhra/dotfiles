@@ -10,7 +10,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Load crutial config
+-- Load core config
 require 'core.options'
 require 'core.keymaps'
 require 'core.diagnostics'
