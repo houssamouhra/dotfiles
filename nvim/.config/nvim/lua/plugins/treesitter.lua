@@ -39,7 +39,7 @@ return {
     }
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'html', 'javascriptreact', 'typescriptreact', 'javascript', 'typescript' },
+      pattern = { 'html', 'sh', 'markdown', 'dockerfile', 'yaml', 'yml', 'css', 'javascriptreact', 'typescriptreact', 'javascript', 'typescript' },
       callback = function()
         vim.treesitter.start()
       end,
