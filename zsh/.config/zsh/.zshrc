@@ -50,6 +50,7 @@ _fnm_lazy_load() {
         add-zsh-hook -d chpwd _fnm_lazy_load
     fi
 }
+_fnm_lazy_load
 add-zsh-hook chpwd _fnm_lazy_load
 
 # fnm manual activation
