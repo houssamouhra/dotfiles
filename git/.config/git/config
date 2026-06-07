@@ -28,7 +28,6 @@
   unstage = restore --staged
   amend = commit --amend --no-edit
   pr = pull --rebase
-  ds = diff --staged
   ap = add -p
 
 [filter "lfs"]
