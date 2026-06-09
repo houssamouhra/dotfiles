@@ -12,6 +12,8 @@ return {
         ['vite.config.mjs'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
         ['README.md'] = { glyph = '󰂺', hl = 'MiniIconsGreen' },
         ['eslint.config.js'] = { glyph = '', hl = 'MiniIconsEslint' },
+        ['eslint.config.mjs'] = { glyph = '', hl = 'MiniIconsEslint' },
+        ['postcss.config.mjs'] = { glyph = '', hl = 'MiniIconsPostCSS' },
         ['tsconfig.app.json'] = { glyph = '', hl = 'MiniIconsAzure' },
         ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
         ['tsconfig.node.json'] = { glyph = '', hl = 'MiniIconsAzure' },
@@ -51,6 +53,7 @@ return {
         vim.api.nvim_set_hl(0, 'MiniIconsNpm', { fg = '#CB0000' })
         vim.api.nvim_set_hl(0, 'MiniIconsNginx', { fg = '#009800' })
         vim.api.nvim_set_hl(0, 'MiniIconsTS', { fg = '#2D79C7' })
+        vim.api.nvim_set_hl(0, 'MiniIconsPostCSS', { fg = '#DD3A0A' })
       end,
     })
   end,
