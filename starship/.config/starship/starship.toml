@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 $jobs\
 $directory\
@@ -106,8 +108,7 @@ disabled = true
 [docker_context]
 symbol = ' '
 style = 'fg:#06969A'
-format = '[$symbol]($style) $path'
-detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+format = 'via [$symbol $context]($style) '
 
 [jobs]
 symbol = '✦'
