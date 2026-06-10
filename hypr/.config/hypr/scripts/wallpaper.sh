@@ -112,7 +112,7 @@ select_wallpaper() {
       rofi \
         -dmenu \
         -i \
-        -p " Wallpapers:" \
+        -p " Wallpapers" \
         -theme "$ROFI_THEME"
   ) || return 1
 
