@@ -1,14 +1,15 @@
 #!/bin/bash
 
-theme="$HOME/.config/rofi/clipboard.rasi"
+ROFI_THEME="$HOME/.config/rofi/clipboard.rasi"
 
 selected=$(
   cliphist list |
-    rofi -dmenu \
+    rofi \
+      -dmenu \
       -display-columns 2 \
       -i \
       -p "󰅌 Clipboard:" \
-      -theme "$theme"
+      -theme "$ROFI_THEME"
 )
 
 [ -z "$selected" ] && exit 0
