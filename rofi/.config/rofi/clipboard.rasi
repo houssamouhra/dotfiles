@@ -64,7 +64,7 @@ prompt {
 
 /* Input field */
 entry {
-    placeholder: "Search clipboard...";
+    placeholder: "Browse clipboard";
     placeholder-color: #ffffff66;
     text-color: @fg-col;
     background-color: transparent;

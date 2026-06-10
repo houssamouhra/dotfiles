@@ -52,12 +52,12 @@ prompt {
 
 /* User input field */
 entry {
-    placeholder: "Search...";
+    placeholder: "Search apps";
     placeholder-color: #ffffff66;
     text-color: @fg-col;
     background-color: transparent;
-    cursor-width: 1px;
     hide-cursor-on-empty: true;
+    cursor-width: 1px;
     blink: false;
 }
 

@@ -32,12 +32,13 @@ prompt {
     enabled: true;
     text-color: @fg-col;
     background-color: transparent;
-    margin: 0px 8px 0px 0px;
+    margin: 0 8px 0 0;
+    font: "JetBrainsMono Nerd Font Bold 11";
 }
 
 /* Text input field */
 entry {
-    placeholder: "Search wallpaper...";
+    placeholder: "Choose wallpaper";
     placeholder-color: #ffffff66;
     text-color: @fg-col;
     background-color: transparent;
