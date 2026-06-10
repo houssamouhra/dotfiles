@@ -8,7 +8,7 @@ selected=$(
       -dmenu \
       -display-columns 2 \
       -i \
-      -p "󰅌 Clipboard:" \
+      -p "󰅌 Clipboard" \
       -theme "$ROFI_THEME"
 )
 
