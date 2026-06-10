@@ -124,6 +124,7 @@ return {
           hide_gitignored = false,
           hide_hidden = false,
           hide_by_name = {
+            '.next',
             '.DS_Store',
             'thumbs.db',
             'node_modules',

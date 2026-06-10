@@ -151,10 +151,10 @@ return {
       pickers = {
         find_files = {
           hidden = true, -- include hidden files
-          file_ignore_patterns = { 'node_modules', '^%.git/', '%.venv' }, -- only ignore the .git folder
+          file_ignore_patterns = { 'node_modules', '^%.git/', '%.venv', '.next' }, -- only ignore the .git folder
         },
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '%.git/', '%.venv' },
+          file_ignore_patterns = { 'node_modules', '%.git/', '%.venv', '.next' },
           additional_args = function()
             return { '--hidden' }
           end, -- grep hidden files too
