@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -euo pipefail
 
 WALLPAPER_DIR="$HOME/wallpapers"
@@ -111,9 +112,8 @@ select_wallpaper() {
       rofi \
         -dmenu \
         -i \
-        -p "Wallpaper" \
-        -theme "$ROFI_THEME" \
-        -show-icons
+        -p " Wallpapers:" \
+        -theme "$ROFI_THEME"
   ) || return 1
 
   [[ -n "$selected" ]] || return 1
