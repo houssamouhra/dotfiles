@@ -68,6 +68,9 @@ entry {
     placeholder-color: #ffffff66;
     text-color: @fg-col;
     background-color: transparent;
+    cursor-width: 1px;
+    hide-cursor-on-empty: true;
+    blink: false;
 }
 
 /* Clipboard list container */
