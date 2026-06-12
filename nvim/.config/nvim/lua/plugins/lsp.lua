@@ -96,6 +96,7 @@ return {
         'jsonls',
         'yamlls',
         'lua_ls',
+        'prismals',
       },
       automatic_installation = true,
     }

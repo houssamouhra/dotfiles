@@ -31,6 +31,7 @@ return {
         ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
         ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
         ['nginx.conf'] = { glyph = '', hl = 'MiniIconsNginx' },
+        ['prisma.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
       },
 
       filetype = {
