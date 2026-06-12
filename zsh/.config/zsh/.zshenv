@@ -10,14 +10,19 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export CARGO_BIN_HOME="$HOME/.cargo/bin"
 export PNPM_BIN_HOME="$XDG_DATA_HOME/pnpm/bin"
 
+# ATAC configuration
+export ATAC_CONFIG_DIR="$XDG_CONFIG_HOME/atac"
+export ATAC_THEME="$ATAC_CONFIG_DIR/themes/postman_theme.toml"
+export ATAC_KEY_BINDINGS="$ATAC_CONFIG_DIR/key_binds/vim_key_bindings.toml"
+
+# Disable docker error msg AI slop
+export DOCKER_CLI_HINTS=false
+
 # Default editor, and pager
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export PAGER=less
 export MANPAGER=$PAGER
-
-# Disable docker error msg AI slop
-export DOCKER_CLI_HINTS=false
 
 # Cursor theme and size
 export XCURSOR_THEME=Bibata-Modern-Classic
