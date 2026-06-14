@@ -24,6 +24,7 @@ return {
         ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
         ['next.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
+        ['next-env.d.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
         ['tmux.conf'] = { glyph = '', hl = 'MiniIconsTmux' },
         ['docker-compose.yml'] = { glyph = '', hl = 'MiniIconsDocker' },
         ['Dockerfile'] = { hl = 'MiniIconsDocker' },
