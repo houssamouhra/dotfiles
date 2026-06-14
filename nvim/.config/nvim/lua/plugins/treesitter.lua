@@ -22,6 +22,7 @@ return {
         'prisma',
         'regex',
         'bash',
+        'sql',
         'dockerfile',
         'toml',
         'query',
@@ -40,7 +41,21 @@ return {
     }
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'html', 'sh', 'markdown', 'dockerfile', 'yaml', 'yml', 'css', 'prisma', 'javascriptreact', 'typescriptreact', 'javascript', 'typescript' },
+      pattern = {
+        'html',
+        'sh',
+        'markdown',
+        'dockerfile',
+        'yaml',
+        'yml',
+        'sql',
+        'css',
+        'prisma',
+        'javascriptreact',
+        'typescriptreact',
+        'javascript',
+        'typescript',
+      },
       callback = function()
         vim.treesitter.start()
       end,

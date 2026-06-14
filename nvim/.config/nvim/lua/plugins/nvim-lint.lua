@@ -14,6 +14,7 @@ return {
       sh = { 'shellcheck' },
       markdown = { 'vale' },
       dockerfile = { 'hadolint' },
+      sql = { 'sqlfluff' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup('nvim-lint', { clear = true })

@@ -31,6 +31,7 @@ return {
         html = prettier,
         css = prettier,
         json = prettier,
+        sql = { 'sleek' },
         yaml = prettier,
         sh = { 'shfmt' },
         zsh = { 'beautysh' },
