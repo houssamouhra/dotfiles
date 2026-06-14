@@ -9,6 +9,7 @@ return {
   },
   -- lazy load: load only when opening neotree
   cmd = 'Neotree',
+  lazy = false,
   keys = {
     { '<C-n>', ':Neotree toggle position=left<CR>', desc = 'toggle neotree (left)', silent = true },
     { '\\', ':Neotree reveal<CR>', desc = 'reveal current file in neotree', silent = true },
@@ -18,6 +19,7 @@ return {
   -- plugin configuration
   config = function()
     require('neo-tree').setup {
+      log_level = 'error',
       close_if_last_window = false,
       popup_border_style = 'rounded',
       enable_git_status = true,
@@ -84,7 +86,10 @@ return {
         position = 'left',
         width = 28,
 
-        mapping_options = { noremap = true, nowait = true },
+        mapping_options = {
+          noremap = true,
+          nowait = true,
+        },
 
         -- keybindings inside neotree window
         mappings = {
@@ -92,6 +97,7 @@ return {
           ['<2-LeftMouse>'] = 'open',
           ['<cr>'] = 'open',
           ['P'] = { 'toggle_preview', config = { use_float = true } },
+          ['H'] = 'toggle_hidden',
           ['l'] = 'open',
           ['S'] = 'open_split',
           ['s'] = 'open_vsplit',
