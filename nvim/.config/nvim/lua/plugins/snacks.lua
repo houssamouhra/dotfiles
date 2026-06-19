@@ -5,14 +5,33 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
+    notifier = {
+      enabled = true,
+      timeout = 3000,
+    },
     indent = { enabled = true },
     input = { enabled = true },
     quickfile = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
+    styles = {
+      notification = {
+        wo = {
+          wrap = true,
+        },
+      },
+    },
   },
+
   keys = {
+    {
+      '<leader>un',
+      function()
+        Snacks.notifier.hide()
+      end,
+      desc = 'Dismiss All Notifications',
+    },
     {
       '<leader>z',
       function()
