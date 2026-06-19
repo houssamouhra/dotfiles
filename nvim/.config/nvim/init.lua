@@ -33,6 +33,7 @@ require('lazy').setup {
   require 'plugins.trouble',
   require 'plugins.comment',
   require 'plugins.nvim-ts-autotag',
+  require 'plugins.dadbod',
   require 'plugins.nvim-autopairs',
   require 'plugins.nvim-colorizer',
   require 'plugins.nvim-surround',

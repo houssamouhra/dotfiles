@@ -77,3 +77,6 @@ vim.keymap.set('n', '<leader>dc', '<cmd>DiffviewClose<cr>', { desc = 'Diffview: 
 vim.keymap.set({ 'n', 'x' }, '<leader>F', function()
   require('conform').format()
 end, { desc = 'Format file' })
+
+-- Toggle dadbod UI
+vim.keymap.set('n', '<leader>db', '<cmd>DBUIToggle<cr>', { desc = 'Toggle dadbod' })
