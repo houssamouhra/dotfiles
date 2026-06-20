@@ -1,0 +1,20 @@
+#!/bin/bash
+
+tmp_prefix=".rename_tmp_$$"
+
+# Rename everything to temporary names
+i=1
+for f in *.{jpg,jpeg,png}; do
+	[ -e "$f" ] || continue
+	ext="${f##*.}"
+	mv -- "$f" "${tmp_prefix}_$(printf '%04d' "$i").$ext"
+	((i++))
+done
+
+# Rename sequentially
+i=1
+for f in $(printf "%s\n" ${tmp_prefix}_* | sort); do
+	ext="${f##*.}"
+	mv -- "$f" "$(printf '%04d.%s' "$i" "$ext")"
+	((i++))
+done
