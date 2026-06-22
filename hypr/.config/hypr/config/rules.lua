@@ -42,7 +42,7 @@ rule {
   },
   workspace = '1',
   float = false,
-  fullscreen = true,
+  fullscreen = false,
 }
 
 -- Spotify
