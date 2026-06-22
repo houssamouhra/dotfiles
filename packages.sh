@@ -228,6 +228,7 @@ echo
 install_pacman "Git" "git"
 install_pacman "Git Delta" "git-delta"
 install_pacman "LazyGit" "lazygit"
+install_pacman "LazyDocker" "lazydocker"
 install_pacman "Docker" "docker"
 install_pacman "OpenSSH" "openssh"
 install_pacman "NetworkManager" "networkmanager"
@@ -248,6 +249,7 @@ install_pacman "Fzf" "fzf"
 install_pacman "Hyperfine" "hyperfine"
 install_pacman "Tldr" "tldr"
 install_pacman "Trash CLI" "trash-cli"
+install_pacman "ATAC" "atac"
 
 # --- Editors & dev ---
 install_pacman "Neovim" "neovim"
@@ -336,6 +338,7 @@ install_pacman "TTYper" "ttyper"
 if command -v yay &>/dev/null; then
   install_aur "Zen" "zen-browser-bin"
   install_aur "DXVK" "dxvk-bin"
+  install_aur "Docker Desktop" "docker-desktop"
   install_aur "Fast Node Manager" "fnm"
   install_aur "Grimblast" "grimblast-git"
   install_aur "ProtonUp-Qt" "protonup-qt"
