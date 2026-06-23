@@ -2,8 +2,9 @@
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_DIR="$ZDOTDIR/config"
-export XDG_PLUGIN_DIR="$ZDOTDIR/plugins"
+
+export ZSH_CONFIG_DIR="$ZDOTDIR/config"
+export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins"
 
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
@@ -15,7 +16,7 @@ export ATAC_CONFIG_DIR="$XDG_CONFIG_HOME/atac"
 export ATAC_THEME="$ATAC_CONFIG_DIR/themes/postman_theme.toml"
 export ATAC_KEY_BINDINGS="$ATAC_CONFIG_DIR/key_binds/vim_key_bindings.toml"
 
-# Disable docker error msg AI slop
+# Disable docker hints
 export DOCKER_CLI_HINTS=false
 
 # Default editor, and pager
