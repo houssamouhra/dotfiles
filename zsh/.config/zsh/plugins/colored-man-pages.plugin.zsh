@@ -15,7 +15,7 @@ less_termcap[so]="${fg_bold[yellow]}${bg[black]}"
 less_termcap[se]="${reset_color}"
 
 # Underlining (e.g., links, man page sections)
-less_termcap[us]="${fg_bold[cyan]}"
+less_termcap[us]="${fg_bold[blue]}"
 less_termcap[ue]="${reset_color}"
 
 # Optional extra: standout for options/flags
