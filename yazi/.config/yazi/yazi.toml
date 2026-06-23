@@ -1,38 +1,11 @@
 [opener]
-edit = [
-  { run = 'nvim "$@"', block = true, for = "unix" },
-]
+edit = [{ run = 'nvim "$@"', desc = "Neovim", block = true, for = "unix" }]
+open = [{ run = 'xdg-open "$@"', desc = "System default", for = "linux" }]
+video = [{ run = 'vlc "$@"', desc = "VLC", for = "unix" }]
+pdf = [{ run = 'zathura "$@"', desc = "Zathura", orphan = true, for = "unix" }]
+imgs = [{ run = 'viewnior "$@"', desc = "Viewnior", orphan = true, for = "unix" }]
+audio = [{ run = '''rmpc clear; for file in "$@"; do relpath="${file#"$HOME/Music/"}"; rmpc add "$relpath"; done; rmpc play''', desc = "Replace queue & play now", for = "unix" }]
 
-open = [
-  { run = 'xdg-open "$@"', desc = "System default", for = "linux" },
-]
-
-video = [
-  { run = 'vlc "$@"', desc = "VLC" }
-]
-
-pdf = [
-  { run = 'zathura "$@"', desc = "Zathura", orphan = true }
-]
-
-imgs = [
-  { run = 'viewnior "$@"', desc = "Viewnior", orphan = true }
-]
-
-audio = [
-  {
-    run  = '''
-      rmpc clear
-      for file in "$@"; do
-        relpath="${file#"$HOME/Music/"}"
-        rmpc add "$relpath"
-      done
-      rmpc play
-    ''',
-    desc = "Replace queue & play now",
-    for  = "unix"
-  },
-]
 
 [open]
 rules = [
@@ -40,15 +13,7 @@ rules = [
   { mime = "video/*", use = "video" },
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "imgs" },
-
-  { mime = "*/javascript", use = "edit" },
-  { mime = "*/html",       use = "edit" },
-  { mime = "*/css",        use = "edit" },
-  { mime = "*/yaml",       use = "edit" },
-  { mime = "*/json",       use = "edit" },
-
-  { mime = "text/*",       use = "edit" },
-  { mime = "inode/x-empty", use = "edit" },
-
-  { mime = "*",            use = "open" },
+  { mime = "*json*", use = "edit" },
+  { mime = "text/*", use = "edit" },
+  { mime = "*", use = "open" },
 ]
