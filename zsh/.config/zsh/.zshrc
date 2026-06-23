@@ -8,7 +8,6 @@ autoload -U add-zsh-hook
 
 # Load plugins via Antidote
 export ANTIDOTE_ZSH="$XDG_CONFIG_HOME/.antidote/antidote.zsh"
-
 [[ -f "$ANTIDOTE_ZSH" ]] && source "$ANTIDOTE_ZSH"
 
 command -v antidote >/dev/null 2>&1 || return
@@ -17,7 +16,6 @@ plugin_list="$ZSH_PLUGIN_DIR/.zsh_plugins.txt"
 plugin_cache="$ZSH_PLUGIN_DIR/plugins.zsh"
 
 [[ -f "$plugin_list" ]] || return
-
 if [[ ! -f "$plugin_cache" || "$plugin_list" -nt "$plugin_cache" ]]; then
     antidote bundle < "$plugin_list" > "$plugin_cache"
 fi
@@ -48,6 +46,20 @@ z() {
     unset -f z
     eval "$(zoxide init zsh)"
     z "$@"
+}
+
+# open yazi either at the given directory or at the one zoxide suggests
+y() {
+    if [ "$1" != "" ]; then
+        if [ -d "$1" ]; then
+            yazi "$1"
+        else
+            yazi "$(zoxide query $1)"
+        fi
+    else
+        yazi
+    fi
+    return $?
 }
 
 # fnm lazy load
