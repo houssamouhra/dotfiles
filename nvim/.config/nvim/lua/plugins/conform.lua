@@ -34,6 +34,7 @@ return {
         sql = { 'sleek' },
         yaml = prettier,
         sh = { 'shfmt' },
+        toml = { 'taplo' },
         zsh = { 'beautysh' },
       },
 
