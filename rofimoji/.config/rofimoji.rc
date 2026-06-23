@@ -2,3 +2,6 @@ action = copy
 files = [emojis, math]
 skin-tone = neutral
 clipboarder = wl-copy
+prompt = 👻
+max-recent = 0
+selector-args="-theme ~/.config/rofi/emoji.rasi"

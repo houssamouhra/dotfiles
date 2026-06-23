@@ -1,0 +1,15 @@
+@import "./config.rasi"
+
+/* User input field */
+entry {
+    placeholder: "Select emoji";
+}
+
+
+/* Search bar container */
+inputbar {
+    children: [ prompt, entry ];
+    padding: 10px;
+    spacing: 18px;
+    background-color: transparent;
+}
