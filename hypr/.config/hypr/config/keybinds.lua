@@ -7,6 +7,7 @@ local HOME = os.getenv 'HOME'
 
 local paths = {
   rofi_power = HOME .. '/.local/bin/rofi-power-menu',
+  rofi_power_theme = HOME .. '/.config/rofi/powermenu.rasi',
   scripts = HOME .. '/.config/hypr/scripts/',
   screenshots = HOME .. '/Screenshots/',
 }
@@ -20,12 +21,9 @@ local apps = {
 apps.yazi = apps.terminal .. ' -e yazi'
 
 -- ==================== POWER MENU ====================
-local powermenu = string.format(
-  'rofi -show power-menu -modi "power-menu:%s --choices %s --confirm %s"',
-  paths.rofi_power,
-  'shutdown/reboot/suspend/logout',
-  'shutdown/reboot/suspend/logout'
-)
+local choices = 'shutdown/reboot/suspend/logout'
+local powermenu =
+  string.format('rofi -theme "%s" -show power-menu -modi "power-menu:%s --choices %s --confirm %s"', paths.rofi_power_theme, paths.rofi_power, choices, choices)
 
 -- ==================== HELPERS ====================
 local function bind(key, action, opts)
