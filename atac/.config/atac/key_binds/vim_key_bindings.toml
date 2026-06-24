@@ -47,9 +47,9 @@ select = "Enter"
 [keybindings.generic.list_and_table_actions]
 create_element = "Shift-N"
 delete_element = "Shift-D"
-edit_element = "Enter" # Edit query param, header, basic auth, bearer token
-rename_element = "Shift-R" # Only used in the collections list (main menu)
-toggle_element = "Shift-T" # Only used in tables (Query params, headers, cookies)
+edit_element = "Enter"        # Edit query param, header, basic auth, bearer token
+rename_element = "Shift-R"    # Only used in the collections list (main menu)
+toggle_element = "Shift-T"    # Only used in tables (Query params, headers, cookies)
 duplicate_element = "Shift-Y"
 
 [keybindings.request_selected]
