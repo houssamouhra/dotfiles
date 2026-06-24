@@ -289,6 +289,7 @@ install_pacman "Thunar" "thunar"
 install_pacman "Yazi" "yazi"
 install_pacman "Zathura" "zathura"
 install_pacman "Zathura PDF Backend" "zathura-pdf-poppler"
+install_pacman "Viewnior" "viewnior"
 
 # --- Fonts ---
 install_pacman "Cascadia Code Font" "ttf-cascadia-code"
