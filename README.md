@@ -3,7 +3,7 @@
 ## Overview
 
 My **Arch Linux** dotfiles for a clean, lightweight **Hyprland** desktop.
-Managed with **GNU Stow**, featuring a modular package layout and optimized for a laptop + external monitor workflow.
+Managed with **GNU Stow** and optimized for a laptop + external monitor workflow.
 
 ## Features
 
@@ -13,9 +13,10 @@ Managed with **GNU Stow**, featuring a modular package layout and optimized for 
 - Laptop + external monitor support
 - Waybar status bar
 - Rofi application launcher
-- MPD-based music setup
-- Neovim development environment
 - Modern terminal workflow
+- Neovim development environment
+- MPD-based music setup
+- Consistent [Tokyo Night theme](https://github.com/folke/tokyonight.nvim) across Ghostty and Neovim
 
 ## Dependencies
 
@@ -52,7 +53,7 @@ Managed with **GNU Stow**, featuring a modular package layout and optimized for 
 
 - **[neovim](https://neovim.io/)** – editor
 - **[tmux](https://github.com/tmux/tmux)** – terminal multiplexer
-- **[yazi](https://yazi-rs.github.io/)** – terminal file manager
+- **[yazi](https://github.com/sxyazi/yazi)** – terminal file manager
 
 </details>
 
