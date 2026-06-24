@@ -1,0 +1,9 @@
+@import "./config.rasi"
+
+entry {
+    placeholder: "Choose power action";
+}
+
+element-icon {
+    size: 0px;
+}
