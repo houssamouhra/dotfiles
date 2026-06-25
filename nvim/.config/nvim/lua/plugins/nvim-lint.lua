@@ -10,11 +10,11 @@ return {
       javascriptreact = { 'eslint_d' },
       typescriptreact = { 'eslint_d' },
       vue = { 'eslint_d' },
-      python = { 'ruff', 'mypy' },
+      python = { 'ruff' },
       sh = { 'shellcheck' },
       markdown = { 'vale' },
       dockerfile = { 'hadolint' },
-      sql = { 'sqlfluff' },
+      sql = { 'sqruff' },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup('nvim-lint', { clear = true })
