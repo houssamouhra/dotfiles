@@ -19,12 +19,14 @@ return {
 
     local lint_augroup = vim.api.nvim_create_augroup('nvim-lint', { clear = true })
 
-    vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+    vim.api.nvim_create_autocmd({
+      'BufEnter',
+      'BufWritePost',
+      'InsertLeave',
+    }, {
       group = lint_augroup,
       callback = function()
-        vim.defer_fn(function()
-          require('lint').try_lint()
-        end, 50)
+        require('lint').try_lint()
       end,
     })
   end,
