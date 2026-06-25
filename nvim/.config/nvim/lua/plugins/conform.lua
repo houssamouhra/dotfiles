@@ -21,7 +21,7 @@ return {
     require('conform').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'ruff' },
+        python = { 'ruff_fix', 'ruff_format' },
         javascript = prettier,
         typescript = prettier,
         javascriptreact = prettier,
@@ -35,7 +35,6 @@ return {
         yaml = prettier,
         sh = { 'shfmt' },
         toml = { 'taplo' },
-        zsh = { 'beautysh' },
       },
 
       format_on_save = {
