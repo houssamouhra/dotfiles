@@ -13,7 +13,7 @@ window#waybar {
 .modules-right {
   padding: 1px;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.3);
   border: none;
   box-shadow: none;
 }
@@ -21,11 +21,13 @@ window#waybar {
 .modules-left {
   margin: 2px 0 0 4px;
 }
+
 .modules-center {
   margin: 2px 0 0 0;
 }
+
 .modules-right {
-  margin: 2px 4px 0 0; 
+  margin: 2px 4px 0 0;
 }
 
 /* Tooltips */
@@ -152,9 +154,11 @@ tooltip {
 #network.disconnected {
   opacity: 0.6;
 }
+
 #custom-spotify.paused {
   opacity: 0.75;
 }
+
 #custom-rmpc.paused {
   opacity: 0.75;
 }
