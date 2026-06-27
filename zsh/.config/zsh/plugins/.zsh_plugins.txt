@@ -1,4 +1,5 @@
 mattmc3/ez-compinit kind:defer
 aloxaf/fzf-tab kind:defer
 zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
