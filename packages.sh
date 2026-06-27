@@ -247,7 +247,7 @@ install_pacman "Fd" "fd"
 install_pacman "Ripgrep" "ripgrep"
 install_pacman "Fzf" "fzf"
 install_pacman "Hyperfine" "hyperfine"
-install_pacman "Tldr" "tldr"
+install_pacman "Tldr" "tealdeer"
 install_pacman "Trash CLI" "trash-cli"
 install_pacman "ATAC" "atac"
 
@@ -353,6 +353,7 @@ if command -v yay &>/dev/null; then
   install_aur "Tree-sitter" "tree-sitter-cli-github-bin"
   install_aur "bibata cursor" "bibata-cursor-theme"
   install_aur "Diffnav" "diffnav"
+  install_aur "Lazysql" "lazysql"
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
 fi
 
