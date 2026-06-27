@@ -1,25 +1,28 @@
 # Load modular configs
 for f in history keybinds aliases fzf highlighting; do
-    [[ -f "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
+    [[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
 done
 
 # Enable precmd/exec hooks
 autoload -U add-zsh-hook
 
 # Load plugins via Antidote
-export ANTIDOTE_ZSH="$XDG_CONFIG_HOME/.antidote/antidote.zsh"
-[[ -f "$ANTIDOTE_ZSH" ]] && source "$ANTIDOTE_ZSH"
+ANTIDOTE_ZSH="$XDG_CONFIG_HOME/.antidote/antidote.zsh"
+if [[ -r "$ANTIDOTE_ZSH" ]]; then
+    source "$ANTIDOTE_ZSH"
+    autoload -Uz antidote
 
-command -v antidote >/dev/null 2>&1 || return
+    plugin_list="$ZSH_PLUGIN_DIR/.zsh_plugins.txt"
+    plugin_cache="$ZSH_PLUGIN_DIR/plugins.zsh"
 
-plugin_list="$ZSH_PLUGIN_DIR/.zsh_plugins.txt"
-plugin_cache="$ZSH_PLUGIN_DIR/plugins.zsh"
+    if [[ -r "$plugin_list" ]]; then
+        if [[ ! -r "$plugin_cache" || "$plugin_list" -nt "$plugin_cache" ]]; then
+            antidote bundle < "$plugin_list" > "$plugin_cache"
+        fi
 
-[[ -f "$plugin_list" ]] || return
-if [[ ! -f "$plugin_cache" || "$plugin_list" -nt "$plugin_cache" ]]; then
-    antidote bundle < "$plugin_list" > "$plugin_cache"
+        source "$plugin_cache"
+    fi
 fi
-source "$plugin_cache"
 
 # Starship prompt lazy load
 _starship_lazy() {
@@ -50,7 +53,7 @@ z() {
 
 # open yazi either at the given directory or at the one zoxide suggests
 y() {
-    if [ "$1" != "" ]; then
+    if [[ -n $1 ]]; then
         if [ -d "$1" ]; then
             yazi "$1"
         else
@@ -59,7 +62,6 @@ y() {
     else
         yazi
     fi
-    return $?
 }
 
 # fnm lazy load
@@ -85,7 +87,7 @@ typeset -g zsh_first_prompt_loaded=0
 colored_man_pages() {
     if (( zsh_first_prompt_loaded == 0 )); then
         autoload -U colors && colors
-        [[ -f "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] && source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
+        [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] && source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
         zsh_first_prompt_loaded=1
     fi
 }
