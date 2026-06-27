@@ -4,16 +4,18 @@ open = [{ run = 'xdg-open "$@"', desc = "System default", for = "linux" }]
 video = [{ run = 'vlc "$@"', desc = "VLC", for = "unix" }]
 pdf = [{ run = 'zathura "$@"', desc = "Zathura", orphan = true, for = "unix" }]
 imgs = [{ run = 'viewnior "$@"', desc = "Viewnior", orphan = true, for = "unix" }]
-audio = [{ run = '''rmpc clear; for file in "$@"; do relpath="${file#"$HOME/Music/"}"; rmpc add "$relpath"; done; rmpc play''', desc = "Replace queue & play now", for = "unix" }]
+audio = [{ run = '~/.config/yazi/scripts/yazi_rmpc_opener.py "$@"', desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
 
 
 [open]
 rules = [
-  { mime = "audio/*", use = "audio" },
   { mime = "video/*", use = "video" },
   { mime = "application/pdf", use = "pdf" },
   { mime = "image/*", use = "imgs" },
   { mime = "*json*", use = "edit" },
   { mime = "text/*", use = "edit" },
   { mime = "*", use = "open" },
+]
+prepend_rules = [
+    { mime = "audio/*", use = "audio" },
 ]
