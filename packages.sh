@@ -354,6 +354,7 @@ if command -v yay &>/dev/null; then
   install_aur "bibata cursor" "bibata-cursor-theme"
   install_aur "Diffnav" "diffnav"
   install_aur "Lazysql" "lazysql"
+  install_aur "Mycli" "mycli"
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
 fi
 
