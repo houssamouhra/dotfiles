@@ -4,7 +4,7 @@ alias ll='eza -l --icons=auto --group-directories-first --header --time-style=lo
 alias pacclean='sudo pacman -Sc --noconfirm && sudo paccache -r'
 alias fonts='fc-list : family | sort -u'
 alias pacorphans='sudo pacman -Rns $(pacman -Qdtq) 2>/dev/null || echo "No orphans to remove."'
-alias update='sudo pacman -Syu'
+alias update='yay -Syu'
 alias n='nvim'
 alias gs='git status -s'
 alias ds='git diff --staged'
