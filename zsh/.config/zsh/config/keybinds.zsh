@@ -3,8 +3,6 @@ bindkey -e
 # Cursor movement
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-bindkey '^j' backward-char
-bindkey '^k' forward-char
 
 # Editing
 bindkey '^w' backward-kill-word
@@ -18,7 +16,7 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
 # Shortcuts
-bindkey -s '^f' 'tmux-sessionizer\n'
+bindkey -s '^f' 'tmux-sessionizer'
 
 # History substring configuration
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
