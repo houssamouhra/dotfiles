@@ -40,10 +40,6 @@ return {
         hl['@function'] = { fg = c.blue }
         hl['@function.method'] = { fg = c.cyan }
         hl['@function.call'] = { fg = c.cyan }
-
-        hl['@parameter'] = { fg = c.fg, italic = true }
-
-        hl['@lsp.type.property'] = { fg = c.fg_dark, italic = true }
       end,
     }
 
