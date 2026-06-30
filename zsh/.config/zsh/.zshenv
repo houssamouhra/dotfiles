@@ -19,7 +19,8 @@ export ATAC_KEY_BINDINGS="$ATAC_CONFIG_DIR/key_binds/vim_key_bindings.toml"
 # Disable docker hints
 export DOCKER_CLI_HINTS=false
 
-# Default editor, and pager
+# Default terminal, editor, and pager
+export TERMINAL=ghostty
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export PAGER=less
