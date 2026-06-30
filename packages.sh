@@ -249,6 +249,7 @@ install_pacman "Fzf" "fzf"
 install_pacman "Hyperfine" "hyperfine"
 install_pacman "Tldr" "tealdeer"
 install_pacman "Trash CLI" "trash-cli"
+install_pacman "postgres CLI" "pgcli"
 install_pacman "ATAC" "atac"
 
 # --- Editors & dev ---
@@ -297,6 +298,9 @@ install_pacman "JetBrains Mono" "ttf-jetbrains-mono"
 install_pacman "JetBrains Mono Nerd Font" "ttf-jetbrains-mono-nerd"
 install_pacman "Noto Fonts" "noto-fonts"
 install_pacman "Noto Emoji Fonts" "noto-fonts-emoji"
+install_pacman "Noto CJK Fonts" "noto-fonts-cjk"
+install_pacman "Liberation" "ttf-liberation"
+install_pacman "Dejavu" "ttf-dejavu"
 
 # --- Utilities ---
 install_pacman "Brightness Control" "brightnessctl"
