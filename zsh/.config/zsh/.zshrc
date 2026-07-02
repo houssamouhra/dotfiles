@@ -3,11 +3,18 @@ for f in history keybinds aliases fzf highlighting; do
     [[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
 done
 
-# Enable precmd/exec hooks
+# Enable zsh hook management
 autoload -U add-zsh-hook
 
-# Load plugins via Antidote
-ANTIDOTE_ZSH="$XDG_CONFIG_HOME/.antidote/antidote.zsh"
+# Setup Antidote plugin manager
+ANTIDOTE_DIR="$XDG_CONFIG_HOME/antidote"
+ANTIDOTE_ZSH="$ANTIDOTE_DIR/antidote.zsh"
+
+# Install Antidote if it isn't already present
+if [[ ! -f "$ANTIDOTE_ZSH" ]]; then
+    command git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_DIR"
+fi
+
 if [[ -r "$ANTIDOTE_ZSH" ]]; then
     source "$ANTIDOTE_ZSH"
     autoload -Uz antidote
@@ -83,7 +90,12 @@ fnm-on() {
 
 # Colored man pages lazy load
 colored_man_pages() {
-        autoload -U colors && colors
-        [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] && source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
+    add-zsh-hook -d precmd colored_man_pages
+
+    autoload -U colors && colors
+
+    [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] &&
+        source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
 }
+
 add-zsh-hook precmd colored_man_pages
