@@ -82,13 +82,8 @@ fnm-on() {
 }
 
 # Colored man pages lazy load
-typeset -g zsh_first_prompt_loaded=0
-
 colored_man_pages() {
-    if (( zsh_first_prompt_loaded == 0 )); then
         autoload -U colors && colors
         [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] && source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
-        zsh_first_prompt_loaded=1
-    fi
 }
 add-zsh-hook precmd colored_man_pages
