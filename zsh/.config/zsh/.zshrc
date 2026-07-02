@@ -91,9 +91,7 @@ fnm-on() {
 # Colored man pages lazy load
 colored_man_pages() {
     add-zsh-hook -d precmd colored_man_pages
-
     autoload -U colors && colors
-
     [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] &&
         source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
 }
