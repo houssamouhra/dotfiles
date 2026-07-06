@@ -1,20 +1,43 @@
 #!/usr/bin/env bash
 
-tmp_prefix=".rename_tmp_$$"
+shopt -s nullglob
 
-# Rename everything to temporary names
-i=1
+# Find the highest existing 4-digit filename
+max=0
+
 for f in *.{jpg,jpeg,png}; do
-	[ -e "$f" ] || continue
-	ext="${f##*.}"
-	mv -- "$f" "${tmp_prefix}_$(printf '%04d' "$i").$ext"
-	((i++))
+	[[ -e $f ]] || continue
+
+	base="${f%.*}"
+
+	if [[ $base =~ ^([0-9]{4})$ ]]; then
+		((num = 10#${BASH_REMATCH[1]}))
+		((num > max)) && max=$num
+	fi
 done
 
-# Rename sequentially
-i=1
-for f in $(printf "%s\n" ${tmp_prefix}_* | sort); do
+# Rename only files that are NOT already numbered
+next=$((max + 1))
+
+for f in *.{jpg,jpeg,png}; do
+	[[ -e $f ]] || continue
+
+	base="${f%.*}"
+
+	# Skip already numbered files
+	[[ $base =~ ^[0-9]{4}$ ]] && continue
+
 	ext="${f##*.}"
-	mv -- "$f" "$(printf '%04d.%s' "$i" "$ext")"
-	((i++))
+	new="$(printf "%04d.%s" "$next" "$ext")"
+
+	# Prevent accidental overwrite
+	if [[ -e $new ]]; then
+		printf 'Error: "%s" already exists. Aborting.\n' "$new" >&2
+		exit 1
+	fi
+
+	printf 'Renaming "%s" -> "%s"\n' "$f" "$new"
+	mv -- "$f" "$new"
+
+	((next++))
 done
