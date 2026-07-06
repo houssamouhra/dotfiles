@@ -42,7 +42,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>Terminal & Shell</summary>
 
-- **[ghostty](https://ghostty.org/)** – terminal emulator
+- **[ghostty](https://github.com/ghostty-org/ghostty)** – terminal emulator
 - **[zsh](https://www.zsh.org/)** – shell
 - **[starship](https://starship.rs/)** – minimal and fast cross-shell prompt
 
@@ -80,6 +80,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - **[gammastep](https://gitlab.com/chinstrap/gammastep)** – automatic screen color temperature adjustment
 - **[mpd](https://www.musicpd.org/)** – music player daemon
 - **[rmpc](https://github.com/mierak/rmpc)** – terminal MPD client
+- **[mpv](https://github.com/mpv-player/mpv)** – media player
 - **[spicetify](https://github.com/spicetify/cli)** – command-line tool to customize Spotify
 - **[zathura](https://github.com/pwmt/zathura)** – PDF and document viewer
 
