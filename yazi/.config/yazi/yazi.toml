@@ -1,9 +1,9 @@
 [opener]
-edit = [{ run = 'nvim "$@"', desc = "Neovim", block = true, for = "unix" }]
-open = [{ run = 'xdg-open "$@"', desc = "System default", for = "linux" }]
-video = [{ run = 'vlc "$@"', desc = "VLC", for = "unix" }]
-pdf = [{ run = 'zathura "$@"', desc = "Zathura", orphan = true, for = "unix" }]
-imgs = [{ run = 'viewnior "$@"', desc = "Viewnior", orphan = true, for = "unix" }]
+edit = [{ run = 'nvim "$@"', desc = "neovim", block = true, for = "unix" }]
+open = [{ run = 'xdg-open "$@"', desc = "system default", for = "linux" }]
+video = [{ run = 'mpv "$@"', orphan = true, desc = "mpv", for = "unix" }]
+pdf = [{ run = 'zathura "$@"', desc = "zathura", orphan = true, for = "unix" }]
+imgs = [{ run = 'viewnior "$@"', desc = "viewnior", orphan = true, for = "unix" }]
 audio = [{ run = '~/.config/yazi/scripts/yazi_rmpc_opener.py "$@"', desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
 
 
