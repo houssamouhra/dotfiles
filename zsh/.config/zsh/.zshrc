@@ -95,5 +95,4 @@ colored_man_pages() {
     [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] &&
         source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
 }
-
 add-zsh-hook precmd colored_man_pages
