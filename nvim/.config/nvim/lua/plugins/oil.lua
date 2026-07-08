@@ -1,12 +1,14 @@
 return {
   'stevearc/oil.nvim',
-  opts = {},
-  dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
   lazy = false,
+  dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
 
-  config = function()
-    require('oil').setup {
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' }),
-    }
-  end,
+  keys = {
+    {
+      '-',
+      '<cmd>Oil<CR>',
+      desc = 'Open parent directory',
+    },
+  },
+  opts = {},
 }

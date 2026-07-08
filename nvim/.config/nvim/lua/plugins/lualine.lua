@@ -1,16 +1,22 @@
 return {
   'nvim-lualine/lualine.nvim',
   event = 'VeryLazy',
+
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
 
-  config = function()
+  opts = function()
     local diagnostics = {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+      symbols = {
+        error = ' ',
+        warn = ' ',
+        info = ' ',
+        hint = ' ',
+      },
       colored = true,
       update_in_insert = false,
       always_visible = true,
@@ -19,43 +25,56 @@ return {
     local diff = {
       'diff',
       colored = true,
-      symbols = { added = '+', modified = '~', removed = '-' },
+      symbols = {
+        added = '+',
+        modified = '~',
+        removed = '-',
+      },
     }
 
-    local function mode()
-      return {
-        a = { fg = '#656c8b', bg = 'none' },
-        b = { fg = '#656c8b', bg = 'none' },
-        c = { fg = '#656c8b', bg = 'none' },
-      }
-    end
+    local mode = {
+      a = { fg = '#656c8b', bg = 'none' },
+      b = { fg = '#656c8b', bg = 'none' },
+      c = { fg = '#656c8b', bg = 'none' },
+    }
 
     local theme = {
-      normal = mode(),
-      insert = mode(),
-      visual = mode(),
-      replace = mode(),
-      command = mode(),
-      inactive = mode(),
+      normal = mode,
+      insert = mode,
+      visual = mode,
+      replace = mode,
+      command = mode,
+      inactive = mode,
     }
 
-    require('lualine').setup {
+    return {
       options = {
         theme = theme,
         icons_enabled = true,
-        section_separators = { left = '', right = '' },
-        component_separators = { '', '' },
         globalstatus = false,
+        section_separators = {
+          left = '',
+          right = '',
+        },
+
+        component_separators = {
+          '',
+          '',
+        },
+
         disabled_filetypes = {
           statusline = { 'neo-tree' },
           winbar = { 'neo-tree' },
         },
+
         ignore_focus = { 'neo-tree' },
+
         refresh = {
           statusline = 100,
           tabline = 100,
           winbar = 100,
           refresh_time = 16,
+
           events = {
             'WinEnter',
             'BufEnter',
@@ -72,11 +91,19 @@ return {
       },
 
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+          'mode',
+        },
+
         lualine_b = {
-          { 'branch', icon = '󰘬', color = { fg = '#5a76b5' } },
+          {
+            'branch',
+            icon = '󰘬',
+            color = { fg = '#5a76b5' },
+          },
           diff,
         },
+
         lualine_c = {
           {
             'filename',
@@ -84,14 +111,25 @@ return {
             color = { fg = '#878da5' },
           },
         },
+
         lualine_x = {
           diagnostics,
-          { 'filetype', color = { fg = '#656c8b' } },
-          { 'encoding', color = { fg = '#656c8b' } },
-          { 'fileformat', symbols = {
-            unix = 'lf',
-            dos = 'crlf',
-          }, color = { fg = '#656c8b' } },
+          {
+            'filetype',
+            color = { fg = '#656c8b' },
+          },
+          {
+            'encoding',
+            color = { fg = '#656c8b' },
+          },
+          {
+            'fileformat',
+            symbols = {
+              unix = 'lf',
+              dos = 'crlf',
+            },
+            color = { fg = '#656c8b' },
+          },
         },
       },
     }

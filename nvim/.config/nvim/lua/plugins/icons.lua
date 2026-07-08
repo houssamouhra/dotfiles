@@ -2,37 +2,65 @@ return {
   'echasnovski/mini.icons',
   version = false,
   lazy = true,
+
   init = function()
-    require('mini.icons').setup {
+    local icons = require 'mini.icons'
+
+    icons.setup {
       file = {
-        ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
-        ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
-        ['vite.config.js'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
-        ['vite.config.ts'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
-        ['vite.config.mjs'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
+        -- General
         ['README.md'] = { glyph = '󰂺', hl = 'MiniIconsGreen' },
+        ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+
+        -- Environment
+        ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
+        ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
+
+        -- Git
+        ['.gitignore'] = { glyph = '', hl = 'MiniIconsGit' },
+        ['.gitattributes'] = { glyph = '', hl = 'MiniIconsGit' },
+        ['commitlint.config.js'] = { glyph = '', hl = 'MiniIconsAzure' },
+
+        -- Formatting & Linting
+        ['.prettierrc'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['eslint.config.js'] = { glyph = '', hl = 'MiniIconsEslint' },
         ['eslint.config.mjs'] = { glyph = '', hl = 'MiniIconsEslint' },
         ['postcss.config.mjs'] = { glyph = '', hl = 'MiniIconsPostCSS' },
-        ['tsconfig.app.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+
+        -- TypeScript
         ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+        ['tsconfig.app.json'] = { glyph = '', hl = 'MiniIconsAzure' },
         ['tsconfig.node.json'] = { glyph = '', hl = 'MiniIconsAzure' },
-        ['commitlint.config.js'] = { glyph = '', hl = 'MiniIconsAzure' },
-        ['.prettierrc'] = { glyph = '', hl = 'MiniIconsYellow' },
-        ['.gitignore'] = { glyph = '', hl = 'MiniIconsGit' },
-        ['.gitattributes'] = { glyph = '', hl = 'MiniIconsGit' },
-        ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
-        ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
+
+        -- Vite
+        ['vite.config.js'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
+        ['vite.config.ts'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
+        ['vite.config.mjs'] = { glyph = '󱐋', hl = 'MiniIconsVite' },
+
+        -- Next.js
         ['next.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
         ['next-env.d.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
-        ['tmux.conf'] = { glyph = '', hl = 'MiniIconsTmux' },
-        ['docker-compose.yml'] = { glyph = '', hl = 'MiniIconsDocker' },
-        ['Dockerfile'] = { hl = 'MiniIconsDocker' },
+
+        -- Prisma
+        ['prisma.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
+
+        -- Node.js
         ['package.json'] = { glyph = '', hl = 'MiniIconsNpm' },
+
+        -- pnpm
         ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
         ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsPnpm' },
+
+        -- Docker
+        ['Dockerfile'] = { hl = 'MiniIconsDocker' },
+        ['docker-compose.yml'] = { glyph = '', hl = 'MiniIconsDocker' },
+
+        -- Development
+        ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+
+        -- Infrastructure
         ['nginx.conf'] = { glyph = '', hl = 'MiniIconsNginx' },
-        ['prisma.config.ts'] = { glyph = '', hl = 'MiniIconsWhite' },
+        ['tmux.conf'] = { glyph = '', hl = 'MiniIconsTmux' },
       },
 
       filetype = {
@@ -43,20 +71,33 @@ return {
         javascriptreact = { glyph = '󰜈' },
       },
     }
-    require('mini.icons').mock_nvim_web_devicons()
+
+    icons.mock_nvim_web_devicons()
+    local highlights = {
+      MiniIconsVite = '#9752FF',
+      MiniIconsEslint = '#8181F2',
+      MiniIconsGit = '#F05133',
+      MiniIconsTmux = '#1BB91F',
+      MiniIconsDocker = '#037CC7',
+      MiniIconsPnpm = '#F9AD00',
+      MiniIconsNpm = '#CB0000',
+      MiniIconsNginx = '#009800',
+      MiniIconsTS = '#2D79C7',
+      MiniIconsPostCSS = '#DD3A0A',
+    }
+
+    local function set_highlights()
+      for group, color in pairs(highlights) do
+        vim.api.nvim_set_hl(0, group, {
+          fg = color,
+        })
+      end
+    end
+
     vim.api.nvim_create_autocmd('ColorScheme', {
-      callback = function()
-        vim.api.nvim_set_hl(0, 'MiniIconsVite', { fg = '#9752FF' })
-        vim.api.nvim_set_hl(0, 'MiniIconsEslint', { fg = '#8181F2' })
-        vim.api.nvim_set_hl(0, 'MiniIconsGit', { fg = '#F05133' })
-        vim.api.nvim_set_hl(0, 'MiniIconsTmux', { fg = '#1BB91F' })
-        vim.api.nvim_set_hl(0, 'MiniIconsDocker', { fg = '#037CC7' })
-        vim.api.nvim_set_hl(0, 'MiniIconsPnpm', { fg = '#F9AD00' })
-        vim.api.nvim_set_hl(0, 'MiniIconsNpm', { fg = '#CB0000' })
-        vim.api.nvim_set_hl(0, 'MiniIconsNginx', { fg = '#009800' })
-        vim.api.nvim_set_hl(0, 'MiniIconsTS', { fg = '#2D79C7' })
-        vim.api.nvim_set_hl(0, 'MiniIconsPostCSS', { fg = '#DD3A0A' })
-      end,
+      callback = set_highlights,
     })
+
+    set_highlights()
   end,
 }

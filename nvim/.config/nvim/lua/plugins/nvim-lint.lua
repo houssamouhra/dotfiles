@@ -1,10 +1,9 @@
 return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPre', 'BufNewFile' },
-  config = function()
-    local lint = require 'lint'
 
-    lint.linters_by_ft = {
+  opts = {
+    linters_by_ft = {
       javascript = { 'eslint_d' },
       typescript = { 'eslint_d' },
       javascriptreact = { 'eslint_d' },
@@ -15,18 +14,24 @@ return {
       markdown = { 'vale' },
       dockerfile = { 'hadolint' },
       sql = { 'sqruff' },
-    }
+    },
+  },
 
-    local lint_augroup = vim.api.nvim_create_augroup('nvim-lint', { clear = true })
+  config = function(_, opts)
+    local lint = require 'lint'
+
+    lint.linters_by_ft = opts.linters_by_ft
+
+    local group = vim.api.nvim_create_augroup('nvim-lint', { clear = true })
 
     vim.api.nvim_create_autocmd({
       'BufEnter',
       'BufWritePost',
       'InsertLeave',
     }, {
-      group = lint_augroup,
+      group = group,
       callback = function()
-        require('lint').try_lint()
+        lint.try_lint()
       end,
     })
   end,

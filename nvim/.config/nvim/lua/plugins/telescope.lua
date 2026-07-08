@@ -1,5 +1,4 @@
 return {
-  -- main telescope plugin
   'nvim-telescope/telescope.nvim',
   branch = 'master',
 
@@ -8,7 +7,6 @@ return {
     'folke/trouble.nvim',
   },
 
-  -- lazy loading triggers
   cmd = 'Telescope',
 
   -- load on keypress
@@ -129,13 +127,11 @@ return {
   },
 
   -- plugin setup
-  config = function()
-    local telescope = require 'telescope'
+  opts = function()
     local actions = require 'telescope.actions'
     local trouble = require 'trouble.sources.telescope'
 
-    telescope.setup {
-      -- default telescope behavior
+    return {
       defaults = {
         mappings = {
           i = {
@@ -153,11 +149,13 @@ return {
           hidden = true, -- include hidden files
           file_ignore_patterns = { 'node_modules', '^%.git/', '%.venv', '.next' }, -- only ignore the .git folder
         },
+
+        -- grep hidden files
         live_grep = {
           file_ignore_patterns = { 'node_modules', '%.git/', '%.venv', '.next' },
           additional_args = function()
             return { '--hidden' }
-          end, -- grep hidden files too
+          end,
         },
       },
 

@@ -1,6 +1,7 @@
 return {
   'stevearc/conform.nvim',
   lazy = true,
+
   cmd = 'ConformInfo',
   event = { 'BufReadPre', 'BufNewFile' },
 
@@ -11,14 +12,18 @@ return {
         require('conform').format()
       end,
       mode = { 'n', 'x' },
-      desc = 'Format Injected Langs',
+      desc = 'Format buffer',
     },
   },
 
-  config = function()
-    local prettier = { 'prettierd', 'prettier', stop_after_first = true }
+  opts = function()
+    local prettier = {
+      'prettierd',
+      'prettier',
+      stop_after_first = true,
+    }
 
-    require('conform').setup {
+    return {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'ruff_fix', 'ruff_format' },
@@ -26,13 +31,13 @@ return {
         typescript = prettier,
         javascriptreact = prettier,
         typescriptreact = prettier,
-        markdown = prettier,
         vue = prettier,
         html = prettier,
         css = prettier,
+        markdown = prettier,
         json = prettier,
-        sql = { 'sqruff' },
         yaml = prettier,
+        sql = { 'sqruff' },
         sh = { 'shfmt' },
         toml = { 'taplo' },
       },

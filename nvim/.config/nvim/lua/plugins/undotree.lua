@@ -7,8 +7,8 @@ return {
     --- @type "left" | "right"
     position = 'left',
     window = {
-      width = 0.15, -- the `undotree` window width percentage related to the editor
-      height = 0.15, -- the `preview`(not floating) window height percentage related to the editor
+      width = 0.15,
+      height = 0.15,
     },
   },
   keys = {
