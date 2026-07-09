@@ -23,7 +23,7 @@ hl.on('hyprland.start', function()
   end
 
   -- Display / system services
-  local display = { 'shikane', 'gammastep' }
+  local display = { 'gammastep' }
 
   for _, service in ipairs(display) do
     exec(service)
