@@ -6,7 +6,6 @@ pdf = [{ run = 'zathura "$@"', desc = "zathura", orphan = true, for = "unix" }]
 imgs = [{ run = 'viewnior "$@"', desc = "viewnior", orphan = true, for = "unix" }]
 audio = [{ run = '~/.config/yazi/scripts/yazi_rmpc_opener.py "$@"', desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
 
-
 [open]
 rules = [
   { mime = "video/*", use = "video" },
