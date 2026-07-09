@@ -4,7 +4,7 @@
 /* Configuration */
 configuration {
     modi: "dmenu";
-    show-icons: true;
+    show-icons: false;
     display-dmenu: "Clipboard";
     window-format: "{w} · {c} · {t}";
 }
