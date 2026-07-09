@@ -24,8 +24,8 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <summary>Core</summary>
 
 - **[hyprland](https://hypr.land/)** – Wayland compositor
-- **[GNU Stow](https://www.gnu.org/software/stow/)** – dotfile symlink manager
-- **[shikane](https://gitlab.com/w0lff/shikane)** – dynamic output configuration tool
+- **[GNU Stow](https://www.gnu.org/software/stow/)** – Symlink manager for dotfiles
+- **[hyprmon](https://github.com/erans/hyprmon)** – TUI monitor configuration tool for Hyprland with profile management
 
 </details>
 
