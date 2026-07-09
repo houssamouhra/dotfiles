@@ -46,7 +46,7 @@ exec(MOD .. ' + Q', apps.terminal, { desc = 'Open terminal' })
 exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', powermenu, { desc = 'Open power menu' })
-exec(MOD .. ' + L', 'hyprlock', { desc = 'Lock screen' })
+exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
 exec(MOD .. ' + S', 'swaync-client -t', { desc = 'Toggle notifications' })
 exec(MOD .. ' + I', 'rofimoji', { desc = 'Open emoji picker' })
 
