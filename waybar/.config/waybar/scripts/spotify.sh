@@ -14,9 +14,9 @@ title=$(playerctl -p "$PLAYER" metadata xesam:title 2>/dev/null)
 artist=$(playerctl -p "$PLAYER" metadata xesam:artist 2>/dev/null)
 
 case "$status" in
-  Playing) icon=" ";;
-  Paused)  icon="";;
-  *) exit 0 ;;
+Playing) icon=" " ;;
+Paused) icon="" ;;
+*) exit 0 ;;
 esac
 
 if [[ -n "$title" ]]; then
