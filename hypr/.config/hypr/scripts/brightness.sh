@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 iDIR="$HOME/.config/swaync/icons"
 CACHE_FILE="$HOME/.cache/ddc_brightness"
