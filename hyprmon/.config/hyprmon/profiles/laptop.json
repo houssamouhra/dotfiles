@@ -1,0 +1,80 @@
+{
+  "name": "laptop",
+  "monitors": [
+    {
+      "name": "eDP-1",
+      "hardware_id": "Lenovo Group Limited/0x40A9",
+      "make": "Lenovo Group Limited",
+      "model": "0x40A9",
+      "PxW": 1920,
+      "PxH": 1080,
+      "Hz": 60.001,
+      "Scale": 1,
+      "X": 0,
+      "Y": 0,
+      "Active": true,
+      "EDIDName": "Lenovo Group Limited 0x40A9",
+      "Modes": [
+        {
+          "W": 1920,
+          "H": 1080,
+          "Hz": 60
+        },
+        {
+          "W": 1680,
+          "H": 1050,
+          "Hz": 60
+        },
+        {
+          "W": 1280,
+          "H": 1024,
+          "Hz": 60
+        },
+        {
+          "W": 1440,
+          "H": 900,
+          "Hz": 60
+        },
+        {
+          "W": 1280,
+          "H": 800,
+          "Hz": 60
+        },
+        {
+          "W": 1280,
+          "H": 720,
+          "Hz": 60
+        },
+        {
+          "W": 1024,
+          "H": 768,
+          "Hz": 60
+        },
+        {
+          "W": 800,
+          "H": 600,
+          "Hz": 60
+        },
+        {
+          "W": 640,
+          "H": 480,
+          "Hz": 60
+        }
+      ],
+      "BitDepth": 0,
+      "ColorMode": "",
+      "SDRBrightness": 0,
+      "SDRSaturation": 0,
+      "VRR": 0,
+      "Transform": 0,
+      "IsMirrored": false,
+      "MirrorSource": "",
+      "MirrorTargets": [],
+      "Dragging": false,
+      "DragOffX": 0,
+      "DragOffY": 0
+    }
+  ],
+  "created_at": "2026-07-09T21:51:01.931013946+01:00",
+  "updated_at": "2026-07-09T21:51:01.931014147+01:00"
+}
