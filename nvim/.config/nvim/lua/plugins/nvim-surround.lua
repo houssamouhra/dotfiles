@@ -3,5 +3,3 @@ return {
   version = '^4.0.0',
   event = 'VeryLazy',
 }
-
-const foo| = 42;
