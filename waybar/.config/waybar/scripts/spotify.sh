@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Find Spotify-like player
+# Find Spotify player
 PLAYER="spotify"
 
 # Check if Spotify is running
