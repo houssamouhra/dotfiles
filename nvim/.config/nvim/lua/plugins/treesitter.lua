@@ -48,17 +48,17 @@ return {
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = {
-        'css',
-        'dockerfile',
         'html',
+        'css',
         'javascript',
         'javascriptreact',
+        'typescript',
+        'typescriptreact',
+        'dockerfile',
         'markdown',
         'prisma',
         'sh',
         'sql',
-        'typescript',
-        'typescriptreact',
         'yaml',
         'yml',
       },
