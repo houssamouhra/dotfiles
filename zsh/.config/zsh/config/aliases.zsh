@@ -1,6 +1,7 @@
 alias bye='read -r '\''REPLY?Really power off? [Y/n] '\'' || exit; [[ -z $REPLY || $REPLY = [Yy]* ]] && sudo poweroff || echo "Shutdown cancelled."'
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -lh --icons --group-directories-first --time-style=long-iso'
+alias la='eza -lha --icons --group-directories-first --time-style=long-iso'
 alias tree='eza --tree --icons=auto'
 alias pacclean='sudo pacman -Sc --noconfirm && sudo paccache -r'
 alias fonts='fc-list : family | sort -u'
