@@ -1,35 +1,13 @@
+# Enable zsh hook management
+autoload -U add-zsh-hook
+
 # Load modular configs
 for f in history keybinds aliases fzf highlighting; do
     [[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
 done
 
-# Enable zsh hook management
-autoload -U add-zsh-hook
-
-# Setup Antidote plugin manager
-ANTIDOTE_DIR="$XDG_CONFIG_HOME/antidote"
-ANTIDOTE_ZSH="$ANTIDOTE_DIR/antidote.zsh"
-
-# Install Antidote if it isn't already present
-if [[ ! -f "$ANTIDOTE_ZSH" ]]; then
-    command git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_DIR"
-fi
-
-if [[ -r "$ANTIDOTE_ZSH" ]]; then
-    source "$ANTIDOTE_ZSH"
-    autoload -Uz antidote
-
-    plugin_list="$ZSH_PLUGIN_DIR/.zsh_plugins.txt"
-    plugin_cache="$ZSH_PLUGIN_DIR/plugins.zsh"
-
-    if [[ -r "$plugin_list" ]]; then
-        if [[ ! -r "$plugin_cache" || "$plugin_list" -nt "$plugin_cache" ]]; then
-            antidote bundle < "$plugin_list" > "$plugin_cache"
-        fi
-
-        source "$plugin_cache"
-    fi
-fi
+# Source plugins
+[[ -r "$ZDOTDIR/plugins.zsh" ]] && source "$ZDOTDIR/plugins.zsh"
 
 # Starship prompt lazy load
 _starship_lazy() {
@@ -74,7 +52,6 @@ y() {
 # fnm lazy load
 _fnm_lazy_load() {
     if [[ -f package.json ]]; then
-
         eval "$(fnm env)" 2>/dev/null  || return
         add-zsh-hook -d chpwd _fnm_lazy_load
     fi
@@ -87,12 +64,3 @@ fnm-on() {
     eval "$(fnm env)" 2>/dev/null
     echo "Node activated"
 }
-
-# Colored man pages lazy load
-colored_man_pages() {
-    add-zsh-hook -d precmd colored_man_pages
-    autoload -U colors && colors
-    [[ -r "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh" ]] &&
-        source "$ZSH_PLUGIN_DIR/colored-man-pages.plugin.zsh"
-}
-add-zsh-hook precmd colored_man_pages
