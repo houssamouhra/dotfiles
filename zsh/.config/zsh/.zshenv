@@ -22,10 +22,11 @@ export DOCKER_CLI_HINTS=false
 
 # Default terminal, editor, and pager
 export TERMINAL=ghostty
-export EDITOR=nvim
+export EDITOR="nvim"
 export VISUAL=$EDITOR
-export PAGER=less
+export PAGER="less"
 export MANPAGER=$PAGER
+export GPG_TTY=$(tty)
 
 # Cursor theme and size
 export XCURSOR_THEME=Bibata-Modern-Classic
