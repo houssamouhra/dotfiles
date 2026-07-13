@@ -1,4 +1,5 @@
-# Plugins
+# Clone a plugin on first use (if missing) and source its
+# standard <repo>.plugin.zsh entry point.
 _zplugin_load() {
     local owner=$1
     local repo=$2
@@ -15,6 +16,7 @@ _zplugin_load() {
         fi
     fi
 
+    # Verify the plugin provides the expected entry point
     if [[ ! -r $entry ]]; then
         print -u2 "Missing plugin entry: $entry"
         return 1
@@ -23,9 +25,11 @@ _zplugin_load() {
     source "$entry"
 }
 
+# Update all installed plugin repositories
 zplugin-update() {
     local dir
 
+    # Iterate over plugin directories only
     for dir in "$ZSH_PLUGIN_DIR"/*(/); do
         [[ -d $dir/.git ]] || continue
 
@@ -34,6 +38,7 @@ zplugin-update() {
     done
 }
 
+# Load plugins
 _zplugin_load zsh-users zsh-completions
 _zplugin_load mattmc3 ez-compinit
 _zplugin_load aloxaf fzf-tab
