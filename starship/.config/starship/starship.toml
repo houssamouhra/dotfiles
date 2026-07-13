@@ -36,9 +36,9 @@ read_only_style = 'red'
 'wallpapers' = ' '
 
 [git_branch]
-style = 'green'
+style = 'purple'
 symbol = '󰘬 '
-format = '[on](white) [$symbol$branch ]($style)'
+format = '[$symbol$branch ]($style)'
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
@@ -64,10 +64,12 @@ symbol = ' '
 
 [lua]
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [nodejs]
 symbol = ' '
 detect_files = ["package.json", "node_modules"]
+format = '[$symbol($version )]($style)'
 
 [golang]
 symbol = ' '
@@ -79,6 +81,7 @@ disabled = true
 
 [rust]
 symbol = ' '
+format = '[$symbol($version )]($style)'
 
 [c]
 symbol = ' '
@@ -97,7 +100,7 @@ symbol = ' '
 disabled = true
 
 [package]
-format = 'on [$symbol$version]($style)'
+format = '[$symbol$version]($style)'
 
 [aws]
 symbol = ' '
@@ -108,7 +111,7 @@ disabled = true
 [docker_context]
 symbol = ' '
 style = 'fg:#06969A'
-format = 'via [$symbol $context]($style) '
+format = '[$symbol $context]($style) '
 
 [jobs]
 symbol = '✦'
