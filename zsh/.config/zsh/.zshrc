@@ -36,7 +36,8 @@ z() {
     z "$@"
 }
 
-# open yazi either at the given directory or at the one zoxide suggests
+# open yazi either at the given directory 
+# or at the one zoxide suggests
 y() {
     if [[ -n $1 ]]; then
         if [ -d "$1" ]; then
