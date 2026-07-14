@@ -3,6 +3,7 @@
 _zplugin_load() {
     local owner=$1
     local repo=$2
+    local mode=$3
     local dir="$ZSH_PLUGIN_DIR/$repo"
     local entry="$dir/$repo.plugin.zsh"
 
@@ -22,7 +23,17 @@ _zplugin_load() {
         return 1
     fi
 
-    source "$entry"
+    # Defer plugin loading with zsh-defer
+    if [[ $mode == defer ]]; then
+        (( $+functions[zsh-defer] )) || {
+            print -u2 "'defer' mode requires zsh-defer"
+            return 1
+        }
+
+        zsh-defer source "$entry"
+    else
+        source "$entry"
+    fi
 }
 
 # Update all installed plugin repositories
@@ -39,10 +50,11 @@ zplugin-update() {
 }
 
 # Load plugins
-_zplugin_load zsh-users zsh-completions
+_zplugin_load romkatv zsh-defer
 _zplugin_load mattmc3 ez-compinit
-_zplugin_load aloxaf fzf-tab
-_zplugin_load zsh-users zsh-autosuggestions
-_zplugin_load zsh-users zsh-history-substring-search
-_zplugin_load houssamouhra colored-man-pages
-_zplugin_load zdharma-continuum fast-syntax-highlighting
+_zplugin_load zsh-users zsh-completions
+_zplugin_load aloxaf fzf-tab defer
+_zplugin_load zsh-users zsh-autosuggestions defer
+_zplugin_load zsh-users zsh-history-substring-search defer
+_zplugin_load houssamouhra colored-man-pages defer
+_zplugin_load zsh-users zsh-syntax-highlighting defer
