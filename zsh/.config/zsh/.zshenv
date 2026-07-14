@@ -10,7 +10,7 @@ export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins"
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export CARGO_BIN_HOME="$HOME/.cargo/bin"
-export PNPM_BIN_HOME="$XDG_DATA_HOME/pnpm/bin"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm/bin/bin"
 
 # ATAC configuration
 export ATAC_CONFIG_DIR="$XDG_CONFIG_HOME/atac"
@@ -35,11 +35,9 @@ export GTK_CURSOR_THEME=$XCURSOR_THEME
 
 # path setup
 typeset -gU path
-
 path=(
-    $XDG_BIN_HOME
-    $CARGO_BIN_HOME
-    $PNPM_BIN_HOME
-    $PNPM_BIN_HOME/bin
-    $path
+	$XDG_BIN_HOME
+	$CARGO_BIN_HOME
+	$PNPM_HOME
+	$path
 )
