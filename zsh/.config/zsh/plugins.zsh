@@ -20,7 +20,7 @@ load-plugin() {
         local err
 
         mkdir -p "$ZSH_PLUGIN_DIR" || return
-        print -P "%F{green}+%f Installing $repo..."
+        print -P "==> Installing $repo..."
 
         if ! err=$(git clone --depth=1 \
             "https://github.com/$owner/$repo" "$dir" >/dev/null 2>&1); then
