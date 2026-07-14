@@ -36,7 +36,7 @@ read_only_style = 'red'
 'wallpapers' = ' '
 
 [git_branch]
-style = 'purple'
+style = 'green'
 symbol = '󰘬 '
 format = '[$symbol$branch ]($style)'
 
