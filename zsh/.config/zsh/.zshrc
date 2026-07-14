@@ -1,13 +1,13 @@
 # Enable zsh hook management
 autoload -U add-zsh-hook
 
-# Load modular configs
-for f in history keybinds aliases fzf highlighting; do
-    [[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
-done
-
 # Source plugins
 [[ -r "$ZDOTDIR/plugins.zsh" ]] && source "$ZDOTDIR/plugins.zsh"
+
+# Load modular configs
+for f in history keybinds aliases fzf highlights; do
+    [[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
+done
 
 # Starship prompt lazy load
 _starship_lazy() {
