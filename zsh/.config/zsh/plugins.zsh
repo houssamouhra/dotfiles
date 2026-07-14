@@ -57,4 +57,4 @@ _zplugin_load aloxaf fzf-tab defer
 _zplugin_load zsh-users zsh-autosuggestions defer
 _zplugin_load zsh-users zsh-history-substring-search defer
 _zplugin_load houssamouhra colored-man-pages defer
-_zplugin_load zsh-users zsh-syntax-highlighting defer
+_zplugin_load zdharma-continuum fast-syntax-highlighting defer
