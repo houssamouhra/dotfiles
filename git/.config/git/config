@@ -40,15 +40,23 @@
   diffFilter = delta --color-only
   singlekey = true
 
-[include]
-  path = ~/.config/delta/themes.gitconfig
-
 [delta]
-  features = colibri
-  syntax-theme = tokyonight_night
-  side-by-side = false
-  line-numbers = true
+  dark = true
   navigate = true
+  syntax-theme = none
+  side-by-side = false
+  line-numbers = false
+  file-style = yellow bold
+  file-decoration-style = none
+  hunk-header-style = blue
+  minus-style = red
+  minus-emph-style = red bold
+  plus-style = green
+  plus-emph-style = green bold
+  zero-style = normal
+  hyperlinks = true
+  keep-plus-minus-markers = true
+  whitespace-error-style = reverse red
 
 [merge]
   conflictStyle = zdiff3
