@@ -15,3 +15,7 @@ FAST_HIGHLIGHT_STYLES[globbing-ext]='none'
 # Subtle useful highlights
 FAST_HIGHLIGHT_STYLES[commandseparator]='fg=240'
 FAST_HIGHLIGHT_STYLES[reserved-word]='fg=13'
+
+# History substring configuration
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bold,underline'
