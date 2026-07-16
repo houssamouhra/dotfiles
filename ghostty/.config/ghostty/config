@@ -4,7 +4,7 @@
 config-file = themes/tokyonight
 
 # TRANSPARENCY
-background-opacity = 0.96
+background-opacity = 1
 
 # FONTS
 # font-family = "MonoLisa Variable"
@@ -38,7 +38,7 @@ auto-update = off
 gtk-single-instance = true
 
 # SHELL INTEGRATION
-shell-integration = zsh
+shell-integration = detect
 shell-integration-features = no-cursor
 
 # SHADERS
