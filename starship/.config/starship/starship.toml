@@ -6,12 +6,7 @@ $directory\
 $git_branch\
 $git_status\
 $fill\
-$python\
-$lua\
 $nodejs\
-$rust\
-$package\
-$docker_context\
 $cmd_duration\
 $line_break\
 $character"""
@@ -59,59 +54,10 @@ typechanged = ""
 [fill]
 symbol = ' '
 
-[python]
-symbol = ' '
-
-[lua]
-symbol = ' '
-format = '[$symbol($version )]($style)'
-
 [nodejs]
 symbol = ' '
-detect_files = ["package.json", "node_modules"]
+detect_files = ["package.json"]
 format = '[$symbol($version )]($style)'
-
-[golang]
-symbol = ' '
-disabled = true
-
-[haskell]
-symbol = ' '
-disabled = true
-
-[rust]
-symbol = ' '
-format = '[$symbol($version )]($style)'
-
-[c]
-symbol = ' '
-disabled = true
-
-[cpp]
-symbol = ' '
-disabled = true
-
-[java]
-symbol = ' '
-disabled = true
-
-[ruby]
-symbol = ' '
-disabled = true
-
-[package]
-format = '[$symbol$version]($style)'
-
-[aws]
-symbol = ' '
-style = 'yellow'
-format = '[$symbol($profile )(\[$duration\] )]($style)'
-disabled = true
-
-[docker_context]
-symbol = ' '
-style = 'fg:#06969A'
-format = '[$symbol $context]($style) '
 
 [jobs]
 symbol = '✦'
