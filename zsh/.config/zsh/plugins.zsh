@@ -13,10 +13,10 @@ load-plugin() {
     local repo=$2
     local mode=$3
     local dir="$ZSH_PLUGIN_DIR/$repo"
-    local entry="$dir/$repo.plugin.zsh"
+    local entry
 
     # Clone the plugin if it's not installed
-    if [[ ! -d $dir ]]; then
+    if [[ ! -d "$dir" ]]; then
         local err
 
         mkdir -p "$ZSH_PLUGIN_DIR" || return
@@ -33,14 +33,23 @@ load-plugin() {
         print -P "%F{green}✓ Installed $repo%f"
     fi
 
+    for entry in \
+        "$dir/$repo.plugin.zsh" \
+        "$dir"/*.plugin.zsh(N) \
+        "$dir/$repo.zsh" \
+        "$dir"/*.zsh(N)
+    do
+        [[ -r "$entry" ]] && break
+    done
+
     # Verify the plugin provides the expected entry point
-    if [[ ! -r $entry ]]; then
-        print -u2 -P "%F{red}Missing plugin entry:%f $entry"
+    if [[ ! -r "$entry" ]]; then
+        print -u2 -P "%F{red}Missing plugin entry:%f $dir"
         return 1
     fi
 
     # Defer plugin loading with zsh-defer
-    if [[ $mode == defer ]]; then
+    if [[ "$mode" == defer ]]; then
         (($+functions[zsh-defer])) || {
             print -u2 -P "%F{red}'defer' mode requires zsh-defer%f"
             return 1
@@ -52,6 +61,52 @@ load-plugin() {
     fi
 }
 
+# Install and initialize zsh-patina
+# A Fast syntax highlighter
+load-zsh-patina() {
+    emulate -L zsh
+
+    local dir="$ZSH_PLUGIN_DIR/zsh-patina"
+
+    # Clone on first use
+    if [[ ! -d "$dir" ]]; then
+        print -P "==> Installing zsh-patina..."
+
+        if ! git clone --depth=1 \
+            https://github.com/michel-kraemer/zsh-patina.git "$dir" >/dev/null 2>&1; then
+            print -u2 -P "%F{red}✗ Failed to clone zsh-patina%f"
+            return 1
+        fi
+    fi
+
+    # Build if the binary doesn't exist
+    if [[ ! -x "$ZSH_PATINA_PATH" ]]; then
+        print -P "==> Building zsh-patina..."
+
+        if ! command -v cargo >/dev/null; then
+            print -u2 -P "%F{red}cargo is not installed%f"
+            return 1
+        fi
+
+        (
+            cd "$dir" &&
+                cargo build --release >/dev/null
+        ) || {
+            print -u2 -P "%F{red}✗ Failed to build zsh-patina%f"
+            return 1
+        }
+
+        print -P "%F{green}✓ Built zsh-patina%f"
+    fi
+
+    _syntax_highlight() {
+        unfunction _syntax_highlight
+        eval "$("$ZSH_PATINA_PATH" activate)"
+    }
+    add-zsh-hook -d precmd _syntax_highlight 2>/dev/null
+    add-zsh-hook precmd _syntax_highlight
+}
+
 # Update all installed plugin repositories
 update-plugin() {
     emulate -L zsh
@@ -60,7 +115,7 @@ update-plugin() {
 
     # Iterate over plugin directories only
     for dir in "$ZSH_PLUGIN_DIR"/*(/); do
-        [[ -d $dir/.git ]] || continue
+        [[ -d "$dir/.git" ]] || continue
 
         old=$(git -C "$dir" rev-parse HEAD)
 
@@ -74,7 +129,20 @@ update-plugin() {
             if [[ $old == $new ]]; then
                 print -P "%F{8}○ Already up to date%f"
             else
-                print -P "%F{green}✓ Updated%f"
+                case ${dir:t} in
+                zsh-patina)
+                    if (($+commands[cargo])); then
+                        print -u2 -P "%F{yellow}⚠ cargo is not installed%f"
+                    elif (cd "$dir" && cargo build --release >/dev/null 2>&1); then
+                        print -P "%F{green}✓ Updated & rebuilt%f"
+                    else
+                        print -u2 -P "%F{yellow}⚠ Updated, but rebuild failed%f"
+                    fi
+                    ;;
+                *)
+                    print -P "%F{green}✓ Updated%f"
+                    ;;
+                esac
             fi
         else
             print -u2 -P "%F{red}✗ Failed to update%f"
@@ -89,5 +157,6 @@ load-plugin zsh-users zsh-completions defer
 load-plugin aloxaf fzf-tab defer
 load-plugin zsh-users zsh-autosuggestions defer
 load-plugin zsh-users zsh-history-substring-search defer
+load-plugin MichaelAquilina zsh-auto-notify defer
 load-plugin houssamouhra colored-man-pages defer
-load-plugin zdharma-continuum fast-syntax-highlighting defer
+load-zsh-patina
