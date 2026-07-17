@@ -22,10 +22,12 @@ export FZF_CTRL_R_OPTS="\
 
 # FZF initialization
 _fzf_init() {
-    # Return if fzf not installed or already initialized
+    emulate -L zsh
     (( $+commands[fzf] )) || return
-    (( $+functions[fzf-file-widget] )) && return
-    eval "$(fzf --zsh)"
+    local init
+    init="$(fzf --zsh)" || return
+    eval "$init" || return
+    unfunction _fzf_init
 }
 
 # Lazy load Ctrl+R history search
@@ -33,7 +35,8 @@ _fzf_history_lazy() {
     _fzf_init
     fzf-history-widget() {
         local selected ret=0
-        setopt localoptions pipefail no_aliases 2>/dev/null
+        emulate -L zsh
+        setopt pipefail no_aliases
 
         selected=$(
             fc -lnr 1 |
@@ -74,7 +77,7 @@ bindkey '^[c' _fzf_cd_widget_lazy
 # Lazy git-fzf integration
 # Override git command to source fzf-git only when git is used
 git() {
-    unfunction git 2>/dev/null
+    unfunction git
     local fzf_git="${XDG_CONFIG_HOME}/fzf-git/fzf-git.sh"
     [[ -f "$fzf_git" ]] && source "$fzf_git" 2>/dev/null
     command git "$@"
@@ -82,13 +85,16 @@ git() {
 
 # FZF SSH quick connect
 fzf_ssh() {
+    emulate -L zsh
     local host
+    [[ -r ~/.ssh/config ]] || return
     host=$(awk '/^Host / && $2 != "*" {print $2}' ~/.ssh/config | fzf --preview 'dig {} +short; ping -c1 {} 2>/dev/null | head -1')
     [[ -n $host ]] && ssh "$host"
 }
 
 # FZF process killer
 fkill() {
+    emulate -L zsh
     local pid
     if [[ $UID -ne 0 ]]; then
         pid=$(ps -u "$UID" -o pid,comm --no-headers | fzf -m | awk '{print $1}')
@@ -96,5 +102,5 @@ fkill() {
         pid=$(ps -ef | awk 'NR>1 {print $2, $8}' | fzf -m | awk '{print $1}')
     fi
 
-    [[ -n $pid ]] && echo "$pid" | xargs kill -${1:-9}
+    [[ -n $pid ]] && kill -"${1:-9}" ${(f)pid}
 }
