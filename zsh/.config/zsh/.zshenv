@@ -6,6 +6,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # Zsh configuration and plugins directories
 export ZSH_CONFIG_DIR="$ZDOTDIR/config"
 export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins"
+export ZSH_PATINA_PATH="$ZSH_PLUGIN_DIR/zsh-patina/target/release/zsh-patina"
 
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
