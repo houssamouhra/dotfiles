@@ -14,6 +14,7 @@ _starship_lazy() {
 	unfunction _starship_lazy
 	eval "$(starship init zsh)"
 }
+add-zsh-hook -d precmd _starship_lazy 2>/dev/null
 add-zsh-hook precmd _starship_lazy
 
 # SSH Agent / Keychain
@@ -58,6 +59,7 @@ _fnm_lazy_load() {
 	fi
 }
 _fnm_lazy_load
+add-zsh-hook -d chpwd _fnm_lazy_load 2>/dev/null
 add-zsh-hook chpwd _fnm_lazy_load
 
 # fnm manual activation
