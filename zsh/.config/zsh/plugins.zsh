@@ -90,7 +90,7 @@ load-zsh-patina() {
 
         (
             cd "$dir" &&
-                cargo build --release >/dev/null
+                cargo build --release --quiet
         ) || {
             print -u2 -P "%F{red}✗ Failed to build zsh-patina%f"
             return 1
