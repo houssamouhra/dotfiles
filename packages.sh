@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -275,7 +275,6 @@ install_pacman "Hypridle" "hypridle"
 install_pacman "Hyprlock" "hyprlock"
 install_pacman "Hyprpicker" "hyprpicker"
 install_pacman "Hypershot" "hyprshot"
-install_pacman "Waybar" "waybar"
 install_pacman "Awww" "awww"
 install_pacman "Sway Notification Center" "swaync"
 install_pacman "Rofi" "rofi"
@@ -343,6 +342,7 @@ install_pacman "TTYper" "ttyper"
 if command -v yay &>/dev/null; then
   install_aur "Zen" "zen-browser-bin"
   install_aur "DXVK" "dxvk-bin"
+  install_aur "Waybar" "waybar-git"
   install_aur "Docker Desktop" "docker-desktop"
   install_aur "Fast Node Manager" "fnm"
   install_aur "Grimblast" "grimblast-git"
