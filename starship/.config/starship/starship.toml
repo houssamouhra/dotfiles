@@ -10,6 +10,7 @@ $nodejs\
 $cmd_duration\
 $line_break\
 $character"""
+scan_timeout = 100
 
 [character]
 success_symbol = '[➜](bold purple)'
