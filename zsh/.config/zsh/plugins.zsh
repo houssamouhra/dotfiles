@@ -157,6 +157,5 @@ load-plugin zsh-users zsh-completions defer
 load-plugin aloxaf fzf-tab defer
 load-plugin zsh-users zsh-autosuggestions defer
 load-plugin zsh-users zsh-history-substring-search defer
-load-plugin MichaelAquilina zsh-auto-notify defer
 load-plugin houssamouhra colored-man-pages defer
 load-zsh-patina
