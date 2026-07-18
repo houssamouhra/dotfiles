@@ -5,7 +5,7 @@ autoload -U add-zsh-hook
 [[ -r "$ZDOTDIR/plugins.zsh" ]] && source "$ZDOTDIR/plugins.zsh"
 
 # Load modular configs
-for f in history keybinds aliases fzf highlights; do
+for f in history keybinds aliases fzf; do
 	[[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
 done
 

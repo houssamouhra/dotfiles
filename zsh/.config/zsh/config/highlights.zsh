@@ -1,3 +1,0 @@
-# History substring configuration
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bold,underline'
