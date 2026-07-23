@@ -22,4 +22,4 @@ bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
 
 # Shortcuts
-bindkey -s '^g' 'tmux-sessionizer'
+bindkey -s '^G' 'tmux-sessionizer'
