@@ -40,12 +40,3 @@ gtk-single-instance = true
 # SHELL INTEGRATION
 shell-integration = detect
 shell-integration-features = no-cursor
-
-# SHADERS
-# custom-shader = shaders/cursor-warp.glsl
-# custom-shader = shaders/in-game-crt-cursor.glsl
-# custom-shader = shaders/bettercrt.glsl
-# custom-shader = shaders/retro-terminal.glsl
-# custom-shader = shaders/tft.glsl
-# custom-shader = shaders/glitchy.glsl
-# custom-shader = shaders/water.glsl
