@@ -76,6 +76,11 @@ hl.animation {
 }
 
 hl.animation {
+  leaf = 'fadeSwitch',
+  enabled = false,
+}
+
+hl.animation {
   leaf = 'windowsMove',
   enabled = true,
   speed = 3,
