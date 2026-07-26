@@ -14,6 +14,7 @@ return {
 
         -- Environment
         ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
+        ['.env.local'] = { glyph = '', hl = 'MiniIconsYellow' },
         ['.env.example'] = { glyph = '', hl = 'MiniIconsGreen' },
 
         -- Git
