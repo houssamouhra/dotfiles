@@ -48,7 +48,7 @@
   true-color = always
   side-by-side = false
   line-numbers = false
-  zero-style = normal
+  zero-style = dim
   hyperlinks = true
   file-added-label = [+]
   file-copied-label = [*]
@@ -56,18 +56,18 @@
   file-removed-label = [-]
   file-renamed-label = [>]
   keep-plus-minus-markers = true
-  file-style = "#e0af68" bold
-  file-decoration-style = "#554b2d" overline
+  file-style = "#9aa5ce" bold
+  file-decoration-style = "#414868" ul
   hunk-header-decoration-style = none
-  hunk-header-file-style = "#7aa2f7"
-  hunk-header-line-number-style = "#89b4fa"
-  hunk-header-style = file line-number "#6688cf"
+  hunk-header-file-style = "#7d89b5"
+  hunk-header-line-number-style = "#565f89"
+  hunk-header-style = file line-number "#7d89b5"
   minus-style = normal "#332129"
   minus-emph-style = normal "#4d2230"
   plus-style  = syntax "#21342d"
   plus-emph-style = syntax bold "#1f463c"
   whitespace-error-style = "#f7768e" underline
-  blame-format = " ({commit:>7}) {author:<18} │ {timestamp:^13} "
+  blame-format = "{author:<18} {commit:<6} {timestamp:<15}"
   blame-palette = "#252c3a #2d2a24 #2b2936 #263130 #2a3028 #313645 #292e3d #303544"
 
 [merge]
