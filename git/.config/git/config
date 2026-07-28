@@ -50,15 +50,25 @@
   line-numbers = false
   zero-style = normal
   hyperlinks = true
+  file-added-label = [+]
+  file-copied-label = [*]
+  file-modified-label = [~]
+  file-removed-label = [-]
+  file-renamed-label = [>]
   keep-plus-minus-markers = true
-  file-style = yellow bold
-  file-decoration-style = none
-  hunk-header-style = blue
+  file-style = "#e0af68" bold
+  file-decoration-style = "#554b2d" overline
+  hunk-header-decoration-style = none
+  hunk-header-file-style = "#7aa2f7"
+  hunk-header-line-number-style = "#89b4fa"
+  hunk-header-style = file line-number "#6688cf"
   minus-style = normal "#332129"
   minus-emph-style = normal "#4d2230"
   plus-style  = syntax "#21342d"
   plus-emph-style = syntax bold "#1f463c"
   whitespace-error-style = "#f7768e" underline
+  blame-format = " ({commit:>7}) {author:<18} │ {timestamp:^13} "
+  blame-palette = "#252c3a #2d2a24 #2b2936 #263130 #2a3028 #313645 #292e3d #303544"
 
 [merge]
   conflictStyle = zdiff3
