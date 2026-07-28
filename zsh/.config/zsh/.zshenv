@@ -11,7 +11,7 @@ export ZSH_PATINA_PATH="$ZSH_PLUGIN_DIR/zsh-patina/target/release/zsh-patina"
 # Tools configuration directories
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export CARGO_BIN_HOME="$HOME/.cargo/bin"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm/bin/bin"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm/bin/bin/bin"
 
 # ATAC configuration
 export ATAC_CONFIG_DIR="$XDG_CONFIG_HOME/atac"
