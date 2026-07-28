@@ -29,6 +29,7 @@
   amend = commit --amend --no-edit
   pr = pull --rebase
   ap = add -p
+  sh = show --patch --stat
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -44,19 +45,20 @@
   dark = true
   navigate = true
   syntax-theme = none
+  true-color = always
   side-by-side = false
   line-numbers = false
-  file-style = yellow bold
-  file-decoration-style = none
-  hunk-header-style = blue
-  minus-style = red
-  minus-emph-style = red bold
-  plus-style = green
-  plus-emph-style = green bold
   zero-style = normal
   hyperlinks = true
   keep-plus-minus-markers = true
-  whitespace-error-style = reverse red
+  file-style = yellow bold
+  file-decoration-style = none
+  hunk-header-style = blue
+  minus-style = normal "#332129"
+  minus-emph-style = normal "#4d2230"
+  plus-style  = syntax "#21342d"
+  plus-emph-style = syntax bold "#1f463c"
+  whitespace-error-style = "#f7768e" underline
 
 [merge]
   conflictStyle = zdiff3
@@ -69,6 +71,9 @@
 
 [safe]
   directory = ~/dotfiles
+
+[show]
+  stat = true
 
 [credential]
   helper = libsecret
