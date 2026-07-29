@@ -1,5 +1,4 @@
-# Clone a plugin on first use (if missing) and source its
-# standard <repo>.plugin.zsh entry point.
+# Clone a plugin on first use (if missing)
 plugin-path() {
     emulate -L zsh
 
