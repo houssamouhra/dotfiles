@@ -8,15 +8,15 @@ git_prompt() {
 
     local -a segments
 
-    ((VCS_STATUS_NUM_STAGED)) && segments+=("+${VCS_STATUS_NUM_STAGED}")
-    ((VCS_STATUS_NUM_UNSTAGED)) && segments+=("!${VCS_STATUS_NUM_UNSTAGED}")
-    ((VCS_STATUS_NUM_UNTRACKED)) && segments+=("?${VCS_STATUS_NUM_UNTRACKED}")
+    ((VCS_STATUS_NUM_STAGED)) && segments+=("%F{green}+${VCS_STATUS_NUM_STAGED}%f")
+    ((VCS_STATUS_NUM_UNSTAGED)) && segments+=("%F{yellow}!${VCS_STATUS_NUM_UNSTAGED}%f")
+    ((VCS_STATUS_NUM_UNTRACKED)) && segments+=("%F{cyan}?${VCS_STATUS_NUM_UNTRACKED}%f")
     ((deleted = VCS_STATUS_NUM_STAGED_DELETED + VCS_STATUS_NUM_UNSTAGED_DELETED))
-    ((deleted)) && segments+=("✘${deleted}")
-    ((VCS_STATUS_NUM_CONFLICTED)) && segments+=("=${VCS_STATUS_NUM_CONFLICTED}")
-    ((VCS_STATUS_STASHES)) && segments+=("\$${VCS_STATUS_STASHES}")
-    ((VCS_STATUS_COMMITS_AHEAD)) && segments+=("⇡${VCS_STATUS_COMMITS_AHEAD}")
-    ((VCS_STATUS_COMMITS_BEHIND)) && segments+=("⇣${VCS_STATUS_COMMITS_BEHIND}")
+    ((deleted)) && segments+=("%F{red}✘${deleted}%f")
+    ((VCS_STATUS_NUM_CONFLICTED)) && segments+=("%B%F{red}=${VCS_STATUS_NUM_CONFLICTED}%f%b")
+    ((VCS_STATUS_STASHES)) && segments+=("%F{magenta}\$${VCS_STATUS_STASHES}%f")
+    ((VCS_STATUS_COMMITS_AHEAD)) && segments+=("%F{green}⇡${VCS_STATUS_COMMITS_AHEAD}%f")
+    ((VCS_STATUS_COMMITS_BEHIND)) && segments+=("%F{yellow}⇣${VCS_STATUS_COMMITS_BEHIND}%f")
 
     local ref=$VCS_STATUS_LOCAL_BRANCH
 
@@ -25,7 +25,7 @@ git_prompt() {
 
     printf "%%F{green}󰘬 %s%%f" "$ref"
 
-    (($#segments)) && printf " %%B%%F{red}[%s]%%f%%b" "${(j: :)segments}"
+    (($#segments)) && printf " %%F{8}[%s%%F{8}]%%f" "${(j: :)segments}"
 }
 
 path_prompt() {
