@@ -2,20 +2,13 @@
 autoload -U add-zsh-hook
 
 # Source plugins
-[[ -r "$ZDOTDIR/plugins.zsh" ]] && source "$ZDOTDIR/plugins.zsh"
+source "$ZDOTDIR/plugins.zsh"
 
 # Load modular configs
-for f in history keybinds aliases fzf myfuncs; do
-	[[ -r "${ZSH_CONFIG_DIR:?}/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
+local -a configs=(prompt history keybinds aliases fzf myfuncs)
+for f in $configs; do
+	[[ -r "$ZSH_CONFIG_DIR/$f.zsh" ]] && source "$ZSH_CONFIG_DIR/$f.zsh"
 done
-
-# Starship prompt lazy load
-_starship_lazy() {
-	unfunction _starship_lazy
-	eval "$(starship init zsh)"
-}
-add-zsh-hook -d precmd _starship_lazy 2>/dev/null
-add-zsh-hook precmd _starship_lazy
 
 # SSH Agent / Keychain
 _ssh_agent_lazy() {

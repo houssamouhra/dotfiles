@@ -1,32 +1,29 @@
 # Clone a plugin on first use (if missing) and source its
 # standard <repo>.plugin.zsh entry point.
-load-plugin() {
+plugin-path() {
     emulate -L zsh
 
     # Validate arguments
     (($# >= 2)) || {
-        print -u2 -P "%F{red}usage: load-plugin <owner> <repo> [defer]%f"
+        print -u2 -P "%F{red}usage: plugin-path <owner> <repo>%f"
         return 1
     }
 
     local owner=$1
     local repo=$2
-    local mode=$3
     local dir="$ZSH_PLUGIN_DIR/$repo"
     local entry
 
     # Clone the plugin if it's not installed
     if [[ ! -d "$dir" ]]; then
-        local err
-
         mkdir -p "$ZSH_PLUGIN_DIR" || return
+
         print -P "==> Installing $repo..."
 
-        if ! err=$(git clone --depth=1 \
-            "https://github.com/$owner/$repo" "$dir" >/dev/null 2>&1); then
+        if ! git clone --depth=1 \
+            "https://github.com/$owner/$repo" "$dir" >/dev/null 2>&1; then
             rm -rf "$dir"
             print -u2 -P "%F{red}✗ Failed to install $repo%f"
-            print -u2 -- "$err"
             return 1
         fi
 
@@ -37,28 +34,16 @@ load-plugin() {
         "$dir/$repo.plugin.zsh" \
         "$dir"/*.plugin.zsh(N) \
         "$dir/$repo.zsh" \
-        "$dir"/*.zsh(N)
+        "$dir"/*.zsh(N);
     do
-        [[ -r "$entry" ]] && break
+        [[ -r $entry ]] && {
+            print -r -- "$entry"
+            return
+        }
     done
 
-    # Verify the plugin provides the expected entry point
-    if [[ ! -r "$entry" ]]; then
-        print -u2 -P "%F{red}Missing plugin entry:%f $dir"
-        return 1
-    fi
-
-    # Defer plugin loading with zsh-defer
-    if [[ "$mode" == defer ]]; then
-        (($+functions[zsh-defer])) || {
-            print -u2 -P "%F{red}'defer' mode requires zsh-defer%f"
-            return 1
-        }
-
-        zsh-defer source "$entry"
-    else
-        source "$entry"
-    fi
+    print -u2 -P "%F{red}Missing plugin entry:%f $dir"
+    return 1
 }
 
 # Install and initialize zsh-patina
@@ -151,11 +136,12 @@ update-plugin() {
 }
 
 # Load plugins
-load-plugin romkatv zsh-defer
-load-plugin mattmc3 ez-compinit defer
-load-plugin zsh-users zsh-completions defer
-load-plugin aloxaf fzf-tab defer
-load-plugin zsh-users zsh-autosuggestions defer
-load-plugin zsh-users zsh-history-substring-search defer
-load-plugin houssamouhra colored-man-pages defer
-load-zsh-patina
+source "$(plugin-path romkatv gitstatus)"
+source "$(plugin-path romkatv zsh-defer)"
+zsh-defer source "$(plugin-path mattmc3 ez-compinit)"
+zsh-defer source "$(plugin-path zsh-users zsh-completions)"
+zsh-defer source "$(plugin-path aloxaf fzf-tab)"
+zsh-defer load-zsh-patina
+zsh-defer source "$(plugin-path zsh-users zsh-autosuggestions)"
+zsh-defer source "$(plugin-path zsh-users zsh-history-substring-search)"
+zsh-defer -t 2 source "$(plugin-path houssamouhra colored-man-pages)"
