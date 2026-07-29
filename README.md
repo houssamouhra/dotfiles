@@ -42,24 +42,23 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>Terminal & Shell</summary>
 
-- **[ghostty](https://github.com/ghostty-org/ghostty)** – terminal emulator
 - **[zsh](https://www.zsh.org/)** – shell
-- **[starship](https://starship.rs/)** – minimal and fast cross-shell prompt
+- **[ghostty](https://github.com/ghostty-org/ghostty)** – terminal emulator
+- **[tmux](https://github.com/tmux/tmux)** – terminal multiplexer
 
 </details>
 
 <details>
 <summary>Editor</summary>
 
-- **[neovim](https://neovim.io/)** – editor
-- **[tmux](https://github.com/tmux/tmux)** – terminal multiplexer
-- **[yazi](https://github.com/sxyazi/yazi)** – terminal file manager
+- **[neovim](https://github.com/neovim/neovim)** – editor
 
 </details>
 
 <details>
 <summary>CLI Tools</summary>
 
+- **[yazi](https://github.com/sxyazi/yazi)** – terminal file manager
 - **[atac](https://github.com/julien-cpsn/atac)** – terminal API client (Postman-like)
 - **[bat](https://github.com/sharkdp/bat)** – cat clone with syntax highlighting
 - **[btop](https://github.com/aristocratos/btop)** – system resource monitor
@@ -113,7 +112,7 @@ sudo pacman -S stow
 Install configs selectively, Stow creates symlinks into `$HOME`.
 
 ```bash
-stow hypr nvim zshenv zsh waybar rofi ghostty mpd rmpc scripts shikane
+stow hypr nvim zshenv zsh ...
 ```
 
 #### 4. Reload the configuration
