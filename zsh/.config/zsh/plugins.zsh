@@ -17,7 +17,7 @@ plugin-path() {
     if [[ ! -d "$dir" ]]; then
         mkdir -p "$ZSH_PLUGIN_DIR" || return
 
-        print -P "==> Installing $repo..."
+        print -u2 -P "==> Installing $repo..."
 
         if ! git clone --depth=1 \
             "https://github.com/$owner/$repo" "$dir" >/dev/null 2>&1; then
@@ -26,7 +26,7 @@ plugin-path() {
             return 1
         fi
 
-        print -P "%F{green}✓ Installed $repo%f"
+        print -u2 -P "%F{green}✓ Installed $repo%f"
     fi
 
     for entry in \
@@ -54,7 +54,7 @@ load-zsh-patina() {
 
     # Clone on first use
     if [[ ! -d "$dir" ]]; then
-        print -P "==> Installing zsh-patina..."
+        print -u2 -P "==> Installing zsh-patina..."
 
         if ! git clone --depth=1 \
             https://github.com/michel-kraemer/zsh-patina.git "$dir" >/dev/null 2>&1; then
@@ -65,7 +65,7 @@ load-zsh-patina() {
 
     # Build if the binary doesn't exist
     if [[ ! -x "$ZSH_PATINA_PATH" ]]; then
-        print -P "==> Building zsh-patina..."
+        print -u2 -P "==> Building zsh-patina..."
 
         if ! command -v cargo >/dev/null; then
             print -u2 -P "%F{red}cargo is not installed%f"
@@ -80,7 +80,7 @@ load-zsh-patina() {
             return 1
         }
 
-        print -P "%F{green}✓ Built zsh-patina%f"
+        print -u2 -P "%F{green}✓ Built zsh-patina%f"
     fi
 
     _syntax_highlight() {
@@ -115,7 +115,7 @@ update-plugin() {
             else
                 case ${dir:t} in
                 zsh-patina)
-                    if (($+commands[cargo])); then
+                    if ((! $+commands[cargo])); then
                         print -u2 -P "%F{yellow}⚠ cargo is not installed%f"
                     elif (cd "$dir" && cargo build --release >/dev/null 2>&1); then
                         print -P "%F{green}✓ Updated & rebuilt%f"
@@ -140,7 +140,7 @@ source "$(plugin-path romkatv zsh-defer)"
 zsh-defer source "$(plugin-path mattmc3 ez-compinit)"
 zsh-defer source "$(plugin-path zsh-users zsh-completions)"
 zsh-defer source "$(plugin-path aloxaf fzf-tab)"
-zsh-defer load-zsh-patina
+load-zsh-patina
 zsh-defer source "$(plugin-path zsh-users zsh-autosuggestions)"
 zsh-defer source "$(plugin-path zsh-users zsh-history-substring-search)"
-zsh-defer -t 2 source "$(plugin-path houssamouhra colored-man-pages)"
+zsh-defer source "$(plugin-path houssamouhra colored-man-pages)"
