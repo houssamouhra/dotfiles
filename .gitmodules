@@ -2,3 +2,6 @@
 	path = wallpapers
 	url = git@github.com:houssamouhra/wallpapers.git
 	branch = main
+[submodule "zsh"]
+	path = zsh
+	url = git@github.com:houssamouhra/zsh-config.git
