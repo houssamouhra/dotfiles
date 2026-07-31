@@ -51,7 +51,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>Editor</summary>
 
-- **[neovim](https://github.com/neovim/neovim)** – editor
+- **[neovim](https://github.com/neovim/neovim)**
 
 </details>
 
@@ -62,7 +62,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - **[atac](https://github.com/julien-cpsn/atac)** – terminal API client (Postman-like)
 - **[bat](https://github.com/sharkdp/bat)** – cat clone with syntax highlighting
 - **[btop](https://github.com/aristocratos/btop)** – system resource monitor
-- **[cava](https://github.com/karlstav/cava)** – cross-platform audio visualizer
+- **[cava](https://github.com/karlstav/cava)** – audio visualizer
 - **[delta](https://github.com/dandavison/delta)** – syntax-highlighting pager for Git
 - **[diffnav](https://github.com/dlvhdr/diffnav)** – Git diff pager built on delta with file tree navigation
 - **[eza](https://github.com/eza-community/eza)** – modern replacement for `ls`
@@ -93,8 +93,18 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/houssamouhra/dotfiles.git ~/dotfiles
+git clone --recurse-submodules --depth=1 https://github.com/houssamouhra/dotfiles.git ~/dotfiles
 cd ~/dotfiles
+
+# verify submodules
+git submodule status
+```
+
+> [!NOTE]
+> Run this only when you want to update a submodule to its latest remote commit.
+
+```bash
+git submodule update --remote
 ```
 
 #### 2. Install GNU Stow
