@@ -30,7 +30,7 @@ function configure_session() {
 	local session="$1"
 
 	# hide status bar
-	tmux set-option -t "$session" status off
+	# tmux set-option -t "$session" status off
 }
 
 if [[ $# -eq 1 ]]; then
