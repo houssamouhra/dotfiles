@@ -49,7 +49,6 @@ exec(MOD .. ' + TAB', powermenu, { desc = 'Open power menu' })
 exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
 exec(MOD .. ' + S', 'swaync-client -t', { desc = 'Toggle notifications' })
 exec(MOD .. ' + I', 'rofimoji', { desc = 'Open emoji picker' })
-exec(MOD .. ' + O', paths.scripts .. 'toggle-profile.sh', { desc = 'Toggle between laptop and docked profiles' })
 
 -- ==================== WINDOW MANAGEMENT ====================
 bind(MOD .. ' + W', hl.dsp.window.close(), { desc = 'Close window' })
