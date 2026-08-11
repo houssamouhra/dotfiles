@@ -353,7 +353,7 @@ if command -v yay &>/dev/null; then
   install_aur "Lazysql" "lazysql"
   install_aur "Mycli" "mycli"
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
-  install_aur "Hyprmon" "hyprmon-bin"
+  install_aur "Hyprmoncfg" "hyprmoncfg"
 fi
 
 print_summary
