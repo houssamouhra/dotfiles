@@ -25,7 +25,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 
 - **[hyprland](https://hypr.land/)** – Wayland compositor
 - **[GNU Stow](https://www.gnu.org/software/stow/)** – Symlink manager for dotfiles
-- **[hyprmon](https://github.com/erans/hyprmon)** – TUI monitor configuration tool for Hyprland with profile management
+- **[hyprmoncfg](https://github.com/crmne/hyprmoncfg)** – Hyprland monitor layout editor with profile management and hotplug support
 
 </details>
 
