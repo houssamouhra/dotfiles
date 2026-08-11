@@ -43,4 +43,4 @@ shell-integration = detect
 shell-integration-features = no-cursor
 
 # SHADERS
-custom-shader = shaders/cursor-warp.glsl
+# custom-shader = shaders/cursor-warp.glsl
