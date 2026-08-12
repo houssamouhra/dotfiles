@@ -11,8 +11,6 @@ configuration {
 
 /* Global theme variables */
 * {
-    font: "JetBrainsMono Nerd Font 11";
-
     bg:             @bg-col;
     bg-alt:         @bg-alpha;
 
@@ -35,7 +33,7 @@ window {
     anchor: center;
     fullscreen: true;
     background-color: @bg-alt;
-    padding: 40px;
+    padding: 20px;
     border: 0px;
     border-radius: 0px;
 }
@@ -59,7 +57,6 @@ inputbar {
 prompt {
     background-color: transparent;
     text-color: @fg-col;
-    font: "JetBrainsMono Nerd Font Bold 11";
 }
 
 /* Input field */

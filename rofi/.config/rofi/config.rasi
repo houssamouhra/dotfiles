@@ -47,7 +47,6 @@ inputbar {
 prompt {
     background-color: transparent;
     text-color: @fg-col;
-    font: "JetBrainsMono Nerd Font Bold 11";
 }
 
 /* User input field */
