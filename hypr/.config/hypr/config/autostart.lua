@@ -15,6 +15,9 @@ hl.on('hyprland.start', function()
     exec(service)
   end
 
+  -- Wallpaper daemon
+  exec 'pgrep -x awww-daemon >/dev/null || awww-daemon &'
+
   -- Display / system services
   local display = { 'gammastep' }
 
