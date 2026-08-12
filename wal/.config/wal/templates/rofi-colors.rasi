@@ -48,5 +48,5 @@
 
     active-grad:    linear-gradient(to bottom, {color8}, {color4});
 
-    font: "JetBrainsMono Nerd Font 11";
+    font: "JetBrainsMono Nerd Font 12";
 }}
