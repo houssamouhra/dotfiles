@@ -1,5 +1,3 @@
-local HOME = os.getenv 'HOME'
-
 -- Helpers
 local function exec(cmd)
   hl.exec_cmd(cmd)
