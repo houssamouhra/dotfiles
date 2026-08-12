@@ -1,10 +1,5 @@
 local HOME = os.getenv 'HOME'
 
--- Scripts
-local scripts = {
-  wallpaper = string.format('%s/.config/hypr/scripts/wallpaper.sh', HOME),
-}
-
 -- Helpers
 local function exec(cmd)
   hl.exec_cmd(cmd)
@@ -31,9 +26,6 @@ hl.on('hyprland.start', function()
 
   -- Clipboard manager
   exec 'wl-paste --watch cliphist store'
-
-  -- Wallpaper
-  exec(scripts.wallpaper .. ' restore')
 
   -- Audio defaults
   exec 'pactl set-sink-mute @DEFAULT_SINK@ 0'
