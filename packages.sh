@@ -354,6 +354,7 @@ if command -v yay &>/dev/null; then
   install_aur "Mycli" "mycli"
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
   install_aur "Hyprmoncfg" "hyprmoncfg"
+  install_aur "Quickshell" "quickshell"
 fi
 
 print_summary
