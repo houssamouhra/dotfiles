@@ -7,6 +7,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons',
+    'nvim-mini/mini.icons',
     'MunifTanjim/nui.nvim',
     's1n7ax/nvim-window-picker',
   },
@@ -64,6 +65,20 @@ return {
         folder_empty = '󰜌',
         default = '*',
         highlight = 'NeoTreeFileIcon',
+
+        provider = function(icon, node)
+          local mini_icons = require 'mini.icons'
+
+          if node.type == 'directory' then
+            local glyph, hl = mini_icons.get('directory', node.name)
+            icon.text = glyph
+            icon.highlight = hl
+          elseif node.type == 'file' then
+            local glyph, hl = mini_icons.get('file', node.path)
+            icon.text = glyph
+            icon.highlight = hl
+          end
+        end,
       },
 
       modified = { symbol = '[+]', highlight = 'NeoTreeModified' },
