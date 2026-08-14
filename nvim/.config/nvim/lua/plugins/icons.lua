@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.icons',
+  'nvim-mini/mini.icons',
   version = false,
   lazy = true,
 
@@ -7,6 +7,15 @@ return {
     local icons = require 'mini.icons'
 
     icons.setup {
+      directory = {
+        ['.config'] = { glyph = '', hl = 'MiniIconsBlue' },
+        ['.git'] = { glyph = '', hl = 'MiniIconsGit' },
+        ['.github'] = { glyph = '', hl = 'MiniIconsGit' },
+        ['node_modules'] = { glyph = '', hl = 'MiniIconsNpm' },
+        ['public'] = { glyph = '󰉏', hl = 'MiniIconsGreen' },
+        ['components'] = { glyph = '󰙅', hl = 'MiniIconsPurple' },
+      },
+
       file = {
         -- General
         ['README.md'] = { glyph = '󰂺', hl = 'MiniIconsGreen' },
@@ -74,6 +83,7 @@ return {
     }
 
     icons.mock_nvim_web_devicons()
+
     local highlights = {
       MiniIconsVite = '#9752FF',
       MiniIconsEslint = '#8181F2',
