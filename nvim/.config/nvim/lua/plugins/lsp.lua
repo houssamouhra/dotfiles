@@ -91,6 +91,7 @@ return {
         'cssls',
         'ts_ls',
         'tailwindcss',
+        'basedpyright',
         'dockerls',
         'sqlls',
         'jsonls',
