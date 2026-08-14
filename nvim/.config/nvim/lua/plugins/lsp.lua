@@ -95,11 +95,18 @@ return {
         'lua_ls',
         'prismals',
       },
-      automatic_installation = true,
     }
 
     require('mason-tool-installer').setup {
-      ensure_installed = { 'stylua' },
+      ensure_installed = {
+        'stylua',
+        'eslint_d',
+        'prettierd',
+        'hadolint',
+        'ruff',
+        'shfmt',
+        'sqruff',
+      },
     }
 
     vim.lsp.enable 'emmet_language_server'
