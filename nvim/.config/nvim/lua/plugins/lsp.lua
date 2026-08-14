@@ -79,10 +79,6 @@ return {
       end,
     })
 
-    -- Capabilities (still needed for cmp)
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
     -- Setup mason + mason-lspconfig
     require('mason-lspconfig').setup {
       ensure_installed = {
@@ -106,38 +102,6 @@ return {
       ensure_installed = { 'stylua' },
     }
 
-    vim.lsp.config('emmet_language_server', {
-      capabilities = capabilities,
-      filetypes = {
-        'html',
-        'css',
-        'scss',
-        'sass',
-        'less',
-        'javascriptreact',
-        'typescriptreact',
-        'vue',
-        'svelte',
-        'astro',
-      },
-      init_options = {
-        html = {
-          options = {
-            ['output.selfClosingStyle'] = 'xhtml',
-          },
-        },
-        javascript = {
-          options = {
-            ['output.selfClosingStyle'] = 'xhtml',
-          },
-        },
-        typescript = {
-          options = {
-            ['output.selfClosingStyle'] = 'xhtml',
-          },
-        },
-      },
-    })
     vim.lsp.enable 'emmet_language_server'
   end,
 }
