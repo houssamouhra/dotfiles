@@ -87,7 +87,7 @@ return {
         'cssls',
         'ts_ls',
         'tailwindcss',
-        'basedpyright',
+        'ty',
         'dockerls',
         'sqlls',
         'jsonls',
