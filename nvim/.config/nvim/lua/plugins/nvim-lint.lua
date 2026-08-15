@@ -34,5 +34,18 @@ return {
         lint.try_lint()
       end,
     })
+
+    -- :LintInfo command to show the configured linter
+    vim.api.nvim_create_user_command('LintInfo', function()
+      local ft = vim.bo.filetype
+      local linters = lint.linters_by_ft[ft] or {}
+
+      if #linters == 0 then
+        vim.notify('No linters configured for ' .. ft, vim.log.levels.WARN)
+        return
+      end
+
+      vim.notify('Filetype: ' .. ft .. '\nLinters: ' .. table.concat(linters, ', '), vim.log.levels.INFO)
+    end, {})
   end,
 }
