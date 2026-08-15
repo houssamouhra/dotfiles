@@ -79,6 +79,20 @@ return {
       end,
     })
 
+    -- :LspInfo command to show attached LSP clients
+    vim.api.nvim_create_user_command('LspInfo', function()
+      local clients = vim.lsp.get_clients { bufnr = 0 }
+
+      if #clients == 0 then
+        print 'No LSP clients attached'
+        return
+      end
+
+      for _, client in ipairs(clients) do
+        print(client.name)
+      end
+    end, {})
+
     -- Setup mason + mason-lspconfig
     require('mason-lspconfig').setup {
       ensure_installed = {
