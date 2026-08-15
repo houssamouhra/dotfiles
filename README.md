@@ -144,11 +144,11 @@ source ~/.config/zsh/.zshrc
 
 <table>
   <tr>
-    <td><img src="screenshots/workspace1.png" width="400"/></td>
-    <td><img src="screenshots/workspace2.png" width="400"/></td>
+    <td><img src="screenshots/workspace.png" width="400"/></td>
+    <td><img src="screenshots/hyprquickpaper.png" width="400"/></td>
   </tr>
   <tr>
-    <td><img src="screenshots/cava.png" width="400"/></td>
+    <td><img src="screenshots/showcase.png" width="400"/></td>
     <td><img src="screenshots/nvim.png" width="400"/></td>
   </tr>
 </table>
