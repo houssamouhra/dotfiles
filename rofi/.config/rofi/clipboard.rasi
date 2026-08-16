@@ -6,24 +6,6 @@ configuration {
     modi: "dmenu";
     show-icons: false;
     display-dmenu: "Clipboard";
-    window-format: "{w} · {c} · {t}";
-}
-
-/* Global theme variables */
-* {
-    bg:             @bg-col;
-    bg-alt:         @bg-alpha;
-
-    fg:             @fg-col;
-    fg-alt:         @bg-col;
-
-    border:         @border-col;
-    accent:         @mauve;
-
-    selected:       @selected-col;
-
-    background-color: transparent;
-    text-color:       @fg;
 }
 
 /* Fullscreen window overlay */
@@ -32,7 +14,7 @@ window {
     location: center;
     anchor: center;
     fullscreen: true;
-    background-color: @bg-alt;
+    background-color: @bg-alpha;
     padding: 20px;
     border: 0px;
     border-radius: 0px;
@@ -84,7 +66,7 @@ listview {
 /* Clipboard item */
 element {
     background-color: transparent;
-    text-color: @fg;
+    text-color: @fg-col;
     padding: 10px 14px;
     spacing: 10px;
     border: 1px;
@@ -95,8 +77,7 @@ element {
 
 /* Selected clipboard item */
 element selected {
-    background-color: @selected-col;
-    background-image: @active-grad;
+    background-color: @active-grad;
     text-color: @bg-col;
     border: 1px;
     border-radius: 14px;
