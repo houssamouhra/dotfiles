@@ -46,7 +46,7 @@
 
     bg-alpha:       {background}dd;
 
-    active-grad:    linear-gradient(to bottom, {color8}, {color4});
+    active-grad:    {color8};
 
     font: "JetBrainsMono Nerd Font 12";
 }}
