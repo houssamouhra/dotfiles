@@ -57,6 +57,7 @@ return {
         'dockerfile',
         'markdown',
         'prisma',
+        'python',
         'sh',
         'sql',
         'yaml',
