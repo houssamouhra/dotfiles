@@ -24,8 +24,6 @@
       "cm": "srgb",
       "sdr_brightness": 1,
       "sdr_saturation": 1,
-      "sdr_min_luminance": 0.2,
-      "sdr_max_luminance": 80,
       "min_luminance": 0
     },
     {
@@ -48,8 +46,6 @@
       "cm": "srgb",
       "sdr_brightness": 1,
       "sdr_saturation": 1,
-      "sdr_min_luminance": 0.2,
-      "sdr_max_luminance": 80,
       "min_luminance": 0
     }
   ],

@@ -6,8 +6,6 @@ hl.monitor({
   position = "0x-55",
   scale = 1,
   bitdepth = 16,
-  sdr_min_luminance = 0.2,
-  sdr_max_luminance = 80,
 })
 
 hl.monitor({

@@ -1,7 +1,7 @@
 {
   "name": "laptop",
   "created_at": "2026-08-11T14:59:14.89628348Z",
-  "updated_at": "2026-08-11T14:59:14.896678511Z",
+  "updated_at": "2026-08-11T15:49:52.617256054Z",
   "outputs": [
     {
       "key": "lenovo group limited|0x40a9",
@@ -23,8 +23,6 @@
       "cm": "srgb",
       "sdr_brightness": 1,
       "sdr_saturation": 1,
-      "sdr_min_luminance": 0.2,
-      "sdr_max_luminance": 80,
       "min_luminance": 0
     },
     {
@@ -48,8 +46,6 @@
       "cm": "srgb",
       "sdr_brightness": 1,
       "sdr_saturation": 1,
-      "sdr_min_luminance": 0.2,
-      "sdr_max_luminance": 80,
       "min_luminance": 0
     }
   ],
