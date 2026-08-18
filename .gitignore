@@ -5,6 +5,8 @@ mpd/.config/mpd/playlists/
 mpd/.config/mpd/state
 mpd/.config/mpd/sticker.sql
 
+mpv/.config/mpv/scripts/uosc/
+
 tmux/.config/tmux/plugins
 
 ssh/.ssh/agent/
