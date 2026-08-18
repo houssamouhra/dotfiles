@@ -60,12 +60,6 @@ return {
       },
 
       icon = {
-        folder_closed = '',
-        folder_open = '',
-        folder_empty = '󰜌',
-        default = '*',
-        highlight = 'NeoTreeFileIcon',
-
         provider = function(icon, node)
           local mini_icons = require 'mini.icons'
 
