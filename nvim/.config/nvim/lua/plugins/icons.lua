@@ -20,6 +20,7 @@ return {
         -- General
         ['README.md'] = { glyph = '󰂺', hl = 'MiniIconsGreen' },
         ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+        ['favicon.ico'] = { glyph = '', hl = 'MiniIconsYellow' },
 
         -- Environment
         ['.env'] = { glyph = '', hl = 'MiniIconsYellow' },
