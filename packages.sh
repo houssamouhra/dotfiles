@@ -228,6 +228,7 @@ echo
 install_pacman "Git" "git"
 install_pacman "Git Delta" "git-delta"
 install_pacman "LazyGit" "lazygit"
+install_pacman "Serie" "serie"
 install_pacman "LazyDocker" "lazydocker"
 install_pacman "Docker" "docker"
 install_pacman "OpenSSH" "openssh"
