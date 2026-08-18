@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 import json
-import requests
+import sys
+import time
 from datetime import datetime
 from pathlib import Path
-import time
-import sys
+
+import requests
 
 CITY = "Tangier"
 
@@ -226,6 +227,6 @@ try:
 
 except Exception as e:
     data["text"] = "…?"
-    data["tooltip"] = f"Fetch failed\n({str(e)})\nCheck internet / wttr.in"
+    data["tooltip"] = f"Fetch failed\n({e!s})\nCheck internet / wttr.in"
 
 print(json.dumps(data))
