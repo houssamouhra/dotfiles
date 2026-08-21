@@ -4,7 +4,7 @@
 config-file = themes/tokyonight
 
 # TRANSPARENCY
-background-opacity = 1
+background-opacity = 0.9
 
 # FONTS
 # font-family = "MonoLisa Variable"
@@ -32,7 +32,8 @@ window-padding-balance = false
 
 # WINDOW BEHAVIOR
 window-theme = ghostty
-window-decoration = none
+window-decoration = false
+desktop-notifications = false
 window-vsync = false
 confirm-close-surface = false
 auto-update = off
@@ -40,7 +41,7 @@ gtk-single-instance = true
 
 # SHELL INTEGRATION
 shell-integration = detect
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor, ssh-terminfo, ssh-env
 
 # SHADERS
 # custom-shader = shaders/cursor-warp.glsl
