@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+CONFIG=$(readlink -f "$HOME/.config/ghostty/config")
+CURRENT=$(awk -F'= ' '/^background-opacity/{print $2}' "$CONFIG")
+
+if [ "$CURRENT" = "0.9" ]; then
+  sed -i 's/^background-opacity = .*/background-opacity = 1/' "$CONFIG"
+else
+  sed -i 's/^background-opacity = .*/background-opacity = 0.9/' "$CONFIG"
+fi
+
+kill -SIGUSR2 $(pgrep ghostty) 2>/dev/null
+
+# Bind it to a key in skhd (or any hotkey daemon) or make alias and it toggles opacity instantly without restarting Ghostty.
+# Adjust the opacity values to your preference.

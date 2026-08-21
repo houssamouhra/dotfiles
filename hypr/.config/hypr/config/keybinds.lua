@@ -9,6 +9,7 @@ local paths = {
   rofi_power = HOME .. '/.local/bin/rofi-power-menu',
   rofi_power_theme = HOME .. '/.config/rofi/powermenu.rasi',
   scripts = HOME .. '/.config/hypr/scripts/',
+  ghostty = HOME .. '/.config/ghostty/scripts/',
   quickshell = HOME .. '/.config/quickshell/',
   screenshots = HOME .. '/Screenshots/',
 }
@@ -44,6 +45,7 @@ end
 
 -- APPLICATIONS
 exec(MOD .. ' + Q', apps.terminal, { desc = 'Open terminal' })
+exec(MOD .. ' + O', paths.ghostty .. 'ghostty-opacity-toggle', { desc = 'Change ghostty opacity' })
 exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', powermenu, { desc = 'Open power menu' })
@@ -92,21 +94,6 @@ exec('ALT + A', paths.scripts .. 'refresh-waybar.sh', { desc = 'Refresh waybar' 
 
 -- SYSTEM
 exec(MOD .. ' + SHIFT + R', 'hyprctl reload', { desc = 'Reload Hyprland' })
-
--- BLUR TOGGLE
-bind(MOD .. ' + B', function()
-  local enabled = hl.get_config 'decoration.blur.enabled'
-
-  hl.config {
-    decoration = {
-      blur = {
-        enabled = not enabled,
-      },
-    },
-  }
-end, {
-  desc = 'Toggle blur',
-})
 
 -- VOLUME & MEDIA
 exec('XF86AudioRaiseVolume', paths.scripts .. 'volume-control.sh --inc', repeatable { desc = 'Volume up' })
