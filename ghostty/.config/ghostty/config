@@ -12,6 +12,7 @@ background-opacity = 0.9
 # font-family = "Hack Nerd Font"
 # font-family = "Liga SFMono Nerd Font"
 # font-family = "MesloLGS Nerd Font"
+# font-family = "0xProto Nerd Font"
 
 font-size = 13
 adjust-cell-height = 10%
