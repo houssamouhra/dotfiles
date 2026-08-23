@@ -59,6 +59,7 @@ return {
         'prisma',
         'python',
         'sh',
+        'zsh',
         'sql',
         'yaml',
         'yml',
