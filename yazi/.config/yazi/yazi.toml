@@ -1,20 +1,17 @@
 [opener]
-edit = [{ run = 'nvim "$@"', desc = "neovim", block = true, for = "unix" }]
-open = [{ run = 'xdg-open "$@"', desc = "system default", for = "linux" }]
-video = [{ run = 'mpv "$@"', orphan = true, desc = "mpv", for = "unix" }]
-pdf = [{ run = 'zathura "$@"', desc = "zathura", orphan = true, for = "unix" }]
-imgs = [{ run = 'viewnior "$@"', desc = "viewnior", orphan = true, for = "unix" }]
-audio = [{ run = '~/.config/yazi/scripts/yazi_rmpc_opener.py "$@"', desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
+edit = [{ run = "nvim %s1", block = true, for = "unix" }]
+open = [{ run = "xdg-open %s1", desc = "system default", for = "linux" }]
+video = [{ run = "mpv %s1", orphan = true, desc = "mpv", for = "unix" }]
+pdf = [{ run = "zathura %s1", desc = "zathura", orphan = true, for = "unix" }]
+imgs = [{ run = "viewnior %s1", desc = "viewnior", orphan = true, for = "unix" }]
+audio = [{ run = "~/.config/yazi/scripts/yazi_rmpc_opener.py %s1", desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
 
 [open]
-rules = [
+prepend_rules = [
+  { mime = "audio/*", use = "audio" },
   { mime = "video/*", use = "video" },
   { mime = "application/pdf", use = "pdf" },
+  { mime = "application/json", use = "edit" },
   { mime = "image/*", use = "imgs" },
-  { mime = "*json*", use = "edit" },
   { mime = "text/*", use = "edit" },
-  { mime = "*", use = "open" },
-]
-prepend_rules = [
-    { mime = "audio/*", use = "audio" },
 ]
