@@ -77,7 +77,8 @@ element {
 
 /* Selected clipboard item */
 element selected {
-    background-color: @active-grad;
+    background-color: @selected-col;
+    background-image: @active-grad;
     text-color: @bg-col;
     border: 1px;
     border-radius: 14px;
@@ -88,6 +89,6 @@ element-text {
     background-color: transparent;
     text-color: inherit;
     highlight: inherit;
-    cursor: inherit;
     vertical-align: 0.5;
+    cursor: inherit;
 }
