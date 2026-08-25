@@ -40,6 +40,7 @@ return {
         sql = { 'sqruff' },
         sh = { 'shfmt' },
         toml = { 'taplo' },
+        tex = { 'tex-fmt' },
       },
 
       format_on_save = {

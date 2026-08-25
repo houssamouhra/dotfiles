@@ -108,6 +108,7 @@ return {
         'yamlls',
         'lua_ls',
         'prismals',
+        'texlab',
       },
     }
 
@@ -120,6 +121,7 @@ return {
         'ruff',
         'shfmt',
         'sqruff',
+        'tex-fmt',
       },
     }
 
