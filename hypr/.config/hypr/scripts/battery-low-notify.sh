@@ -1,64 +1,98 @@
 #!/usr/bin/env bash
 
-set -uo pipefail
+set -u
 
-# CONFIGURATION
 BATTERY="BAT0"
-
+BATTERY_PATH="/sys/class/power_supply/$BATTERY"
 CHECK_INTERVAL=120
-COOLDOWN=900 # 15 min
-
-NOTIFY_TITLE="Battery Low!"
+COOLDOWN=900
+WARNING_TITLE="Battery Low!"
 NOTIFY_URGENCY="critical"
-
-NOTIFY_CMD="/usr/bin/notify-send"
-
+ICON_DIR="/usr/share/icons/Adwaita/symbolic/status"
 SOUND="$HOME/.config/waybar/sounds/low-battery.mp3"
 SOUND_CMD="/usr/bin/pw-play"
 
-# Optional: auto suspend at critical level
 ENABLE_AUTO_SUSPEND=true
 SUSPEND_THRESHOLD=5
 
-# Threshold messages
 declare -A MESSAGES=(
   [20]="Battery at {PERCENT}% — better plug in soon!"
   [12]="Battery at {PERCENT}% — connect charger soon!"
   [10]="Only {PERCENT}% battery left — plug in NOW!"
 )
 
-# STATE
-declare -A last_notified
+declare -A last_notified=()
 
-# HELPERS
-battery_path="/sys/class/power_supply/$BATTERY"
+# Battery Icon
+get_battery_icon() {
+  local capacity="$1"
+  local status="$2"
+  local level
 
+  # Charging
+  if [[ "$status" == "Charging" ]]; then
+    if ((capacity >= 100)); then
+      echo "$ICON_DIR/battery-level-100-charged-symbolic.svg"
+      return
+    fi
+
+    level=$(((capacity / 10) * 10))
+
+    echo "$ICON_DIR/battery-level-${level}-charging-symbolic.svg"
+    return
+  fi
+
+  # Fully charged
+  if [[ "$status" == "Full" ]] || ((capacity >= 100)); then
+    echo "$ICON_DIR/battery-level-100-charged-symbolic.svg"
+    return
+  fi
+
+  # Very low battery
+  if ((capacity <= 10)); then
+    echo "$ICON_DIR/battery-caution-symbolic.svg"
+    return
+  fi
+
+  # Normal battery levels
+  level=$(((capacity / 10) * 10))
+
+  echo "$ICON_DIR/battery-level-${level}-symbolic.svg"
+}
+
+# Notification
 send_notification() {
   local threshold="$1"
   local capacity="$2"
-
   local message="${MESSAGES[$threshold]}"
+  local icon
+
   message="${message//\{PERCENT\}/$capacity}"
 
-  "$NOTIFY_CMD" \
+  icon=$(get_battery_icon "$capacity" "Discharging")
+
+  notify-send \
     -u "$NOTIFY_URGENCY" \
     -a "battery-notify" \
-    -i "battery-low-symbolic" \
-    "$NOTIFY_TITLE" \
+    -i "$icon" \
+    "$WARNING_TITLE" \
     "$message"
 }
 
+# Sound
 play_sound() {
-  [[ -f "$SOUND" ]] || return 0
-  [[ -x "$SOUND_CMD" ]] || return 0
+  [[ -f "$SOUND" ]] || return
+  [[ -x "$SOUND_CMD" ]] || return
 
   "$SOUND_CMD" "$SOUND" &>/dev/null &
 }
 
+# Suspend
 suspend_system() {
   notify-send \
     -u critical \
     -a "battery-notify" \
+    -i "$ICON_DIR/battery-caution-symbolic.svg" \
     "Critical Battery" \
     "System suspending to prevent shutdown..."
 
@@ -67,11 +101,12 @@ suspend_system() {
   systemctl suspend
 }
 
+# Notification State
 reset_notifications() {
   last_notified=()
 }
 
-get_battery_level() {
+get_threshold() {
   local capacity="$1"
 
   if ((capacity <= 10)); then
@@ -85,53 +120,65 @@ get_battery_level() {
   fi
 }
 
-# VALIDATION
-if [[ ! -d "$battery_path" ]]; then
-  echo "Error: Battery '$BATTERY' not found." >&2
+should_notify() {
+  local threshold="$1"
+  local current_time="$2"
+  local last_time="${last_notified[$threshold]:-0}"
+
+  ((current_time - last_time >= COOLDOWN))
+}
+
+# Validation
+if [[ ! -d "$BATTERY_PATH" ]]; then
+  printf 'Error: Battery "%s" not found.\n' "$BATTERY" >&2
   exit 1
 fi
 
-# MAIN LOOP
+# Main Loop
 while true; do
-  capacity=$(<"$battery_path/capacity")
-  status=$(<"$battery_path/status")
+  capacity=$(<"$BATTERY_PATH/capacity")
+  status=$(<"$BATTERY_PATH/status")
 
-  # Reset state while charging/full
+  # Validate capacity
+  if [[ ! "$capacity" =~ ^[0-9]+$ ]]; then
+    sleep "$CHECK_INTERVAL"
+    continue
+  fi
+
+  # Charging / Full
   if [[ "$status" == "Charging" || "$status" == "Full" ]]; then
     reset_notifications
     sleep "$CHECK_INTERVAL"
     continue
   fi
 
-  # Skip invalid reads
-  if [[ -z "$capacity" ]]; then
+  # Only process discharging state
+  if [[ "$status" != "Discharging" ]]; then
     sleep "$CHECK_INTERVAL"
     continue
   fi
 
   current_time=$(date +%s)
+  threshold=$(get_threshold "$capacity")
 
-  level=$(get_battery_level "$capacity")
+  # Low battery notification
+  if ((threshold > 0)) &&
+    should_notify "$threshold" "$current_time"; then
 
-  # No active threshold
-  if ((level == 0)); then
-    sleep "$CHECK_INTERVAL"
-    continue
-  fi
-
-  last_time=${last_notified[$level]:-0}
-
-  if ((current_time - last_time >= COOLDOWN)); then
-    send_notification "$level" "$capacity"
+    send_notification "$threshold" "$capacity"
     play_sound
 
-    last_notified[$level]=$current_time
+    last_notified[$threshold]="$current_time"
   fi
 
-  # Emergency suspend
+  # Automatic suspend
   if [[ "$ENABLE_AUTO_SUSPEND" == true ]] &&
     ((capacity <= SUSPEND_THRESHOLD)); then
+
     suspend_system
+
+    # Prevent immediately suspending again after resume
+    reset_notifications
   fi
 
   sleep "$CHECK_INTERVAL"

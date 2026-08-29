@@ -1,116 +1,171 @@
 #!/usr/bin/env bash
 
-iDIR="$HOME/.config/swaync/icons"
-CACHE_FILE="$HOME/.cache/ddc_brightness"
-notification_timeout=1000
-MIN_BRIGHTNESS=10
+set -u
 
-# ====================== INIT CACHE ======================
+CACHE_DIR="$HOME/.cache"
+CACHE_FILE="$CACHE_DIR/ddc_brightness"
+
+ICON_DIR="/usr/share/icons/Adwaita/symbolic/status"
+
+STEP=5
+DDC_BUS=3
+DDC_VCP=10
+
+# DDCUTIL Cache
 init_cache() {
-  if [ ! -f "$CACHE_FILE" ]; then
-    val=$(ddcutil getvcp 10 2>/dev/null | grep -oP 'current value\s*=\s*\K[0-9]+')
-    [ -z "$val" ] && val=50
-    echo "$val" >"$CACHE_FILE"
+  mkdir -p "$CACHE_DIR"
+
+  if [[ ! -f "$CACHE_FILE" ]]; then
+    local value
+
+    value=$(
+      ddcutil --bus="$DDC_BUS" getvcp "$DDC_VCP" 2>/dev/null |
+        grep -oP 'current value\s*=\s*\K[0-9]+'
+    )
+
+    [[ -z "$value" ]] && value=50
+
+    printf '%s\n' "$value" >"$CACHE_FILE"
   fi
 }
 
-get_cached() {
+get_ddc_brightness() {
   cat "$CACHE_FILE"
 }
 
-set_cached() {
-  echo "$1" >"$CACHE_FILE"
+set_ddc_brightness() {
+  printf '%s\n' "$1" >"$CACHE_FILE"
 }
 
-# ====================== DETECTION ======================
-if ddcutil detect 2>/dev/null | grep -q "Display 1"; then
-  use_ddcutil=true
-  ddc_bus=3
-  init_cache
-else
-  use_ddcutil=false
-fi
+# Monitor Detection
+has_external_monitor() {
+  ddcutil detect 2>/dev/null | grep -q "Display 1"
+}
 
-# ====================== ICON ======================
-get_icon() {
-  if [ "$current" -le 20 ]; then
-    icon="$iDIR/brightness-20.png"
-  elif [ "$current" -le 40 ]; then
-    icon="$iDIR/brightness-40.png"
-  elif [ "$current" -le 60 ]; then
-    icon="$iDIR/brightness-60.png"
-  elif [ "$current" -le 80 ]; then
-    icon="$iDIR/brightness-80.png"
+# Brightness
+get_laptop_brightness() {
+  printf "%.0f\n" "$(brillo -G)"
+}
+
+get_external_brightness() {
+  get_ddc_brightness
+}
+
+get_brightness() {
+  if has_external_monitor; then
+    get_external_brightness
   else
-    icon="$iDIR/brightness-100.png"
+    get_laptop_brightness
   fi
 }
 
-# ====================== NOTIFY ======================
+increase_laptop_brightness() {
+  brillo -q -A "$STEP"
+}
+
+decrease_laptop_brightness() {
+  brillo -q -U "$STEP"
+}
+
+increase_external_brightness() {
+  local current new
+
+  current=$(get_ddc_brightness)
+  new=$((current + STEP))
+
+  ((new > 100)) && new=100
+
+  ddcutil \
+    --bus="$DDC_BUS" \
+    setvcp "$DDC_VCP" "$new" \
+    --noverify \
+    --sleep-multiplier=0.1 \
+    >/dev/null 2>&1 &
+
+  set_ddc_brightness "$new"
+}
+
+decrease_external_brightness() {
+  local current new
+
+  current=$(get_ddc_brightness)
+  new=$((current - STEP))
+
+  ((new < 0)) && new=0
+
+  ddcutil \
+    --bus="$DDC_BUS" \
+    setvcp "$DDC_VCP" "$new" \
+    --noverify \
+    --sleep-multiplier=0.1 \
+    >/dev/null 2>&1 &
+
+  set_ddc_brightness "$new"
+}
+
+# Icon
+get_icon() {
+  printf '%s\n' "$ICON_DIR/display-brightness-symbolic.svg"
+}
+
+# Notification
 notify_user() {
-  notify-send -e \
-    -h string:x-canonical-private-synchronous:brightness_notif \
-    -h int:value:"$current" \
+  local current icon
+
+  current="$1"
+  icon=$(get_icon)
+
+  notify-send \
+    -e \
+    -h "string:x-canonical-private-synchronous:brightness_notif" \
+    -h "int:value:$current" \
     -u low \
     -i "$icon" \
-    "Brightness : $current%"
+    "Brightness: ${current}%"
 }
 
-# ====================== MAIN ======================
-case "$1" in
-"--get")
-  if [ "$use_ddcutil" = true ]; then
-    get_cached
-  else
-    brightnessctl -m | cut -d, -f4
-  fi
+# Initialize
+init_cache
+
+case "${1:-}" in
+
+--get)
+  get_brightness
   ;;
 
-"--inc")
-  if [ "$use_ddcutil" = true ]; then
-    current=$(get_cached)
-    new=$((current + 10))
-    [ "$new" -gt 100 ] && new=100
+--inc)
+  if has_external_monitor; then
+    # Increase both displays
+    increase_laptop_brightness
+    increase_external_brightness
 
-    ddcutil --bus="$ddc_bus" setvcp 10 "$new" \
-      --noverify --sleep-multiplier=0.1 >/dev/null 2>&1 &
-
-    set_cached "$new"
-    current=$new
+    current=$(get_laptop_brightness)
   else
-    brightnessctl set "+10%"
-    current=$(brightnessctl -m | cut -d, -f4 | tr -cd '0-9')
+    increase_laptop_brightness
+    current=$(get_laptop_brightness)
   fi
 
-  get_icon
-  notify_user
+  notify_user "$current"
   ;;
 
-"--dec")
-  if [ "$use_ddcutil" = true ]; then
-    current=$(get_cached)
-    new=$((current - 10))
-    [ "$new" -lt "$MIN_BRIGHTNESS" ] && new="$MIN_BRIGHTNESS"
+--dec)
+  if has_external_monitor; then
+    # Decrease both displays
+    decrease_laptop_brightness
+    decrease_external_brightness
 
-    ddcutil --bus="$ddc_bus" setvcp 10 "$new" \
-      --noverify --sleep-multiplier=0.1 >/dev/null 2>&1 &
-
-    set_cached "$new"
-    current=$new
+    current=$(get_laptop_brightness)
   else
-    brightnessctl set "10%-"
-    current=$(brightnessctl -m | cut -d, -f4 | tr -cd '0-9')
+    decrease_laptop_brightness
+    current=$(get_laptop_brightness)
   fi
 
-  get_icon
-  notify_user
+  notify_user "$current"
   ;;
 
 *)
-  if [ "$use_ddcutil" = true ]; then
-    get_cached
-  else
-    brightnessctl -m | cut -d, -f4
-  fi
+  printf 'Usage: %s {--get|--inc|--dec}\n' "$0" >&2
+  exit 1
   ;;
+
 esac
