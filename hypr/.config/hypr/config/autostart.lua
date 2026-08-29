@@ -9,7 +9,7 @@ hl.on('hyprland.start', function()
   exec 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP'
 
   -- UI services
-  local services = { 'waybar', 'swaync', 'hypridle' }
+  local services = { 'waybar', 'mako', 'hypridle' }
 
   for _, service in ipairs(services) do
     exec(service)
