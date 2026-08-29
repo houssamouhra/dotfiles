@@ -39,7 +39,6 @@ return {
         yaml = prettier,
         sql = { 'sqruff' },
         sh = { 'shfmt' },
-        toml = { 'taplo' },
         tex = { 'tex-fmt' },
       },
 
