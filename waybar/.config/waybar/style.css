@@ -5,7 +5,7 @@
 
 window#waybar {
   background: transparent;
-  color: #dde4e8;
+  color: #c0caf5;
 }
 
 /* Container */
@@ -13,7 +13,7 @@ window#waybar {
 .modules-right {
   padding: 1px;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: #16161ecc;
   border: none;
   box-shadow: none;
 }
@@ -32,8 +32,8 @@ window#waybar {
 
 /* Tooltips */
 tooltip {
-  background: rgba(0, 0, 0, 0.78);
-  color: #eef3f6;
+  background: rgba(22, 22, 30, 0.95);
+  color: #c0caf5;
   border-radius: 6px;
   border: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
@@ -59,7 +59,7 @@ tooltip {
 #custom-uptime,
 #custom-colorpicker,
 #window {
-  color: #dde4e8;
+  color: #c0caf5;
   padding: 0 9px;
   font-weight: 600;
   transition:
@@ -119,7 +119,7 @@ tooltip {
   margin: 0 2px;
   border-radius: 8px;
   background: transparent;
-  color: #d1d8de;
+  color: #a9b1d6;
   transition:
     background 0.15s ease,
     color 0.15s ease,
@@ -128,12 +128,12 @@ tooltip {
 
 /* Hover */
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(192, 202, 245, 0.10);
   color: #ffffff;
 }
 
 #workspaces button.active {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(192, 202, 245, 0.18);
   color: #ffffff;
 }
 
@@ -141,30 +141,34 @@ tooltip {
 #workspaces button.empty {
   opacity: 0.45;
 }
+
 #workspaces button.empty:hover {
   opacity: 0.75;
 }
 
 /* Urgent */
 #workspaces button.urgent {
-  background: rgba(200, 60, 60, 0.7);
+  background: rgba(247, 118, 142, 0.70);
   color: #ffffff;
 }
 
+/* Network */
 #network.disconnected {
   opacity: 0.6;
 }
 
+/* Spotify */
 #custom-spotify.paused {
-  opacity: 0.75;
-}
-
-#custom-rmpc.paused {
   opacity: 0.75;
 }
 
 #custom-spotify {
   margin-right: 6px;
+}
+
+/* RMPC */
+#custom-rmpc.paused {
+  opacity: 0.75;
 }
 
 #custom-rmpc {
@@ -173,17 +177,18 @@ tooltip {
 
 /* Waybar Timer */
 #custom-timer {
-  background-color: #1e1e2e;
+  background-color: #1a1b26;
+  color: #c0caf5;
   padding: 0 9px;
   border-radius: 10px;
   font-weight: 700;
   transition: all 0.2s ease;
 }
 
-/* --- STATE: DISABLED (00:00, Idle) --- */
+/* STATE: DISABLED (00:00, Idle) */
 #custom-timer.disabled {
   background-color: transparent;
-  color: #bfbfbf;
+  color: #565f89;
   opacity: 0.6;
   font-weight: normal;
   animation-duration: 1s;
@@ -191,44 +196,43 @@ tooltip {
   animation-direction: alternate;
 }
 
-/* --- STATE: IDLE (Active but 00:00) --- */
+/* STATE: IDLE (Active but 00:00) */
 #custom-timer.idle {
   background-color: transparent;
-  color: #bfbfbf;
+  color: #565f89;
 }
 
-/* --- STATE: SELECTION MODE --- */
+/* STATE: SELECTION MODE */
 #custom-timer.select {
-  background-color: #373948;
-  color: #85b2fa;
+  background-color: #292e42;
+  color: #7aa2f7;
 }
 
-/* --- STATE: RUNNING (Normal Timer & Pomodoro Work) --- */
+/* STATE: RUNNING */
 #custom-timer.running {
   background-color: transparent;
-  color: #cccccc;
+  color: #c0caf5;
 }
 
-/* --- STATE: POMODORO BREAK (New) --- */
+/* STATE: POMODORO BREAK */
 #custom-timer.pomo_break {
   background-color: transparent;
-  color: #f9e2af; /* Yellow/Gold to distinguish break from work */
+  color: #e0af68;
 }
 
-/* --- STATE: POMODORO MESSAGE (New: "Work 1/4") --- */
+/* STATE: POMODORO MESSAGE */
 #custom-timer.pomo_msg {
   background-color: transparent;
-  color: #cba6f7; /* Lavender/Purple for status messages */
+  color: #bb9af7;
 }
 
-/* --- STATE: PAUSED --- */
+/* STATE: PAUSED */
 #custom-timer.paused {
-  background-color: #404040;
-  color: #f9e2af;
-  /*border: 1px solid #f9e2af; */
+  background-color: #292e42;
+  color: #e0af68;
 }
 
-/* --- STATE: WARNING (< 10s or 30s alert) --- */
+/* STATE: WARNING */
 #custom-timer.warning {
   background-color: transparent;
   animation-name: red-alert;
@@ -238,32 +242,33 @@ tooltip {
   animation-direction: alternate;
 }
 
-/* --- STATE: DONE --- */
+/* STATE: DONE */
 #custom-timer.done {
-  background-color: #bfbfbf;
-  color: #11111b;
+  background-color: #565f89;
+  color: #16161e;
 }
 
-/* --- STATE: RESET ANIMATION --- */
+/* STATE: RESET ANIMATION */
 #custom-timer.reset {
-  color: #ff4d4d;
+  color: #f7768e;
   background-color: transparent;
 }
 
 /* KEYFRAMES: Red Color Fading */
 @keyframes red-alert {
   0% {
-    color: #ff4d4d; /* Bright, visible Red */
+    color: #f7768e;
     opacity: 1;
   }
+
   100% {
-    color: #ff4d4d;
-    opacity: 0.8; /* Fade cleanly to 80% transparency */
+    color: #f7768e;
+    opacity: 0.8;
     text-shadow: none;
   }
 }
 
-/* Battery state */
+/* Battery */
 #battery {
   color: #9ece6a;
 }

@@ -11,7 +11,8 @@
     "custom/updater",
     "tray",
     "custom/space",
-    "custom/timer"
+    "custom/timer",
+    "custom/colorpicker"
   ],
 
   "modules-center": [
@@ -43,7 +44,6 @@
     "max-length": 60,
     "seperate-outputs": true,
     "tooltip": false,
-
     "rewrite": {
       "^$": "",
       "com.mitchellh.ghostty": "ghostty",
@@ -58,13 +58,11 @@
     "format": "{:%I:%M %p}", // AM PM format
     "format-alt": "{:%H:%M - %d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
-
       "format": {
         "months": "<span color='#ffead3'><b>{}</b></span>",
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
@@ -73,7 +71,6 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     },
-
     "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
@@ -86,18 +83,13 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}%",
-    "format-muted": " ",
-
+    "format-muted": "󰖁",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
       "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": ["", "", "󰕾", ""]
     },
-
     "scroll-step": 5.0,
     "smooth-scrolling-threshold": 1,
     "on-scroll-up": "~/.config/hypr/scripts/volume-control.sh --inc",
@@ -154,21 +146,19 @@
     "rotate": 0,
     "full-at": 100,
     "design-capacity": false,
-
     "states": {
       "good": 95,
       "warning": 30,
       "critical": 15
     },
-
     "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󱘖 {capacity}%",
-
+    "format-warning": "󰂃 {capacity}%",
+    "format-critical": "󰂃 {capacity}%",
     "format-alt-click": "click",
     "format-full": "{icon} Full",
     "format-alt": "{icon} {time}",
-
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -182,17 +172,11 @@
       "󰂂",
       "󰁹"
     ],
-
     "format-time": "{H}h {M}min",
-
     "tooltip": true,
     "tooltip-format": "{timeTo} {power}w"
   },
 
-  "custom/cava_mviz": {
-    "exec": "~/.config/waybar/scripts/waybar-cava.sh",
-    "format": "{}"
-  },
 
   "custom/rmpc": {
     "exec": "~/.config/waybar/scripts/rmpc.sh",
@@ -241,41 +225,15 @@
       "",
       ""
     ],
-
     "tooltip-format": "backlight {percent}%",
     "icon-size": 10,
-
     "on-click": "",
     "on-click-middle": "",
     "on-click-right": "",
     "on-update": "",
-
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh --inc",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh --dec",
-
     "smooth-scrolling-threshold": 1
-  },
-
-  "custom/swaync": {
-    "tooltip": true,
-    "format": " ",
-    "format-icons": {
-      "notification": " <span foreground='red'><sup></sup></span>",
-      "none": " ",
-      "dnd-notification": " <span foreground='red'><sup></sup></span>",
-      "dnd-none": " ",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": " ",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": " "
-    },
-
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
   },
 
   "custom/updater": {
@@ -283,7 +241,7 @@
     "exec": "n=$(checkupdates 2>/dev/null | wc -l); [ \"$n\" -gt 0 ] && echo \"$n\"",
     "interval": 900,
     "tooltip": false,
-    "on-click": "ghostty -e sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar"
+    "on-click": "ghostty -e sh -c 'paru -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar"
   },
 
   "tray": {
@@ -298,10 +256,8 @@
     "on-click": "~/.config/waybar/scripts/timer.sh click",
     "on-click-right": "~/.config/waybar/scripts/timer.sh right",
     "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
-
     // previously up
     "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",
-
     // previously down
     "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",
     "tooltip": true,
@@ -313,6 +269,7 @@
     "format": "{usage}% 󰍛",
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
     "format-alt-click": "click",
+    "on-click": "gnome-system-monitor",
     "format-icons": [
       "▁",
       "▂",
@@ -322,17 +279,7 @@
       "▆",
       "▇",
       "█"
-    ],
-
-    "on-click": "gnome-system-monitor"
-  },
-
-  "custom/gpu": {
-    "interval": 0.5,
-    "format": "{}% 󰾲",
-    "exec": "~/.config/waybar/scripts/gpu-usage.sh",
-    "return-type": "json",
-    "tooltip": true
+    ]
   },
 
   "memory": {
@@ -353,12 +300,6 @@
     "tooltip-format": "{used} used out of {total}"
   },
 
-  "custom/uptime": {
-    "exec": "~/.config/waybar/scripts/uptime.sh",
-    "interval": 10,
-    "tooltip": false
-  },
-
   "custom/weather": {
     "exec": "~/.config/waybar/scripts/wttr.py",
     "format": "{}",
@@ -371,7 +312,7 @@
   },
 
   "custom/colorpicker": {
-    "format": "{}",
+    "format": "",
     "return-type": "json",
     "interval": "once",
     "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
