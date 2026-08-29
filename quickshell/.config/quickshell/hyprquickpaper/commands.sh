@@ -83,9 +83,6 @@ apply_wallpaper() {
     --transition-duration 1 \
     --transition-fps 144
 
-  log "Refreshing SwayNC..."
-  swaync-client -rs >/dev/null 2>&1 || true
-
   log "Updating Cava colors..."
   update_cava
 
