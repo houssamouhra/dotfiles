@@ -14,7 +14,7 @@ window {
     location: center;
     anchor: center;
     fullscreen: true;
-    background-color: @bg-alpha;
+    background-color: #16161ee6;
     padding: 20px;
     border: 0px;
     border-radius: 0px;

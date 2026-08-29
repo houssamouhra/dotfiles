@@ -45,7 +45,7 @@ mainbox {
 window {
     location: center;
     anchor: center;
-    background-color: @bg-alpha;
+    background-color: #16161ee6;
     width: 20%;
     padding: 10px;
     border: 0px;
