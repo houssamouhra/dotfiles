@@ -18,7 +18,7 @@ return {
 
       file = {
         -- General
-        ['README.md'] = { glyph = '󰂺', hl = 'MiniIconsGreen' },
+        ['README.md'] = { glyph = '󰍔', hl = 'MiniIconsWhite' },
         ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
         ['favicon.ico'] = { glyph = '', hl = 'MiniIconsYellow' },
 
