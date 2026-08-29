@@ -16,7 +16,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - Modern terminal workflow
 - Neovim development environment
 - MPD-based music setup
-- Consistent [Tokyo Night theme](https://github.com/folke/tokyonight.nvim) across Ghostty and Neovim
+- Consistent [Tokyo Night theme](https://github.com/folke/tokyonight.nvim)
 
 ## Dependencies
 
@@ -34,7 +34,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 
 - **[rofi](https://github.com/davatorium/rofi)** – application launcher
 - **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
-- **[swaync](https://github.com/ErikReider/SwayNotificationCenter)** – notification daemon
+- **[mako](https://github.com/emersion/mako)** – notification daemon
 - **[pywal](https://github.com/dylanaraps/pywal)** – wallpaper-based color scheme generator
 
 </details>
@@ -43,7 +43,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <summary>Terminal & Shell</summary>
 
 - **[zsh](https://www.zsh.org/)** – shell
-- **[ghostty](https://github.com/ghostty-org/ghostty)** – terminal emulator
+- **[foot](https://codeberg.org/dnkl/foot)** – terminal emulator
 - **[tmux](https://github.com/tmux/tmux)** – terminal multiplexer
 
 </details>
@@ -69,7 +69,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - **[fzf](https://github.com/junegunn/fzf)** – command-line fuzzy finder
 - **[fzf-git](https://github.com/junegunn/fzf-git.sh)** – shell key bindings for Git objects powered by fzf
 - **[fastfetch](https://github.com/fastfetch-cli/fastfetch)** – system information tool
-- **[lazygit](https://github.com/jesseduffield/lazygit)** – terminal UI for Git
+- **[lazygit](https://github.com/jesseduffield/lazygit)** – TUI for Git
 
 </details>
 
@@ -122,17 +122,12 @@ sudo pacman -S stow
 Install configs selectively, Stow creates symlinks into `$HOME`.
 
 ```bash
-stow hypr nvim zshenv zsh ...
+stow hypr nvim zsh ...
 ```
 
 #### 4. Reload the configuration
 
 Some configs require a reload or restart
-
-```shell
-hyprctl reload
-source ~/.config/zsh/.zshrc
-```
 
 > [!NOTE]
 >
