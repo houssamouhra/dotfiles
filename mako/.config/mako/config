@@ -5,6 +5,7 @@ width=350
 padding=15
 margin=5
 border-radius=10
+border-size=0
 anchor=top-right
 layer=overlay
 icons=1
@@ -16,13 +17,11 @@ text-alignment=left
 icon-path=/usr/share/icons/Adwaita
 
 [urgency=low]
-border-size=0
 background-color=#16161ecc
 text-color=#c0caf5
 default-timeout=3000
 
 [urgency=normal]
-border-size=0
 background-color=#16161ecc
 text-color=#c0caf5
 default-timeout=4000
