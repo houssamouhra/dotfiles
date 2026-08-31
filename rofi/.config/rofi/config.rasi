@@ -8,7 +8,7 @@ configuration {
     icon-theme: "Papirus-override";
     display-drun: "Apps";
     display-run: "Run";
-    terminal: "ghostty";
+    terminal: "foot";
     scroll-method: 0;
     click-to-exit: true;
     sidebar-mode: false;
