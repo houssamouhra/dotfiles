@@ -14,6 +14,9 @@ set render-loading false
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+map [fullscreen] <C-=> zoom in
+map [fullscreen] <C--> zoom out
+map [fullscreen] <C-0> zoom default
 map <C-=> zoom in
 map <C--> zoom out
 map <C-0> zoom default
