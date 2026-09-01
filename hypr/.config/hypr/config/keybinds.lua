@@ -9,7 +9,6 @@ local paths = {
   rofi_power = HOME .. '/.local/bin/rofi-power-menu',
   rofi_power_theme = HOME .. '/.config/rofi/powermenu.rasi',
   scripts = HOME .. '/.config/hypr/scripts/',
-  ghostty = HOME .. '/.config/ghostty/scripts/',
   quickshell = HOME .. '/.config/quickshell/',
   screenshots = HOME .. '/Screenshots/',
 }
@@ -45,7 +44,6 @@ end
 
 -- APPLICATIONS
 exec(MOD .. ' + Q', apps.terminal, { desc = 'Open terminal' })
-exec(MOD .. ' + O', paths.ghostty .. 'ghostty-opacity-toggle', { desc = 'Change ghostty opacity' })
 exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', powermenu, { desc = 'Open power menu' })
