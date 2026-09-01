@@ -312,7 +312,7 @@
   },
 
   "custom/colorpicker": {
-    "format": "",
+    "format": "{}",
     "return-type": "json",
     "interval": "once",
     "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
