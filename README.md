@@ -77,7 +77,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <summary>Desktop Utilities</summary>
 
 - **[gammastep](https://gitlab.com/chinstrap/gammastep)** – automatic screen color temperature adjustment
-- **[mpd](https://www.musicpd.org/)** – music player daemon
+- **[mpd](https://github.com/MusicPlayerDaemon/MPD)** – music player daemon
 - **[rmpc](https://github.com/mierak/rmpc)** – terminal MPD client
 - **[mpv](https://github.com/mpv-player/mpv)** – media player
 - **[spicetify](https://github.com/spicetify/cli)** – command-line tool to customize Spotify
