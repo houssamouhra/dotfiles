@@ -12,7 +12,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - Modular package layout
 - Laptop + external monitor support
 - Waybar status bar
-- Rofi application launcher
+- Fuzzel-based application, clipboard, power, and emoji launchers
 - Modern terminal workflow
 - Neovim development environment
 - MPD-based music setup
@@ -32,7 +32,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>UI / Desktop</summary>
 
-- **[rofi](https://github.com/davatorium/rofi)** – application launcher
+- **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – application launcher
 - **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
 - **[mako](https://github.com/emersion/mako)** – notification daemon
 - **[pywal](https://github.com/dylanaraps/pywal)** – wallpaper-based color scheme generator
