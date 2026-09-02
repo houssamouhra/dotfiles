@@ -275,7 +275,6 @@ install_pacman "Hyprpicker" "hyprpicker"
 install_pacman "Hypershot" "hyprshot"
 install_pacman "Awww" "awww"
 install_pacman "Mako" "mako"
-install_pacman "Rofi" "rofi"
 install_pacman "Rofimoji" "rofimoji"
 install_pacman "SDDM" "sddm"
 install_pacman "XSettings Daemon" "xsettingsd"
@@ -356,7 +355,6 @@ if command -v yay &>/dev/null; then
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
   install_aur "Hyprmoncfg" "hyprmoncfg"
   install_aur "Quickshell" "quickshell"
-  install_aur "Rofi power menu" "rofi-power-menu"
 fi
 
 print_summary

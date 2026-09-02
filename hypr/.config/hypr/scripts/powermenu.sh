@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-POWER_MENU="rofi-power-menu"
+POWER_MENU="$HOME/.local/bin/rofi-power-menu"
 FUZZEL_CONFIG="$HOME/.config/fuzzel/power.ini"
 CHOICES="shutdown/reboot/suspend/logout"
 
