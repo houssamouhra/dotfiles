@@ -29,7 +29,7 @@ limit=10
   done
 
   cat <<EOF
-{ "text":"<span color='#3A3F5C'></span>", "tooltip":"$tooltip"}
+{ "text":"<span color='#565f89'></span>", "tooltip":"$tooltip"}
 EOF
 
   exit
