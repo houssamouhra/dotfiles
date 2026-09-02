@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
-ROFI_THEME="$HOME/.config/rofi/clipboard.rasi"
+FUZZEL_CONFIG="$HOME/.config/fuzzel/clipboard.ini"
 
-selected=$(
-  cliphist list |
-    rofi \
-      -dmenu \
-      -display-columns 2 \
-      -i \
-      -p "󰅌 Clipboard" \
-      -theme "$ROFI_THEME"
+mapfile -t entries < <(cliphist list)
+
+display=$(
+  printf '%s\n' "${entries[@]}" |
+    sed 's/^[^	]*	//' |
+    fuzzel \
+      --dmenu \
+      --config "$FUZZEL_CONFIG" \
+      --placeholder "Browse clipboard" \
+      --index
 )
 
-[ -z "$selected" ] && exit 0
+[ -z "$display" ] && exit 0
 
-printf '%s' "$selected" | cliphist decode | wl-copy
+index="${display%%$'\t'*}"
+
+printf '%s\n' "${entries[$index]}" | cliphist decode | wl-copy

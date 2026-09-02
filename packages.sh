@@ -356,6 +356,7 @@ if command -v yay &>/dev/null; then
   install_aur "Maple Mono NF" "maplemono-nf-unhinted"
   install_aur "Hyprmoncfg" "hyprmoncfg"
   install_aur "Quickshell" "quickshell"
+  install_aur "Rofi power menu" "rofi-power-menu"
 fi
 
 print_summary

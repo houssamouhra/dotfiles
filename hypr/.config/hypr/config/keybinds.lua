@@ -6,8 +6,6 @@ local ALT = 'ALT'
 local HOME = os.getenv 'HOME'
 
 local paths = {
-  rofi_power = HOME .. '/.local/bin/rofi-power-menu',
-  rofi_power_theme = HOME .. '/.config/rofi/powermenu.rasi',
   scripts = HOME .. '/.config/hypr/scripts/',
   quickshell = HOME .. '/.config/quickshell/',
   screenshots = HOME .. '/Screenshots/',
@@ -16,15 +14,9 @@ local paths = {
 -- APPS
 local apps = {
   terminal = 'foot',
-  menu = 'rofi -show drun',
+  menu = 'fuzzel',
+  yazi = 'foot -e yazi',
 }
-
-apps.yazi = apps.terminal .. ' -e yazi'
-
--- POWER MENU
-local choices = 'shutdown/reboot/suspend/logout'
-local powermenu =
-  string.format('rofi -theme "%s" -show power-menu -modi "power-menu:%s --choices %s --confirm %s"', paths.rofi_power_theme, paths.rofi_power, choices, choices)
 
 -- HELPERS
 local function bind(key, action, opts)
@@ -46,7 +38,7 @@ end
 exec(MOD .. ' + Q', apps.terminal, { desc = 'Open terminal' })
 exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
-exec(MOD .. ' + TAB', powermenu, { desc = 'Open power menu' })
+exec(MOD .. ' + TAB', paths.scripts .. 'powermenu.sh', { desc = 'Open power menu' })
 exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
 exec(MOD .. ' + I', 'rofimoji', { desc = 'Open emoji picker' })
 
