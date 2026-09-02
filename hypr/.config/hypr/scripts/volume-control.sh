@@ -3,7 +3,6 @@
 set -e
 
 ICON_DIR="/usr/share/icons/Adwaita/symbolic/status"
-SOUND_SCRIPT="./Sounds.sh"
 
 # Volume
 get_volume() {
@@ -52,7 +51,6 @@ notify_user() {
       -u low \
       -i "$icon" \
       "Volume: ${volume}%"
-    "$SOUND_SCRIPT" --volume
   fi
 }
 
