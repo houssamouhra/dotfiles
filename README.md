@@ -32,7 +32,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>UI / Desktop</summary>
 
-- **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – application, clipboard, power, and emoji launcher
+- **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – Wayland-native launcher and menu frontend
 - **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
 - **[mako](https://github.com/emersion/mako)** – notification daemon
 - **[pywal](https://github.com/dylanaraps/pywal)** – wallpaper-based color scheme generator
