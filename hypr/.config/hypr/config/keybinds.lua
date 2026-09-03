@@ -7,6 +7,7 @@ local HOME = os.getenv 'HOME'
 
 local paths = {
   scripts = HOME .. '/.config/hypr/scripts/',
+  bin = HOME .. '/.local/bin/',
   quickshell = HOME .. '/.config/quickshell/',
   screenshots = HOME .. '/Screenshots/',
 }
@@ -40,7 +41,7 @@ exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', paths.scripts .. 'powermenu.sh', { desc = 'Open power menu' })
 exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
-exec(MOD .. ' + I', 'rofimoji', { desc = 'Open emoji picker' })
+exec(MOD .. ' + I', paths.bin .. 'bemoji-fuzzel', { desc = 'Open emoji picker' })
 
 -- WINDOW MANAGEMENT
 bind(MOD .. ' + W', hl.dsp.window.close(), { desc = 'Close window' })

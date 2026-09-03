@@ -1,8 +1,0 @@
-selector=fuzzel
-action = copy
-files = [emojis, math]
-skin-tone = medium-light
-clipboarder = wl-copy
-max-recent = 0
-prompt = "> "
-selector-args = --config /home/houssam/.config/fuzzel/emoji.ini

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+BEMOJI_PICKER_CMD="fuzzel -d --config=$HOME/.config/fuzzel/emoji.ini" \
+	BEMOJI_CLIP_CMD="wl-copy" \
+	BEMOJI_PRIVATE_MODE=true \
+	bemoji "$@"
