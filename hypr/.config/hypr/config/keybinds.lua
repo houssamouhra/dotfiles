@@ -9,7 +9,6 @@ local paths = {
   scripts = HOME .. '/.config/hypr/scripts/',
   bin = HOME .. '/.local/bin/',
   quickshell = HOME .. '/.config/quickshell/',
-  screenshots = HOME .. '/Screenshots/',
 }
 
 -- APPS
@@ -72,9 +71,9 @@ bind(MOD .. ' + mouse:272', hl.dsp.window.drag(), { mouse = true, desc = 'Drag w
 bind(MOD .. ' + mouse:273', hl.dsp.window.resize(), { mouse = true, desc = 'Resize window' })
 
 -- SCREENSHOTS
-exec(CTRL .. ' + Print', 'hyprshot -m region -z --clipboard-only', { desc = 'Region screenshot → clipboard' })
-exec('Print', 'hyprshot -m window -z -o ' .. paths.screenshots, { desc = 'Window screenshot' })
-exec(ALT .. ' + Print', 'hyprshot -m output -z -o ' .. paths.screenshots, { desc = 'Monitor screenshot' })
+exec(CTRL .. ' + Print', paths.scripts .. 'screenshot.sh region', { desc = 'Region screenshot → clipboard' })
+exec('Print', paths.scripts .. 'screenshot.sh window', { desc = 'Window screenshot' })
+exec(ALT .. ' + Print', paths.scripts .. 'screenshot.sh output', { desc = 'Monitor screenshot' })
 
 -- UTILITIES
 exec(MOD .. ' + C', paths.scripts .. 'clipboard.sh', { locked = true, desc = 'Clipboard history' })
