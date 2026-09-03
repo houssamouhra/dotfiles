@@ -255,7 +255,6 @@ install_pacman "ATAC" "atac"
 
 # --- Editors & dev ---
 install_pacman "Neovim" "neovim"
-install_pacman "Obsidian" "obsidian"
 install_pacman "LibreOffice" "libreoffice-fresh"
 
 # --- Audio / Video / Media ---
@@ -263,6 +262,7 @@ install_pacman "PipeWire" "pipewire"
 install_pacman "PipeWire Pulse" "pipewire-pulse"
 install_pacman "FFmpeg" "ffmpeg"
 install_pacman "MPV" "mpv"
+install_pacman "Imv" "imv"
 install_pacman "Discord" "discord"
 install_pacman "OBS Studio" "obs-studio"
 install_pacman "Cava" "cava"
@@ -275,9 +275,8 @@ install_pacman "Hyprpicker" "hyprpicker"
 install_pacman "Hypershot" "hyprshot"
 install_pacman "Awww" "awww"
 install_pacman "Mako" "mako"
-install_pacman "Rofimoji" "rofimoji"
+install_pacman "Fuzzel" "fuzzel"
 install_pacman "SDDM" "sddm"
-install_pacman "XSettings Daemon" "xsettingsd"
 install_pacman "wl-clipboard" "wl-clipboard"
 install_pacman "Gammastep" "gammastep"
 
@@ -285,7 +284,6 @@ install_pacman "Gammastep" "gammastep"
 install_pacman "Yazi" "yazi"
 install_pacman "Zathura" "zathura"
 install_pacman "Zathura PDF Backend" "zathura-pdf-poppler"
-install_pacman "Viewnior" "viewnior"
 
 # --- Fonts ---
 install_pacman "Cascadia Code Font" "ttf-cascadia-code"
@@ -346,7 +344,7 @@ if command -v yay &>/dev/null; then
   install_aur "Spotify" "spotify"
   install_aur "SpotX" "spotx-git"
   install_aur "Spicetify CLI" "spicetify-cli"
-  install_aur "Wofi Emoji" "wofi-emoji"
+  install_aur "Bemoji" "bemoji"
   install_aur "Tree-sitter" "tree-sitter-cli-github-bin"
   install_aur "bibata cursor" "bibata-cursor-theme"
   install_aur "Diffnav" "diffnav"
