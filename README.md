@@ -79,9 +79,10 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 - **[gammastep](https://gitlab.com/chinstrap/gammastep)** – automatic screen color temperature adjustment
 - **[mpd](https://github.com/MusicPlayerDaemon/MPD)** – music player daemon
 - **[rmpc](https://github.com/mierak/rmpc)** – terminal MPD client
-- **[mpv](https://github.com/mpv-player/mpv)** – media player
-- **[spicetify](https://github.com/spicetify/cli)** – command-line tool to customize Spotify
-- **[zathura](https://github.com/pwmt/zathura)** – PDF and document viewer
+- **[mpv](https://github.com/mpv-player/mpv)** – video player
+- **[imv](https://sr.ht/~exec64/imv/)** – image viewer
+- **[spicetify](https://github.com/spicetify/cli)** – CLI tool to customize Spotify
+- **[zathura](https://github.com/pwmt/zathura)** – document viewer
 
 </details>
 
