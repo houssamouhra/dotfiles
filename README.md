@@ -23,8 +23,9 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>Core</summary>
 
-- **[hyprland](https://hypr.land/)** – Wayland compositor
-- **[GNU Stow](https://www.gnu.org/software/stow/)** – Symlink manager for dotfiles
+- **[hyprland](https://github.com/hyprwm/Hyprland)** – Wayland compositor
+- **[waybar](https://github.com/Alexays/Waybar)** – Wayland bar
+- **[GNU Stow](https://www.gnu.org/software/stow/)** – symlink manager for dotfiles
 - **[hyprmoncfg](https://github.com/crmne/hyprmoncfg)** – Hyprland monitor layout editor with profile management and hotplug support
 
 </details>
@@ -32,8 +33,9 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>UI / Desktop</summary>
 
-- **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – Wayland-native launcher and menu frontend
+- **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – Wayland-native app launcher
 - **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
+- **[hypridle](https://github.com/hyprwm/hypridle)** – idle daemon
 - **[mako](https://github.com/emersion/mako)** – notification daemon
 - **[pywal](https://github.com/dylanaraps/pywal)** – wallpaper-based color scheme generator
 
@@ -74,13 +76,15 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 </details>
 
 <details>
-<summary>Desktop Utilities</summary>
+<summary>Media & Desktop</summary>
 
 - **[gammastep](https://gitlab.com/chinstrap/gammastep)** – automatic screen color temperature adjustment
 - **[mpd](https://github.com/MusicPlayerDaemon/MPD)** – music player daemon
 - **[rmpc](https://github.com/mierak/rmpc)** – terminal MPD client
 - **[mpv](https://github.com/mpv-player/mpv)** – video player
 - **[imv](https://sr.ht/~exec64/imv/)** – image viewer
+- **[grim](https://gitlab.freedesktop.org/emersion/grim) + [slurp](https://github.com/emersion/slurp)** – screenshot utilities
+- **[wl-clipboard](https://github.com/bugaevc/wl-clipboard) + [cliphist](https://github.com/sentriz/cliphist)** – clipboard management
 - **[spicetify](https://github.com/spicetify/cli)** – CLI tool to customize Spotify
 - **[zathura](https://github.com/pwmt/zathura)** – document viewer
 
