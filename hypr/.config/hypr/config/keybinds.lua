@@ -85,14 +85,14 @@ exec('ALT + A', paths.scripts .. 'refresh-waybar.sh', { desc = 'Refresh waybar' 
 exec(MOD .. ' + SHIFT + R', 'hyprctl reload', { desc = 'Reload Hyprland' })
 
 -- VOLUME & MEDIA
-exec('XF86AudioRaiseVolume', paths.scripts .. 'volume-control.sh --inc', repeatable { desc = 'Volume up' })
-exec('XF86AudioLowerVolume', paths.scripts .. 'volume-control.sh --dec', repeatable { desc = 'Volume down' })
-exec('XF86AudioMute', paths.scripts .. 'volume-control.sh --toggle', repeatable { desc = 'Toggle mute' })
-exec('XF86AudioMicMute', paths.scripts .. 'volume-control.sh --toggle-mic', repeatable { desc = 'Toggle mic mute' })
+exec('F3', paths.scripts .. 'volume-control.sh --inc', repeatable { desc = 'Volume up' })
+exec('F2', paths.scripts .. 'volume-control.sh --dec', repeatable { desc = 'Volume down' })
+exec('F1', paths.scripts .. 'volume-control.sh --toggle', repeatable { desc = 'Toggle mute' })
+exec('F4', paths.scripts .. 'volume-control.sh --toggle-mic', repeatable { desc = 'Toggle mic mute' })
 
 -- BRIGHTNESS
-exec('XF86MonBrightnessUp', paths.scripts .. 'brightness.sh --inc', repeatable { desc = 'Brightness up' })
-exec('XF86MonBrightnessDown', paths.scripts .. 'brightness.sh --dec', repeatable { desc = 'Brightness down' })
+exec('F6', paths.scripts .. 'brightness.sh --inc', repeatable { desc = 'Brightness up' })
+exec('F5', paths.scripts .. 'brightness.sh --dec', repeatable { desc = 'Brightness down' })
 exec(MOD .. ' + F6', paths.scripts .. 'brightness.sh --inc', repeatable { desc = 'Brightness up' })
 exec(MOD .. ' + F5', paths.scripts .. 'brightness.sh --dec', repeatable { desc = 'Brightness down' })
 
