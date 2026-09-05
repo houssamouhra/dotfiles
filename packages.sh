@@ -252,6 +252,7 @@ install_pacman "Tldr" "tealdeer"
 install_pacman "Trash CLI" "trash-cli"
 install_pacman "postgres CLI" "pgcli"
 install_pacman "ATAC" "atac"
+install_pacman "Duf" "duf"
 
 # --- Editors & dev ---
 install_pacman "Neovim" "neovim"
