@@ -36,7 +36,8 @@
   "hyprland/workspaces": {
     "format": "{id}",
     "disable-scroll": true,
-    "all-outputs": false
+    "all-outputs": false,
+    "tooltip": false
   },
 
   "hyprland/window": {
@@ -46,7 +47,6 @@
     "tooltip": false,
     "rewrite": {
       "^$": "",
-      "com.mitchellh.ghostty": "ghostty",
       "org.nicotine_plus.Nicotine": "Nicotine+",
       "org.telegram.desktop": "telegram",
       "org.qbittorrent.qBittorrent": "qbittorrent"
@@ -115,7 +115,7 @@
       "󰤥",
       "󰤨"
     ],
-    "on-click": "ghostty -e nmtui"
+    "on-click": "foot -e nmtui"
   },
 
   "bluetooth": {
@@ -241,7 +241,7 @@
     "exec": "n=$(checkupdates 2>/dev/null | wc -l); [ \"$n\" -gt 0 ] && echo \"$n\"",
     "interval": 900,
     "tooltip": false,
-    "on-click": "ghostty -e sh -c 'paru -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar"
+    "on-click": "foot -e sh -c 'paru -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar"
   },
 
   "tray": {
@@ -269,7 +269,7 @@
     "format": "{usage}% 󰍛",
     "format-alt": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% 󰍛",
     "format-alt-click": "click",
-    "on-click": "gnome-system-monitor",
+    "on-click-right": "foot -e btop",
     "format-icons": [
       "▁",
       "▂",
@@ -289,7 +289,7 @@
     "format-alt-click": "click",
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-    "on-click-right": "ghostty -e btop"
+    "on-click-right": "foot -e btop"
   },
 
   "disk": {
