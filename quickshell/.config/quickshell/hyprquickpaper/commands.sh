@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-WALLPAPER_DIR="$HOME/wallpapers"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
 WALLPAPER_CACHE="$HOME/.cache/wallpapers"
 LAST_WALLPAPER="$WALLPAPER_CACHE/last_wallpaper"
 CAVA_CONFIG="$HOME/.config/cava/config"

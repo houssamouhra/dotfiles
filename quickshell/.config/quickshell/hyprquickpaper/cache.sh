@@ -26,7 +26,7 @@ find "$wallpaper_path" -type f \( \
 
   echo "Generating thumbnail for $filename"
 
-  convert "$img" -thumbnail x400 -strip -quality 85 "$out" &
+  convert "$img" -thumbnail x500 -strip -quality 85 "$out" &
 
   # Only limit jobs if batch_size > 0
   if ((cache_batch_size > 0)); then
