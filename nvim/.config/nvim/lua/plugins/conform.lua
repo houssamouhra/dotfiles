@@ -19,14 +19,13 @@ return {
   opts = function()
     local prettier = {
       'prettierd',
-      'prettier',
       stop_after_first = true,
     }
 
     return {
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'ruff_fix', 'ruff_format' },
+        python = { 'ruff_format' },
         javascript = prettier,
         typescript = prettier,
         javascriptreact = prettier,
