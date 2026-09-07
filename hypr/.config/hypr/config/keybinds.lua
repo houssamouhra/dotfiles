@@ -8,7 +8,7 @@ local HOME = os.getenv 'HOME'
 local paths = {
   scripts = HOME .. '/.config/hypr/scripts/',
   bin = HOME .. '/.local/bin/',
-  quickshell = HOME .. '/.config/quickshell/',
+  hyprquickpaper = HOME .. '/.config/hyprquickpaper/',
 }
 
 -- APPS
@@ -77,8 +77,8 @@ exec(ALT .. ' + Print', paths.scripts .. 'screenshot.sh output', { desc = 'Monit
 
 -- UTILITIES
 exec(MOD .. ' + C', paths.scripts .. 'clipboard.sh', { locked = true, desc = 'Clipboard history' })
-exec(ALT .. ' + W', 'quickshell -c hyprquickpaper', { locked = true, desc = 'Wallpaper menu' })
-exec(ALT .. ' + SHIFT + W', paths.quickshell .. 'hyprquickpaper/commands.sh random', { locked = true, desc = 'Random wallpaper' })
+exec(ALT .. ' + W', 'qs -c ' .. paths.hyprquickpaper, { locked = true, desc = 'Wallpaper menu' })
+exec(ALT .. ' + SHIFT + W', paths.hyprquickpaper .. 'commands.sh random', { locked = true, desc = 'Random wallpaper' })
 exec('ALT + A', paths.scripts .. 'refresh-waybar.sh', { desc = 'Refresh waybar' })
 
 -- SYSTEM
