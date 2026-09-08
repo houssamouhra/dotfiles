@@ -9,7 +9,7 @@ password_files=("$prefix"/**/*.gpg)
 password_files=("${password_files[@]#"$prefix"/}")
 password_files=("${password_files[@]%.gpg}")
 
-# Let Fuzzel select a password entry.
+# Let Fuzzel select a password entry
 password=$(
 	printf '%s\n' "${password_files[@]}" |
 		fuzzel \
