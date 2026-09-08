@@ -28,7 +28,6 @@ confirm=$(
   printf 'yes\nno\n' |
     fuzzel \
       --dmenu \
-      --config "$FUZZEL_CONFIG" \
       --placeholder "" \
       --prompt "$selected? "
 )
