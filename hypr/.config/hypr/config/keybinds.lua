@@ -41,12 +41,13 @@ exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', paths.scripts .. 'powermenu.sh', { desc = 'Open power menu' })
 exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
 exec(MOD .. ' + I', paths.bin .. 'bemoji-fuzzel', { desc = 'Open emoji picker' })
+exec(MOD .. ' + P', paths.bin .. 'passmenu', { desc = 'Open passmenu' })
 
 -- WINDOW MANAGEMENT
 bind(MOD .. ' + W', hl.dsp.window.close(), { desc = 'Close window' })
 bind(MOD .. ' + F', hl.dsp.window.fullscreen(), { desc = 'Toggle fullscreen' })
 bind(MOD .. ' + V', hl.dsp.window.float { action = 'toggle' }, { desc = 'Toggle floating' })
-bind(MOD .. ' + P', hl.dsp.window.pseudo(), { desc = 'Toggle pseudo tile' })
+bind(MOD .. ' + SHIFT + P', hl.dsp.window.pseudo(), { desc = 'Toggle pseudo tile' })
 bind(MOD .. ' + J', hl.dsp.layout 'togglesplit', { desc = 'Toggle split' })
 
 -- FOCUS & MOVEMENT

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+prefix=${PASSWORD_STORE_DIR:-$HOME/.password-store}
+
+# Build a list of password entries without the .gpg extension
+password_files=("$prefix"/**/*.gpg)
+password_files=("${password_files[@]#"$prefix"/}")
+password_files=("${password_files[@]%.gpg}")
+
+# Let Fuzzel select a password entry.
+password=$(
+	printf '%s\n' "${password_files[@]}" |
+		fuzzel \
+			--dmenu \
+			--placeholder "Select a password"
+	"$@"
+)
+
+# Exit if no entry was selected
+[[ -n $password ]] || exit 0
+
+# Copy the selected password to the clipboard
+pass show -c "$password" 2>/dev/null
