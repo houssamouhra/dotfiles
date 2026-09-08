@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 POWER_MENU="$HOME/.local/bin/rofi-power-menu"
-FUZZEL_CONFIG="$HOME/.config/fuzzel/power.ini"
 CHOICES="shutdown/reboot/suspend/logout"
 
 selected=$(
@@ -12,7 +11,7 @@ selected=$(
     sed $'s/\u200e//g; s/\u2068//g; s/\u2069//g; s/\u200b//g' |
     fuzzel \
       --dmenu \
-      --config "$FUZZEL_CONFIG"
+      --placeholder "Choose power action"
 )
 
 [ -z "$selected" ] && exit 0
