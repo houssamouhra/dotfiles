@@ -2,20 +2,30 @@
 
 FUZZEL_CONFIG="$HOME/.config/fuzzel/clipboard.ini"
 
-mapfile -t entries < <(cliphist list)
+while true; do
+  selected=$(
+    cliphist list |
+      fuzzel \
+        --dmenu \
+        --config "$FUZZEL_CONFIG" \
+        --placeholder "Browse clipboard  (Ctrl+X = delete)" \
+        --with-nth 2
+  )
+  exit_code=$?
 
-display=$(
-  printf '%s\n' "${entries[@]}" |
-    sed 's/^[^	]*	//' |
-    fuzzel \
-      --dmenu \
-      --config "$FUZZEL_CONFIG" \
-      --placeholder "Browse clipboard" \
-      --index
-)
+  # Cancelled (Esc) or empty → quit the whole menu
+  if [[ $exit_code -eq 1 || $exit_code -eq 2 || -z "$selected" ]]; then
+    exit 0
+  fi
 
-[ -z "$display" ] && exit 0
+  # Ctrl+X → delete and stay in the menu
+  if [[ $exit_code -eq 10 ]]; then
+    full_line=$(cliphist list | grep -F "$selected" | head -n1)
+    [[ -n "$full_line" ]] && printf '%s' "$full_line" | cliphist delete
+    continue # ← go back to the menu
+  fi
 
-index="${display%%$'\t'*}"
-
-printf '%s\n' "${entries[$index]}" | cliphist decode | wl-copy
+  # Normal Enter → copy and quit
+  printf '%s' "$selected" | cliphist decode | wl-copy
+  exit 0
+done
