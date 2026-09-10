@@ -29,7 +29,9 @@ rule {
 -- Layout rules
 rule {
   name = 'move-hyprland-run',
-  match = { class = 'hyprland-run' },
+  match = {
+    class = 'hyprland-run',
+  },
   float = true,
   move = '20 monitor_h-120',
 }
@@ -48,7 +50,10 @@ rule {
 -- Spotify
 rule {
   name = 'spotify',
-  match = { class = 'spotify' },
+  match = {
+    class = 'spotify',
+  },
+  workspace = '4',
   float = false,
   fullscreen = true,
 }
