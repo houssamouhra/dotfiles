@@ -2,7 +2,6 @@
 
 DIRECTORIES=(
 	"$HOME/projects"
-	"$HOME/notes"
 	"$HOME/practice"
 	"$HOME/Documents"
 	"$HOME"
