@@ -94,8 +94,6 @@ exec('F4', paths.scripts .. 'volume-control.sh --toggle-mic', repeatable { desc 
 -- BRIGHTNESS
 exec('F6', paths.scripts .. 'brightness.sh --inc', repeatable { desc = 'Brightness up' })
 exec('F5', paths.scripts .. 'brightness.sh --dec', repeatable { desc = 'Brightness down' })
-exec(MOD .. ' + F6', paths.scripts .. 'brightness.sh --inc', repeatable { desc = 'Brightness up' })
-exec(MOD .. ' + F5', paths.scripts .. 'brightness.sh --dec', repeatable { desc = 'Brightness down' })
 
 -- MEDIA CONTROLS
 local mediaKeys = {
