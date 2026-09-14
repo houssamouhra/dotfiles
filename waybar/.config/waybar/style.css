@@ -108,15 +108,11 @@ tooltip {
   padding: 0 10px;
 }
 
-#workspaces {
-  padding: 0;
-}
-
 #workspaces button {
   all: unset;
-  min-width: 20px;
-  padding: 2px 2px;
-  margin: 0 2px;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
   border-radius: 8px;
   background: transparent;
   color: #a9b1d6;
@@ -139,7 +135,7 @@ tooltip {
 
 /* Empty */
 #workspaces button.empty {
-  opacity: 0.45;
+  opacity: 0.5;
 }
 
 #workspaces button.empty:hover {
