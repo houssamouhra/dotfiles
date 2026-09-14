@@ -341,7 +341,6 @@ if command -v yay &>/dev/null; then
   install_aur "Docker Desktop" "docker-desktop"
   install_aur "Fast Node Manager" "fnm"
   install_aur "ProtonUp-Qt" "protonup-qt"
-  install_aur "Brillo" "brillo"
   install_aur "Spotify" "spotify"
   install_aur "SpotX" "spotx-git"
   install_aur "Spicetify CLI" "spicetify-cli"
