@@ -144,10 +144,10 @@
     "interval": 5,
     "align": 0,
     "rotate": 0,
-    "full-at": 100,
+    "full-at": 80,
     "design-capacity": false,
     "states": {
-      "good": 95,
+      "good": 70,
       "warning": 30,
       "critical": 15
     },
@@ -176,7 +176,6 @@
     "tooltip": true,
     "tooltip-format": "{timeTo} {power}w"
   },
-
 
   "custom/rmpc": {
     "exec": "~/.config/waybar/scripts/rmpc.sh",
