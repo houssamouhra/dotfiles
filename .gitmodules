@@ -6,3 +6,6 @@
 	path = zsh
 	url = git@github.com:houssamouhra/zsh-config.git
 	branch = main
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:houssamouhra/nvim-config.git
