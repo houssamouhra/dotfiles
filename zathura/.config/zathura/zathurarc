@@ -10,6 +10,7 @@ set guioptions ""
 set font "JetBrains Mono"
 set recolor false
 set render-loading false
+set selection-clipboard "clipboard"
 
 unmap f
 map f toggle_fullscreen
