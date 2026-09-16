@@ -40,7 +40,7 @@ exec(MOD .. ' + E', apps.yazi, { desc = 'Open yazi' })
 exec(MOD .. ' + SPACE', apps.menu, { desc = 'Open app launcher' })
 exec(MOD .. ' + TAB', paths.scripts .. 'powermenu.sh', { desc = 'Open power menu' })
 exec(MOD .. ' + L', paths.scripts .. 'lock.sh', { desc = 'Lock screen' })
-exec(MOD .. ' + I', paths.bin .. 'bemoji-fuzzel', { desc = 'Open emoji picker' })
+exec(MOD .. ' + I', 'rofimoji', { desc = 'Open emoji picker' })
 exec(MOD .. ' + P', paths.bin .. 'passmenu', { desc = 'Open passmenu' })
 
 -- WINDOW MANAGEMENT

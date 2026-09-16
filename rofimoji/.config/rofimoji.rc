@@ -1,0 +1,8 @@
+selector = fuzzel
+action = copy
+files = [emojis, math]
+skin-tone = medium-light
+clipboarder = wl-copy
+prompt = "➜ "
+selector-args=--placeholder="Choose emoji"
+max-recent = 0
