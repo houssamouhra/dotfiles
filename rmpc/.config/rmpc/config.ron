@@ -8,12 +8,15 @@
     max_fps: 30,
     scrolloff: 0,
     wrap_navigation: false,
+    lyrics_dir: Some("/home/houssam/Music"),
     enable_mouse: true,
+    enable_lyrics_index: true,
+    enable_lyrics_hot_reload: true,
     status_update_interval_ms: 1000,
     select_current_song_on_change: false,
     album_art: (
         method: Auto,
-        max_size_px: (width: 450, height: 450),
+        max_size_px: (width: 400, height: 400),
         disabled_protocols: ["http://", "https://"],
         vertical_align: Center,
         horizontal_align: Center,
@@ -29,9 +32,10 @@
             "<Tab>": NextTab,
             "<S-Tab>": PreviousTab,
             "1": SwitchToTab("Queue"),
-            "2": SwitchToTab("Playlists"),
-            "3": SwitchToTab("Library"),
+            "2": SwitchToTab("Library"),
+            "3": SwitchToTab("Albums"),
             "4": SwitchToTab("Artists"),
+            "5": SwitchToTab("Playlists"),
             "F": SwitchToTab("Search"),
             "q": Quit,
             "<C-Right>": NextTrack,
@@ -140,23 +144,56 @@
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "75%",
+                        size: "70%",
                         pane: Pane(Queue),
                     ),
                     (
-                        size: "25%",
+                        size: "30%",
                         pane: Split(
                             direction: Vertical,
                             panes: [
                                 (
-                                    size: "75%",
+                                    size: "50%",
                                     borders: "NONE",
-                                    pane: Pane(
-                                        AlbumArt,
-                                    ),
+                                    pane: Pane(AlbumArt),
+                                ),
+                                (
+                                    size: "50%",
+                                    borders: "ALL",
+                                    pane: Pane(Lyrics),
                                 ),
                             ],
                         ),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "Library",
+            pane: Pane(Directories),
+        ),
+        (
+            name: "Albums",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (
+                        size: "100%",
+                        borders: "ALL",
+                        pane: Pane(Albums),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "Artists",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (
+                        size: "100%",
+                        borders: "ALL",
+                        pane: Pane(Artists),
                     ),
                 ],
             ),
@@ -170,23 +207,6 @@
                         size: "100%",
                         borders: "ALL",
                         pane: Pane(Playlists),
-                    ),
-                ],
-            ),
-        ),
-        (
-            name: "Library",
-            pane: Pane(Directories),
-        ),
-        (
-            name: "Artists",
-            pane: Split(
-                direction: Horizontal,
-                panes: [
-                    (
-                        size: "100%",
-                        borders: "ALL",
-                        pane: Pane(Artists),
                     ),
                 ],
             ),
