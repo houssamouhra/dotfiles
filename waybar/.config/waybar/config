@@ -55,7 +55,7 @@
 
   "clock": {
     "interval": 1,
-    "format": "{:%I:%M %p}", // AM PM format
+    "format": "{:%I:%M %p}",
     "format-alt": "{:%H:%M - %d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -64,11 +64,11 @@
       "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months": "<span color='#7aa2f7'><b>{}</b></span>",
+        "days": "<span color='#c0caf5'><b>{}</b></span>",
+        "weeks": "<span color='#7dcfff'><b>W{}</b></span>",
+        "weekdays": "<span color='#e0af68'><b>{}</b></span>",
+        "today": "<span color='#f7768e'><b><u>{}</u></b></span>"
       }
     },
     "actions": {
@@ -144,10 +144,10 @@
     "interval": 5,
     "align": 0,
     "rotate": 0,
-    "full-at": 80,
+    "full-at": 100,
     "design-capacity": false,
     "states": {
-      "good": 70,
+      "good": 95,
       "warning": 30,
       "critical": 15
     },

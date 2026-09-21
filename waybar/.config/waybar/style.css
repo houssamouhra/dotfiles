@@ -50,7 +50,7 @@ tooltip {
 #backlight,
 #tray,
 #pulseaudio,
-#pulseaudio#microphone,
+#microphone,
 #custom-weather,
 #custom-spotify,
 #custom-gpu,
@@ -94,10 +94,11 @@ tooltip {
 #battery:hover,
 #backlight:hover,
 #pulseaudio:hover,
-#pulseaudio#microphone:hover,
+#microphone:hover,
 #custom-weather:hover,
 #custom-rmpc:hover,
 #custom-spotify:hover,
+#custom-updater:hover,
 #custom-colorpicker:hover,
 #custom-uptime:hover {
   color: #ffffff;
@@ -124,7 +125,7 @@ tooltip {
 
 /* Hover */
 #workspaces button:hover {
-  background: rgba(192, 202, 245, 0.10);
+  background: rgba(192, 202, 245, 0.1);
   color: #ffffff;
 }
 
@@ -144,7 +145,7 @@ tooltip {
 
 /* Urgent */
 #workspaces button.urgent {
-  background: rgba(247, 118, 142, 0.70);
+  background: rgba(247, 118, 142, 0.7);
   color: #ffffff;
 }
 
