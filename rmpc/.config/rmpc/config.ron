@@ -8,10 +8,7 @@
     max_fps: 30,
     scrolloff: 0,
     wrap_navigation: false,
-    lyrics_dir: Some("/home/houssam/Music"),
     enable_mouse: true,
-    enable_lyrics_index: true,
-    enable_lyrics_hot_reload: true,
     status_update_interval_ms: 1000,
     select_current_song_on_change: false,
     album_art: (
@@ -156,11 +153,6 @@
                                     size: "50%",
                                     borders: "NONE",
                                     pane: Pane(AlbumArt),
-                                ),
-                                (
-                                    size: "50%",
-                                    borders: "ALL",
-                                    pane: Pane(Lyrics),
                                 ),
                             ],
                         ),
