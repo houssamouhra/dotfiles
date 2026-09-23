@@ -177,15 +177,14 @@
     "tooltip-format": "{timeTo} {power}w"
   },
 
-
   "custom/rmpc": {
     "exec": "~/.config/waybar/scripts/rmpc.sh",
     "interval": 2,
-    "on-click": "~/.config/waybar/scripts/mpc.sh toggle",
-    "on-click-right": "~/.config/waybar/scripts/mpc.sh next",
-    "on-click-middle": "~/.config/waybar/scripts/mpc.sh prev",
-    "on-scroll-up": "~/.config/waybar/scripts/mpc.sh volume +2",
-    "on-scroll-down": "~/.config/waybar/scripts/mpc.sh volume -2",
+    "on-click": "mpc toggle",
+    "on-click-right": "mpc next",
+    "on-click-middle": "mpc prev",
+    "on-scroll-up": "mpc volume +2",
+    "on-scroll-down": "mpc volume -2",
     "tooltip": false
   },
 
