@@ -15,7 +15,7 @@ bindsym $mod+q exec $term
 bindsym $mod+e exec $yazi
 bindsym $mod+Space exec $menu
 bindsym $mod+Tab exec $scripts/powermenu.sh
-bindsym $mod+l exec $scripts/lock.sh
+bindsym $mod+l exec $scripts/lock
 bindsym $mod+i exec rofimoji
 bindsym $mod+p exec $scripts/passmenu.sh
 
@@ -163,7 +163,7 @@ exec swayidle -w \
     timeout 300 'swaylock -f' \
     timeout 330 'swaymsg "output * power off"' \
         resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f'
+    before-sleep '$scripts/lock'
 
 ### Session
 bindsym $mod+Shift+c reload

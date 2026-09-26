@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+WALLPAPER_FILE="$HOME/.cache/wallpapers/last_wallpaper"
+
+if [[ -f "$WALLPAPER_FILE" ]]; then
+	WALLPAPER=$(cat "$WALLPAPER_FILE")
+	if [[ -f "$WALLPAPER" ]]; then
+		exec swaylock -f --image "$WALLPAPER" "$@"
+	fi
+fi
+
+# fallback if the file is missing or invalid
+exec swaylock -f "$@"
