@@ -15,7 +15,7 @@ bindsym $mod+q exec $term
 bindsym $mod+e exec $yazi
 bindsym $mod+Space exec $menu
 bindsym $mod+Tab exec $scripts/powermenu.sh
-bindsym $mod+l exec swaylock
+bindsym $mod+l exec $scripts/lock.sh
 bindsym $mod+i exec rofimoji
 bindsym $mod+p exec $scripts/passmenu.sh
 
