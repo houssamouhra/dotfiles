@@ -7,8 +7,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $scripts ~/.config/hypr/scripts
-set $bin ~/.local/bin
+set $scripts ~/.local/bin
 set $wallpaper ~/.config/hyprquickpaper
 
 ### Applications
@@ -16,9 +15,9 @@ bindsym $mod+q exec $term
 bindsym $mod+e exec $yazi
 bindsym $mod+Space exec $menu
 bindsym $mod+Tab exec $scripts/powermenu.sh
-bindsym $mod+l exec $scripts/lock.sh
+bindsym $mod+l exec swaylock
 bindsym $mod+i exec rofimoji
-bindsym $mod+p exec $bin/passmenu
+bindsym $mod+p exec $scripts/passmenu.sh
 
 ### Window management
 bindsym $mod+w kill
