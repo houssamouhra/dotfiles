@@ -1,0 +1,170 @@
+### Variables
+set $mod Mod4
+set $term foot
+set $menu fuzzel
+set $yazi foot -e yazi
+set $left h
+set $down j
+set $up k
+set $right l
+set $scripts ~/.config/hypr/scripts
+set $bin ~/.local/bin
+set $wallpaper ~/.config/hyprquickpaper
+
+### Applications
+bindsym $mod+q exec $term
+bindsym $mod+e exec $yazi
+bindsym $mod+Space exec $menu
+bindsym $mod+Tab exec $scripts/powermenu.sh
+bindsym $mod+l exec $scripts/lock.sh
+bindsym $mod+i exec rofimoji
+bindsym $mod+p exec $bin/passmenu
+
+### Window management
+bindsym $mod+w kill
+bindsym $mod+f fullscreen
+bindsym $mod+v floating toggle
+bindsym $mod+r mode "resize"
+
+### Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+### Move windows
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+### Scratchpad
+bindsym $mod+a scratchpad show
+bindsym $mod+Shift+a move scratchpad
+
+### Appearance
+default_border none
+default_floating_border none
+titlebar_border_thickness 0
+titlebar_padding 0
+
+gaps inner 2
+gaps outer 2
+
+
+### Input
+input type:keyboard {
+    xkb_layout us
+    repeat_rate 50
+    repeat_delay 300
+    xkb_numlock enabled
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+    dwt enabled
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0
+}
+
+focus_follows_mouse yes
+
+seat * {
+    hide_cursor 3000
+}
+
+### Mouse
+floating_modifier $mod normal
+
+### Screenshots
+bindsym Ctrl+Print exec $scripts/screenshot.sh region
+bindsym Print exec $scripts/screenshot.sh window
+bindsym Mod1+Print exec $scripts/screenshot.sh output
+
+### Utilities
+bindsym --locked $mod+c exec $scripts/clipboard.sh
+bindsym --locked Mod1+w exec qs -c $wallpaper
+bindsym --locked Mod1+Shift+w exec $wallpaper/commands.sh random
+bindsym Mod1+a exec $scripts/refresh-waybar.sh
+
+### Resize mode
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+### Volume
+bindsym --locked F3 exec $scripts/volume-control.sh --inc
+bindsym --locked F2 exec $scripts/volume-control.sh --dec
+bindsym --locked F1 exec $scripts/volume-control.sh --toggle
+bindsym --locked F4 exec $scripts/volume-control.sh --toggle-mic
+
+### Brightness
+bindsym --locked F6 exec $scripts/brightness.sh --inc
+bindsym --locked F5 exec $scripts/brightness.sh --dec
+
+### Media
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioStop exec playerctl stop
+
+### Startup
+exec waybar
+exec mako
+exec gammastep
+exec shikane
+exec awww-daemon
+exec wl-paste --watch cliphist store
+
+### Idle
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 330 'swaymsg "output * power off"' \
+        resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f'
+
+### Session
+bindsym $mod+Shift+c reload
