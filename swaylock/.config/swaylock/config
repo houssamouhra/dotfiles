@@ -1,0 +1,60 @@
+# Tokyo Night + Clock (swaylock-effects)
+
+# Behavior
+daemonize
+ignore-empty-password
+show-failed-attempts
+
+# Background
+color=1a1b26
+image=~/Pictures/wallpapers/0298.png
+scaling=fill
+
+# Clock
+clock
+timestr=%H:%M
+datestr=%a, %d %b
+indicator
+
+# Indicator
+indicator-idle-visible
+indicator-radius=120
+indicator-thickness=8
+
+# Font
+font=Maple Mono NF
+font-size=24
+
+# Colors (Tokyo Night)
+# Base / idle
+inside-color=1a1b26
+ring-color=7aa2f7
+line-color=00000000
+separator-color=00000000
+text-color=c0caf5
+key-hl-color=9ece6a
+bs-hl-color=f7768e
+
+# Verifying
+inside-ver-color=1a1b26
+ring-ver-color=7aa2f7
+line-ver-color=00000000
+text-ver-color=c0caf5
+
+# Wrong
+inside-wrong-color=1a1b26
+ring-wrong-color=f7768e
+line-wrong-color=00000000
+text-wrong-color=f7768e
+
+# Clear
+inside-clear-color=1a1b26
+ring-clear-color=9ece6a
+line-clear-color=00000000
+text-clear-color=c0caf5
+
+# Caps Lock
+inside-caps-lock-color=1a1b26
+ring-caps-lock-color=e0af68
+line-caps-lock-color=00000000
+text-caps-lock-color=e0af68
