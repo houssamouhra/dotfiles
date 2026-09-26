@@ -4,7 +4,7 @@
   "reload_style_on_change": true,
 
   "modules-left": [
-    "hyprland/workspaces",
+    "sway/workspaces",
     "custom/rmpc",
     "custom/spotify",
     "custom/space",
@@ -16,7 +16,7 @@
   ],
 
   "modules-center": [
-    "hyprland/window"
+    "sway/window"
   ],
 
   "modules-right": [
@@ -33,14 +33,14 @@
     "clock"
   ],
 
-  "hyprland/workspaces": {
-    "format": "{id}",
+  "sway/workspaces": {
+    "format": "{name}",
     "disable-scroll": true,
     "all-outputs": false,
     "tooltip": false
   },
 
-  "hyprland/window": {
+  "sway/window": {
     "format": "{class}",
     "max-length": 60,
     "seperate-outputs": true,
