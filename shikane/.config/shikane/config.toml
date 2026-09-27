@@ -1,0 +1,27 @@
+[[profile]]
+name = "docked"
+
+[[profile.output]]
+enable = false
+search = ["m=0x40A9", "s=", "v=Lenovo Group Limited"]
+
+[[profile.output]]
+enable = true
+search = ["m=MSI G241", "s=0x00000026", "v=Microstep"]
+mode = "1920x1080@144.013Hz"
+position = "0,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
+
+[[profile]]
+name = "laptop"
+
+[[profile.output]]
+enable = true
+search = ["m=0x40A9", "s=", "v=Lenovo Group Limited"]
+mode = "1920x1080@60.001Hz"
+position = "1920,0"
+scale = 1.0
+transform = "normal"
+adaptive_sync = false
