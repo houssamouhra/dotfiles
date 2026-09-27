@@ -141,11 +141,11 @@
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "70%",
+                        size: "100%",
                         pane: Pane(Queue),
                     ),
                     (
-                        size: "30%",
+                        size: "25%",
                         pane: Split(
                             direction: Vertical,
                             panes: [
