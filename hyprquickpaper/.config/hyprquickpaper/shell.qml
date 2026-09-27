@@ -127,53 +127,6 @@ PanelWindow {
     }
 
     // -----------------------------------------------------
-    // CRISP, FULL-QUALITY BACKGROUND (matches reference: wallpaper
-    // shown clearly, only a soft fade at the very bottom edge so the
-    // dock stays legible — no blur, no desaturation, no glow blob)
-    // -----------------------------------------------------
-    Item {
-        id: backgroundLayer
-        anchors.fill: parent
-
-        Image {
-            id: bgImageA
-            anchors.fill: parent
-            fillMode: Image.PreserveAspectCrop
-            asynchronous: true
-            cache: false
-            smooth: true
-            visible: true
-            opacity: bgToggle ? 0.0 : 1.0
-            Behavior on opacity { NumberAnimation { duration: 500; easing.type: Easing.InOutQuad } }
-        }
-
-        Image {
-            id: bgImageB
-            anchors.fill: parent
-            fillMode: Image.PreserveAspectCrop
-            asynchronous: true
-            cache: false
-            smooth: true
-            visible: true
-            opacity: bgToggle ? 1.0 : 0.0
-            Behavior on opacity { NumberAnimation { duration: 500; easing.type: Easing.InOutQuad } }
-        }
-
-        // Soft fade at just the bottom edge, behind the dock, so cards
-        // stay readable against busy wallpapers — everything above
-        // that stays fully clear and undimmed, matching the reference.
-        Rectangle {
-            anchors.fill: parent
-            gradient: Gradient {
-                orientation: Gradient.Vertical
-                GradientStop { position: 0.0; color: "#00000000" }
-                GradientStop { position: 0.72; color: "#00000000" }
-                GradientStop { position: 1.0; color: "#99000000" }
-            }
-        }
-    }
-
-    // -----------------------------------------------------
     // FLAT ROW OF UNIFORMLY-SHEARED (PARALLELOGRAM) CARDS
     // -----------------------------------------------------
     PathView {
