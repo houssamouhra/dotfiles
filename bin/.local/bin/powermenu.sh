@@ -45,6 +45,6 @@ suspend)
   systemctl suspend
   ;;
 logout)
-  hyprctl dispatch 'hl.dsp.exit()'
+  swaymsg exit
   ;;
 esac
