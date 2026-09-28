@@ -196,7 +196,7 @@ user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
 user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
 
-/** WAYLAND / HYPRLAND RENDERING **/
+/** WAYLAND RENDERING **/
 user_pref("gfx.webrender.all", true);
 user_pref("widget.wayland_vsync.enabled", true);
 user_pref("widget.dmabuf.force-enabled", true);
