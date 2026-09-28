@@ -35,18 +35,30 @@ region)
 window)
   file="$SCREENSHOT_DIR/$(timestamp).png"
 
-  if grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" "$file"; then
+  geometry="$(
+    swaymsg -t get_tree |
+      jq -r '.. | objects | select(.focused? == true) |
+        "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"' |
+      head -n1
+  )"
+
+  if [[ -n "$geometry" ]] && grim -g "$geometry" "$file"; then
     notify "Screenshot" "Window saved" "$file"
   else
     notify "Screenshot" "Failed to capture window"
   fi
   ;;
 
-# Current monitor → file
+# Current output → file
 output | monitor)
   file="$SCREENSHOT_DIR/$(timestamp).png"
 
-  if grim -o "$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')" "$file"; then
+  output="$(
+    swaymsg -t get_outputs |
+      jq -r '.[] | select(.focused == true) | .name'
+  )"
+
+  if [[ -n "$output" ]] && grim -o "$output" "$file"; then
     notify "Screenshot" "Monitor saved" "$file"
   else
     notify "Screenshot" "Failed to capture monitor"
