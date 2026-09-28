@@ -188,6 +188,10 @@ exec swayidle -w \
     before-sleep '$scripts/lock'
 
 
+### Environment
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
 ### Xwayland
 # Enable X11 application support through Xwayland.
 #
