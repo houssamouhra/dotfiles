@@ -1,45 +1,65 @@
-### Variables
+# ─────────────────────────────────────────────────────────────
+# Variables
+# ─────────────────────────────────────────────────────────────
+
 set $mod Mod4
 set $term foot
 set $menu fuzzel
 set $yazi foot -e yazi
 
-# Vim-style navigation
+# Vim-style directions
 set $left h
 set $down j
 set $up k
 set $right l
 
-# Script and wallpaper paths
+# User scripts and wallpaper configuration
 set $scripts ~/.local/bin
 set $wallpaper ~/.config/hyprquickpaper
 
 
-### Applications
+# ─────────────────────────────────────────────────────────────
+# Applications
+# ─────────────────────────────────────────────────────────────
+
 bindsym $mod+q exec $term
 bindsym $mod+e exec $yazi
 bindsym $mod+Space exec $menu
 bindsym $mod+Tab exec $scripts/powermenu.sh
-bindsym $mod+l exec $scripts/lock
+bindsym $mod+x exec $scripts/lock
 bindsym $mod+i exec rofimoji
 bindsym $mod+p exec $scripts/passmenu.sh
 
 
-### Window Management
+# ─────────────────────────────────────────────────────────────
+# Window Management
+# ─────────────────────────────────────────────────────────────
+
 bindsym $mod+w kill
 bindsym $mod+f fullscreen
-bindsym $mod+v floating toggle
+bindsym $mod+Shift+Space floating toggle; sticky toggle
 bindsym $mod+r mode "resize"
 
 
-### Focus
+# ─────────────────────────────────────────────────────────────
+# Focus
+# ─────────────────────────────────────────────────────────────
+
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 
-### Move Windows
+# ─────────────────────────────────────────────────────────────
+# Move Windows
+# ─────────────────────────────────────────────────────────────
+
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
@@ -51,7 +71,11 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 
-### Workspaces
+# ─────────────────────────────────────────────────────────────
+# Workspaces
+# ─────────────────────────────────────────────────────────────
+
+# Switch workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -63,6 +87,7 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
+# Move container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -75,12 +100,18 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 
-### Scratchpad
+# ─────────────────────────────────────────────────────────────
+# Scratchpad
+# ─────────────────────────────────────────────────────────────
+
 bindsym $mod+a scratchpad show
 bindsym $mod+Shift+a move scratchpad
 
 
-### Appearance
+# ─────────────────────────────────────────────────────────────
+# Appearance
+# ─────────────────────────────────────────────────────────────
+
 default_border pixel 1
 default_floating_border pixel 1
 
@@ -91,7 +122,10 @@ gaps inner 2
 gaps outer 2
 
 
-### Input
+# ─────────────────────────────────────────────────────────────
+# Input
+# ─────────────────────────────────────────────────────────────
+
 input type:keyboard {
     xkb_layout us
     repeat_rate 50
@@ -100,8 +134,8 @@ input type:keyboard {
 }
 
 input type:touchpad {
-    tap enabled
     natural_scroll enabled
+    tap enabled
     dwt enabled
 }
 
@@ -117,24 +151,36 @@ seat * {
 }
 
 
-### Mouse
+# ─────────────────────────────────────────────────────────────
+# Mouse
+# ─────────────────────────────────────────────────────────────
+
 floating_modifier $mod normal
 
 
-### Screenshots
+# ─────────────────────────────────────────────────────────────
+# Screenshots
+# ─────────────────────────────────────────────────────────────
+
 bindsym Ctrl+Print exec $scripts/screenshot.sh region
 bindsym Print exec $scripts/screenshot.sh window
 bindsym Mod1+Print exec $scripts/screenshot.sh output
 
 
-### Utilities
+# ─────────────────────────────────────────────────────────────
+# Utilities
+# ─────────────────────────────────────────────────────────────
+
 bindsym --locked $mod+c exec $scripts/clipboard.sh
 bindsym --locked Mod1+w exec qs -c $wallpaper
 bindsym --locked Mod1+Shift+w exec $wallpaper/commands.sh random
 bindsym Mod1+a exec $scripts/refresh-waybar.sh
 
 
-### Resize Mode
+# ─────────────────────────────────────────────────────────────
+# Resize Mode
+# ─────────────────────────────────────────────────────────────
+
 mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
@@ -151,19 +197,28 @@ mode "resize" {
 }
 
 
-### Volume
+# ─────────────────────────────────────────────────────────────
+# Volume
+# ─────────────────────────────────────────────────────────────
+
 bindsym --locked F3 exec $scripts/volume-control.sh --inc
 bindsym --locked F2 exec $scripts/volume-control.sh --dec
 bindsym --locked F1 exec $scripts/volume-control.sh --toggle
 bindsym --locked F4 exec $scripts/volume-control.sh --toggle-mic
 
 
-### Brightness
+# ─────────────────────────────────────────────────────────────
+# Brightness
+# ─────────────────────────────────────────────────────────────
+
 bindsym --locked F6 exec $scripts/brightness.sh --inc
 bindsym --locked F5 exec $scripts/brightness.sh --dec
 
 
-### Media
+# ─────────────────────────────────────────────────────────────
+# Media
+# ─────────────────────────────────────────────────────────────
+
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioPause exec playerctl play-pause
 bindsym --locked XF86AudioPrev exec playerctl previous
@@ -171,7 +226,10 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioStop exec playerctl stop
 
 
-### Startup
+# ─────────────────────────────────────────────────────────────
+# Startup
+# ─────────────────────────────────────────────────────────────
+
 exec waybar
 exec mako
 exec gammastep
@@ -180,7 +238,10 @@ exec awww-daemon
 exec wl-paste --watch cliphist store
 
 
-### Idle
+# ─────────────────────────────────────────────────────────────
+# Idle
+# ─────────────────────────────────────────────────────────────
+
 exec swayidle -w \
     timeout 300 'swaylock -f' \
     timeout 330 'swaymsg "output * power off"' \
@@ -188,37 +249,50 @@ exec swayidle -w \
     before-sleep '$scripts/lock'
 
 
-### Environment
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+# ─────────────────────────────────────────────────────────────
+# Environment
+# ─────────────────────────────────────────────────────────────
 
-### Xwayland
-# Enable X11 application support through Xwayland.
-#
-# "enable" starts Xwayland lazily when the first X11 application
-# connects. Use "force" only if you specifically need Xwayland
-# running immediately.
+exec systemctl --user import-environment \
+    DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
+exec dbus-update-activation-environment --systemd \
+    DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+
+
+# ─────────────────────────────────────────────────────────────
+# Xwayland
+# ─────────────────────────────────────────────────────────────
+
+# Start Xwayland on demand for X11 applications.
 xwayland enable
 
 
-### Tearing
-# Allow immediate page flips on all outputs.
-#
-# Tearing is only possible when BOTH the output and the application
-# allow it, and only for fullscreen applications.
+# ─────────────────────────────────────────────────────────────
+# Tearing
+# ─────────────────────────────────────────────────────────────
+
+# Allow immediate page flips when supported by the output and client.
 output * allow_tearing yes
 
 # Allow Xwayland applications to use tearing.
 for_window [class=".*"] allow_tearing yes
 
-# Allow native Wayland gamescope to use tearing.
+# Allow gamescope to use tearing.
 for_window [app_id="gamescope"] allow_tearing yes
 
 
-### Xwayland Window Identification
-# Prefix Xwayland window titles with [X] so they are easy to identify.
+# ─────────────────────────────────────────────────────────────
+# Xwayland Window Identification
+# ─────────────────────────────────────────────────────────────
+
+# Mark Xwayland windows so they can be identified at a glance.
 for_window [shell="xwayland"] title_format "[X] %title"
 
 
-### Session
+# ─────────────────────────────────────────────────────────────
+# Session
+# ─────────────────────────────────────────────────────────────
+
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
