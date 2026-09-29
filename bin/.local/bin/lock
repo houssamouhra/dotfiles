@@ -5,7 +5,7 @@ WALLPAPER_FILE="$HOME/.cache/wallpapers/last_wallpaper"
 if [[ -f "$WALLPAPER_FILE" ]]; then
 	WALLPAPER=$(cat "$WALLPAPER_FILE")
 	if [[ -f "$WALLPAPER" ]]; then
-		exec swaylock -f --image "$WALLPAPER" "$@"
+		exec swaylock -f --image "$WALLPAPER" --effect-blur 10x5 "$@"
 	fi
 fi
 
