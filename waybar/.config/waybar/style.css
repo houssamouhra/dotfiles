@@ -22,10 +22,6 @@ window#waybar {
   margin: 2px 0 0 4px;
 }
 
-.modules-center {
-  margin: 2px 0 0 0;
-}
-
 .modules-right {
   margin: 2px 4px 0 0;
 }
