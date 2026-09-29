@@ -243,10 +243,12 @@ exec wl-paste --watch cliphist store
 # ─────────────────────────────────────────────────────────────
 
 exec swayidle -w \
-    timeout 300 'swaylock -f' \
+    timeout 150 'brightnessctl -s set 10 && notify-send -u low "Idle" "Locking in 2 minutes!"' \
+        resume 'brightnessctl -r' \
+    timeout 300 "pidof swaylock >/dev/null || $scripts/lock" \
     timeout 330 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on"' \
-    before-sleep '$scripts/lock'
+        resume 'swaymsg "output * power on" && brightnessctl -r' \
+    before-sleep "$scripts/lock"
 
 
 # ─────────────────────────────────────────────────────────────
