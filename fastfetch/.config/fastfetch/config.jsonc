@@ -50,6 +50,10 @@
       "type": "custom"
     },
     {
+      "key": "{#31}│ {#37} init sys    {#keys}{#31}│",
+      "type": "InitSystem"
+    },
+    {
       "key": "{#31}│ {#37}󰾍 window mgr  {#keys}{#31}│",
       "type": "wm"
     },
