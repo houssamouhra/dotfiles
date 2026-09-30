@@ -1,12 +1,10 @@
 ## Configuration file for CAVA.
-# Remove the ; to change parameters.
 
 [general]
 framerate = 60
 autosens = 1
 sensitivity = 100
-bars = 0
-bar_width = 0
+bars = 0 
 bar_spacing = 1
 lower_cutoff_freq = 20
 higher_cutoff_freq = 20000
@@ -15,47 +13,21 @@ higher_cutoff_freq = 20000
 method = pulse
 source = auto
 
-; sample_rate = 44100
-; sample_bits = 16
-; channels = 2
-; autoconnect = 2
-
-
 [output]
-; orientation = bottom
-
 channels = stereo
 mono_option = average
-reverse = 0
-
-; raw_target = /dev/stdout
-; data_format = binary
-; bit_format = 16bit
-; ascii_max_range = 1000
-; bar_delimiter = 59
-; frame_delimiter = 10
-; sdl_width = 1000
-; sdl_height = 500
-; sdl_x = -1
-; sdl_y= -1
-; sdl_full_screen = 0
-; xaxis = none
-
 show_idle_bar_heads = 1
 
 [color]
-# gradient colors 1 and color 2 are being changed with pywal in wallpaper change
+# tokyo night palette
 gradient = 1
-gradient_count = 2
-gradient_color_1 = '#374777'
-gradient_color_2 = '#394B88'
+gradient_count = 6
+gradient_color_1 = '#7aa2f7'
+gradient_color_2 = '#7dcfff'
+gradient_color_3 = '#bb9af7'
+gradient_color_4 = '#f7768e'
+gradient_color_5 = '#e0af68'
+gradient_color_6 = '#9ece6a'
 
 [smoothing]
-monstercat = 0
-waves = 0
 noise_reduction = 77
-
-[eq]
-1 = 1 # bass
-2 = 1 # midtone
-3 = 1 # treble
