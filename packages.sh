@@ -349,7 +349,7 @@ if command -v yay &>/dev/null; then
   install_aur "Diffnav" "diffnav"
   install_aur "Lazysql" "lazysql"
   install_aur "Mycli" "mycli"
-  install_aur "Maple Mono NF" "maplemono-nf-unhinted"
+  install_aur "Maple Mono NF" "maplemono-nf"
   install_aur "Quickshell" "quickshell"
 fi
 
