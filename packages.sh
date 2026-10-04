@@ -270,6 +270,7 @@ install_pacman "Cava" "cava"
 # --- Desktop / Wayland ---
 install_pacman "Sway" "sway"
 install_pacman "Sway idle" "swayidle"
+install_pacman "swaylock" "swaylock"
 install_pacman "Hyprpicker" "hyprpicker"
 install_pacman "Slurp" "slurp"
 install_pacman "Grim" "grim"
@@ -334,7 +335,6 @@ install_pacman "TTYper" "ttyper"
 
 if command -v yay &>/dev/null; then
   install_aur "Zen" "zen-browser-bin"
-  install_aur "swaylock effects" "swaylock-effects"
   install_aur "DXVK" "dxvk-bin"
   install_aur "Waybar" "waybar-git"
   install_aur "Docker Desktop" "docker-desktop"
