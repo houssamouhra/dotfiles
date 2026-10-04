@@ -9,12 +9,6 @@ show-failed-attempts
 color=1a1b26
 scaling=fill
 
-# Clock
-clock
-timestr=%H:%M
-datestr=%a, %d %b
-indicator
-
 # Indicator
 indicator-idle-visible
 indicator-radius=120
