@@ -1,5 +1,9 @@
 # dotfiles
 
+> [!NOTE]
+> I've switched to **Sway** for now.
+> You can check my Sway dots in the [sway branch](https://github.com/houssamouhra/dotfiles/tree/sway)
+
 ## Overview
 
 My **Arch Linux** dotfiles for a clean, lightweight **Hyprland** desktop.
