@@ -2,12 +2,12 @@
 
 ## Overview
 
-My **Arch Linux** dotfiles for a clean, lightweight **Hyprland** desktop.
+My **Arch Linux** dotfiles for a clean, lightweight **Sway** desktop.
 Managed with **GNU Stow** and optimized for a laptop + external monitor workflow.
 
 ## Features
 
-- Hyprland-based Wayland desktop
+- Sway-based Wayland desktop
 - GNU Stow-managed configuration
 - Modular package layout
 - Laptop + external monitor support
@@ -23,10 +23,10 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <details>
 <summary>Core</summary>
 
-- **[hyprland](https://github.com/hyprwm/Hyprland)** – Wayland compositor
+- **[swaywm](https://github.com/swaywm/sway)** – Wayland compositor
 - **[waybar](https://github.com/Alexays/Waybar)** – Wayland bar
 - **[GNU Stow](https://www.gnu.org/software/stow/)** – symlink manager for dotfiles
-- **[hyprmoncfg](https://github.com/crmne/hyprmoncfg)** – Hyprland monitor layout editor with profile management and hotplug support
+- **[shikane](https://gitlab.com/w0lff/shikane)** – Deterministic dynamic output configuration tool for Wayland compositors
 
 </details>
 
@@ -34,10 +34,9 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 <summary>UI / Desktop</summary>
 
 - **[fuzzel](https://codeberg.org/dnkl/fuzzel)** – Wayland-native app launcher
-- **[hyprlock](https://github.com/hyprwm/hyprlock)** – screen locker
-- **[hypridle](https://github.com/hyprwm/hypridle)** – idle daemon
+- **[swaylock](https://github.com/swaywm/swaylock)** – screen locker
+- **[swayidle](https://github.com/swaywm/swayidle)** – idle daemon
 - **[mako](https://github.com/emersion/mako)** – notification daemon
-- **[pywal](https://github.com/dylanaraps/pywal)** – wallpaper-based color scheme generator
 
 </details>
 
@@ -98,7 +97,7 @@ Managed with **GNU Stow** and optimized for a laptop + external monitor workflow
 #### 1. Clone the repository
 
 ```bash
-git clone --recurse-submodules --depth=1 https://github.com/houssamouhra/dotfiles.git ~/dotfiles
+git clone --recurse-submodules --depth=1  --branch=sway https://github.com/houssamouhra/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 # verify submodules
@@ -127,7 +126,7 @@ sudo pacman -S stow
 Install configs selectively, Stow creates symlinks into `$HOME`.
 
 ```bash
-stow hypr nvim zsh ...
+stow sway nvim zsh ...
 ```
 
 #### 4. Reload the configuration
