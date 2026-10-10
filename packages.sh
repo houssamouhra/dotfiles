@@ -35,7 +35,7 @@ declare -a PACMAN_PKGS=(
   "OpenSSH|openssh"
   "NetworkManager|networkmanager"
   "Pacman Contrib|pacman-contrib"
-  "Sudo|sudo"
+  "OpenDoas|opendoas"
 
   # Shell & CLI
   "Zsh|zsh"
@@ -149,6 +149,7 @@ declare -a AUR_PKGS=(
   "Mycli|mycli"
   "Maple Mono NF|maplemono-nf"
   "Dislocker|dislocker-mbedtls3"
+  "Doas-sudo-shim|doas-sudo-shim"
 )
 
 TOTAL=$((${#PACMAN_PKGS[@]} + ${#AUR_PKGS[@]}))
