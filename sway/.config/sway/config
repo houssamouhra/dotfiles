@@ -155,7 +155,7 @@ input type:pointer {
 focus_follows_mouse always
 
 seat * {
-    hide_cursor 3000
+    hide_cursor 5000
     xcursor_theme Bibata-Modern-Classic 22
 }
 
@@ -186,9 +186,9 @@ bindsym Mod1+Print exec $scripts/screenshot.sh output
 # Utilities
 # ─────────────────────────────────────────────────────────────
 
-bindsym --locked $mod+c exec $scripts/clipboard.sh
-bindsym --locked Mod1+w exec qs -c $wallpaper
-bindsym --locked Mod1+Shift+w exec $wallpaper/commands.sh random
+bindsym $mod+c exec $scripts/clipboard.sh
+bindsym Mod1+w exec qs -c $wallpaper
+bindsym Mod1+Shift+w exec $wallpaper/commands.sh random
 bindsym Mod1+a exec $scripts/refresh-waybar.sh
 
 
@@ -211,9 +211,9 @@ mode "resize" {
 # Volume
 # ─────────────────────────────────────────────────────────────
 
-bindsym XF86AudioRaiseVolume exec $scripts/volume-control.sh --inc
-bindsym XF86AudioLowerVolume exec $scripts/volume-control.sh --dec
-bindsym XF86AudioMute exec $scripts/volume-control.sh --toggle
+bindsym --locked XF86AudioRaiseVolume exec $scripts/volume-control.sh --inc
+bindsym --locked XF86AudioLowerVolume exec $scripts/volume-control.sh --dec
+bindsym --locked XF86AudioMute exec $scripts/volume-control.sh --toggle
 bindsym XF86AudioMicMute exec $scripts/volume-control.sh --toggle-mic
 
 
@@ -229,11 +229,11 @@ bindsym XF86MonBrightnessDown exec $scripts/brightness.sh --dec
 # Media
 # ─────────────────────────────────────────────────────────────
 
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioStop exec playerctl stop
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioStop exec playerctl stop
 
 
 # ─────────────────────────────────────────────────────────────
@@ -253,20 +253,10 @@ exec wl-paste --watch cliphist store
 # ─────────────────────────────────────────────────────────────
 
 exec swayidle -w \
-    timeout 150 'brightnessctl -s set 10 && notify-send -u low "Idle" "Locking in 2 minutes!"' \
-        resume 'brightnessctl -r' \
-    timeout 300 "pidof swaylock >/dev/null || $scripts/lock" \
+    timeout 150 'notify-send -u low "Idle" "Locking in 2 minutes!"' \
+    timeout 300 "$scripts/lock" \
     timeout 330 'swaymsg "output * power off"' \
-        resume 'swaymsg "output * power on" && brightnessctl -r' \
-    before-sleep "$scripts/lock"
-
-
-# ─────────────────────────────────────────────────────────────
-# Xwayland
-# ─────────────────────────────────────────────────────────────
-
-# Start Xwayland on demand for X11 applications.
-# xwayland enable
+        resume 'swaymsg "output * power on"'
 
 
 # ─────────────────────────────────────────────────────────────
@@ -293,3 +283,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg e
 # ─────────────────────────────────────────────────────────────
 
 include /etc/sway/config.d/*
+
+# start sway with the mic off
+exec_always pactl set-source-mute @DEFAULT_SOURCE@ 1
