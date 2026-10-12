@@ -1,3 +1,5 @@
 [highlighting]
 theme = "classic"
 dynamic = true
+max_line_length = 10000
+timeout_ms = 300
