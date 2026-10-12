@@ -113,10 +113,6 @@ tooltip {
   border-radius: 0px;
   background: transparent;
   color: #a9b1d6;
-  transition:
-    background 0.15s ease,
-    color 0.15s ease,
-    opacity 0.15s ease;
 }
 
 /* Hover */
