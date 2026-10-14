@@ -191,8 +191,6 @@ bindsym Mod1+w exec qs -c $wallpaper
 bindsym Mod1+Shift+w exec $wallpaper/commands.sh random
 bindsym Mod1+a exec $scripts/refresh-waybar.sh
 
-# Lock when the lid is closed
-bindswitch --reload --locked lid:on exec $scripts/lock
 
 
 # ─────────────────────────────────────────────────────────────
