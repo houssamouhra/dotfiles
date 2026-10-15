@@ -255,9 +255,9 @@ exec wl-paste --watch cliphist store
 # ─────────────────────────────────────────────────────────────
 
 exec swayidle -w \
-    timeout 150 'notify-send -u low "Idle" "Locking in 2 minutes!"' \
-    timeout 300 "$scripts/lock" \
-    timeout 330 'swaymsg "output * power off"' \
+    timeout 120 'notify-send -u low "Idle" "Locking in 2 minutes!"' \
+    timeout 240 "chayang && $scripts/lock" \
+    timeout 300 'swaymsg "output * power off"' \
         resume 'swaymsg "output * power on"'
 
 
