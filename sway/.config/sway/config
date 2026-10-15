@@ -244,7 +244,8 @@ bindsym --locked XF86AudioStop exec playerctl stop
 exec waybar
 exec mako
 exec gammastep
-exec shikane
+exec kanshi
+exec_always kanshictl reload
 exec awww-daemon
 exec wl-paste --watch cliphist store
 
