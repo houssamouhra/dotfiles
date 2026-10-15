@@ -56,9 +56,8 @@ declare -a PACMAN_PKGS=(
   "Duf|duf"
   "Pass|pass"
 
-  # Editors & dev
+  # Editor
   "Neovim|neovim"
-  "LibreOffice|libreoffice-fresh"
 
   # Audio / Video / Media
   "PipeWire|pipewire"
@@ -78,7 +77,9 @@ declare -a PACMAN_PKGS=(
   "Awww|awww"
   "Mako|mako"
   "Fuzzel|fuzzel"
+  "Kanshi|kanshi"
   "wl-clipboard|wl-clipboard"
+  "Adwaita-icons|adwaita-icon-theme"
   "Gammastep|gammastep"
 
   # File management
@@ -98,8 +99,8 @@ declare -a PACMAN_PKGS=(
 
   # Utilities
   "Brightness Control|brightnessctl"
-  "Bluetooth Manager|blueman"
-  "Bluetooth Utils|bluez-utils"
+  "Bluetooth Daemon|bluez"
+  "Bluetooth Manager|bluetui"
   "xdg-desktop-portal-wlr|xdg-desktop-portal-wlr"
   "xdg-desktop-portal-gtk|xdg-desktop-portal-gtk"
   "btop|btop"
@@ -108,6 +109,7 @@ declare -a PACMAN_PKGS=(
   "Fastfetch|fastfetch"
   "Cliphist|cliphist"
   "MPD|mpd"
+  "Wlr-randr|wlr-randr"
   "Powertop|powertop"
   "Mesa Utils|mesa-utils"
 
@@ -117,13 +119,6 @@ declare -a PACMAN_PKGS=(
   "Zip|zip"
   "DOS Filesystem Tools|dosfstools"
   "exFAT Tools|exfatprogs"
-
-  # Gaming / Wine
-  "Steam|steam"
-  "Wine|wine"
-  "Wine Gecko|wine-gecko"
-  "Wine Mono|wine-mono"
-  "Winetricks|winetricks"
 
   # Misc
   "GIMP|gimp"
@@ -147,6 +142,7 @@ declare -a AUR_PKGS=(
   "Diffnav|diffnav"
   "Lazysql|lazysql"
   "Mycli|mycli"
+  "Chayang|chayang"
   "Maple Mono NF|maplemono-nf"
   "Dislocker|dislocker-mbedtls3"
   "Doas-sudo-shim|doas-sudo-shim"
