@@ -62,6 +62,8 @@ declare -a PACMAN_PKGS=(
   # Audio / Video / Media
   "PipeWire|pipewire"
   "PipeWire Pulse|pipewire-pulse"
+  "WirePlumber|wireplumber"
+  "Wiremix|wiremix"
   "FFmpeg|ffmpeg"
   "MPV|mpv"
   "Imv|imv"
@@ -85,12 +87,11 @@ declare -a PACMAN_PKGS=(
   # File management
   "Yazi|yazi"
   "Zathura|zathura"
-  "Zathura PDF Backend|zathura-pdf-poppler"
+  "Zathura PDF Backend|zathura-pdf-mupdf"
 
   # Fonts
   "Cascadia Code Font|ttf-cascadia-code"
   "JetBrains Mono|ttf-jetbrains-mono"
-  "JetBrains Mono Nerd Font|ttf-jetbrains-mono-nerd"
   "Noto Fonts|noto-fonts"
   "Noto Emoji Fonts|noto-fonts-emoji"
   "Noto CJK Fonts|noto-fonts-cjk"
@@ -101,6 +102,8 @@ declare -a PACMAN_PKGS=(
   "Brightness Control|brightnessctl"
   "Bluetooth Daemon|bluez"
   "Bluetooth Manager|bluetui"
+  "Polkit|polkit"
+  "xdg-user-dirs|xdg-user-dirs"
   "xdg-desktop-portal-wlr|xdg-desktop-portal-wlr"
   "xdg-desktop-portal-gtk|xdg-desktop-portal-gtk"
   "btop|btop"
@@ -125,6 +128,7 @@ declare -a PACMAN_PKGS=(
   "Telegram Desktop|telegram-desktop"
   "qBittorrent|qbittorrent"
   "Playerctl|playerctl"
+  "Cmatrix|cmatrix"
   "rmpc|rmpc"
   "Stow|stow"
   "TTYper|ttyper"
