@@ -77,7 +77,8 @@
     "smooth-scrolling-threshold": 1,
     "on-scroll-up": "~/.local/bin/volume-control.sh --inc",
     "on-scroll-down": "~/.local/bin/volume-control.sh --dec",
-    "on-click": "~/.local/bin/volume-control.sh --toggle"
+    "on-click": "~/.local/bin/volume-control.sh --toggle",
+    "on-click-right": "foot -e wiremix"
   },
 
   "network": {
