@@ -28,6 +28,7 @@ declare -a PACMAN_PKGS=(
   # Core tools
   "Git|git"
   "Git Delta|git-delta"
+  "GitHub CLI|github-cli"
   "LazyGit|lazygit"
   "Serie|serie"
   "LazyDocker|lazydocker"
