@@ -5,7 +5,8 @@ width=350
 padding=15
 margin=5
 border-radius=0
-border-size=0
+border-size=1
+border-color=#565f89
 anchor=top-right
 layer=overlay
 icons=1
@@ -31,3 +32,11 @@ background-color=#16161e
 text-color=#c0caf5
 border-color=#f7768e
 default-timeout=8000
+
+[app-name="Telegram Desktop"]
+default-timeout=5000
+ignore-timeout=1
+
+[app-name="Thunderbird"]
+default-timeout=5000
+ignore-timeout=1
