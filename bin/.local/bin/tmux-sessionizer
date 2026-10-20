@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIRECTORIES=(
-	"$HOME/projects"
+	"$HOME/Projects"
 	"$HOME/practice"
 	"$HOME/Documents"
 	"$HOME"
