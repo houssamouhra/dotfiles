@@ -241,14 +241,15 @@ bindsym --locked XF86AudioStop exec playerctl stop
 # Startup
 # ─────────────────────────────────────────────────────────────
 
-exec waybar
-exec mako
-exec gammastep
 exec kanshi
 exec_always kanshictl reload
 exec awww-daemon
+exec mako
+exec waybar
+exec gammastep
 exec wl-paste --watch cliphist store
-
+exec batsignal -w 20 -c 10 -d 5 -e -s -b
+exec_always ~/.config/sway/autotile.sh
 
 # ─────────────────────────────────────────────────────────────
 # Idle
