@@ -66,6 +66,7 @@ declare -a PACMAN_PKGS=(
   "WirePlumber|wireplumber"
   "Wiremix|wiremix"
   "FFmpeg|ffmpeg"
+  "yt-dlp|yt-dlp"
   "MPV|mpv"
   "Imv|imv"
   "Cava|cava"
@@ -153,7 +154,7 @@ declare -a AUR_PKGS=(
   "Doas-sudo-shim|doas-sudo-shim"
 )
 
-TOTAL=$((${#PACMAN_PKGS[@]} + ${#AUR_PKGS[@]}))
+TOTAL=$((${#PACMAN_PKGS[@]} + ${#AUR_PKGS[@]} + 1))
 CURRENT=0
 FAILED=()
 SUCCEEDED=()
@@ -325,6 +326,74 @@ install_aur() {
   fi
 }
 
+install_batsignal() {
+  local name="Batsignal (sound)"
+  local pkg="batsignal" # provides/conflicts batsignal
+  CURRENT=$((CURRENT + 1))
+
+  if is_installed "$pkg"; then
+    skip "$name"
+    SKIPPED+=("$name")
+    return 0
+  fi
+
+  show_progress "$CURRENT" "$TOTAL" "$name"
+  local start elapsed output
+  start=$(date +%s)
+
+  # Ensure build/runtime dependency
+  if ! pacman -Qi libnotify &>/dev/null; then
+    sudo pacman -S --needed --noconfirm libnotify >/dev/null 2>&1 || true
+  fi
+
+  local tmp
+  tmp=$(mktemp -d)
+  # Clean up on exit from this function
+  trap 'rm -rf "$tmp"' RETURN
+
+  # Download
+  if ! output=$(curl -fsSL \
+    "https://github.com/houssamouhra/batsignal/archive/refs/tags/1.8.1.tar.gz" \
+    -o "$tmp/batsignal-1.8.1.tar.gz" 2>&1); then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Download failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  # Extract
+  if ! tar -xzf "$tmp/batsignal-1.8.1.tar.gz" -C "$tmp" 2>/dev/null; then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Extract failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  # Build
+  if ! (cd "$tmp/batsignal-1.8.1" &&
+    make CFLAGS_EXTRA="-pedantic -Wall -Wextra -Werror -Wno-error=unused-result -Wno-unused-parameter -Os" >/dev/null 2>&1); then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Build failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  # Install system-wide
+  if ! (cd "$tmp/batsignal-1.8.1" &&
+    sudo make DESTDIR=/ PREFIX=/usr install >/dev/null 2>&1); then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Install failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  elapsed=$(($(date +%s) - start))
+  update_avg_time "$elapsed"
+  printf "\r\033[K"
+  timing "$name" "$elapsed"
+  SUCCEEDED+=("$name")
+}
+
 # ─────────────────────────────────────────────────────────────────────────────
 #  Pre-flight
 # ─────────────────────────────────────────────────────────────────────────────
@@ -379,5 +448,8 @@ if command -v paru &>/dev/null; then
 else
   warn "Skipping AUR packages (paru not available)"
 fi
+
+# Custom package
+install_batsignal
 
 print_summary
