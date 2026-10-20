@@ -82,6 +82,7 @@ declare -a PACMAN_PKGS=(
   "Mako|mako"
   "Fuzzel|fuzzel"
   "Kanshi|kanshi"
+  "Autotiling|autotiling-rs"
   "wl-clipboard|wl-clipboard"
   "Adwaita-icons|adwaita-icon-theme"
   "Gammastep|gammastep"
