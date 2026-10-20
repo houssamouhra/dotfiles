@@ -249,7 +249,7 @@ exec waybar
 exec gammastep
 exec wl-paste --watch cliphist store
 exec batsignal -w 20 -c 10 -d 5 -e -s -b
-exec_always ~/.config/sway/autotile.sh
+exec ~/.config/sway/autotile.sh
 
 # ─────────────────────────────────────────────────────────────
 # Idle
