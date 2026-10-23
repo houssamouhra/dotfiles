@@ -27,12 +27,6 @@ trap 'printf "\n"; warn "Installation cancelled by user"; print_summary; exit 13
 declare -a PACMAN_PKGS=(
   # Core tools
   "Git|git"
-  "Git Delta|git-delta"
-  "GitHub CLI|github-cli"
-  "LazyGit|lazygit"
-  "Serie|serie"
-  "LazyDocker|lazydocker"
-  "Docker|docker"
   "OpenSSH|openssh"
   "NetworkManager|networkmanager"
   "Pacman Contrib|pacman-contrib"
@@ -49,13 +43,29 @@ declare -a PACMAN_PKGS=(
   "Ripgrep|ripgrep"
   "Fzf|fzf"
   "Hyperfine|hyperfine"
+  "LazyGit|lazygit"
+  "Serie|serie"
+  "Git Delta|git-delta"
+  "GitHub CLI|github-cli"
+  "LazyDocker|lazydocker"
+  "Docker|docker"
   "Dust|dust"
+  "Jq|jq"
+  "Keychain|keychain"
   "Tldr|tealdeer"
   "Trash CLI|trash-cli"
   "postgres CLI|pgcli"
   "ATAC|atac"
   "Duf|duf"
   "Pass|pass"
+  "Fast Node Manager|fnm"
+  "UV|uv"
+  "btop|btop"
+  "Fastfetch|fastfetch"
+  "Powertop|powertop"
+  "Stow|stow"
+  "TTYper|ttyper"
+  "Cmatrix|cmatrix"
 
   # Editor
   "Neovim|neovim"
@@ -70,6 +80,9 @@ declare -a PACMAN_PKGS=(
   "MPV|mpv"
   "Imv|imv"
   "Cava|cava"
+  "MPD|mpd"
+  "Playerctl|playerctl"
+  "rmpc|rmpc"
 
   # Desktop / Wayland
   "Sway|sway"
@@ -86,6 +99,13 @@ declare -a PACMAN_PKGS=(
   "wl-clipboard|wl-clipboard"
   "Adwaita-icons|adwaita-icon-theme"
   "Gammastep|gammastep"
+  "Wlr-randr|wlr-randr"
+  "xdg-desktop-portal-wlr|xdg-desktop-portal-wlr"
+  "xdg-desktop-portal-gtk|xdg-desktop-portal-gtk"
+  "Brightness Control|brightnessctl"
+  "Cliphist|cliphist"
+  "Rofimoji|rofimoji"
+  "Quickshell|quickshell"
 
   # File management
   "Yazi|yazi"
@@ -102,21 +122,11 @@ declare -a PACMAN_PKGS=(
   "Dejavu|ttf-dejavu"
 
   # Utilities
-  "Brightness Control|brightnessctl"
   "Bluetooth Daemon|bluez"
   "Bluetooth Manager|bluetui"
   "Polkit|polkit"
   "xdg-user-dirs|xdg-user-dirs"
-  "xdg-desktop-portal-wlr|xdg-desktop-portal-wlr"
-  "xdg-desktop-portal-gtk|xdg-desktop-portal-gtk"
-  "btop|btop"
   "Man|man-pages"
-  "Rofimoji|rofimoji"
-  "Fastfetch|fastfetch"
-  "Cliphist|cliphist"
-  "MPD|mpd"
-  "Wlr-randr|wlr-randr"
-  "Powertop|powertop"
   "Mesa Utils|mesa-utils"
 
   # Filesystems & archives
@@ -130,20 +140,13 @@ declare -a PACMAN_PKGS=(
   "GIMP|gimp"
   "Telegram Desktop|telegram-desktop"
   "qBittorrent|qbittorrent"
-  "Playerctl|playerctl"
-  "Cmatrix|cmatrix"
-  "rmpc|rmpc"
-  "Stow|stow"
-  "TTYper|ttyper"
-  "Quickshell|quickshell"
 )
 
 declare -a AUR_PKGS=(
   "Zen|zen-browser-bin"
   "Waybar|waybar-git"
-  "Fast Node Manager|fnm"
+  "Zsh-patina|zsh-patina-bin"
   "Spotify|spotify"
-  "Tree-sitter|tree-sitter-cli-github-bin"
   "bibata cursor|bibata-cursor-theme"
   "ghgrab-bin|ghgrab-bin"
   "Diffnav|diffnav"
@@ -155,7 +158,7 @@ declare -a AUR_PKGS=(
   "Doas-sudo-shim|doas-sudo-shim"
 )
 
-TOTAL=$((${#PACMAN_PKGS[@]} + ${#AUR_PKGS[@]} + 1))
+TOTAL=$((${#PACMAN_PKGS[@]} + ${#AUR_PKGS[@]} + 2))
 CURRENT=0
 FAILED=()
 SUCCEEDED=()
@@ -327,12 +330,15 @@ install_aur() {
   fi
 }
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Manually downloaded Packages
+# ─────────────────────────────────────────────────────────────────────────────
 install_batsignal() {
   local name="Batsignal (sound)"
-  local pkg="batsignal" # provides/conflicts batsignal
+  local pkg="batsignal"
   CURRENT=$((CURRENT + 1))
 
-  if is_installed "$pkg"; then
+  if command -v batsignal &>/dev/null; then
     skip "$name"
     SKIPPED+=("$name")
     return 0
@@ -349,7 +355,6 @@ install_batsignal() {
 
   local tmp
   tmp=$(mktemp -d)
-  # Clean up on exit from this function
   trap 'rm -rf "$tmp"' RETURN
 
   # Download
@@ -382,6 +387,70 @@ install_batsignal() {
   # Install system-wide
   if ! (cd "$tmp/batsignal-1.8.1" &&
     sudo make DESTDIR=/ PREFIX=/usr install >/dev/null 2>&1); then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Install failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  elapsed=$(($(date +%s) - start))
+  update_avg_time "$elapsed"
+  printf "\r\033[K"
+  timing "$name" "$elapsed"
+  SUCCEEDED+=("$name")
+}
+
+install_statcode() {
+  local name="statcode"
+  local pkg="statcode"
+  CURRENT=$((CURRENT + 1))
+
+  if command -v statcode &>/dev/null; then
+    skip "$name"
+    SKIPPED+=("$name")
+    return 0
+  fi
+
+  show_progress "$CURRENT" "$TOTAL" "$name"
+  local start elapsed output
+  start=$(date +%s)
+
+  local tmp
+  tmp=$(mktemp -d)
+  trap 'rm -rf "$tmp"' RETURN
+
+  # Download
+  if ! output=$(curl -fsSL \
+    "https://github.com/houssamouhra/statcode/releases/download/v2.1.0/statcode-2.1.0-linux-x86_64.tar.gz" \
+    -o "$tmp/statcode-2.1.0-linux-x86_64.tar.gz" 2>&1); then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Download failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  # Extract
+  if ! tar -xzf "$tmp/statcode-2.1.0-linux-x86_64.tar.gz" -C "$tmp" 2>/dev/null; then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Extract failed${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  # Install
+  local dist_dir="$tmp/statcode-dist.dist"
+  if [[ ! -d "$dist_dir" ]]; then
+    printf "\r\033[K${RED}✗${NC} %s\n" "$name"
+    echo -e "    ${DIM}Unexpected archive layout${NC}"
+    FAILED+=("$name")
+    return 1
+  fi
+
+  if ! (
+    sudo install -d /usr/lib/statcode /usr/bin &&
+      sudo cp -a "$dist_dir"/. /usr/lib/statcode/ &&
+      sudo ln -sfn /usr/lib/statcode/statcode /usr/bin/statcode
+  ) >/dev/null 2>&1; then
     printf "\r\033[K${RED}✗${NC} %s\n" "$name"
     echo -e "    ${DIM}Install failed${NC}"
     FAILED+=("$name")
@@ -452,5 +521,5 @@ fi
 
 # Custom package
 install_batsignal
-
+install_statcode
 print_summary
