@@ -11,7 +11,6 @@ playerctl -p "$PLAYER" status &>/dev/null || exit 0
 
 status=$(playerctl -p "$PLAYER" status 2>/dev/null) || exit 0
 title=$(playerctl -p "$PLAYER" metadata xesam:title 2>/dev/null)
-artist=$(playerctl -p "$PLAYER" metadata xesam:artist 2>/dev/null)
 
 case "$status" in
 Playing) icon=" " ;;
