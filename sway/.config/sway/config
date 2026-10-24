@@ -285,7 +285,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg e
 # Environment
 # ─────────────────────────────────────────────────────────────
 
-include /etc/sway/config.d/*
-
 # start sway with the mic off
 exec_always pactl set-source-mute @DEFAULT_SOURCE@ 1
+include /etc/sway/config.d/*
