@@ -58,6 +58,7 @@ declare -a PACMAN_PKGS=(
   "ATAC|atac"
   "Duf|duf"
   "Pass|pass"
+  "Gcr|gcr"
   "Fast Node Manager|fnm"
   "UV|uv"
   "btop|btop"
