@@ -1,7 +1,7 @@
 # Theme: tokyonight_night
 # By: Folke Lemaitre
 
-theme[main_bg]="#1a1b26"
+theme[main_bg]="#121218ee"
 theme[main_fg]="#c0caf5"
 
 # Title color for boxes
