@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 POWER_MENU="$HOME/.local/bin/rofi-power-menu"
+LOCK=$HOME/.local/bin/lock
 CHOICES="shutdown/reboot/suspend/logout"
 
 selected=$(
@@ -42,7 +43,7 @@ reboot)
   systemctl reboot
   ;;
 suspend)
-  systemctl suspend
+  $LOCK && systemctl suspend
   ;;
 logout)
   swaymsg exit
