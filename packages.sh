@@ -28,7 +28,6 @@ declare -a PACMAN_PKGS=(
   # Core tools
   "Git|git"
   "OpenSSH|openssh"
-  "NetworkManager|networkmanager"
   "Pacman Contrib|pacman-contrib"
   "OpenDoas|opendoas"
 
