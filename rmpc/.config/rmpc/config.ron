@@ -1,6 +1,6 @@
 #![enable(implicit_some, unwrap_newtypes, unwrap_variant_newtypes)]
 (
-    address: "127.0.0.1:6600",
+    address: "~/.config/mpd/socket",
     password: None,
     enable_config_hot_reload: true,
     theme: "custom",
