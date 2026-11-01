@@ -19,11 +19,11 @@ window#waybar {
 }
 
 .modules-left {
-  margin: 2px 0 0 4px;
+  margin: 1;
 }
 
 .modules-right {
-  margin: 2px 4px 0 0;
+  margin: 1;
 }
 
 /* Tooltips */

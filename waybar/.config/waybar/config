@@ -99,7 +99,7 @@
       "󰤥",
       "󰤨"
     ],
-    "on-click": "foot -e nmtui"
+    "on-click": "foot -e cmtui"
   },
 
   "bluetooth": {
