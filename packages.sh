@@ -61,6 +61,8 @@ declare -a PACMAN_PKGS=(
   "Fast Node Manager|fnm"
   "UV|uv"
   "btop|btop"
+  "rocm-smi-lib|rocm-sm-lib"
+  "Imagemagick|imagemagick"
   "Fastfetch|fastfetch"
   "Powertop|powertop"
   "Stow|stow"
@@ -75,14 +77,20 @@ declare -a PACMAN_PKGS=(
   "PipeWire Pulse|pipewire-pulse"
   "WirePlumber|wireplumber"
   "Wiremix|wiremix"
+  "Pamixer|pamixer"
   "FFmpeg|ffmpeg"
   "yt-dlp|yt-dlp"
   "MPV|mpv"
   "Imv|imv"
   "Cava|cava"
   "MPD|mpd"
+  "MPC|mpc"
   "Playerctl|playerctl"
   "rmpc|rmpc"
+
+  # Wifi / Network
+  "Connman|connman-openrc"
+  "wpa_supplicant|wpa_supplicant-openrc"
 
   # Desktop / Wayland
   "Sway|sway"
@@ -109,12 +117,13 @@ declare -a PACMAN_PKGS=(
 
   # File management
   "Yazi|yazi"
+  "Python shell|python-sh"
   "Zathura|zathura"
   "Zathura PDF Backend|zathura-pdf-mupdf"
 
   # Fonts
   "Cascadia Code Font|ttf-cascadia-code"
-  "JetBrains Mono|ttf-jetbrains-mono"
+  "JetBrainsMono Nerd Font|ttf-jetbrains-mono-nerd"
   "Noto Fonts|noto-fonts"
   "Noto Emoji Fonts|noto-fonts-emoji"
   "Noto CJK Fonts|noto-fonts-cjk"
@@ -123,10 +132,13 @@ declare -a PACMAN_PKGS=(
 
   # Utilities
   "Bluetooth Daemon|bluez"
+  "Bluetooth openrc|bluez-openrc"
+  "Bluetooth utils|bluez-utils"
   "Bluetooth Manager|bluetui"
   "Polkit|polkit"
   "xdg-user-dirs|xdg-user-dirs"
   "Man|man-pages"
+  "Man database|man-db"
   "Mesa Utils|mesa-utils"
 
   # Filesystems & archives
@@ -135,6 +147,7 @@ declare -a PACMAN_PKGS=(
   "Zip|zip"
   "DOS Filesystem Tools|dosfstools"
   "exFAT Tools|exfatprogs"
+  "ntfs-3g|ntfs-3g"
 
   # Misc
   "GIMP|gimp"
