@@ -4,7 +4,7 @@ open = [{ run = "xdg-open %s1", desc = "system default", for = "linux" }]
 video = [{ run = "mpv %s1", desc = "Open with mpv",  orphan = true, for = "unix" }]
 pdf = [{ run = "zathura %s1", desc = "Open with zathura", orphan = true, for = "unix" }]
 imgs = [{ run = "imv-dir %s1", desc = "Open with imv", orphan = true, for = "unix" }]
-audio = [{ run = "~/.config/yazi/scripts/yazi_rmpc_opener.py %s1", desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
+audio = [{ run = "~/.config/yazi/scripts/yazi_rmpc_opener.py %s", desc = "Replace the MPD queue with the selected tracks and start playback", orphan = true, for = "unix" }]
 
 [open]
 prepend_rules = [
