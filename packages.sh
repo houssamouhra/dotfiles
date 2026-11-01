@@ -94,7 +94,6 @@ declare -a PACMAN_PKGS=(
 
   # Desktop / Wayland
   "Sway|sway"
-  "Sway idle|swayidle"
   "swaylock|swaylock"
   "Hyprpicker|hyprpicker"
   "Slurp|slurp"
