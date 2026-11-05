@@ -6,6 +6,7 @@ return {
   opts = {
     ensure_installed = {
       'bash',
+      'zsh',
       'css',
       'dockerfile',
       'gitignore',
@@ -65,7 +66,11 @@ return {
         'yml',
       },
       callback = function(args)
-        vim.treesitter.start(args.buf)
+        local lang = vim.treesitter.language.get_lang(args.match)
+
+        if lang and pcall(vim.treesitter.start, args.buf, lang) then
+          return
+        end
       end,
     })
   end,
