@@ -1,4 +1,0 @@
-[submodule "zsh"]
-	path = zsh
-	url = git@github.com:houssamouhra/zsh-config.git
-	branch = main
