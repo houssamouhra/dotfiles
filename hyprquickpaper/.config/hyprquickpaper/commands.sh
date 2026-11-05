@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-WALLPAPER_DIR="$HOME/Pictures/walls"
+WALLPAPER_DIR="$HOME/.local/share/walls"
 WALLPAPER_CACHE="$HOME/.cache/wallpapers"
 LAST_WALLPAPER="$WALLPAPER_CACHE/last_wallpaper"
 
