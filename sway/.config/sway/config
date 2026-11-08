@@ -272,20 +272,14 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg e
 # Environment
 # ─────────────────────────────────────────────────────────────
 
-# start sway with the mic off
+# Start with microphone muted
 exec_always pactl set-source-mute @DEFAULT_SOURCE@ 1
 
-# Set the variables for the current session
-exec export XDG_CURRENT_DESKTOP=sway
-exec export XDG_SESSION_TYPE=wayland
-exec export XDG_SESSION_DESKTOP=sway
-
-# Import the important ones into the D-Bus / user session
-exec hash dbus-update-activation-environment 2>/dev/null && \
-    dbus-update-activation-environment --all \
-        DISPLAY \
-        SWAYSOCK \
-        WAYLAND_DISPLAY \
-        XDG_CURRENT_DESKTOP=sway \
-        XDG_SESSION_TYPE \
-        XDG_SESSION_DESKTOP
+# Session environment
+exec dbus-update-activation-environment \
+    DISPLAY \
+    SWAYSOCK \
+    WAYLAND_DISPLAY \
+    XDG_CURRENT_DESKTOP \
+    XDG_SESSION_TYPE \
+    XDG_SESSION_DESKTOP
