@@ -37,13 +37,13 @@ confirm=$(
 
 case "$choice" in
 shutdown)
-  systemctl poweroff
+  loginctl poweroff
   ;;
 reboot)
-  systemctl reboot
+  loginctl reboot
   ;;
 suspend)
-  $LOCK && systemctl suspend
+  $LOCK && loginctl suspend
   ;;
 logout)
   swaymsg exit
