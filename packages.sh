@@ -398,7 +398,7 @@ install_batsignal() {
 
   # Install system-wide
   if ! (cd "$tmp/batsignal-1.8.1" &&
-    sudo make DESTDIR=/ PREFIX=/usr install >/dev/null 2>&1); then
+    sudo make install >/dev/null 2>&1); then
     printf "\r\033[K${RED}✗${NC} %s\n" "$name"
     echo -e "    ${DIM}Install failed${NC}"
     FAILED+=("$name")
@@ -461,7 +461,7 @@ install_statcode() {
   if ! (
     sudo install -d /usr/lib/statcode /usr/bin &&
       sudo cp -a "$dist_dir"/. /usr/lib/statcode/ &&
-      sudo ln -sfn /usr/lib/statcode/statcode /usr/bin/statcode
+      sudo ln -sfn /usr/lib/statcode/statcode /usr/local/bin/statcode
   ) >/dev/null 2>&1; then
     printf "\r\033[K${RED}✗${NC} %s\n" "$name"
     echo -e "    ${DIM}Install failed${NC}"
